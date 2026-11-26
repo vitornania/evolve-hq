@@ -17,10 +17,9 @@
 ## Browse references for a static ad
 
 1. Expand **Browse static-ad libraries** on **Workflows & skills**. Add a Figma, Canva, Drive, or swipe link that you already have access to.
-2. Open the library and copy the URL of a promising reference or save a screenshot.
-3. Add **Plan static Figma ads** to your run. Paste the reference and include your target format, approved copy or offer, and product assets.
-
-The workbench returns a production brief. A finished Canva or Figma file needs a connected editor session with the ability to create that design.
+2. Add **Plan or build static ads** to your run. Include the test objective, target format, approved product facts, library sources or local exports, and available product assets.
+3. When you want the best fit, ask the skill to review every template in the selected libraries. Expect a coverage count, a winner, and the reason it beat the alternatives. For a supplied reference, use **Adapt a reference ad** directly.
+4. The workbench produces a brief and slot map. For output you can edit locally, open the project in your assistant's full terminal session and follow [local rendering](../skills/adapt-reference-ad/references/local-rendering.md). It produces a PNG and an editable SVG on Mac and Windows. Canva is optional.
 
 ## Calculate ROAS locally
 

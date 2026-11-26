@@ -23,6 +23,13 @@ with tempfile.TemporaryDirectory() as folder:
     subprocess.run([sys.executable, "setup_hq.py", "skills", "all", "--workspace", folder], cwd=ROOT, check=True)
     for path in (".agents/skills", ".claude/skills"):
         assert len(list((Path(folder) / path).glob("*/SKILL.md"))) == 62
+        static = Path(folder) / path / "adapt-reference-ad"
+        assert (static / "references/local-rendering.md").is_file()
+        assert (static / "references/reference-review.md").is_file()
+        for script in ("render_static.py", "check_coverage.py"):
+            cli = subprocess.run([sys.executable, str(static / "scripts" / script), "--help"],
+                                 capture_output=True, text=True, check=True)
+            assert "usage:" in cli.stdout
 
 report = subprocess.run([sys.executable, "hq.py", "run", "roas", "examples/ad-metrics.csv", "--product",
                          "Release check"], cwd=ROOT, capture_output=True, text=True, check=True)

@@ -246,16 +246,16 @@
   },
   "adapt-reference-ad": {
     "title": "Adapt a reference ad",
-    "description": "Use the structure of a supplied static ad for your own product.",
+    "description": "Match the source message, type and layout to your product and test.",
     "inputs": "Reference image, product, verified claims, and target format.",
-    "output": "An adaptation brief and revised content.",
+    "output": "A complete replacement map and instructions for a local or connected-editor build.",
     "kind": "skill"
   },
   "build-static-ads-in-figma": {
-    "title": "Plan static Figma ads",
-    "description": "Browse static-ad references or turn a customer insight into a layout and production specification.",
+    "title": "Plan or build static ads",
+    "description": "Review every available template for a test, or turn a customer insight into a layout.",
     "inputs": "For browsing, a library link or authorized source. For planning, a brief, product assets, dimensions, and brand guidance.",
-    "output": "A shortlist of reference links or a design brief. Finished Canva or Figma work needs a connected editor.",
+    "output": "A template decision and production brief. The skill can also export PNG and editable SVG in a local terminal session.",
     "kind": "skill"
   },
   "metaphor-ads": {
