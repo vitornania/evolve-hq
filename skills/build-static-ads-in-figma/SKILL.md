@@ -13,6 +13,8 @@ Use a library link or local source the user provides or has already authorized. 
 
 When the user asks you to find or choose a template, start from the product evidence and test objective, then follow [full library review](../adapt-reference-ad/references/reference-review.md). Inventory and assess every in-scope template and verify the finalists at readable size before picking the strongest fit. Report incomplete coverage and continue the review when the missing records can be accessed. A supplied reference can go straight to inspection.
 
+For every substantive ad or template selection, start with the [product research handoff](../adapt-reference-ad/references/reference-review.md#start-with-product-research). Reuse saved findings when available, gather missing evidence before final copy, and trace each on-image claim and supporting visual back to a finding.
+
 ## Inputs
 
 Brief, product assets, dimensions, and brand guidance.

@@ -60,7 +60,7 @@ def command_for(provider, executable, prompt, files, schema):
             command.extend(["-c", 'web_search="live"'])
         for picture in files:
             command.extend(["-i", str(picture)])
-        return command + ["-"], prompt
+        return command + ["--", "-"], prompt
 
     if schema:
         prompt += "\nReturn exactly one JSON object and no commentary or Markdown fences. Schema:\n"
