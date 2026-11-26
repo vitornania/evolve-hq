@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1e2623">
+<meta name="description" content="A live view of the Evolve team and its assignments.">
+<title>Evolve HQ · Live Office</title>
+<link rel="stylesheet" href="/style.css">
+<script type="importmap">
+{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/addons/"}}
+</script>
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the studio</a>
+<!-- HQ_HEADER -->
+<main id="main">
+  <div class="page-head">
+    <div><h1>Live office</h1><p>Select a teammate to see their work and open their reports.</p></div>
+    <div class="totals">
+      <div><strong id="working">0</strong><span>Working</span></div>
+      <div><strong id="queued">0</strong><span>Queued</span></div>
+      <div><strong id="review">0</strong><span>Needs review</span></div>
+    </div>
+  </div>
+  <div class="office-layout">
+    <section class="floor" aria-label="Interactive three-dimensional office">
+      <div class="viewport">
+      <div id="scene"></div>
+      <div class="view-head">
+        <div class="floor-label"><span class="floor-icon" aria-hidden="true">▱</span> Studio floor</div>
+        <div class="view-buttons">
+          <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+          <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+          <button id="reset" type="button">Reset view</button>
+        </div>
+      </div>
+      <div id="office-message" class="office-message" hidden></div>
+      <div class="view-foot">
+        <span id="room"><i></i> War room available</span>
+        <span class="view-help">Drag to orbit · scroll to zoom</span>
+      </div>
+      </div>
+      <nav class="zones" aria-label="Studio zones">
+        <span>Jump to</span>
+        <button type="button" data-zone="research" aria-pressed="false">Research</button>
+        <button type="button" data-zone="war-room" aria-pressed="false">War room</button>
+        <button type="button" data-zone="production" aria-pressed="false">Production</button>
+        <button type="button" data-zone="lounge" aria-pressed="false">Lounge</button>
+        <div class="office-controls">
+          <button id="demo" type="button" aria-pressed="false">Demo mode</button>
+          <div class="connection" id="connection"><i></i><span>Connecting</span></div>
+        </div>
+      </nav>
+    </section>
+    <aside class="team-panel" aria-label="Team status">
+      <div class="panel-head"><h2>Team</h2><span class="roster-count" id="roster-count"></span></div>
+      <div class="team-filters" aria-label="Filter team by status">
+        <button id="all" type="button" aria-pressed="true">All</button>
+        <button id="active" type="button" aria-pressed="false">Working</button>
+        <button id="needs-review" type="button" aria-pressed="false">Needs attention</button>
+      </div>
+      <div id="role-detail" class="role-detail" hidden></div>
+      <div id="roster" class="roster"></div>
+    </aside>
+  </div>
+  <section class="activity">
+    <div class="panel-head"><h2>Recent activity</h2><a href="/team/roster.md">Role directory ↗</a></div>
+    <div id="history" class="history"></div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,372 @@
+{
+  "sharedSkills": [
+    "free-ecommerce-workflows"
+  ],
+  "desks": [
+    {
+      "name": "Chief of Staff",
+      "skills": [
+        "evolve-hq",
+        "evolve-skill",
+        "evolve-intake",
+        "evolve-roadmap",
+        "launch"
+      ]
+    },
+    {
+      "name": "Research & Evidence",
+      "skills": [
+        "market-research-team",
+        "market-research",
+        "evolve-research",
+        "evolve-customer-market",
+        "evolve-account-research",
+        "evolve-competitor-creative",
+        "evolve-insights",
+        "customer-research",
+        "competitor-profiling",
+        "competitors",
+        "manual-voc-research",
+        "anthony-camacho-research",
+        "last30days"
+      ]
+    },
+    {
+      "name": "Strategy & Copy",
+      "skills": [
+        "evolve-angles",
+        "evolve-positioning",
+        "evolve-briefs",
+        "evolve-copywriting",
+        "evolve-copy-review",
+        "evolve-storytelling",
+        "copywriting",
+        "cold-traffic-ad-craft",
+        "native-ads-research-to-creative",
+        "write-video-ad-scripts",
+        "humanizer",
+        "offers",
+        "pricing"
+      ]
+    },
+    {
+      "name": "Creative Studio",
+      "skills": [
+        "evolve-create",
+        "evolve-iteration",
+        "evolve-ugc",
+        "evolve-partnership-ads",
+        "adapt-reference-ad",
+        "build-static-ads-in-figma",
+        "metaphor-ads"
+      ]
+    },
+    {
+      "name": "Video Editing",
+      "skills": [
+        "evolve-production"
+      ]
+    },
+    {
+      "name": "Performance & Testing",
+      "skills": [
+        "evolve-media-buying",
+        "evolve-creative-analysis",
+        "evolve-test-design",
+        "analyze-ads",
+        "ads",
+        "analytics",
+        "attribution",
+        "ab-testing"
+      ]
+    },
+    {
+      "name": "Storefront & Lifecycle",
+      "skills": [
+        "store-content-cro-review",
+        "build-advertorials",
+        "write-product-page-copy",
+        "cro",
+        "emails",
+        "max-ecommerce-email",
+        "churn-prevention",
+        "post-purchase-funnels"
+      ]
+    },
+    {
+      "name": "Organic Growth",
+      "skills": [
+        "ai-seo",
+        "aso",
+        "co-marketing",
+        "community-marketing",
+        "content-strategy"
+      ]
+    },
+    {
+      "name": "Office Development",
+      "skills": [
+        "vibe-coding-toolkit"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "reviews",
+      "desk": "Research & Evidence",
+      "title": "Analyze customer reviews",
+      "purpose": "Source-linked voice of customer themes, objections, and testable angles.",
+      "inputs": [
+        "research.csv",
+        "research.json"
+      ],
+      "output": "research.md",
+      "owner": "Customer Researcher"
+    },
+    {
+      "id": "concepts",
+      "desk": "Creative Studio",
+      "title": "Develop ad concepts",
+      "purpose": "Ad concepts, UGC script, shoot plan, static direction, and QA.",
+      "inputs": [
+        "creative.json"
+      ],
+      "output": "creative.md",
+      "owner": "Creative Producer"
+    },
+    {
+      "id": "vsl",
+      "desk": "Creative Studio",
+      "title": "Write a video sales letter",
+      "purpose": "Timed script with voiceover and a visual plan.",
+      "inputs": [
+        "vsl.json"
+      ],
+      "output": "vsl.md",
+      "owner": "Creative Producer"
+    },
+    {
+      "id": "animation",
+      "desk": "Creative Studio",
+      "title": "Plan an animation",
+      "purpose": "Scene prompts with character and product continuity.",
+      "inputs": [
+        "animation.json"
+      ],
+      "output": "animation.md",
+      "owner": "Creative Producer"
+    },
+    {
+      "id": "cinematic",
+      "desk": "Creative Studio",
+      "title": "Plan a cinematic shoot",
+      "purpose": "Shot list, framing, sound, and continuity checks.",
+      "inputs": [
+        "cinematic.json"
+      ],
+      "output": "cinematic.md",
+      "owner": "Creative Producer"
+    },
+    {
+      "id": "storyboard",
+      "desk": "Video Editing",
+      "title": "Render a storyboard preview",
+      "purpose": "Vertical MP4 preview using captions and supplied images.",
+      "inputs": [
+        "storyboard.json"
+      ],
+      "output": "storyboard.mp4",
+      "owner": "Video Editor"
+    },
+    {
+      "id": "asset-handoff",
+      "desk": "Video Editing",
+      "title": "Prepare an ad asset handoff",
+      "purpose": "A review CSV with validated paths to local ad assets.",
+      "inputs": [
+        "ad-handoff.json"
+      ],
+      "output": "ad-handoff.csv",
+      "owner": "Video Editor"
+    },
+    {
+      "id": "creator-seeding",
+      "desk": "Creative Studio",
+      "title": "Manage creator seeding",
+      "purpose": "Draft orders and a follow-up queue for creators.",
+      "inputs": [
+        "creator-seeding.csv"
+      ],
+      "output": "creator-queue.json",
+      "owner": "Creator Coordinator"
+    },
+    {
+      "id": "roas",
+      "desk": "Performance & Testing",
+      "title": "Calculate ROAS",
+      "purpose": "Return on ad spend by ad and currency.",
+      "inputs": [
+        "ad-metrics.csv"
+      ],
+      "output": "roas.md",
+      "owner": "Performance Analyst"
+    },
+    {
+      "id": "media",
+      "desk": "Performance & Testing",
+      "title": "Analyze media performance",
+      "purpose": "Analysis with supplied attribution context.",
+      "inputs": [
+        "media.json"
+      ],
+      "output": "media.md",
+      "owner": "Performance Analyst"
+    },
+    {
+      "id": "landing",
+      "desk": "Storefront & Lifecycle",
+      "title": "Draft a landing page",
+      "purpose": "Page copy matched to the approved angle and offer.",
+      "inputs": [
+        "landing.json"
+      ],
+      "output": "landing.md",
+      "owner": "Lifecycle Lead"
+    },
+    {
+      "id": "email",
+      "desk": "Storefront & Lifecycle",
+      "title": "Draft an email sequence",
+      "purpose": "Email copy, triggers, timing, and exit conditions.",
+      "inputs": [
+        "email.json"
+      ],
+      "output": "email.md",
+      "owner": "Lifecycle Lead"
+    },
+    {
+      "id": "support",
+      "desk": "Storefront & Lifecycle",
+      "title": "Draft a support reply",
+      "purpose": "A policy-based reply or escalation draft.",
+      "inputs": [
+        "support.json"
+      ],
+      "output": "support.md",
+      "owner": "Support Coordinator"
+    },
+    {
+      "id": "transcribe",
+      "desk": "Video Editing",
+      "title": "Transcribe footage",
+      "purpose": "Offline transcription with word timestamps.",
+      "inputs": [
+        "footage"
+      ],
+      "output": "transcript.json",
+      "owner": "Video Editor"
+    },
+    {
+      "id": "person-matte",
+      "desk": "Video Editing",
+      "title": "Create a person matte",
+      "purpose": "ProRes 4444 MOV with a person mask in its alpha channel.",
+      "inputs": [
+        "footage"
+      ],
+      "output": "person-matte.mov",
+      "owner": "Video Editor"
+    },
+    {
+      "id": "resolve-handoff",
+      "desk": "Video Editing",
+      "title": "Prepare a Resolve edit",
+      "purpose": "An editing task with the approved script, evidence, and source assets.",
+      "inputs": [
+        "approved script"
+      ],
+      "output": "resolve-handoff.md",
+      "owner": "Video Editor"
+    }
+  ],
+  "roles": [
+    {
+      "name": "Chief of Staff",
+      "desk": "Chief of Staff",
+      "group": "Starter team",
+      "mandate": "Own intake, select the workflow, assign the sprint, verify the deliverable and bring decisions to the owner."
+    },
+    {
+      "name": "Customer Researcher",
+      "desk": "Research & Evidence",
+      "group": "Starter team",
+      "mandate": "Record short customer quotes and observations with stable source IDs, context, and dates. Flag gaps and contradictory evidence."
+    },
+    {
+      "name": "Competitor Researcher",
+      "desk": "Research & Evidence",
+      "group": "Starter team",
+      "mandate": "Compare direct offers and substitutes with market, currency, pack size, terms, and dated sources."
+    },
+    {
+      "name": "Evidence Reviewer",
+      "desk": "Research & Evidence",
+      "group": "Starter team",
+      "mandate": "Check the cited source against the claims and review material fixes. If the host uses one agent, label the review as a self-review."
+    },
+    {
+      "name": "Ad Strategist",
+      "desk": "Strategy & Copy",
+      "group": "Starter team",
+      "mandate": "Use reviewed evidence to propose up to three distinct, testable angles and recommend the first test."
+    },
+    {
+      "name": "Video Editor",
+      "desk": "Video Editing",
+      "group": "Starter team",
+      "mandate": "Take approved scripts and supplied assets through transcripts, mattes, previews, Resolve preparation, and draft asset handoffs."
+    },
+    {
+      "name": "Office Developer",
+      "desk": "Office Development",
+      "group": "Starter team",
+      "mandate": "Own Evolve HQ code and local workflow integration. Use the technical toolkit and verify changes through the real entry points."
+    },
+    {
+      "name": "Creative Producer",
+      "desk": "Creative Studio",
+      "group": "Specialist",
+      "mandate": "Translate approved angles and briefs into production-ready concepts, scripts, and shot plans."
+    },
+    {
+      "name": "Creator Coordinator",
+      "desk": "Creative Studio",
+      "group": "Specialist",
+      "mandate": "Maintain the creator draft-order and follow-up queue for review."
+    },
+    {
+      "name": "Performance Analyst",
+      "desk": "Performance & Testing",
+      "group": "Specialist",
+      "mandate": "Read supplied exports and attribution context, calculate ROAS and identify the evidence for the next test."
+    },
+    {
+      "name": "Lifecycle Lead",
+      "desk": "Storefront & Lifecycle",
+      "group": "Specialist",
+      "mandate": "Draft landing pages and email from approved facts, angle, offer, and audience."
+    },
+    {
+      "name": "Support Coordinator",
+      "desk": "Storefront & Lifecycle",
+      "group": "Specialist",
+      "mandate": "Draft replies or escalations based on the supplied policies, examples, and ticket."
+    },
+    {
+      "name": "Organic Growth Lead",
+      "desk": "Organic Growth",
+      "group": "Specialist",
+      "mandate": "Use organic growth workflows for requested content, search, community, and partnerships."
+    }
+  ]
+}

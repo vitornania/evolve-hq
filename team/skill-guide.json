@@ -1,0 +1,436 @@
+{
+  "evolve-hq": {
+    "title": "Route an Evolve HQ job",
+    "description": "Find the relevant workstream and its next step.",
+    "inputs": "A product and the outcome you want.",
+    "output": "A desk assignment and plan for the work.",
+    "kind": "workflow"
+  },
+  "evolve-skill": {
+    "title": "Run the full ecommerce workflow",
+    "description": "Move from product intake to research, creative production, and test review.",
+    "inputs": "Product materials and any completed steps.",
+    "output": "An ecommerce deliverable and the next checkpoint.",
+    "kind": "workflow"
+  },
+  "evolve-intake": {
+    "title": "Set up a product brief",
+    "description": "Clarify what you sell, who buys it, and what you need to decide.",
+    "inputs": "A product link, draft brief, or description.",
+    "output": "A product brief and research questions.",
+    "kind": "skill"
+  },
+  "evolve-roadmap": {
+    "title": "Plan your creative roadmap",
+    "description": "Organize controls, variations, and future ad batches.",
+    "inputs": "Existing ads, test notes, and upcoming priorities.",
+    "output": "A list of batches, assets, and next tests.",
+    "kind": "skill"
+  },
+  "launch": {
+    "title": "Plan a launch",
+    "description": "Prepare how a product or feature reaches its first audience.",
+    "inputs": "What is launching, who it is for, and a target date.",
+    "output": "A launch timeline and channel plan.",
+    "kind": "skill"
+  },
+  "market-research-team": {
+    "title": "Run a research sprint",
+    "description": "Review customer and competitor evidence before proposing ad angles.",
+    "inputs": "Product, target market, and the decision to make.",
+    "output": "A source-linked brief and up to three ad angles.",
+    "kind": "workflow"
+  },
+  "market-research": {
+    "title": "Research a product and market",
+    "description": "Build an evidence base for product positioning and marketing.",
+    "inputs": "Product brief or URL, market, and available sources.",
+    "output": "A reviewed research brief and source list.",
+    "kind": "workflow"
+  },
+  "evolve-research": {
+    "title": "Run Evolve research",
+    "description": "Build an evidence base for a product or a focused question.",
+    "inputs": "Product details and the research question.",
+    "output": "A research dossier or focused findings.",
+    "kind": "workflow"
+  },
+  "evolve-customer-market": {
+    "title": "Find customer buying patterns",
+    "description": "Collect triggers, objections, alternatives, and customer language.",
+    "inputs": "Product, target market, and any reviews or interviews.",
+    "output": "Dated findings with supporting sources.",
+    "kind": "skill"
+  },
+  "evolve-account-research": {
+    "title": "Review your own ad account",
+    "description": "Identify the strongest and weakest patterns in your current creative.",
+    "inputs": "Ad export, creative samples, and reporting period.",
+    "output": "A creative baseline for the next test.",
+    "kind": "skill"
+  },
+  "evolve-competitor-creative": {
+    "title": "Study competitor ads",
+    "description": "Identify what competing ads emphasize across hooks, offers, and formats.",
+    "inputs": "Competitor names, ad links, or supplied examples.",
+    "output": "An annotated competitor creative review.",
+    "kind": "skill"
+  },
+  "evolve-insights": {
+    "title": "Organize customer insights",
+    "description": "Turn raw evidence into buyer profiles and buying motivations.",
+    "inputs": "Research notes or a source-indexed evidence file.",
+    "output": "Buyer profiles, beliefs, and ad opportunities.",
+    "kind": "skill"
+  },
+  "customer-research": {
+    "title": "Understand your customers",
+    "description": "Plan research or synthesize customer interviews, surveys, and feedback.",
+    "inputs": "Research question and any existing responses.",
+    "output": "A research plan or themes backed by feedback.",
+    "kind": "skill"
+  },
+  "competitor-profiling": {
+    "title": "Profile competing offers",
+    "description": "Capture competing products, pricing, terms, and positioning.",
+    "inputs": "Product, target market, and competitor names or links.",
+    "output": "Dated profiles with like-for-like comparisons.",
+    "kind": "skill"
+  },
+  "competitors": {
+    "title": "Improve comparison pages",
+    "description": "Evaluate competing alternatives and the pages that present them.",
+    "inputs": "Your product and the competing alternative or page.",
+    "output": "A comparison outline, gap analysis, or draft.",
+    "kind": "skill"
+  },
+  "manual-voc-research": {
+    "title": "Analyze supplied customer quotes",
+    "description": "Find patterns in reviews, comments, and customer quotes you provide.",
+    "inputs": "Pasted reviews, customer quotes, or discussion excerpts.",
+    "output": "Themes and opportunities linked to the source quotes.",
+    "kind": "skill"
+  },
+  "anthony-camacho-research": {
+    "title": "Map buyer desires and solution beliefs",
+    "description": "Find the desires and solution beliefs behind purchase decisions.",
+    "inputs": "Product, market, and customer research sources.",
+    "output": "A structured buyer motivation brief and next test.",
+    "kind": "workflow"
+  },
+  "last30days": {
+    "title": "Find recent public discussion",
+    "description": "See what people have been saying about a product or topic lately.",
+    "inputs": "A topic, brand, or product category.",
+    "output": "A dated summary with public source links.",
+    "kind": "skill"
+  },
+  "evolve-angles": {
+    "title": "Find ad angles to test",
+    "description": "Turn customer insights into distinct creative hypotheses.",
+    "inputs": "Product facts and research or customer evidence.",
+    "output": "Angles with audiences, reasoning, and test ideas.",
+    "kind": "skill"
+  },
+  "evolve-positioning": {
+    "title": "Define your positioning",
+    "description": "Choose the buyer belief and difference your brand should communicate.",
+    "inputs": "Product, audience, competitors, and proof.",
+    "output": "A positioning statement and message hierarchy.",
+    "kind": "skill"
+  },
+  "evolve-briefs": {
+    "title": "Write a creative brief",
+    "description": "Build an Evolve brief for an original ad, a reference, or a variation.",
+    "inputs": "Approved angle and any source ad, offer, and constraints.",
+    "output": "A brief in the appropriate Evolve format.",
+    "kind": "skill"
+  },
+  "evolve-copywriting": {
+    "title": "Write Evolve ad copy",
+    "description": "Turn an approved brief into copy for a specific ad format.",
+    "inputs": "Approved creative brief, product facts, and voice.",
+    "output": "Ad copy with hooks and a call to action.",
+    "kind": "skill"
+  },
+  "evolve-copy-review": {
+    "title": "Fix weak ad copy",
+    "description": "Diagnose where an existing draft breaks down and rewrite it.",
+    "inputs": "The draft, target audience, and desired action.",
+    "output": "Specific feedback and revised copy.",
+    "kind": "skill"
+  },
+  "evolve-storytelling": {
+    "title": "Build a story for an ad",
+    "description": "Turn evidence into a shootable narrative with meaningful beats.",
+    "inputs": "Angle, product, credible proof, and desired duration.",
+    "output": "A story outline and shootable script.",
+    "kind": "skill"
+  },
+  "copywriting": {
+    "title": "Rewrite marketing copy",
+    "description": "Improve the message on a homepage, landing page, or campaign.",
+    "inputs": "Existing copy, buyer, offer, and the next action.",
+    "output": "Revised copy with key changes explained.",
+    "kind": "skill"
+  },
+  "cold-traffic-ad-craft": {
+    "title": "Write for a cold audience",
+    "description": "Develop or review indirect native ad copy for first-time buyers.",
+    "inputs": "Offer, audience, product facts, and any draft.",
+    "output": "A cold-audience copy direction or revision.",
+    "kind": "skill"
+  },
+  "native-ads-research-to-creative": {
+    "title": "Build a long-form native ad",
+    "description": "Develop an evidence-led Facebook or Instagram native ad.",
+    "inputs": "Product research, buyer, offer, and desired format.",
+    "output": "A written ad with review notes and supporting claims.",
+    "kind": "workflow"
+  },
+  "write-video-ad-scripts": {
+    "title": "Write a video ad script",
+    "description": "Create a practical script with spoken lines, shots, and pacing.",
+    "inputs": "Product, audience, angle, length, and available footage.",
+    "output": "A production-ready script and shot cues.",
+    "kind": "skill"
+  },
+  "humanizer": {
+    "title": "Make copy sound more natural",
+    "description": "Revise stiff or generic phrasing while preserving the message.",
+    "inputs": "Draft copy and an example of your voice, if available.",
+    "output": "A cleaner version in the intended voice.",
+    "kind": "skill"
+  },
+  "offers": {
+    "title": "Improve your offer",
+    "description": "Clarify what buyers get and which terms make it compelling.",
+    "inputs": "Current offer, price, audience, economics, and constraints.",
+    "output": "Recommended offer changes and test ideas.",
+    "kind": "skill"
+  },
+  "pricing": {
+    "title": "Review pricing and bundles",
+    "description": "Evaluate price points, packs, and how to present them.",
+    "inputs": "Product, current prices, costs, and competitor context.",
+    "output": "Pricing or bundling options with tradeoffs.",
+    "kind": "skill"
+  },
+  "evolve-create": {
+    "title": "Develop an ad concept",
+    "description": "Take a new angle, reference ad, or existing ad into production planning.",
+    "inputs": "A brief or reference, product facts, and constraints.",
+    "output": "A concept or variation with a creative handoff.",
+    "kind": "workflow"
+  },
+  "evolve-iteration": {
+    "title": "Make an ad variation",
+    "description": "Apply Evolve’s iteration process to a specific parent ad.",
+    "inputs": "Parent ad, results, and the element to change.",
+    "output": "An iteration brief with a testable change.",
+    "kind": "workflow"
+  },
+  "evolve-ugc": {
+    "title": "Plan creator content",
+    "description": "Develop a creator sourcing, production, and feedback plan.",
+    "inputs": "Product, target buyer, budget constraints, and content needs.",
+    "output": "Creator criteria and a content collection plan.",
+    "kind": "skill"
+  },
+  "evolve-partnership-ads": {
+    "title": "Plan partnership ads",
+    "description": "Prepare a test using creator or partner ads.",
+    "inputs": "Creator or partner context, assets, and campaign goal.",
+    "output": "A partnership brief and test plan.",
+    "kind": "skill"
+  },
+  "adapt-reference-ad": {
+    "title": "Adapt a reference ad",
+    "description": "Use the structure of a supplied static ad for your own product.",
+    "inputs": "Reference image, product, verified claims, and target format.",
+    "output": "An adaptation brief and revised content.",
+    "kind": "skill"
+  },
+  "build-static-ads-in-figma": {
+    "title": "Plan static Figma ads",
+    "description": "Turn a customer insight into a layout and production specification.",
+    "inputs": "Brief, product assets, dimensions, and brand guidance.",
+    "output": "A layout and design brief. Finished Figma work needs the Figma connection.",
+    "kind": "skill"
+  },
+  "metaphor-ads": {
+    "title": "Find visual metaphors for an ad",
+    "description": "Propose and rank visual ways to show a benefit or objection.",
+    "inputs": "Customer insight, product, and visual constraints.",
+    "output": "Ranked concepts with clear visual directions.",
+    "kind": "skill"
+  },
+  "evolve-production": {
+    "title": "Prepare creative for production",
+    "description": "Convert a brief into a practical editing or design handoff.",
+    "inputs": "Approved brief, format, available assets, and constraints.",
+    "output": "A production plan, shot list, or editing handoff.",
+    "kind": "skill"
+  },
+  "evolve-media-buying": {
+    "title": "Review paid campaign decisions",
+    "description": "Evaluate the evidence for keeping, changing, or scaling campaigns.",
+    "inputs": "Campaign export, attribution window, and economics.",
+    "output": "A recommendation with risks and next checks.",
+    "kind": "skill"
+  },
+  "evolve-creative-analysis": {
+    "title": "Review ad performance",
+    "description": "Analyze one ad or run a batch-level creative review.",
+    "inputs": "Ad files, results, and the decision you need to make.",
+    "output": "Findings and the next creative tests.",
+    "kind": "skill"
+  },
+  "evolve-test-design": {
+    "title": "Design a marketing test",
+    "description": "Define a clean comparison for a campaign or page change.",
+    "inputs": "Hypothesis, current version, candidate variant, and metrics.",
+    "output": "A test setup with success and guardrail metrics.",
+    "kind": "skill"
+  },
+  "analyze-ads": {
+    "title": "Critique an ad or script",
+    "description": "Find specific issues in the hook, message, visuals, or call to action.",
+    "inputs": "Ad image, script, or exported frames and audience.",
+    "output": "A prioritized critique and revised creative suggestions.",
+    "kind": "skill"
+  },
+  "ads": {
+    "title": "Plan or troubleshoot paid ads",
+    "description": "Review the structure, targeting, and creative of a campaign.",
+    "inputs": "Platform, goal, campaign setup, and any performance data.",
+    "output": "A campaign plan or diagnostic checklist.",
+    "kind": "skill"
+  },
+  "analytics": {
+    "title": "Audit tracking and analytics",
+    "description": "Check if your events and reporting answer the decision at hand.",
+    "inputs": "Event map, reporting examples, and key actions.",
+    "output": "A tracking checklist and recommended fixes.",
+    "kind": "skill"
+  },
+  "attribution": {
+    "title": "Understand where sales came from",
+    "description": "Compare what different measurement methods imply about revenue.",
+    "inputs": "Channel results, windows, and how attribution is defined.",
+    "output": "A measurement comparison and gaps to resolve.",
+    "kind": "skill"
+  },
+  "ab-testing": {
+    "title": "Plan or read an A/B test",
+    "description": "Set up an experiment or interpret a test you already ran.",
+    "inputs": "Variants, traffic, conversions, and expected change, if known.",
+    "output": "A test plan or interpretation with limitations.",
+    "kind": "skill"
+  },
+  "store-content-cro-review": {
+    "title": "Review store copy and images",
+    "description": "Find what may stop shoppers from buying and what to change on the page.",
+    "inputs": "A public store URL or screenshots. Add gallery images or metrics if you have them.",
+    "output": "Prioritized fixes, replacement copy, an image shot list, and a first test.",
+    "kind": "skill"
+  },
+  "build-advertorials": {
+    "title": "Draft an advertorial",
+    "description": "Write a long-form page that follows through on an ad’s promise.",
+    "inputs": "Ad angle, offer, buyer, and substantiated proof.",
+    "output": "A structured advertorial draft and proof gaps.",
+    "kind": "skill"
+  },
+  "write-product-page-copy": {
+    "title": "Write a product page",
+    "description": "Improve product sections, benefits, and answers to buyer objections.",
+    "inputs": "Product facts, target buyer, offer, and any current copy.",
+    "output": "Ready-to-paste product-page copy.",
+    "kind": "skill"
+  },
+  "cro": {
+    "title": "Improve page conversions",
+    "description": "Diagnose buying friction and prioritize changes for a page or funnel.",
+    "inputs": "A page URL, screenshots, analytics, or funnel context.",
+    "output": "Prioritized conversion ideas and hypotheses to test.",
+    "kind": "skill"
+  },
+  "emails": {
+    "title": "Write an email sequence",
+    "description": "Draft emails for a specific stage of the customer journey.",
+    "inputs": "Audience, offer, trigger, and email goal.",
+    "output": "An email sequence with timing and copy.",
+    "kind": "skill"
+  },
+  "max-ecommerce-email": {
+    "title": "Improve ecommerce email and SMS",
+    "description": "Audit or develop ecommerce flows across email and SMS.",
+    "inputs": "Current messages, triggers, results, and audience.",
+    "output": "A flow audit or drafts with timing and priorities.",
+    "kind": "workflow"
+  },
+  "churn-prevention": {
+    "title": "Reduce customer cancellations",
+    "description": "Find likely reasons for cancellation and plan retention fixes.",
+    "inputs": "Cancellation reasons, product terms, and customer segments.",
+    "output": "Retention ideas prioritized by evidence.",
+    "kind": "skill"
+  },
+  "post-purchase-funnels": {
+    "title": "Plan post-purchase offers",
+    "description": "Design a useful upsell or experience after checkout.",
+    "inputs": "Products, margins, typical order, and current funnel.",
+    "output": "A post-purchase plan, copy, and tests.",
+    "kind": "skill"
+  },
+  "ai-seo": {
+    "title": "Improve visibility in AI answers",
+    "description": "Find content and evidence gaps that limit discoverability.",
+    "inputs": "Brand, topic, target questions, and existing pages.",
+    "output": "Content improvements and a visibility checklist.",
+    "kind": "skill"
+  },
+  "aso": {
+    "title": "Improve your app listing",
+    "description": "Review how an App Store or Google Play listing converts.",
+    "inputs": "App listing URL or screenshots, category, and target buyer.",
+    "output": "Listing copy, image direction, and testing ideas.",
+    "kind": "skill"
+  },
+  "co-marketing": {
+    "title": "Plan a joint campaign",
+    "description": "Find partner fit and structure a shared marketing idea.",
+    "inputs": "Your audience, offer, partner options, and objective.",
+    "output": "A partner shortlist or a joint campaign plan.",
+    "kind": "skill"
+  },
+  "community-marketing": {
+    "title": "Grow a community",
+    "description": "Plan how to attract and support a community around the product.",
+    "inputs": "Audience, existing community, goals, and available time.",
+    "output": "A community plan and practical operating cadence.",
+    "kind": "skill"
+  },
+  "content-strategy": {
+    "title": "Plan useful content",
+    "description": "Choose topics and formats based on what your audience needs.",
+    "inputs": "Audience, goal, channels, and existing content.",
+    "output": "Content themes, priorities, and an editorial plan.",
+    "kind": "skill"
+  },
+  "vibe-coding-toolkit": {
+    "title": "Plan a technical improvement",
+    "description": "Turn an app or workflow request into implementation and verification steps.",
+    "inputs": "The feature, problem, or codebase context.",
+    "output": "A technical plan and concrete acceptance checks.",
+    "kind": "skill"
+  },
+  "free-ecommerce-workflows": {
+    "title": "Plan a free local workflow",
+    "description": "Choose the right local draft, report, or production tool for the job.",
+    "inputs": "The intended output and supplied inputs.",
+    "output": "An action recommendation and input template. Run files in Local tools.",
+    "kind": "workflow"
+  }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#242b25">
+<title>Workflows &amp; skills · Evolve HQ</title>
+<link rel="stylesheet" href="/workbench.css">
+<script type="module" src="/workbench.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to workbench</a>
+<!-- HQ_HEADER -->
+<main id="main">
+  <section class="intro" id="pick-intro">
+    <div class="intro-copy">
+      <h1>What are we<br class="intro-break"> working on?</h1>
+      <p><strong>A skill does one defined job.</strong> A workflow suggests skills for an outcome. Keep only the steps you want.</p>
+    </div>
+    <aside class="advisor" aria-labelledby="advisor-title">
+      <header class="advisor-head"><h2 id="advisor-title">Ask Evolve</h2><button type="button" id="advisor-reset" hidden>New chat</button></header>
+      <p class="advisor-help">Tell Evolve your goal to find the right skills.</p>
+      <div id="advisor-thread" class="advisor-thread" role="log" aria-label="Conversation with Evolve" hidden></div>
+      <form id="advisor-form" aria-label="Ask Evolve for advice">
+        <label class="visually-hidden" for="advisor-input">What would you like help with?</label>
+        <textarea id="advisor-input" rows="2" maxlength="2500" placeholder="My product page gets visits, but few sales. Where should I start?"></textarea>
+        <div class="advisor-actions"><span id="advisor-status" role="status"></span><button type="submit" id="advisor-send" disabled>Ask Evolve <span aria-hidden="true">↑</span></button></div>
+      </form>
+    </aside>
+  </section>
+  <section class="intro" id="result-intro" hidden>
+    <h1>Review your work</h1>
+    <p>Follow each selected skill here and read its report as soon as it’s ready.</p>
+  </section>
+  <div class="provider-bar">
+    <label for="provider">AI provider</label>
+    <select id="provider" aria-describedby="provider-status"></select>
+    <span id="provider-status" role="status"></span>
+    <a href="/setup-guide" target="_blank" rel="noopener">Setup guide</a>
+  </div>
+  <div class="workbench" id="workbench">
+    <section class="library" aria-label="Workflow and skill library">
+      <div class="switch" aria-label="Library view">
+        <button type="button" id="workflow-tab" aria-pressed="true">Start with a workflow</button>
+        <button type="button" id="skill-tab" aria-pressed="false">Pick individual skills <span id="skill-count"></span></button>
+      </div>
+      <div id="workflow-panel">
+        <article class="feature">
+          <div class="feature-content">
+            <h2>Review your store</h2>
+            <p>Get practical suggestions for your product copy, images, and the path to purchase.</p>
+            <button type="button" class="light-button" data-preset="store">Choose store review <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="feature-art" aria-hidden="true">
+            <div class="shop-sheet behind"><div></div><div></div><div></div></div>
+            <div class="shop-sheet front"><div class="browser-line"></div><div class="mock-product"><b></b></div><div class="mock-copy"><i></i><i></i><i></i><b></b></div></div>
+          </div>
+        </article>
+        <div class="workflow-list">
+          <article><div><h3>Find what to test in your next ad</h3><p>Turn customer evidence into ad angles, then plan how to test them.</p></div><button type="button" data-preset="angles" aria-label="Choose the ad testing workflow">Choose <span aria-hidden="true">↗</span></button></article>
+          <article><div><h3>Improve an existing ad</h3><p>Review your draft or image and get concrete creative revisions.</p></div><button type="button" data-preset="ad" aria-label="Choose the ad review workflow">Choose <span aria-hidden="true">↗</span></button></article>
+          <article><div><h3>Write a product page</h3><p>Turn product facts and customer objections into page copy.</p></div><button type="button" data-preset="page" aria-label="Choose the product page workflow">Choose <span aria-hidden="true">↗</span></button></article>
+        </div>
+      </div>
+      <div id="skill-panel" hidden>
+        <div class="search-row">
+          <label>Find a skill<input id="search" type="search" placeholder="Search copy, images, conversion…"></label>
+          <label>Team<select id="desk"><option value="">All teams</option></select></label>
+        </div>
+        <div id="skill-results" aria-live="polite"></div>
+        <div id="skill-list" class="skill-list"></div>
+      </div>
+      <div id="loading-library" class="library-placeholder" hidden>Loading the Evolve library…</div>
+    </section>
+    <aside class="composer" aria-labelledby="run-title">
+      <header><h2 id="run-title">Your run</h2><span id="selected-count">0 selected</span></header>
+      <div id="selection-empty" class="selection-empty">
+        <div class="empty-graphic" aria-hidden="true"></div>
+        <p>Choose a workflow or add individual skills.</p>
+        <span>Your selected steps will appear here, in order.</span>
+      </div>
+      <ol id="selected" class="selected-list" hidden></ol>
+      <form id="run-form" novalidate>
+        <h3>What should we use?</h3>
+        <p class="muted">A link, a short brief, or screenshots are enough to get started.</p>
+        <label>Page link <span>optional</span><input id="page-url" inputmode="url" placeholder="mystore.com/products/your-product" maxlength="1800"></label>
+        <label>What would you like to improve? <span>optional</span><textarea id="brief" rows="3" placeholder="Example: Review the first screen on mobile and tell me which photos to replace." maxlength="12000"></textarea></label>
+        <div class="attachments">
+          <label class="attach-button" for="images">Attach screenshots or product images</label>
+          <input id="images" type="file" multiple accept="image/png,image/jpeg,image/webp" aria-describedby="image-help">
+          <p id="image-help">Up to 3 PNG, JPG, or WebP images, 5 MB each.</p>
+          <p id="image-names" aria-live="polite"></p>
+        </div>
+        <p id="run-error" class="form-error" role="alert" hidden></p>
+        <button type="submit" id="start" class="start" disabled>Run selected skills <span aria-hidden="true">↗</span></button>
+        <p class="run-note">Your selected AI provider uses these inputs to create a draft report.</p>
+      </form>
+      <section id="run-progress" hidden aria-live="polite"></section>
+    </aside>
+    <section id="reports" class="reports" aria-labelledby="reports-title" hidden><h2 id="reports-title">Your reports</h2><div id="report-list"></div></section>
+  </div>
+</main>
+<button id="jump-to-run" class="jump-run" type="button" hidden>Review selected skills</button>
+</body>
+</html>

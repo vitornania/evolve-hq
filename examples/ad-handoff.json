@@ -1,0 +1,9 @@
+[
+  {
+    "ad": "Demo first",
+    "asset": "sample-creative.png",
+    "destination": "https://example.com/products/desknest",
+    "hook": "Where did the charger go?",
+    "platform": "Meta"
+  }
+]

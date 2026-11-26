@@ -1,0 +1,12 @@
+@font-face{font-family:Geist;src:url('/fonts/geist.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+.hq-bar{box-sizing:border-box;min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1320px)/2));border-bottom:1px solid #48574b;background:#28352c;color:#eff3e8;font-family:Geist,-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+.hq-bar .hq-brand{display:inline-flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;font-weight:720;letter-spacing:-.045em;font-size:19px;color:#eff3e8}
+.hq-mark{display:grid;place-items:center;background:#d8e6a9;color:#233b2d;width:33px;height:33px;border-radius:8px 8px 8px 2px;padding-right:1px;font-weight:800}
+.hq-brand-hq{font-weight:480;color:#c7d5c2}
+.hq-bar nav{display:flex;align-items:center;gap:21px;font-size:13px}
+.hq-bar nav a{text-decoration:none;color:#dce5d9;padding:10px 0;border-bottom:1px solid transparent}
+.hq-bar nav a[aria-current]{color:#f5ffd8;border-bottom-color:#b9ce94}
+.hq-bar nav a:hover{text-decoration:underline}
+.hq-bar a:focus-visible{outline:2px solid #b9ce94;outline-offset:4px}
+@media(max-width:760px){.hq-bar{padding:9px 14px;gap:11px}.hq-bar nav{justify-content:flex-end;flex-wrap:wrap;gap:5px 11px;font-size:11px}.hq-bar nav a{padding:4px 0}}
+@media(max-width:450px){.hq-bar .hq-brand{font-size:16px}.hq-mark{width:25px;height:25px}}

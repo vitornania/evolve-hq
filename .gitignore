@@ -1,0 +1,15 @@
+tasks/
+__pycache__/
+.DS_Store
+.office/
+node_modules/
+.agents/
+.claude/
+.cursor/
+.gemini/
+.env
+.env.*
+.venv/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

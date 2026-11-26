@@ -1,0 +1,17 @@
+{
+  "scenes": [
+    {
+      "seconds": 2,
+      "caption": "Where did the charger go?"
+    },
+    {
+      "seconds": 2,
+      "caption": "Clip it to the edge.",
+      "image": "sample-creative.png"
+    },
+    {
+      "seconds": 2,
+      "caption": "Keep the charger in reach."
+    }
+  ]
+}

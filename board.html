@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolve HQ</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#22271e;background:#f4f5ee;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0}
+header{padding:28px max(24px,calc((100vw - 1240px)/2));background:#1c251d;color:#f4f5ec;display:flex;align-items:center;justify-content:space-between;gap:20px}
+h1{font-size:clamp(1.7rem,4vw,2.35rem);margin:0;letter-spacing:-.05em}
+header a{color:#d6e6b0;text-underline-offset:4px}
+main{width:min(1240px,100% - 48px);margin:36px auto 64px}
+.overview{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;margin-bottom:38px}
+.panel,article{background:#fff;border:1px solid #dce0d4;border-radius:16px;padding:22px}
+.panel h2,h2,h3{margin:0;letter-spacing:-.03em}
+h2{font-size:1.35rem}
+h3{font-size:1.12rem}
+p{line-height:1.5;margin:8px 0 13px}
+.muted,small{color:#56604f}
+.roster{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.roster li{padding:5px 9px;background:#eff1e8;border-radius:6px;font-size:.86rem}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}
+select{background:#fff;color:#22271e;border:1px solid #bdc5b7;border-radius:8px;padding:8px;font:inherit;max-width:100%}
+#actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:12px}
+article{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+article p{margin:0 0 4px}
+article button{margin-top:auto}
+button{background:#2d4a34;color:#fff;border:0;border-radius:8px;padding:9px 12px;font:inherit;font-size:.88rem;cursor:pointer}
+button:hover{background:#3a6044}
+button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #708d5a;outline-offset:3px}
+details{margin-top:32px;padding:16px 0;border-top:1px solid #dce0d4}
+summary{cursor:pointer;font-weight:650}
+#skills section{display:inline-block;vertical-align:top;width:min(100%,280px);margin:12px 8px 0 0}
+#skills ul{padding-left:20px;margin-top:8px}
+#copy-status{min-height:1.2em;color:#304d32;font-size:.88rem}
+@media(max-width:650px){.overview{grid-template-columns:1fr}.controls{flex-wrap:wrap}main{width:calc(100% - 32px);margin-top:22px}header{padding:18px 16px}}
+</style>
+</head>
+<body>
+<!-- HQ_HEADER_START --><header><h1>Evolve HQ</h1><a href="team/roster.md">Team roster</a></header><!-- HQ_HEADER_END -->
+<main>
+<div class="overview">
+<section class="panel">
+<h2>Start a research sprint</h2>
+<p class="muted">Send Codex a product, market, and decision. The Chief of Staff routes the work through research, evidence review, and angle development.</p>
+<button type="button" id="sprint">Copy sprint request</button>
+<p id="copy-status" aria-live="polite"></p>
+</section>
+<section class="panel">
+<h2>Starter team</h2>
+<ul class="roster" id="roster"></ul>
+</section>
+</div>
+<div class="controls"><h2>Workflow actions</h2><label>Desk <select id="desk"><option value="">All desks</option></select></label></div>
+<div id="actions"></div>
+<details><summary>Browse plugin skills by desk</summary><div id="skills"></div></details>
+</main>
+<script type="application/json" id="catalog">__EVOLVE_HQ_CATALOG__</script>
+<script>
+"use strict";
+const {desks, actions, roles, sharedSkills} = JSON.parse(document.querySelector("#catalog").textContent);
+const select = document.querySelector("#desk");
+const cards = document.querySelector("#actions");
+const status = document.querySelector("#copy-status");
+function make(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+async function copy(text, button) {
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = "Request copied. Paste it into Codex.";
+    button.textContent = "Copied";
+    window.setTimeout(() => { button.textContent = button.dataset.label; }, 1500);
+  } catch {
+    window.prompt("Copy this request and paste it into Codex.", text);
+  }
+}
+function button(label, request) {
+  const node = make("button", label);
+  node.type = "button";
+  node.dataset.label = label;
+  node.addEventListener("click", () => copy(request, node));
+  return node;
+}
+for (const role of roles.filter(role => role.group === "Starter team")) {
+  const item = make("li", role.name);
+  item.title = role.mandate;
+  document.querySelector("#roster").append(item);
+}
+for (const desk of desks) {
+  const option = make("option", desk.name);
+  option.value = desk.name;
+  select.append(option);
+}
+function showActions() {
+  cards.replaceChildren();
+  for (const action of actions.filter(action => !select.value || action.desk === select.value)) {
+    const card = make("article");
+    const request = "Use Evolve HQ to run the " + action.title + " action ("
+      + action.id + ") for [product] from [input file]. Use the Evolve HQ workspace and keep the result local for review."
+      + (action.id === "resolve-handoff" ? " Selected angle: [angle]. Evidence IDs: [IDs]. Source assets: [files]." : "");
+    card.append(make("small", action.desk), make("h3", action.title), make("p", action.purpose),
+      make("small", action.inputs.join(" / ") + " → " + action.output), button("Copy request", request));
+    cards.append(card);
+  }
+  if (!cards.children.length) cards.append(make("p", "Use the desk’s plugin skills below for this kind of work.", "muted"));
+}
+for (const desk of [...desks, {name: "Shared execution", skills: sharedSkills}]) {
+  const section = make("section");
+  const list = make("ul");
+  for (const name of desk.skills) list.append(make("li", name));
+  section.append(make("h3", desk.name), list);
+  document.querySelector("#skills").append(section);
+}
+const sprint = document.querySelector("#sprint");
+sprint.dataset.label = sprint.textContent;
+sprint.addEventListener("click", () => copy("Run an Evolve HQ Market Research Team sprint in the Evolve HQ workspace. Product: [name or URL]. Market: [market]. Decision: [what should we decide?]. Supplied sources: [links or files]. Save the brief and source-backed angles in the task folder.", sprint));
+select.addEventListener("change", showActions);
+showActions();
+</script>
+</body>
+</html>

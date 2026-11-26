@@ -1,0 +1,29 @@
+[[rule]]
+toolName = "exit_plan_mode"
+decision = "deny"
+priority = 500
+
+[[rule]]
+toolName = "run_shell_command"
+decision = "deny"
+priority = 500
+
+[[rule]]
+toolName = "write_file"
+decision = "deny"
+priority = 500
+
+[[rule]]
+toolName = "replace"
+decision = "deny"
+priority = 500
+
+[[rule]]
+toolName = "ask_user"
+decision = "deny"
+priority = 500
+
+[[rule]]
+toolName = "invoke_agent"
+decision = "deny"
+priority = 500
