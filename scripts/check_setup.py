@@ -32,7 +32,7 @@ with socket.socket() as listener:
     listener.bind(("127.0.0.1", 0))
     port = listener.getsockname()[1]
 if os.name == "nt":
-    launch = ["cmd.exe", "/d", "/s", "/c", f'call "Open Evolve HQ.cmd" --no-open --port {port}']
+    launch = f'cmd.exe /d /c call "Open Evolve HQ.cmd" --no-open --port {port}'
 else:
     launch = ["node", "scripts/start.mjs", "--no-open", "--port", str(port)]
 server = subprocess.Popen(launch, cwd=ROOT)
