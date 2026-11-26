@@ -7,6 +7,7 @@
 <title>Workflows &amp; skills · Evolve HQ</title>
 <link rel="stylesheet" href="/workbench.css">
 <script type="module" src="/workbench.js"></script>
+<script type="module" src="/static-libraries.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to workbench</a>
@@ -44,6 +45,19 @@
         <button type="button" id="workflow-tab" aria-pressed="true">Start with a workflow</button>
         <button type="button" id="skill-tab" aria-pressed="false">Pick individual skills <span id="skill-count"></span></button>
       </div>
+
+      <details class="static-libraries" id="static-libraries">
+        <summary>Browse static-ad libraries</summary>
+        <p>Open a source to explore templates and ad examples. Copy a reference link into your brief when you’re ready to plan an ad.</p>
+        <ul id="static-library-list"></ul>
+        <p id="static-library-empty">Add a Figma, Canva, Drive, or swipe library you already have access to.</p>
+        <form id="static-library-form">
+          <label>Library name<input name="libraryName" maxlength="100" required placeholder="Example: Canva statics"></label>
+          <label>Link<input name="libraryUrl" inputmode="url" maxlength="1800" required placeholder="https://…"></label>
+          <button type="submit" class="secondary">Add library</button>
+        </form>
+        <span id="static-library-status" role="status"></span>
+      </details>
       <div id="workflow-panel">
         <article class="feature">
           <div class="feature-content">

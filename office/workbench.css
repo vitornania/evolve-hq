@@ -80,3 +80,15 @@ input:not([type=file]),textarea,select{font-weight:430}
 .provider-bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:12px}
 .provider-bar select{width:auto;max-width:100%;padding:5px 7px;margin:0}
 .provider-bar a{margin-left:auto}
+
+.static-libraries{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:0 0 15px}
+.static-libraries summary{cursor:pointer;font-size:13px;font-weight:660;color:#365344}
+.static-libraries p,.static-libraries small,#static-library-status{font-size:12px;color:var(--muted);line-height:1.45}
+.static-libraries p{margin:7px 0}
+#static-library-list{padding:0;margin:0;list-style:none}
+#static-library-list li{border-bottom:1px solid var(--line);padding:7px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}
+#static-library-list li a{font-weight:625;font-size:13px;overflow-wrap:anywhere}
+#static-library-list li small{display:block;margin-top:3px}
+#static-library-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) max-content;align-items:end;gap:8px;padding:9px 0 3px}
+#static-library-form button{height:35px}
+@media(max-width:480px){#static-library-form{grid-template-columns:1fr}#static-library-form button{justify-self:start}}

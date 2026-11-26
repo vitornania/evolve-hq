@@ -54,9 +54,11 @@ try:
             assert response.read().count(b'<header class="hq-bar">') == 1
     with urlopen(base + "/skill-guide.json", timeout=5) as response:
         assert len(json.load(response)) == 62
-    for route in ("/workbench.js", "/scene.js", "/three/build/three.module.js"):
+    for route in ("/workbench.js", "/static-libraries.js", "/scene.js", "/three/build/three.module.js"):
         with urlopen(base + route, timeout=5) as response:
             assert response.headers.get_content_type() == "text/javascript"
+    with urlopen(base + "/api/static-libraries", timeout=5) as response:
+        assert json.load(response) == []
     with urlopen(base + "/api/activity", timeout=5) as response:
         entry = json.load(response)["roles"]["Performance Analyst"][0]
     assert entry["record"].startswith("tasks/release-check/")

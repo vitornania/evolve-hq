@@ -29,6 +29,7 @@ FILES = {
     "/workflows": OFFICE / "workbench.html",
     "/workbench.css": OFFICE / "workbench.css",
     "/workbench.js": OFFICE / "workbench.js",
+    "/static-libraries.js": OFFICE / "static-libraries.js",
     "/advisor.js": OFFICE / "advisor.js",
     "/header.css": OFFICE / "header.css",
     "/skill-guide.json": ROOT / "team/skill-guide.json",
@@ -91,6 +92,14 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/api/providers":
             self.json_response(provider_status())
+            return
+        if path == "/api/static-libraries":
+            config = ROOT / ".office/static-libraries.json"
+            try:
+                links = json.loads(config.read_text(encoding="utf-8")) if config.is_file() else []
+            except (OSError, ValueError):
+                links = []
+            self.json_response(links if isinstance(links, list) else [])
             return
         if path == "/api/activity":
             try:

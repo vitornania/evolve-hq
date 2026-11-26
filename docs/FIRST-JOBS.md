@@ -14,6 +14,14 @@
 3. Remove anything you don’t need. The list shows the order HQ will run.
 4. Provide your product, buyer, and any customer observations. The second skill can use the first report.
 
+## Browse references for a static ad
+
+1. Expand **Browse static-ad libraries** on **Workflows & skills**. Add a Figma, Canva, Drive, or swipe link that you already have access to.
+2. Open the library and copy the URL of a promising reference or save a screenshot.
+3. Add **Plan static Figma ads** to your run. Paste the reference and include your target format, approved copy or offer, and product assets.
+
+The workbench returns a production brief. A finished Canva or Figma file needs a connected editor session with the ability to create that design.
+
 ## Calculate ROAS locally
 
 In Terminal from the Evolve HQ folder:

@@ -253,9 +253,9 @@
   },
   "build-static-ads-in-figma": {
     "title": "Plan static Figma ads",
-    "description": "Turn a customer insight into a layout and production specification.",
-    "inputs": "Brief, product assets, dimensions, and brand guidance.",
-    "output": "A layout and design brief. Finished Figma work needs the Figma connection.",
+    "description": "Browse static-ad references or turn a customer insight into a layout and production specification.",
+    "inputs": "For browsing, a library link or authorized source. For planning, a brief, product assets, dimensions, and brand guidance.",
+    "output": "A shortlist of reference links or a design brief. Finished Canva or Figma work needs a connected editor.",
     "kind": "skill"
   },
   "metaphor-ads": {
