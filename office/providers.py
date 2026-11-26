@@ -1,5 +1,6 @@
 """Read-only adapters for locally installed AI command-line tools."""
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -14,14 +15,18 @@ PROVIDERS = {
 
 
 def find(provider):
+    folders = [Path.home() / ".local/bin", Path.home() / ".antigravity/bin"]
+    if os.name == "nt":
+        folders.extend([Path(os.environ.get("APPDATA", Path.home() / "AppData/Roaming")) / "npm",
+                        Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData/Local")) / "agy/bin"])
     for candidate in PROVIDERS[provider][1]:
         installed = shutil.which(candidate)
         if installed:
             return installed
-        for folder in (Path.home() / ".local/bin", Path.home() / ".antigravity/bin"):
-            path = folder / candidate
-            if path.is_file():
-                return str(path)
+        for folder in folders:
+            installed = shutil.which(str(folder / candidate))
+            if installed:
+                return installed
     return None
 
 

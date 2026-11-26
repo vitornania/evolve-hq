@@ -2,11 +2,11 @@
 
 Run a 3D ecommerce office on your own computer. Choose one skill or combine several. Ask Evolve what to run, watch assignments in the live office, and read the reports in the same app.
 
-**Quick start for Mac**
+**Quick start for Mac and Windows**
 
-1. Download **evolve-hq-mac.zip** from [Releases](https://github.com/vitornania/evolve-hq/releases) and unzip it.
+1. Download **evolve-hq-mac.zip** or **evolve-hq-windows.zip** from [Releases](https://github.com/vitornania/evolve-hq/releases) and unzip it.
 2. Install [Python 3.9 or newer](https://www.python.org/downloads/) and [Node.js 20 or newer](https://nodejs.org/). Install and sign in to one AI tool using the [provider tutorial](docs/SETUP.md#choose-your-ai-provider).
-3. Double-click **Open Evolve HQ.command**. The launcher installs the web UI dependencies the first time. The office opens at **http://127.0.0.1:8739/**.
+3. On Mac, double-click **Open Evolve HQ.command**. On Windows, double-click **Open Evolve HQ.cmd**. The launcher installs the UI dependencies the first time and opens the office at **http://127.0.0.1:8739/**.
 4. Choose **Workflows & skills**, select your AI provider, then try **Review your store**. Paste a product URL or attach a screenshot, then click **Run selected skills**.
 
 Prefer Terminal? Open it in the project folder and run:
@@ -16,7 +16,7 @@ npm ci
 npm start
 ```
 
-Windows and Linux users can try the same Terminal setup with Python and Node installed. The Mac launcher and Apple Vision person matte are macOS-specific. The initial release was verified on macOS.
+The Terminal setup also works with Python and Node on Linux. On Windows, use `py -3` in any example that calls `python3`. The optional video matte tool uses Apple Vision on Mac and a CPU foreground model on Windows and Linux.
 
 ## Tutorials
 

@@ -49,22 +49,46 @@ def update(record, title, product, role, status, note, pid=None):
         db.execute(
             """INSERT INTO activity(record, title, product, role, status, note, updated, pid)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-            (str(record.relative_to(ROOT)), title[:180], product[:120], role, status,
+            (record.relative_to(ROOT).as_posix(), title[:180], product[:120], role, status,
              note[:500], time.time(), pid),
         )
+
+
+def process_running(pid):
+    if os.name == "nt":
+        # os.kill(pid, 0) is destructive on Windows. Query a read-only process handle.
+        import ctypes
+        from ctypes import wintypes
+
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel.OpenProcess.argtypes = (wintypes.DWORD, wintypes.BOOL, wintypes.DWORD)
+        kernel.OpenProcess.restype = wintypes.HANDLE
+        kernel.GetExitCodeProcess.argtypes = (wintypes.HANDLE, ctypes.POINTER(wintypes.DWORD))
+        kernel.GetExitCodeProcess.restype = wintypes.BOOL
+        kernel.CloseHandle.argtypes = (wintypes.HANDLE,)
+        handle = kernel.OpenProcess(0x1000, False, pid)
+        if not handle:
+            return False if ctypes.get_last_error() == 87 else None
+        try:
+            code = wintypes.DWORD()
+            return code.value == 259 if kernel.GetExitCodeProcess(handle, ctypes.byref(code)) else None
+        finally:
+            kernel.CloseHandle(handle)
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return None
+    return True
 
 
 def worker_state(item, now):
     if item["status"] != "working":
         return item["status"]
     if item["pid"] is not None:
-        try:
-            os.kill(item["pid"], 0)
-        except ProcessLookupError:
-            return "interrupted"
-        except PermissionError:
-            return "stale"
-        return "working"
+        running = process_running(item["pid"])
+        return "stale" if running is None else "working" if running else "interrupted"
     return "stale" if now - item["updated"] > STALE_SECONDS else "working"
 
 

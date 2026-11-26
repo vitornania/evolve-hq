@@ -2,13 +2,25 @@
 
 ## Before you start
 
-- Download and unzip the Mac release.
-- Install Python 3.9+ and Node.js 20+. Open Terminal and check `python3 --version` and `node --version`.
+- Download and unzip the Mac or Windows release.
+- Install Python 3.9+ and Node.js 20+. On Mac, check `python3 --version` in Terminal. On Windows, check `py -3 --version` in PowerShell or Command Prompt. Check `node --version` on either platform.
 - Install only the AI tool you want to use. Sign in to that tool before opening HQ. Usage is governed by your provider account.
-- Double-click **Open Evolve HQ.command**, or run `npm ci` and then `npm start`. Keep the terminal open while you use the office.
+- Double-click **Open Evolve HQ.command** on Mac or **Open Evolve HQ.cmd** on Windows. From a terminal, `npm ci` then `npm start` works on both. Keep the terminal open while you use the office.
 - Open **Workflows & skills**. Pick your provider. **CLI found** means HQ can locate the program. A valid sign-in is still required for a run.
 
 You can check your setup anytime with `python3 setup_hq.py doctor`.
+
+### Windows examples
+
+In PowerShell or Command Prompt, open the folder extracted from the ZIP:
+
+```powershell
+py -3 setup_hq.py doctor
+py -3 setup_hq.py skills all
+py -3 hq.py run roas examples/ad-metrics.csv --product "Example store"
+```
+
+In PowerShell, use `npm.cmd` if your system blocks the PowerShell npm shim. CLI installers may require a fresh terminal to update PATH. Claude Code’s setup page covers its Windows prerequisites. For Gemini on Windows, Antigravity provides a native installer. Gemini CLI’s sandbox can require extra setup depending on your environment.
 
 ## Choose your AI provider
 
@@ -48,7 +60,8 @@ Start with a public product link, a short brief, or a screenshot. Tool access an
 - **Ollama drafts.** Install [Ollama](https://ollama.com/download), then run `ollama pull qwen3:4b-instruct`. The runner connects to Ollama on this machine.
 - **Storyboard previews.** Install [FFmpeg](https://ffmpeg.org/download.html), then install Pillow into your Python environment. For example, `python3 -m venv .venv`, `source .venv/bin/activate`, and `python -m pip install Pillow`. Keep that environment active when you run the storyboard tool.
 - **Offline transcription.** Create an isolated Python 3.12 environment with `python3.12 -m venv .office/envs/edit`. Install `faster-whisper` and `numpy` with `.office/envs/edit/bin/python -m pip install faster-whisper numpy`. Install FFmpeg. The first transcription can download the Whisper model.
-- **Person mattes on macOS.** Create `.office/envs/matte` with Python 3.12. Install `av numpy Pillow pyobjc-framework-Vision pyobjc-framework-Quartz` into that environment. The result is a ProRes MOV with an alpha channel.
+- **Person mattes.** On macOS, create `.office/envs/matte` with Python 3.12 and install `av numpy Pillow pyobjc-framework-Vision pyobjc-framework-Quartz` into it. On Windows, run `py -3.12 -m venv .office/envs/matte` and then `.office\envs\matte\Scripts\python.exe -m pip install av numpy Pillow "rembg[cpu]"`. The Windows tool downloads its foreground model on first use. Both write a ProRes MOV with an alpha channel. Check the mask on your footage before exporting.
+- **Transcription on Windows.** Use `py -3.12 -m venv .office/envs/edit` and `.office\envs\edit\Scripts\python.exe -m pip install faster-whisper numpy`. Install FFmpeg and make it available from your terminal.
 - **DaVinci Resolve.** Install [Resolve](https://www.blackmagicdesign.com/products/davinciresolve) from Blackmagic. Run the **Prepare a Resolve edit** action to get a handoff for the editor. Live integration requires setting up a separate local bridge and starting it in Resolve. See the [upstream bridge](https://github.com/samuelgursky/davinci-resolve-mcp) for version-specific setup.
 
 ## Troubleshooting

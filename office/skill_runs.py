@@ -8,13 +8,14 @@ from pathlib import Path
 from threading import Lock, Thread
 from urllib.parse import urlsplit
 
-from activity import ROOT, new_task, update
+from activity import ROOT, new_task, process_running, update
 from providers import reply, require
 
 MAX_REQUEST_BYTES = 22 * 1024 * 1024
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 MAX_IMAGES = 3
 RUN_LOCK = Lock()
+STATE_LOCK = Lock()
 PACKS = ROOT / ".office/libraries"
 DESK_OWNERS = {
     "Chief of Staff": "Chief of Staff", "Research & Evidence": "Customer Researcher",
@@ -111,8 +112,9 @@ def validate(payload):
 
 def save_run(directory, data):
     draft = directory / "run.tmp"
-    draft.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-    draft.replace(directory / "run.json")
+    with STATE_LOCK:
+        draft.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        draft.replace(directory / "run.json")
     record = directory / "RECORD.md"
     record.write_text("\n".join([
         "# Selected Evolve skills", "", f"- Product: {data['product']}",
@@ -126,11 +128,10 @@ def get_run(run_id):
     directory = (ROOT / "tasks" / run_id).resolve()
     if not directory.is_relative_to(ROOT / "tasks") or not (directory / "run.json").is_file():
         return None
-    data = load_json(directory / "run.json")
+    with STATE_LOCK:
+        data = load_json(directory / "run.json")
     if data["status"] in {"queued", "working"}:
-        try:
-            os.kill(data["pid"], 0)
-        except ProcessLookupError:
+        if process_running(data["pid"]) is False:
             data["status"] = "interrupted"
     data.pop("pid", None)
     return data
@@ -211,7 +212,7 @@ def start_run(payload):
             file = directory / f"supplied-image-{idx}.{extension}"
             file.write_bytes(body)
             files.append(file)
-        run_id = str(directory.relative_to(ROOT / "tasks"))
+        run_id = directory.relative_to(ROOT / "tasks").as_posix()
         from urllib.parse import quote
         data = {"id": run_id, "product": product, "status": "queued", "steps": steps, "provider": provider,
                 "view": "/workflows?run=" + quote(run_id, safe=""), "pid": os.getpid()}

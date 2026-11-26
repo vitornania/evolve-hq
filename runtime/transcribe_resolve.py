@@ -17,6 +17,7 @@ def main():
     parser.add_argument("output", type=Path)
     parser.add_argument("--engine", choices=("faster-whisper", "mlx"), default="faster-whisper")
     parser.add_argument("--model", help="Optional model path or model ID")
+    parser.add_argument("--offline", action="store_true", help="Use only a previously downloaded Faster Whisper model.")
     args = parser.parse_args()
     if not args.media.is_file():
         parser.error("The source media file was not found.")
@@ -42,7 +43,7 @@ def main():
         )
     else:
         model = WhisperModel(args.model or "base", device="cpu", compute_type="int8",
-                             local_files_only=True)
+                             local_files_only=args.offline)
         segments, info = model.transcribe(audio, word_timestamps=True,
                                           condition_on_previous_text=False)
         entries = [{"start": s.start, "end": s.end, "text": s.text,
