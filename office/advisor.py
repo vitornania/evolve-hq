@@ -5,7 +5,7 @@ import tempfile
 
 from activity import ROOT
 from skill_runs import MAX_IMAGE_BYTES, MAX_IMAGES, load_json
-from providers import require, reply
+from providers import require, reply as provider_reply
 
 SCHEMA = Path(__file__).with_name("advisor-schema.json")
 MAX_CHAT_BYTES = 48 * 1024
@@ -61,7 +61,7 @@ Conversation:
     if scratch:
         scratch.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="evolve-advisor-", dir=scratch) as directory:
-        raw = reply(provider, directory, prompt, schema=SCHEMA, timeout=90)
+        raw = provider_reply(provider, directory, prompt, schema=SCHEMA, timeout=90)
     if raw.startswith("```") and raw.endswith("```"):
         raw = raw.split("\n", 1)[-1].rsplit("```", 1)[0]
     try:
