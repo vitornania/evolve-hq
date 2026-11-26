@@ -3,7 +3,6 @@
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
-import mimetypes
 from pathlib import Path
 import re
 import sqlite3
@@ -19,6 +18,8 @@ DEFAULT_PORT = 8739
 OFFICE = Path(__file__).resolve().parent
 THREE = ROOT / "node_modules/three"
 PAGES = {"/": "office", "/workflows": "workbench", "/local-tools": "local"}
+CONTENT_TYPES = {".html": "text/html", ".md": "text/plain", ".css": "text/css",
+                 ".js": "text/javascript", ".json": "application/json", ".woff2": "font/woff2"}
 FILES = {
     "/": OFFICE / "index.html",
     "/style.css": OFFICE / "style.css",
@@ -106,9 +107,7 @@ class Handler(BaseHTTPRequestHandler):
         if file is None or not file.is_file():
             self.send_error(404)
             return
-        content_type = mimetypes.guess_type(file)[0] or "text/plain"
-        if file.suffix == ".md":
-            content_type = "text/plain"
+        content_type = CONTENT_TYPES.get(file.suffix, "application/octet-stream")
         if path in PAGES:
             self.respond(page_content(path, file), "text/html; charset=utf-8")
         elif file.suffix == ".woff2":
