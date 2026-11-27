@@ -33,6 +33,8 @@ An ad that gained a qualifying share of spend and met the documented scale condi
 
 Record a learning for every outcome. Compare what the brief intended with what the customer actually sees in the opening, body and offer. Name one plausible explanation and what would weaken it. Build a winner-derived child for a qualified Spend Winner or Breakthrough. For a KPI Winner or Loser, deliver the learning and a diagnostic next step. An expressly requested exploratory change can still be drafted and labeled as such, including when results are unavailable.
 
+Choose a follow-up that can distinguish a change in buyer mix or unit economics from a change in creative effectiveness. Carry the original denominator and cohort window into the test. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 An iteration brief with a testable change.

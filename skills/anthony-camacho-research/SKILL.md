@@ -23,6 +23,8 @@ Product, market, and customer research sources.
 2. For a focused request, identify the relevant block and the evidence its prerequisites supply. If the originals are unavailable, provide a portable analysis with the exact missing route identified. Record which blocks were actually read and executed when reporting completion.
 3. Separate how intensely one person wants an outcome from the breadth of independent demand. Compare the current workaround, failed alternative or purchase event across sources and retain a counterexample. Attribute verbatim language to a retrievable record. Verify that the proposed product mechanism performs the action before turning a buyer belief into public copy.
 
+During desire validation, check whether the motive appeared spontaneously, whether another explanation fits the same action, and which actual purchase episode would separate them. Carry those distinctions through the existing prompt sequence. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 A structured buyer motivation brief and next test.

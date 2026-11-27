@@ -29,6 +29,8 @@ If an authorized course pack is available, consult Creator selection tracker and
 
 For a sourcing decision, distinguish the ability to supply usable footage from the ability to deliver profitable paid ads. A sample or organic post can earn a trial. Evaluate a trial against the requested buyer situation, usable demonstration, delivery reliability and cleared placements. Before recommending repeat or retained work, look for repeatable paid contribution after creator costs across comparable assets, or name what the next brief must test. Tie the next brief to a missing scene, angle or demonstration visible in the editor’s shot list. Keep examples of retainers or commissions separate from the brand’s actual agreement.
 
+For a creator demonstration, establish what this speaker can know firsthand and what the shot can actually show. Keep any measured result tied to the conditions shown, including when the creator reads from an approved brief. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Creator criteria and a content collection plan.

@@ -25,6 +25,8 @@ Choose the narrative or layout based on what the buyer must understand next. A c
 
 If an authorized course pack is available, consult Ideation, Imitation and Iteration brief templates for this decision.
 
+For a creator demonstration, establish what this speaker can know firsthand and what the shot can actually show. Keep any measured result tied to the conditions shown, including when the creator reads from an approved brief. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A concept or variation with a creative handoff.

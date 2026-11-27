@@ -23,6 +23,8 @@ Event map, reporting examples, and key actions.
 2. Trace a known transaction from the browser or server through reporting and the order ledger. If both paths send the purchase, deduplicate by a shared stable ID and check that distinct orders still appear. Reconcile raw events, unique orders, source-of-truth totals and the difference for the same window and time zone.
 3. Define rates with explicit eligible denominators and attribution scope. Write an unavailable rate as unknown when its denominator is zero or missing. Expose gaps from consent, filtering, currency conversion or incomplete refunds before interpreting movement.
 
+Compare the eligible population, attribution window and net contribution after mature refunds. Establish whether a comparison can support an incremental claim. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A tracking checklist and recommended fixes.

@@ -25,6 +25,8 @@ Product, target market, and competitor names or links.
 
 Read negative reviews for the failure the buyer actually encountered. Distinguish what happened in normal use, a defective unit, a wrong shipment and a service issue. Attribute each to the observed unit or seller. A complaint can justify collecting a target-product demonstration or confirming a service term. A comparative superiority claim needs its own evidence.
 
+Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 Dated profiles with like-for-like comparisons.

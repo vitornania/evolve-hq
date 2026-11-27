@@ -23,6 +23,8 @@ Cancellation reasons, product terms, and customer segments.
 2. Map each observed reason to one relevant remedy the operator can honor. Excess supply may call for a skip or a later shipment. A failed payment calls for a clear payment-update path and appropriate retry policy. Keep cancellation accessible and document the actual extended renewal date or billing terms.
 3. Measure retained paid renewals over a stated window, alongside retry recovery, complaints and refunds. An accepted save offer is an intermediate event. Report expected lifetime value separately from realized contribution.
 
+Distinguish friction at a specific touchpoint from loss of ongoing value. Check an actual use or cancellation sequence before choosing a retention intervention. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Retention ideas prioritized by evidence.

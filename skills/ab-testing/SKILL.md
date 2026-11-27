@@ -23,6 +23,8 @@ Variants, traffic, conversions, and expected change, if known.
 2. Use the baseline, economically meaningful effect, traffic, power and uncertainty target to plan sample and duration. Spell out the units. A rise from 5% to 5.5% is 0.5 percentage points and a 10% relative lift. A payment or refund outcome may need time to mature.
 3. Check assignment imbalance, dropped exposures and outcome maturity before interpreting the point estimate. Honor the planned stopping rule or a valid sequential design. Report both arms with denominators and an interval when estimable. An interval spanning a material loss and gain supports another observation, even if one arm currently leads.
 
+When planning a behavior test, define eligibility, comparison and downstream cost. Add a measure that would reveal buyers selecting the wrong item. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 A test plan or interpretation with limitations.

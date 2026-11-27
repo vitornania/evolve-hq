@@ -23,6 +23,8 @@ Ad image, script, or exported frames and audience.
 2. Check which performance evidence actually belongs to this creative. State period, audience, spend, objective, attribution and destination when available. An active ad or a high share count can support an observation about distribution, while profitability needs matched spend and orders.
 3. Recommend the smallest revision to that moment, a control to hold fixed, and the measure that would distinguish weak attention from weak belief or a poor landing experience. Preserve what the available evidence supports.
 
+If interest and retained purchases tell different stories, compare like-for-like cohorts and mature outcomes, then identify a check that distinguishes a misleading expectation from a delivery problem. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 A prioritized critique and revised creative suggestions.

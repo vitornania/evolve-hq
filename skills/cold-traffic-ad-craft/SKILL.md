@@ -23,6 +23,8 @@ Offer, audience, product facts, and any draft.
 2. To establish belief, separate the cause of the frustration, the action that would address it, and how the product takes that action. Anchor the strongest implication to an observable demo, source or verified result with its conditions. Use a familiar workaround to explain comparative value on fair terms.
 3. Give the buyer a defensible reason to act and a clear next step using actual price, quantity, guarantee or deadline where material and approved. A concrete benefit can stand on its own without urgency. In a short ad, name the category or show the action once, then advance the decision. Read adjacent lines aloud and cut any that restate the same feature. Use the buyer’s moment to explain why the action matters; keep the actual offer and CTA natural in speech. On review, mark the earliest decision the copy fails to earn and revise that beat before polishing the rest.
 
+When the same product serves readers at different stages, choose the opening from what each reader already accepts. Use the next line to answer the first material doubt. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A cold-audience copy direction or revision.

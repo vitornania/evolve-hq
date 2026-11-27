@@ -27,6 +27,8 @@ If an authorized course pack is available, consult Desire Hunt, Avatar Training 
 
 Separate what happened in a buyer’s life from what happened when they tried a specific solution. Record expressed emotion and behavior against the speaker who supplied them. Where someone buys for someone else, identify whose decision, objection and use experience each record describes. An example persona can generate a question. Include a sub-avatar in the creative handoff when evidence for the distinction changes a line, demonstration or proof choice.
 
+When two explanations predict the same words or clicks, preserve both until a source distinguishes them. Name the finding that would reverse the angle. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Buyer profiles, beliefs, and ad opportunities.

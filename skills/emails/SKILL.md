@@ -25,6 +25,8 @@ Map the entry trigger, the delay, and the events that remove someone from the fl
 
 Consult the installed sequence templates and copy guidelines when available.
 
+When choosing the subject and first line, match the promise to what this recipient has already done. A restock request, an unanswered fit question and a routine replenishment can justify different openings even for the same item. Pay off the subject in the email. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 An email sequence with timing and copy.

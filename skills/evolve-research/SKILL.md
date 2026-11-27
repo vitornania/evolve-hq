@@ -25,6 +25,8 @@ Keep product facts, buyer observations, competitor patterns and hypotheses disti
 
 If an authorized course pack is available, consult Full Product Research and its four original prompts for this decision.
 
+When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 A research dossier or focused findings.

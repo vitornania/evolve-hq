@@ -29,6 +29,8 @@ If an authorized course pack is available, consult Media Buying Structure and Sc
 
 For a creative classification, select the benchmark by monthly ad spend and record the source/version and scope. For initial-campaign benchmarks, divide the ad’s first-week spend by that campaign’s spend over the same dates. When the high-spend tier calls for an account-wide share, reconcile the qualifying ad spend across its placements and use total account spend instead. Compare growth at that same scope and the agreed acquisition KPI. A single-ad observation or a worksheet with an unset cutoff supplies no decision threshold. Use a documented account rule or keep the outcome open. When published examples differ, show whether the classification changes and which owner-approved rule governs. Record forced minimums, fixed ad-set budgets, attribution windows and new-customer coverage before interpreting allocation. An increase in the parent campaign’s spend is descriptive evidence. Inferring incremental acquisitions requires a comparison that addresses what would have happened without the ad.
 
+Compare the eligible population, attribution window and net contribution after mature refunds. Establish whether a comparison can support an incremental claim. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A recommendation with risks and next checks.

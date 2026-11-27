@@ -29,6 +29,8 @@ Check what the reader already wants separately from what they accept about this 
 
 If an authorized course pack is available, consult Evolve Master Prompt, static brief and Video Script prompt for this decision.
 
+When the same product serves readers at different stages, choose the opening from what each reader already accepts. Use the next line to answer the first material doubt. If proof comes from one setup, keep the conditions visible inside the ad itself. “In our test on this surface” can distinguish an observation from a promise to every reader. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Ad copy with hooks and a call to action.

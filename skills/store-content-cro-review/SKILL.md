@@ -20,6 +20,8 @@ Trace the incoming ad or search promise to the first page element that answers i
 
 For an uncertain change, name the buyer question, one change in copy or imagery, the eligible exposure, a downstream purchase or checkout outcome and a guardrail. Use a common denominator and comparable measurement window. A proposed image, preference or correlation cannot establish conversion lift.
 
+When shoppers stall at a selector, distinguish missing decision information from excessive choice. Give shoppers the comparison they need and keep material terms visible. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Return an actionable plan
 
 - Lead with the three highest-priority changes. Rank by strength of evidence, likely influence on the buying decision, and approximate effort. Name the issue and the concrete change.

@@ -21,6 +21,8 @@ For a hook-only test, lock the first unchanged body line and all copy below it. 
 
 For a full draft, read the lead as the intended buyer. If they want the result but cannot picture how it happens, show the relevant product action. If they already understand the action and doubt its result, bring the strongest applicable observation to that point. A plausible explanation alone cannot establish a measured outcome. When the placement calls for editorial pacing, borrow useful conventions such as short field notes or a question followed by a demonstration. Keep the advertiser and any supplied sponsorship disclosure visible at entry. Attribute the observations to whoever made them.
 
+When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

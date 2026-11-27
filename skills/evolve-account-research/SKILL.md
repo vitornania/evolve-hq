@@ -25,6 +25,8 @@ Compare like cohorts after allowing for conversion lag. Apply the account's docu
 
 If an authorized course pack is available, consult Winner definitions and the Growth Guide log for this decision.
 
+Compare the eligible population, attribution window and net contribution after mature refunds. Establish whether a comparison can support an incremental claim. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A creative baseline for the next test.

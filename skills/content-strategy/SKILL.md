@@ -23,6 +23,8 @@ Audience, goal, channels, and existing content.
 2. Prioritize by the business objective, strength of verified evidence, likely distribution, production effort and available owner. For each selected asset specify the evidence it can show, one audience, one distribution surface, and an action appropriate to that audience.
 3. Measure the job of each asset. Eligible discovery visits, assisted product evaluation, or qualified signups call for different denominators and windows. Keep direct and assisted results explicit. Repurpose a verified argument for another surface only when its context and proof survive the change.
 
+Separate the reason people share an item from the job the product does. When content earns attention, choose the follow-up observation that would show whether readers understood the product or took a relevant next step. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Content themes, priorities, and an editorial plan.

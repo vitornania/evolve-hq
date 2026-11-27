@@ -33,6 +33,8 @@ Apply the bundled method to routine reviews. Consult the original Ad Learnings p
 
 For a creative postmortem, pair the original brief with the actual opening and body. Identify the awareness the opening requires, emotional tone and intensity, buyer situation and desire. Trace the argument for buying, the product action that would produce the benefit, the evidence for believing it, and any real consequence of delay. Inspect the in-ad opening separately from the platform caption. Record the material mismatch or weak link with its line or frame. A performance explanation remains a hypothesis until a comparison can distinguish it from competing explanations. When running a collaborative debrief, retrieve the original brief, invite the operator to correct your interpretation and attribute their explanation. If they are unavailable, retain the hypothesis as unconfirmed and identify the observation that would distinguish it. A narrow metric diagnosis only needs the relevant part of this analysis.
 
+If interest and retained purchases tell different stories, compare like-for-like cohorts and mature outcomes, then identify a check that distinguishes a misleading expectation from a delivery problem. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Findings and the next creative tests.

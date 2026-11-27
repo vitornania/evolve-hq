@@ -29,6 +29,8 @@ For a fuller treatment of awareness, competing promises and credible proof, use 
 
 If an authorized course pack is available, consult Positioning exercise, Product Overview and New Mechanisms for this decision.
 
+Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A positioning statement, message hierarchy and a compact ad-opening/landing-page proof pair when the user requests general positioning.

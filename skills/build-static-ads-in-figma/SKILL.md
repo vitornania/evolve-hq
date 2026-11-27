@@ -40,6 +40,8 @@ In the Evolve Hook Library, use the hook that appears inside the image or video 
 1. At the intended crop and phone size, read the headline, proof and CTA in order and transcribe the smallest material qualifier. Verify the actual render against the approved slot map, including text inside supplied images. If the offer or qualifier disappears in the crop, adjust the layout and re-export before delivery.
 2. When building a variant, mark the element under test and list collateral changes to type, offer, product depiction, or proof. Show which conclusions the resulting comparison can support. A layout plan can be reviewed without a renderer. A production claim needs the inspected export and accessible editable source.
 
+When adapting an image, distinguish what the picture independently demonstrates from what needs a measurement, label or source. Write the exact shopper-visible measurement and qualifier as they should appear on the artwork. Put source IDs and production instructions in the adjacent brief notes. Read every quoted overlay aloud as finished ad copy before selecting the line. Check what survives the target crop. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Return the brief and selection coverage for planning. For a build, use the [local PNG and editable SVG renderer](../adapt-reference-ad/references/local-rendering.md) or the requested connected editor. Use a fresh design, preserve the reference, and check full-size and mobile renders.

@@ -29,6 +29,8 @@ If buyer research shows people want the outcome but question the product, give t
 
 If an authorized course pack is available, consult Ideation, Imitation and Iteration brief templates for this decision.
 
+When comparing leads, identify the expectation each creates and the evidence the body must supply. Test a wording change against the same buying reason. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A brief in the appropriate Evolve format.

@@ -25,6 +25,8 @@ Inspect the rendered output at phone size with sound off where relevant. Verify 
 
 If an authorized course pack is available, consult Static templates, image briefs and the Video Script prompt for this decision.
 
+At the storyboard handoff, mark which shot supplies the evidence for the claim and what must remain in the crop. A close-up or cutaway that removes the test conditions requires another way to communicate them. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A production plan, shot list, or editing handoff.

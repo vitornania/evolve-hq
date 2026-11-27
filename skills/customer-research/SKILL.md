@@ -25,6 +25,8 @@ Research question and any existing responses.
 
 For a purchase-journey interview, give the buyer room to tell the story from the first occasion through the order before probing specific gaps. An unusually large or repeat order can reveal a use case worth investigating. Record how the person was selected, then check the explanation with a contrasting ordinary, first-time or non-buying cohort before describing it as typical.
 
+When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 A research plan or themes backed by feedback.

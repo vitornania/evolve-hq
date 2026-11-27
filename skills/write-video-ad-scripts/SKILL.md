@@ -21,6 +21,8 @@ For a hook borrowed from a library, identify whether on-screen words, speech or 
 
 If the brief requests the course's modular B-roll test, build three openings from the available mechanism research, new information and customer evidence. Give each hook its own bridge into one shared body and CTA. Write the shared section once, then read each join aloud for continuity. Record the hook and bridge together as the changing unit. For a hook-only experiment keep its continuation fixed. For the exact course exercise, resolve `evolve-skill/references/templates/Evolve - Video Script Prompt.md` within the installed Evolve skill library and apply its duration and awareness limits.
 
+When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Return a recordable script and a shootable edit plan for the requested scope. Identify missing footage and proof outside the words spoken to the viewer.

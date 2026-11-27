@@ -25,6 +25,8 @@ Identify a transferable element such as question order, visual comparison or pro
 
 If an authorized course pack is available, consult Company Research Document and Winning Ads examples for this decision.
 
+Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 An annotated competitor creative review.

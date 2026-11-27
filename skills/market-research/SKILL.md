@@ -23,6 +23,8 @@ For seasonal opportunities, record when buyers start looking, when they order, a
 
 For more detail on selecting a desire and matching it to a supported product performance, see the [shared direct-response guide](../evolve-skill/references/direct-response-decisions.md) when present.
 
+When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Hand off the decision, strongest alternative, relevant source IDs, approved claims and restrictions. State missing product evidence where it affects the decision. When an exact original method was requested, identify any unavailable pass in its method receipt. Keep installation details out of the ordinary marketing handoff.

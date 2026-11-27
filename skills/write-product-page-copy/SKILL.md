@@ -19,6 +19,8 @@ Product facts, target buyer, offer, and any current copy.
 
 Choose the amount of explanation from what the arriving shopper understands. A returning buyer who knows the mechanism may need compatibility, pack contents or price first. A newcomer asking how a feature delivers a benefit may need one concrete action and its immediate effect. In a market full of similar promises, lead with a distinctive mechanism only when the product evidence supports the difference. Put outcome evidence where the reader would question that outcome, and keep the scope of the evidence visible there.
 
+When shoppers stall at a selector, distinguish missing decision information from excessive choice. Give shoppers the comparison they need and keep material terms visible. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Return mobile-first, paste-ready copy for the requested sections. When accessible, use the installed Evolve CRO angle, content and testing modules to choose page work appropriate to the request.

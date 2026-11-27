@@ -29,6 +29,8 @@ When the brief calls for a longer story around one benefit, give each additional
 
 If an authorized course pack is available, consult Customer Review to Story and Video Script prompts for this decision.
 
+When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A story outline and shootable script.

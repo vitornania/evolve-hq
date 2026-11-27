@@ -27,6 +27,8 @@ For a decision about desire, readiness, category claim exposure, proof, or the p
 
 If an authorized course pack is available, consult Course Prompt Routing and the course prompt manifest for this decision.
 
+Choose a book reference only when it changes the current decision. For the opening, argument or demonstration use [Copy and proof decisions](references/book-copy-decisions.md). For competing explanations of buyer behavior or friction at a choice use [Buyer behavior and evidence](references/book-customer-decisions.md). For the alternative, offer terms or acquisition economics use [Offers, positioning and acquisition](references/book-offer-decisions.md). Keep Evolve’s selected stage, approved promise and original prompt sequence. Treat each book technique as a hypothesis until current product or customer evidence supports using it.
+
 ## Deliverable
 
 An ecommerce deliverable and the next checkpoint.

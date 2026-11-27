@@ -25,6 +25,8 @@ Existing copy, buyer, offer, and the next action.
 
 When an objection concerns effort, demonstrate what the buyer would actually do and name the required condition. When an objection concerns value, compare genuine alternatives on the same basis and keep the total price visible. Leave any material cost or inconvenience clear enough for a buyer to decide.
 
+When the same product serves readers at different stages, choose the opening from what each reader already accepts. Use the next line to answer the first material doubt. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 Revised copy with key changes explained.

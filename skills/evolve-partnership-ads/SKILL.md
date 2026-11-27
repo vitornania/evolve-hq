@@ -25,6 +25,8 @@ Compare equivalent placements, audience, dates and offer using the brand and cre
 
 If an authorized course pack is available, consult Partnership Ads and the creator UGC framework for this decision.
 
+For a creator demonstration, establish what this speaker can know firsthand and what the shot can actually show. Keep any measured result tied to the conditions shown, including when the creator reads from an approved brief. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A partnership brief and test plan.

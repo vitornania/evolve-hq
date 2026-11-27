@@ -25,6 +25,8 @@ Record briefed, built, live and evaluated states only when their respective evid
 
 If an authorized course pack is available, consult Growth Guide and original ad naming templates for this decision.
 
+Choose a follow-up that can distinguish a change in buyer mix or unit economics from a change in creative effectiveness. Carry the original denominator and cohort window into the test. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A list of batches, assets, and next tests.

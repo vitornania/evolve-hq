@@ -40,8 +40,8 @@
     "expect": "Leads from the same lunch-desk moment through visible folding proof into a $24 product page; preserves sponsorship, avoids invented use, results or scarcity. The shared shelf observation bounds any comparison. A brand-authored entry can adopt the short format while retaining attribution; it cannot promise faster cleanup or imply independent reporting."
   },
   "build-static-ads-in-figma": {
-    "brief": "Plan only, using this written brief and no image tools. Test one benefit-led headline on a 1080-square feed ad: Fieldfold tray folds flat and costs $24, the approved illustration exists but is not attached, no ratings or time-savings data. Give design requirements and acceptance checks for the later render. Fictional QA. Use supplied evidence only, without browsing or external actions.",
-    "expect": "Keeps one variable, separates supported copy from required assets, specifies layer/editability and mobile checks, marks rendered output unverified."
+    "brief": "Plan only, using this written brief and no image tools. Test one benefit-led headline on a 1080-square feed ad: Fieldfold tray folds flat and costs $24, the approved illustration exists but is not attached, no ratings or time-savings data. Give design requirements and acceptance checks for the later render. Fictional QA. Use supplied evidence only, without browsing or external actions. Keep internal evidence IDs in production notes. Any sample shopper-visible label should be usable verbatim.",
+    "expect": "Keeps one variable, separates supported copy from required assets, specifies layer/editability and mobile checks, marks rendered output unverified. Exact artwork copy is free of internal record IDs and production annotations."
   },
   "churn-prevention": {
     "brief": "Of 100 subscribers due for renewal, 8 requested cancellation and 6 different cards repeatedly declined. Two cancel-intent customers cited excess stock. Plan separate responses and measurements without claiming all 14 churned. Fictional QA. Use supplied evidence only, without browsing or external actions.",
@@ -220,8 +220,8 @@
     "expect": "Earn attention from friction; explain the manual product and relevant proof without fictitious firsthand experience, personal endorsement, or broader residue claims; match the $32 offer and CTA."
   },
   "offers": {
-    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Price $40 USD, COGS $14, fulfillment $6 all-in, net payment cost $2, no other variable cost. Control offer sells one kit per buyer, 10 of 100 eligible visitors. Candidate free legitimate accessory costs $4 on every candidate order, 12 of 100 buy. No refund change or randomization evidence. Compare contribution per eligible visitor and recommend a next move.",
-    "expect": "Control $1.80/visitor; candidate $1.68/visitor, lower despite CVR increase; no causal winner from these samples; bound the next comparison with fixed opportunity/cost."
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Price $40 USD, COGS $14, fulfillment $6 all-in, net payment cost $2, no other variable cost. Control offer sells one kit per buyer, 10 of 100 eligible visitors. Candidate free legitimate accessory costs $4 on every candidate order, 12 of 100 buy. No refund change or randomization evidence. Compare contribution per eligible visitor and recommend a next move. Buyer A says the lock looks hard to close. Buyer B says only that they already own the accessory. Describe what those records support about each buyer.",
+    "expect": "Control $1.80/visitor; candidate $1.68/visitor, lower despite CVR increase; no causal winner from these samples; bound the next comparison with fixed opportunity/cost. A reported a lock concern. B only reported owning the accessory; B’s remaining concern is unknown."
   },
   "post-purchase-funnels": {
     "brief": "Fictional local QA exercise. Work only from the supplied evidence. Evaluate a $12 refill upsell after payment. Incremental contribution $6 per accepted upsell after every stated cost; no charge when declined. 200 eligible completed orders, 160 successfully see offer, 16 accept. No downstream cohort or holdout. Show take and contribution with correct denominators and avoid automatically charging anyone.",

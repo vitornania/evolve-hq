@@ -27,6 +27,8 @@ For each distinct angle, name the proof the buyer would accept and the observati
 
 If an authorized course pack is available, consult How to Come Up With Ad Angles and the Hook Library for this decision.
 
+When two explanations predict the same words or clicks, preserve both until a source distinguishes them. Name the finding that would reverse the angle. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Angles with audiences, reasoning, and test ideas.

@@ -23,6 +23,8 @@ Platform, goal, campaign setup, and any performance data.
 2. Trace the largest loss from delivery to meaningful action, using matching denominators. A high click rate with poor purchase conversion warrants a destination or offer check. Split prospecting from retargeting, and separate brand search from nonbrand where intent differs. Call out creative, audience or placement changes sharing the same dates.
 3. Give one budget or creative decision tied to evidence, a limit on what the comparison establishes, and a next test with a primary outcome and a guardrail. If the only data is an ad screenshot, return creative observations and inputs needed for a spend decision.
 
+When acquisition volume rises after an offer change, compare mature net contribution and the cost of reaching the additional buyers before scaling. Record any new fulfillment bottleneck. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A campaign plan or diagnostic checklist.

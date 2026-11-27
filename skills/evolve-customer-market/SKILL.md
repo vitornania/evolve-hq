@@ -25,6 +25,8 @@ Record counterexamples and the circumstances that might explain them. Turn a rep
 
 If an authorized course pack is available, consult Company Research Document, Desire Hunt and Desire Calendar for this decision.
 
+When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Dated findings with supporting sources.

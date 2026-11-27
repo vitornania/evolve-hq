@@ -25,6 +25,8 @@ Ad angle, offer, buyer, and substantiated proof.
 
 For a comparison-led page, identify the alternative this reader actually uses and the decision they need to make. Pair its documented limitation with what the target product does on that same task under comparable conditions. Include any condition where the familiar choice still fits. If the evidence covers only the target, show its action on its own and keep the proposed comparison in the owner notes. Adapt the host’s reading rhythm and section length while retaining the actual advertiser, source of the demonstration and sponsorship disclosure at entry.
 
+When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
 ## Deliverable
 
 A structured advertorial draft and proof gaps.

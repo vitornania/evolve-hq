@@ -23,6 +23,8 @@ Your product and the competing alternative or page.
 2. Translate each supported difference into a practical consequence. Include a concrete scenario where the competitor or familiar workaround fits better. Mark unverified features unknown. Avoid declaring a universal winner from one criterion.
 3. Use the opening to orient the buyer and the close to direct the right-fit reader to a matching offer, demo or specification. Keep reusable comparison data separate from marketing prose so an offer change can be updated across pages.
 
+Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A comparison outline, gap analysis, or draft.

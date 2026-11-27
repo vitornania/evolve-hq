@@ -27,6 +27,8 @@ A page URL, screenshots, analytics, or funnel context.
 
 When several ads lead to several destinations, list the observed ad–page pairs and the missing counterparts. Compare the same creative and offer across destinations and, when available, check whether the ordering reverses for a different creative. If allocation was optimized, report the observed pairing and its exposure and purchases. To isolate a page effect, hold the ad, offer and audience fixed and randomly assign eligible visitors to the destinations after the click. An unmatched top-spending pair supports a follow-up hypothesis; it cannot establish a universal best page.
 
+When shoppers stall at a selector, distinguish missing decision information from excessive choice. Give shoppers the comparison they need and keep material terms visible. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
+
 ## Deliverable
 
 Prioritized conversion ideas and hypotheses to test.

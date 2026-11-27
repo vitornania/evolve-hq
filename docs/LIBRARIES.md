@@ -14,6 +14,16 @@ After updating HQ, run the same command again. The installer recognizes unchange
 
 Native installs in another project contain the chosen skill files and their bundled resources. The HQ browser workbench resolves an authorized course overlay locally as described below.
 
+## How the workflows use the reading library
+
+The selected Evolve method sets the brief and review criteria. A skill links to a short guide when a book can help decide what to do with the supplied evidence. For example, two buyers may want the same tray. Someone waiting for their chosen size can use restock news. Someone unsure it clears their cabinet hinge needs a measurement or a bounded demonstration.
+
+- Use [Copy and proof decisions](../skills/evolve-skill/references/book-copy-decisions.md) for openings, copy structure, visual proof and clean creative tests.
+- Use [Buyer behavior and evidence](../skills/evolve-skill/references/book-customer-decisions.md) for interviews, competing explanations, product selection and behavioral tests.
+- Use [Offers, positioning and acquisition](../skills/evolve-skill/references/book-offer-decisions.md) for buyer alternatives, offer terms and retained contribution.
+
+These original guides travel with the bundled skills. To consult your own edition during a job, use the local references setup below and include the book and chapter in the brief.
+
 ## Use an authorized full Evolve library in the office
 
 If you have an approved Evolve package with the original instruction files, references, and templates, extract it to a folder. Then run:

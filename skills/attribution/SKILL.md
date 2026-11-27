@@ -23,6 +23,8 @@ Channel results, windows, and how attribution is defined.
 2. Explain what the named model rewards on the actual path. A view-through window, last click, post-purchase survey and ledger answer different questions. Report measured credited revenue alongside spend and contribution when available.
 3. Use a holdout, randomized lift test or defensible geographical comparison to ask how much would have happened without the channel. Define treatment, baseline, contamination risks and decision metric. Label any budget move based on modeled credit with that uncertainty.
 
+Compare the eligible population, attribution window and net contribution after mature refunds. Establish whether a comparison can support an incremental claim. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
+
 ## Deliverable
 
 A measurement comparison and gaps to resolve.
