@@ -1,6 +1,7 @@
 """Exercise parallel workflows, sequential gates, and reuse without an AI account."""
 from collections import Counter
 from contextlib import ExitStack
+import base64
 import json
 from pathlib import Path
 import shutil
@@ -43,6 +44,7 @@ counts = Counter()
 events = []
 event_lock = Lock()
 first_titles = {flow["id"]: flow["modes"][0]["steps"][0]["title"] for flow in catalog}
+original_image = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg=="
 
 
 def provider(_provider, directory, prompt, *, files):
@@ -60,6 +62,13 @@ def provider(_provider, directory, prompt, *, files):
         barrier.wait()
     if "Useful approved example from " in prompt and not is_review:
         assert "Reviewed preceding stages" in prompt
+    if "Check the selective handoff." in prompt and not is_review:
+        assert "Useful approved example from market-research" in prompt
+        assert "Useful approved example from native-ads" not in prompt
+        assert "Images attached to this run: None" in prompt
+        assert "Images carried forward as prior evidence:" in prompt
+        assert [file.name for file in files] == ["reused-image-1.png"]
+        assert files[0].read_bytes() == base64.b64decode(original_image)
     if not is_review:
         return "A concrete, inspectable draft."
     criteria = prompt.split("Check all of these:\n", 1)[1].split("\n\nInspect", 1)[0].splitlines()
@@ -84,6 +93,80 @@ def provider(_provider, directory, prompt, *, files):
     })
 
 
+def check_handoff_matrix(workspace):
+    flows = [flow["id"] for flow in catalog]
+    jobs = [{"workflow": flow["id"], "mode": flow["modes"][0]["id"],
+             "stages": [flow["modes"][0]["steps"][0]["id"]]} for flow in catalog]
+    jobs[flows.index("market-research")] = {
+        "workflow": "market-research", "mode": "manual-research", "stages": ["manual-voc"],
+    }
+    reports = {flow: f'{flow} approved control — "$49 USD". Sample: four speakers; one objected.'
+               for flow in flows}
+    # Exercise the file-based route as well as the verbatim inline route.
+    reports["static-ads"] += "\n" + "Visual slot description. " * 600
+    observed = set()
+    first_passes = set()
+    sender = None
+
+    def matrix_provider(_provider, directory, prompt, *, files):
+        receiver = directory.name
+        if prompt.startswith("Index only the new customer records"):
+            assert receiver == "market-research" and sender is not None
+            assert "Selected previous run summaries:\nNone" in prompt and "Approved copy:" not in prompt
+            assert "Summary from " not in prompt and "reused-image" not in prompt
+            assert [file.name for file in files] == ["supplied-image-1.png"]
+            first_passes.add(sender)
+            return "Independent customer records R1 and R2."
+        reviewing = prompt.startswith("Independently review")
+        if sender is not None:
+            snapshots = list((directory / "reviewed-inputs").glob("*.md"))
+            assert len(snapshots) == 1 and snapshots[0].read_text(encoding="utf-8") == reports[sender]
+            assert str(snapshots[0]) in prompt and f"Summary from {sender}." in prompt
+            assert not any(f"Summary from {other}." in prompt for other in flows if other != sender)
+            if len(reports[sender]) <= workflow_batches.INLINE_REPORT_CHARS:
+                assert reports[sender] in prompt
+            else:
+                assert "Read the complete approved copy" in prompt
+            if reviewing:
+                assert workflow_batches.HANDOFF_CHECK in prompt
+            if receiver == "market-research":
+                assert "Independent customer records R1 and R2." in prompt
+                assert (directory / "01-manual-voc.source-index.md").is_file()
+            with event_lock:
+                observed.add((sender, receiver, reviewing))
+        if not reviewing:
+            return reports[receiver]
+        checks = prompt.split("Check all of these:\n", 1)[1].split("\n\nInspect", 1)[0].splitlines()
+        return json.dumps({
+            "checklist": [{"number": n, "status": "met", "evidence": "Checked the approved fixture."}
+                          for n in range(1, len(checks) + 1)],
+            "feedback": "Fixture reviewed.", "handoff": f"Summary from {receiver}.",
+        })
+
+    with patch.object(skill_runs, "reply", side_effect=matrix_provider):
+        source = wait_run(skill_runs.start_run({
+            "brief": "Prepare six distinct reviewed reports.", "workflows": jobs, "images": [original_image],
+        }))
+        assert source["status"] == "review"
+        run_path = workspace / "tasks" / source["id"] / "run.json"
+        stored = skill_runs.load_json(run_path)
+        for step in stored["steps"]:
+            artifact = Path(step["artifact"])
+            # A moved installation and a subsequently edited Markdown file must keep the approved version.
+            artifact.write_text("Later edit, outside the independent review.", encoding="utf-8")
+            step["artifact"] = str(Path("old-install") / step["workflow"] / artifact.name).replace("/", "\\")
+        run_path.write_text(json.dumps(stored), encoding="utf-8")
+        for step in source["steps"]:
+            sender = step["workflow"]
+            target = wait_run(skill_runs.start_run({
+                "brief": "Use only the selected reviewed stage.", "sourceRun": source["id"],
+                "sourceSteps": [step["id"]], "workflows": jobs, "sourceImages": True, "images": [original_image],
+            }))
+            assert target["status"] == "review", [(s["id"], s.get("quality")) for s in target["steps"]]
+        assert observed == {(a, b, review) for a in flows for b in flows for review in (False, True)}
+        assert first_passes == set(flows)
+
+
 with tempfile.TemporaryDirectory() as folder:
     workspace = Path(folder).resolve()
     shutil.copytree(ROOT / "team", workspace / "team")
@@ -101,6 +184,7 @@ with tempfile.TemporaryDirectory() as folder:
         initial = skill_runs.start_run({
             "product": "Example product",
             "brief": "Include a concrete test plan.",
+            "images": [original_image],
             "workflows": [{"workflow": flow["id"], "mode": flow["modes"][0]["id"]} for flow in catalog],
         })
         batch = wait_run(initial)
@@ -128,14 +212,56 @@ with tempfile.TemporaryDirectory() as folder:
         assert counts["store-cro", first_titles["store-cro"], False] == 3
         assert batch_steps["store-cro"][0]["revisions"] == 2
         assert not any("static-ads" in step["artifact"] for step in skill_runs.previous_results(batch["id"]))
+        provider_calls = len(events)
+        no_asset = wait_run(skill_runs.start_run({
+            "brief": "The script is attached as text only.",
+            "workflows": [{"workflow": "ad-review", "mode": "review-finished-ad"}],
+        }))
+        assert no_asset["status"] == "blocked" and no_asset["steps"][0]["status"] == "blocked"
+        assert "Attach the finished ad image" in no_asset["steps"][0]["quality"]
+        assert len(events) == provider_calls
         one_stage = next(flow for flow in catalog if flow["id"] == "copywriting")["modes"][0]
         next_run = wait_run(skill_runs.start_run({
             "product": batch["product"], "sourceRun": batch["id"],
             "workflows": [{"workflow": "copywriting", "mode": one_stage["id"], "stages": [one_stage["steps"][0]["id"]]}],
         }))
         assert next_run["status"] == "review" and len(next_run["steps"]) == 1
+        assert next_run["imageCount"] == 0 and batch["imageCount"] == 1
+        handoff = {
+            "product": batch["product"], "sourceRun": batch["id"], "sourceSteps": [revised["id"]],
+            "sourceImages": True, "brief": "Check the selective handoff.",
+            "workflows": [{"workflow": "copywriting", "mode": one_stage["id"],
+                           "stages": [one_stage["steps"][0]["id"]]}],
+        }
+        reused = wait_run(skill_runs.start_run(handoff))
+        assert reused["status"] == "review" and reused["imageCount"] == 1
+        combined = wait_run(skill_runs.start_run(handoff | {
+            "brief": "Keep new and reused images in order.", "images": [original_image],
+        }))
+        assert combined["status"] == "review" and combined["imageCount"] == 2
+        assert [path.name for path in skill_runs.saved_images(workspace / "tasks" / combined["id"])] == [
+            "supplied-image-1.png", "reused-image-1.png",
+        ]
+        for changes, message in (
+            ({"sourceSteps": [batch_steps["static-ads"][0]["id"]]}, "available reviewed result"),
+            ({"sourceSteps": []}, "available reviewed result"),
+            ({"images": [original_image] * 3}, "across the previous and new run"),
+        ):
+            try:
+                skill_runs.start_run(handoff | changes)
+            except ValueError as error:
+                assert message in str(error)
+            else:
+                raise AssertionError("Invalid handoff was accepted.")
+        provider_calls = len(events)
+        prior_image_only = wait_run(skill_runs.start_run(handoff | {
+            "workflows": [{"workflow": "ad-review", "mode": "review-finished-ad"}],
+        }))
+        assert prior_image_only["status"] == "blocked" and len(events) == provider_calls
         standalone = wait_run(skill_runs.start_run({"skills": ["humanizer"], "brief": "Polish this line."}))
         assert standalone["status"] == "review" and standalone["steps"][0]["report"] == "Standalone report."
+        check_handoff_matrix(workspace)
 
-print("Six parallel workflows, ordered checklist reviews, two revisions, provider and review recovery, "
-      "isolated blocking, handoff reuse and standalone skills verified.")
+print("Parallel workflows, ordered checklist reviews, revisions, provider recovery, isolated blocking, "
+      "finished-asset requirement, selective report and image reuse, 36 sender/receiver combinations, "
+      "and standalone skills verified.")

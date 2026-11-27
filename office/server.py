@@ -11,6 +11,7 @@ from urllib.parse import parse_qs, unquote, urlsplit
 
 from activity import ROOT, snapshot
 from advisor import MAX_CHAT_BYTES, respond_to_chat
+from cpa import calculate_cpa
 from providers import status as provider_status
 from skill_runs import MAX_REQUEST_BYTES, get_run, start_run
 from workflow_batches import workflow_catalog
@@ -36,6 +37,7 @@ FILES = {
     "/skill-guide.json": ROOT / "team/skill-guide.json",
     "/fonts/geist.woff2": ROOT / "node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2",
     "/local-tools": ROOT / "index.html",
+    "/cpa-calculator.js": OFFICE / "cpa-calculator.js",
     "/team/roster.md": ROOT / "team/roster.md",
     "/setup-guide": ROOT / "docs/SETUP.md",
     "/three/build/three.module.js": THREE / "build/three.module.js",
@@ -45,6 +47,7 @@ FILES = {
 POST_ROUTES = {
     "/api/run": (start_run, MAX_REQUEST_BYTES, 202),
     "/api/advisor": (respond_to_chat, MAX_CHAT_BYTES, 200),
+    "/api/cpa": (calculate_cpa, 4096, 200),
 }
 
 

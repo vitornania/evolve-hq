@@ -99,6 +99,7 @@
           {
             "id": "manual-voc",
             "skill": "manual-voc-research",
+            "index_fresh_sources": true,
             "title": "Index the source language",
             "instruction": "Process the supplied customer material independently before reading or reconciling any summaries. Preserve exact brief excerpts, surrounding context, stable source IDs, dates and source types when present. Deduplicate repeated copies while retaining counterexamples. Code observed triggers, frustrations, workarounds, objections, desire, and awareness. Mark secondhand material and opt to report the actual sample rather than making population claims.",
             "checks": [

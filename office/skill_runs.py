@@ -4,17 +4,19 @@ import binascii
 import json
 import logging
 import os
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
+import re
 from threading import Lock, Thread
 from urllib.parse import urlsplit
 
 from activity import ROOT, new_task, process_running, update
 from providers import reply, require
-from workflow_batches import MAX_WORKFLOWS, run_batches, workflow_catalog
+from workflow_batches import HANDOFF_CHECK, MAX_WORKFLOWS, run_batches, workflow_catalog
 
 MAX_REQUEST_BYTES = 22 * 1024 * 1024
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 MAX_IMAGES = 3
+SAVED_IMAGE = re.compile(r"(?:supplied|reused)-image-[1-3]\.(?:png|jpg|webp)")
 RUN_LOCK = Lock()
 STATE_LOCK = Lock()
 PACKS = ROOT / ".office/libraries"
@@ -64,18 +66,26 @@ def decode_images(values):
             body = base64.b64decode(value, validate=True)
         except binascii.Error:
             raise ValueError("One image could not be read.") from None
-        if len(body) > MAX_IMAGE_BYTES:
-            raise ValueError("Each screenshot or image must be 5 MB or less.")
-        if body.startswith(b"\x89PNG\r\n\x1a\n"):
-            extension = "png"
-        elif body.startswith(b"\xff\xd8\xff"):
-            extension = "jpg"
-        elif body[:4] == b"RIFF" and body[8:12] == b"WEBP":
-            extension = "webp"
-        else:
-            raise ValueError("Use PNG, JPG, or WebP images.")
-        images.append((extension, body))
+        images.append(check_image(body))
     return images
+
+
+def check_image(body):
+    if len(body) > MAX_IMAGE_BYTES:
+        raise ValueError("Each screenshot or image must be 5 MB or less.")
+    if body.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "png", body
+    if body.startswith(b"\xff\xd8\xff"):
+        return "jpg", body
+    if body[:4] == b"RIFF" and body[8:12] == b"WEBP":
+        return "webp", body
+    raise ValueError("Use PNG, JPG, or WebP images.")
+
+
+def saved_images(directory):
+    paths = (path for path in directory.glob("*-image-*")
+             if SAVED_IMAGE.fullmatch(path.name) and not path.is_symlink() and path.is_file())
+    return sorted(paths, key=lambda path: (path.name.startswith("reused-"), path.name))
 
 
 def selected_workflows(payload, guide, owners):
@@ -118,7 +128,7 @@ def selected_workflows(payload, guide, owners):
     return selected, steps, sources
 
 
-def previous_results(identifier):
+def previous_results(identifier, selected=None):
     if not identifier:
         return []
     run = get_run(identifier)
@@ -129,11 +139,22 @@ def previous_results(identifier):
     for step in run["steps"]:
         if step["status"] != "review" or not step.get("handoff") or not step.get("artifact"):
             continue
-        artifact = Path(step["artifact"]).resolve()
+        # Older records store an absolute path from the original installation.
+        filename = PureWindowsPath(step["artifact"]).name
+        artifact = (directory / step["workflow"] / filename).resolve()
         if artifact.is_relative_to(directory) and artifact.is_file():
-            collected.append({"title": step["title"], "artifact": str(artifact), "handoff": step["handoff"]})
+            collected.append({"id": step["id"], "title": step["title"],
+                              "workflow": step["workflow"], "artifact": str(artifact),
+                              "handoff": step["handoff"], "report": step.get("report")})
     if not collected:
         raise ValueError("That run has no reviewed workflow results to reuse.")
+    if selected is not None:
+        available = {step["id"] for step in collected}
+        if (not isinstance(selected, list) or not selected
+                or any(not isinstance(key, str) or key not in available for key in selected)
+                or len(set(selected)) != len(selected)):
+            raise ValueError("Choose at least one available reviewed result from the previous run.")
+        collected = [step for step in collected if step["id"] in selected]
     return collected
 
 
@@ -167,21 +188,47 @@ def validate(payload):
         if parsed.scheme not in ("http", "https") or not parsed.hostname or parsed.username or parsed.password:
             raise ValueError("Enter a public page link starting with https:// or http://.")
     prior_id = field(payload, "sourceRun", 350)
+    selected = payload.get("sourceSteps")
+    reuse = payload.get("sourceImages", False)
     if prior_id and not workflows:
         raise ValueError("Choose a workflow to reuse reviewed results.")
-    carried = previous_results(prior_id)
+    if not isinstance(reuse, bool) or (not prior_id and (selected is not None or reuse)):
+        raise ValueError("Choose a previous run to reuse its results or images.")
+    carried = previous_results(prior_id, selected)
+    if carried:
+        for step in steps:
+            step["checks"] = [*step["checks"], HANDOFF_CHECK]
+    reused_images = []
+    if reuse:
+        paths = saved_images((ROOT / "tasks" / prior_id).resolve())
+        if not paths:
+            raise ValueError("The previous run has no saved images to reuse.")
+        if len(paths) + len(images) > MAX_IMAGES:
+            raise ValueError(f"Use up to {MAX_IMAGES} images across the previous and new run.")
+        try:
+            for path in paths:
+                with path.open("rb") as image:
+                    reused_images.append(check_image(image.read(MAX_IMAGE_BYTES + 1)))
+        except OSError:
+            raise ValueError("A saved image could not be read. Attach it again to use it.") from None
     if not (url or brief or images or carried):
         raise ValueError("Add a page link, describe what you want, or attach a screenshot.")
     provider = payload.get("provider", "codex")
     require(provider)
     return (product or (urlsplit(url).hostname if url else "Skill review"), url, brief,
-            images, steps, sources, provider, workflows, carried)
+            images, reused_images, steps, sources, provider, workflows, carried)
 
 
 def save_run(directory, data):
     draft = directory / "run.tmp"
     with STATE_LOCK:
-        draft.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        stored = dict(data)
+        if data.get("carried"):
+            stored["carried"] = [
+                {key: value for key, value in step.items() if key != "report"}
+                for step in data["carried"]
+            ]
+        draft.write_text(json.dumps(stored, ensure_ascii=False), encoding="utf-8")
         draft.replace(directory / "run.json")
     record = directory / "RECORD.md"
     record.write_text("\n".join([
@@ -204,6 +251,8 @@ def get_run(run_id):
             data["status"] = "interrupted"
     data.pop("pid", None)
     data.pop("carried", None)
+    if data.get("workflows"):
+        data["imageCount"] = len(saved_images(directory))
     return data
 
 
@@ -280,16 +329,17 @@ def run_steps(provider, data, directory, files, sources, fields):
 
 
 def start_run(payload):
-    product, url, brief, images, steps, sources, provider, workflows, carried = validate(payload)
+    product, url, brief, images, reused_images, steps, sources, provider, workflows, carried = validate(payload)
     if not RUN_LOCK.acquire(blocking=False):
         raise RuntimeError("A skill run is already in progress. Wait for it to finish before starting another.")
     try:
         directory = new_task(product, "skill-run")
         files = []
-        for idx, (extension, body) in enumerate(images, 1):
-            file = directory / f"supplied-image-{idx}.{extension}"
-            file.write_bytes(body)
-            files.append(file)
+        for label, attachments in (("supplied", images), ("reused", reused_images)):
+            for idx, (extension, body) in enumerate(attachments, 1):
+                file = directory / f"{label}-image-{idx}.{extension}"
+                file.write_bytes(body)
+                files.append(file)
         run_id = directory.relative_to(ROOT / "tasks").as_posix()
         from urllib.parse import quote
         data = {"id": run_id, "product": product, "status": "queued", "steps": steps, "provider": provider,

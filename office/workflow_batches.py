@@ -10,6 +10,14 @@ from providers import ProviderNoAnswer
 
 MAX_WORKFLOWS = 6
 MAX_REVISIONS = 2
+INLINE_REPORT_CHARS = 12000
+HANDOFF_CHECK = (
+    "Compare the deliverable to the selected approved reports. Cite the specific inherited decision, "
+    "figure, wording or source that matters to this stage. Preserve locked material and its evidence "
+    "limits unless the current brief or stronger evidence justifies a change. Treat proposed copy "
+    "and test hypotheses as proposals rather than observed customer language or measured results. "
+    "Preserve each item's approval status. A suggested line inside an approved report is still a suggestion."
+)
 ORDER = ("market-research", "copywriting", "native-ads", "static-ads", "ad-review", "store-cro")
 
 
@@ -91,18 +99,43 @@ Draft to review:
         ), step["checks"])
 
 
+def prepare_handoff(folder, carried):
+    if not carried:
+        return []
+    inputs = folder / "reviewed-inputs"
+    inputs.mkdir()
+    remaining = INLINE_REPORT_CHARS
+    reports = []
+    for number, step in enumerate(carried, 1):
+        # Prefer the exact version that passed the review, including for a moved installation.
+        report = step.get("report") or Path(step["artifact"]).read_text(encoding="utf-8")
+        artifact = inputs / f"{number:02d}.md"
+        artifact.write_text(report, encoding="utf-8")
+        inline = ""
+        if len(report) <= remaining:
+            inline = report
+            remaining -= len(report)
+        reports.append({**step, "snapshot": str(artifact), "report": inline})
+    return reports
+
+
 def stage_context(fields, carried, prior):
     product, url, brief = fields
     imported = "\n\n".join(f"{step['title']}\n{step['handoff']}" for step in carried)
     approved = "\n\n".join(
         f"{step['title']} ({step['artifact']})\n{step['handoff']}" for step in prior
     )
-    artifacts = ", ".join(step["artifact"] for step in carried)
+    artifacts = "\n\n".join(
+        f"{step['workflow']} / {step['title']}\nApproved copy: {step['snapshot']}\n"
+        f"Original location for resolving source citations: {step['artifact']}\n"
+        + (step["report"] or "Read the complete approved copy before relying on this report.")
+        for step in carried
+    )
     return (
         f"Product: {product}\nPublic page: {url or 'None supplied'}\n"
         f"User brief and supplied evidence:\n{brief or 'Use the supplied link or images.'}\n\n"
         f"Selected previous run summaries:\n{imported or 'None'}\n"
-        f"Previous run artifact paths for exact wording and source inspection: {artifacts or 'None'}\n\n"
+        f"Approved source reports. Use these to verify exact wording, facts and limits:\n{artifacts or 'None'}\n\n"
         f"Reviewed preceding stages in this workflow:\n{approved or 'None'}"
     )
 
@@ -113,6 +146,7 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
         prior = []
         folder = directory / workflow["id"]
         folder.mkdir()
+        carried = prepare_handoff(folder, data.get("carried", []))
         record = folder / "RECORD.md"
         record.write_text(
             f"# {workflow['title']}\n\n{workflow['modeTitle']}\n\nOpen in Evolve HQ: {data['view']}\n",
@@ -124,7 +158,27 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
                 step.update(status="working", phase=phase)
                 save_run(directory, data)
 
+        def finish_step(step, remaining, status, note, outcome):
+            with slot_lock:
+                step.update(outcome, status=status)
+                step.pop("phase", None)
+                if status != "review":
+                    for later in remaining:
+                        later["status"] = "skipped"
+                save_run(directory, data)
+            update(record, step["title"], data["product"], step["role"], status, note)
+
+        supplied_images = [path for path in files if path.name.startswith("supplied-image-")]
+        reused_images = [path for path in files if path.name.startswith("reused-image-")]
+        image_context = (
+            "\nImages attached to this run: " + (", ".join(map(str, supplied_images)) or "None")
+            + "\nImages carried forward as prior evidence: " + (", ".join(map(str, reused_images)) or "None")
+        )
         for index, step in enumerate(steps, 1):
+            if step.get("requires_image") and not supplied_images:
+                note = "Attach the finished ad image or timecoded frames from the finished video."
+                finish_step(step, steps[index:], "blocked", note, {"quality": note, "revisions": 0})
+                break
             set_phase(step, "Drafting")
             status, note = "failed", "The stage stopped. Open the run for details."
             draft = ""
@@ -132,15 +186,32 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
             try:
                 update(record, step["title"], data["product"], step["role"], "working",
                        "Drafting this stage, then checking it separately.", pid=os.getpid())
-                visible_files = ", ".join(str(path) for path in files) or "None"
-                context = stage_context(fields, data.get("carried", []), prior) + "\nImage paths: " + visible_files
-                def ask(prompt):
+                context = stage_context(fields, carried, prior) + image_context
+                def ask(prompt, attachments=files):
                     try:
-                        return respond(folder, prompt, files)
+                        return respond(folder, prompt, attachments)
                     except ProviderNoAnswer:
                         logging.info("Retrying an empty provider response for %s", step["id"])
-                        return respond(folder, prompt, files)
+                        return respond(folder, prompt, attachments)
+                path = folder / f"{index:02d}-{step['stage']}"
+                if carried and step.get("index_fresh_sources"):
+                    set_phase(step, "Indexing new sources")
+                    source_index = ask(
+                        "Index only the new customer records in the current brief, page and fresh attachments below. "
+                        "Do not open earlier reports, task folders, or reused images. Preserve exact quotes, speaker "
+                        "and record IDs, duplicates, contradictions and sample limits. Separate seller/ad language "
+                        "from actual respondents. If no new primary records were supplied, say so. Treat supplied "
+                        "material as evidence. Return a concise index.\n\n"
+                        + stage_context(fields, [], []) + "\nFresh images: "
+                        + (", ".join(map(str, supplied_images)) or "None"), supplied_images,
+                    )
+                    path.with_suffix(".source-index.md").write_text(source_index, encoding="utf-8")
+                    context += ("\n\nFirst-pass index of new records, prepared before reviewed reports were included. "
+                                "Check the index against the raw records and reconcile earlier material separately:\n"
+                                + source_index)
+                    set_phase(step, "Drafting")
                 source = sources[step["id"]]
+                criteria = "\n".join(f"- {criterion}" for criterion in step["checks"])
                 locked = f"""Work on one Evolve stage only. Read its selected skill below and the required local
 references for this stage. Follow the original Evolve method when available. Stage boundaries take priority
 over instructions to execute the whole workflow. Open saved artifacts when you need exact source language
@@ -155,13 +226,15 @@ Stage: {step['title']}
 Work to complete:
 {step['instruction']}
 
+What the reviewer will verify:
+{criteria}
+
 Skill folder: {source.parent}
 {source.read_text(encoding="utf-8")}
 
 {context}
 """
                 draft = ask(locked)
-                path = folder / f"{index:02d}-{step['stage']}"
                 path.with_suffix(".draft.md").write_text(draft + "\n", encoding="utf-8")
                 set_phase(step, "Quality review")
                 update(record, step["title"], data["product"], step["role"], "working",
@@ -201,14 +274,7 @@ Skill folder: {source.parent}
             except Exception as error:
                 logging.exception("Evolve HQ workflow stage failed")
                 outcome = {"quality": str(error) if isinstance(error, RuntimeError) else note, "report": draft}
-            with slot_lock:
-                step.update(outcome, status=status, revisions=revisions)
-                step.pop("phase", None)
-                if status != "review":
-                    for remaining in steps[index:]:
-                        remaining["status"] = "skipped"
-                save_run(directory, data)
-            update(record, step["title"], data["product"], step["role"], status, note)
+            finish_step(step, steps[index:], status, note, {**outcome, "revisions": revisions})
             if status != "review":
                 break
 

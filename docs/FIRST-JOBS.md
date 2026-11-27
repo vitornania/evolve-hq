@@ -5,7 +5,11 @@
 1. Open **Workflows & skills**. Pick a mode in any of the six core workflows.
 2. Check the stages you want and click **Add to run**. Add another workflow if it has its own inputs or can use the same starting brief. Put each workflow's objective in the brief if they differ.
 3. Click **Start run**. Independent workflows run side by side. Each workflow works through its selected stages in order. A stage drafts its deliverable, checks every required criterion in a separate model call, and can revise and recheck up to twice. A dependent stage starts after every criterion passes. A blocked workflow leaves its draft and findings available while the others continue.
-4. Open **Quality review** to see the finding and evidence for each criterion. After a research or brief run, click **Use reviewed results** to carry those outputs into a native or static ad. Use a new run when the next workflow needs an output that has yet to be produced.
+4. Open **Quality review** to see the finding and evidence for each criterion. After a research or brief run, click **Use reviewed results**, choose the reports you need, and optionally include the earlier images. Add the next job's brief and select a workflow. For a finished-ad review, attach the ad or its timecoded frames to the new run.
+
+Each receiving workflow gets the complete approved reports in its local `reviewed-inputs` folder. Its quality review checks the new work against those reports for exact wording, figures, source evidence and claim limits. For example, when Copywriting hands a control to Native Ads for a hook test, the reviewer can compare the fixed body word for word.
+
+When you hand earlier work to **Analyze customer material I provide**, the first pass indexes the current brief, page and newly attached material. It saves that index before the next pass receives the earlier reports and images. That makes it possible to check whether a new interview really supports an old ad angle.
 
 Each stage and its quality review is a separate request to your chosen provider. Revisions target the failed criteria and get checked against the full list again. A passed review is an AI assessment. Inspect the final asset, factual claims, and any reported gaps before using it.
 
@@ -17,7 +21,7 @@ If the provider gives no answer, the workflow retries that call once. If a stage
 | Copywriting & Briefs | Locks the audience, desire, angle and grounded claims before drafting. The one-take mode checks the exact hook, single bridge and spoken delivery. |
 | Native Ads | Uses the Evolve brief to draft and review native copy. Hook tests preserve the approved body and offer. |
 | Static Ads | Reviews the selected library or reference, maps every visual and copy slot, and checks the evidence, typography and render handoff. |
-| Review & Iterate Ads | Separates observations from performance findings, then tests a specific change to the parent ad. |
+| Review & Iterate Ads | Diagnoses misses across the ad and the store, checks finished creative, and plans the next controlled test. |
 | Store Review & CRO | Audits the supplied page and gallery, prioritizes specific edits, and proposes a first conversion test. |
 
 ## Review a store
@@ -58,3 +62,12 @@ python3 hq.py run roas examples/ad-metrics.csv --product "Example store"
 Open the printed report location, or select the Performance Analyst in the live office and open the task record. The sample uses fictional results. To use your own export, keep the input columns `ad,spend,revenue,currency`. Report each market and attribution window clearly.
 
 See **Free local tools** in the app for the other actions, including storyboards, creator queues, and Resolve handoffs.
+
+## Diagnose a miss or review the final creative
+
+- Choose **Diagnose an underperforming ad**. Supply the exact ad or transcript, its page and offer, and comparable delivery and purchase figures. Add checkout observations if available. The workflow ranks plausible causes against your evidence and proposes one change or one observation to collect.
+- Choose **Review a finished ad before launch**. Attach the final image and give its version and approved brief. For video, attach representative frames and list their timestamps in the brief with the relevant transcript. The review names what it could inspect and any remaining footage or audio checks.
+
+## Calculate first-order CPA
+
+Open **Free local tools → Calculate break-even CPA** and enter average first-order revenue and costs from the same period and currency. Break-even CPA uses the contribution before ads. Target CPA also subtracts the contribution you want to keep per order. The tool runs locally without an AI provider. Click **Copy for ad review** to include the calculation in a Weekly Review brief alongside the same-basis acquisition figures.

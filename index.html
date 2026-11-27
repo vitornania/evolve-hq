@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Evolve HQ</title>
+<script type="module" src="/cpa-calculator.js"></script>
 <style>
 :root{font-family:system-ui,sans-serif;color:#22271e;background:#f4f5ee;color-scheme:light}
 *{box-sizing:border-box}
@@ -35,7 +36,20 @@ summary{cursor:pointer;font-weight:650}
 #skills section{display:inline-block;vertical-align:top;width:min(100%,280px);margin:12px 8px 0 0}
 #skills ul{padding-left:20px;margin-top:8px}
 #copy-status{min-height:1.2em;color:#304d32;font-size:.88rem}
+.cpa-panel{margin-bottom:36px}
+.cpa-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px}
+.cpa-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.cpa-fields label{display:grid;align-content:start;gap:5px;font-size:.9rem;font-weight:600}
+.cpa-fields input{width:100%;padding:9px;border:1px solid #bdc5b7;border-radius:8px;color:inherit;font:inherit}
+.cpa-fields input:focus-visible{outline:3px solid #708d5a;outline-offset:2px}
+.cpa-fields small{font-weight:400;line-height:1.35}
+.cpa-results{background:#eff1e8;padding:14px 16px;border-radius:9px}
+.cpa-results dl{margin:0 0 10px}
+.cpa-results dl div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;border-bottom:1px solid #dce0d4;padding:7px 0}
+.cpa-results dd{margin:0;text-align:right;font-weight:650;font-variant-numeric:tabular-nums}
+#cpa-status{font-size:.88rem}
 @media(max-width:650px){.overview{grid-template-columns:1fr}.controls{flex-wrap:wrap}main{width:calc(100% - 32px);margin-top:22px}header{padding:18px 16px}}
+@media(max-width:650px){.cpa-layout,.cpa-fields{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -53,6 +67,30 @@ summary{cursor:pointer;font-weight:650}
 <ul class="roster" id="roster"></ul>
 </section>
 </div>
+<section class="panel cpa-panel" aria-labelledby="cpa-title">
+  <h2 id="cpa-title">Calculate break-even CPA</h2>
+  <p class="muted">Find how much you can spend to acquire a first-time customer based on their first order.</p>
+  <div class="cpa-layout">
+    <form id="cpa-form">
+      <p class="muted"><small>Use averages per first order in one currency. Enter zero for any cost that doesn’t apply.</small></p>
+      <div class="cpa-fields">
+        <label>Order revenue<input name="revenue" type="number" min=".01" max="999999999.99" step=".01" placeholder="75.00" required><small>After discounts, before refunds, excluding tax collected.</small></label>
+        <label>Product cost<input name="product_cost" type="number" min="0" max="999999999.99" step=".01" placeholder="15.00" required></label>
+        <label>Fulfillment and shipping<input name="fulfillment" type="number" min="0" max="999999999.99" step=".01" placeholder="5.00" required></label>
+        <label>Other variable costs<input name="other_costs" type="number" min="0" max="999999999.99" step=".01" placeholder="4.00" required><small>Include fees and the expected cost of refunds or returns.</small></label>
+        <label>Contribution to keep<input name="profit_target" type="number" min="0" max="999999999.99" step=".01" placeholder="0.00"><small>Optional amount per order after ad spend.</small></label>
+        <label>Currency<input name="currency" type="text" value="USD" pattern="[A-Za-z]{3}" maxlength="3" required></label>
+      </div>
+      <button type="submit">Calculate</button>
+      <p id="cpa-status" class="muted" role="status"></p>
+    </form>
+    <section id="cpa-results" class="cpa-results" aria-label="CPA results" hidden>
+      <dl id="cpa-values"></dl>
+      <p class="muted"><small>These first-order thresholds exclude fixed costs and repeat purchases.</small></p>
+      <button type="button" id="copy-cpa">Copy for ad review</button>
+    </section>
+  </div>
+</section>
 <div class="controls"><h2>Workflow actions</h2><label>Desk <select id="desk"><option value="">All desks</option></select></label></div>
 <div id="actions"></div>
 <details><summary>Browse plugin skills by desk</summary><div id="skills"></div></details>

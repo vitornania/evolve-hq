@@ -34,6 +34,63 @@
         ]
       },
       {
+        "id": "diagnose-underperformance",
+        "title": "Diagnose an underperforming ad",
+        "description": "Compare the ad, funnel and results, then choose one test that could explain the miss.",
+        "steps": [
+          {
+            "id": "align-diagnostic-evidence",
+            "skill": "evolve-creative-analysis",
+            "title": "Align the ad, destination and results",
+            "instruction": "Build a source-linked evidence table covering the exact creative and promise, the product and offer, the landing page and checkout, and the supplied delivery and purchase data. Reconcile creative ID, destination version, market, spend, dates, units, and metric and attribution definitions. Compare with a relevant control, target or historical period only when comparable. Keep attributed purchases separate from first-time customer counts. Distinguish low or interrupted delivery from conversion weakness. A blank value, absent placement or uninspected checkout is unknown. Never convert a gap into zero or assume an ad underperformed from unequal delivery alone. If data is sparse or no baseline exists, retain the available observations and state what is needed to classify performance.",
+            "checks": [
+              "Every material fact or metric traces to the supplied asset, export or page, and missing and incomparable inputs are explicit.",
+              "The review separates exposure, attributed purchases and first-time customers, and it names any gaps that block a performance conclusion."
+            ]
+          },
+          {
+            "id": "rank-diagnostic-hypotheses",
+            "skill": "analyze-ads",
+            "title": "Rank likely causes of the miss",
+            "instruction": "Use the reconciled evidence to consider delivery and measurement, creative, product or offer, landing-page continuity, and checkout. Shortlist up to three plausible causes. For each, cite the strongest observation with an exact line, image region, destination section or metric, name a competing explanation, and say what evidence would change the ranking. A high CTR or low hold rate can generate a hypothesis about the opener or buyer fit; neither alone establishes the cause of weak acquisition. If landing-page or checkout evidence is materially stronger than creative evidence, route the recommendation there. When the evidence is inconclusive, state the next observation needed before picking a fix.",
+            "checks": [
+              "The ranking checks plausible funnel alternatives, distinguishes observed defects from causality, and gives concrete evidence and a disconfirming check for the leading explanation.",
+              "The recommended direction targets the strongest evidence, or requests a named missing observation when the source of underperformance remains unclear."
+            ]
+          },
+          {
+            "id": "plan-diagnostic-test",
+            "skill": "evolve-test-design",
+            "title": "Choose one next test",
+            "instruction": "Turn the leading viable explanation into one controlled change, or specify one evidence-collection step when the diagnosis is inconclusive. Name the exact before and after, owner, creative and destination IDs, input held fixed, main outcome and guardrail, and what result would support, weaken or leave the explanation unresolved. Use comparable purchase or acquisition outcomes where available; identify attention signals as secondary diagnostics. Use a supplied profit or CPA threshold only with a matching measurement basis; leave numeric thresholds open if inputs are missing. If a page or checkout fix is selected, retain the ad as the control and include a handoff for Store Review & CRO.",
+            "checks": [
+              "The output specifies one testable change or one concrete evidence request, and it links directly to the evidence and uncertainty from the diagnosis.",
+              "The plan names constants, metric definitions and a decision rule. It avoids invented economics, target values or results."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "review-finished-ad",
+        "title": "Review a finished ad before launch",
+        "description": "Check the actual ad image or timecoded video frames against the approved brief.",
+        "steps": [
+          {
+            "id": "inspect-finished-ad",
+            "skill": "analyze-ads",
+            "title": "Check the finished export against its brief",
+            "requires_image": true,
+            "instruction": "Identify the supplied final asset and version and the approved brief. Use an attached final PNG, JPG or WebP, or attached timecoded frames and supplied transcript for video. A script, slot map, storyboard or brief is preparation evidence. Treat a missing inspectable final asset as a blocker and request the export or representative timecoded frames. Cite the exact image area or supplied timecode for every finding. Check opening and next beat, what the eye sees at feed size, legibility and typos, correct product and use, whether visuals and copy communicate the same desire and supported benefit, claim and offer continuity, brand requirements, and what the CTA asks the viewer to do. For video, inspect captions, timing or audio only when the supplied evidence supports each judgment. Score pacing against comprehension for the chosen format. Mark uninspected aspects and missing proof or brief fields. Return a readiness decision scoped to what you could inspect, with any launch-blocking finding and one specific fix or input for each. Do not offer a performance prediction or launch anything.",
+            "checks": [
+              "The report identifies the actual inspected asset and version, and findings are tied to observable locations or timecodes. If the final asset cannot be inspected, the result is blocked.",
+              "The review checks product use, legibility and message and offer continuity where supported, and identifies exactly which footage, audio, brief fields or proofs remain unavailable.",
+              "Readiness is scoped to the actual evidence. Each launch-blocking issue has a concrete fix or required input.",
+              "For each copy or CTA mismatch, check the item's own label and the current brief. A proposed line remains optional even under a heading such as 'copy lock'. A wording change alone blocks launch only when that wording was explicitly required. Report other differences as editorial decisions unless there is a separate evidenced defect."
+            ]
+          }
+        ]
+      },
+      {
         "id": "weekly-review",
         "title": "Review a weekly batch",
         "description": "Use creative assets and their performance export to decide what to repeat, revise, or test next.",
@@ -64,10 +121,10 @@
             "id": "rank-next-briefs",
             "skill": "evolve-roadmap",
             "title": "Rank the next briefs",
-            "instruction": "Convert the batch findings into a ranked queue of next briefs. For each, give the parent creative ID when available, objective, specific change, locked elements, required assets, primary KPI, and source result or unresolved dependency. Use the existing Evolve roadmap and experiment fields where available. Return a reusable plan with the next production decision clearly identified.",
+            "instruction": "Convert the batch findings into a ranked queue of next briefs. For each, give the parent creative ID when available, objective, specific change, locked elements, required assets, primary KPI, and source result or unresolved dependency. Use the existing Evolve roadmap. Where prior briefs or ads show it, group related variants under their underlying buyer, desire, angle and benefit. Show which creative decisions the batch actually varied. Identify a materially different concept as an exploratory option only when evidence supports it and the task calls for broader exploration. Treat a multi-element concept as a package result. Return the next production decision.",
             "checks": [
               "Every ranked brief traces to a batch observation or to a clearly labeled exploratory hypothesis.",
-              "The queue preserves creative IDs, required assets, the measurement plan and any dependency before production."
+              "The queue preserves creative IDs, required assets, the measurement plan and dependencies. When concept history is available, it distinguishes variants from new ideas."
             ]
           }
         ]

@@ -7,7 +7,8 @@ import subprocess
 import sys
 import tempfile
 import time
-from urllib.request import urlopen
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "office"))
@@ -65,9 +66,32 @@ try:
         workflows = json.load(response)
         assert len(workflows) == 6
         assert all(mode["steps"] for work in workflows for mode in work["modes"])
-    for route in ("/workbench.js", "/static-libraries.js", "/scene.js", "/three/build/three.module.js"):
+        modes = {mode["id"] for work in workflows if work["id"] == "ad-review" for mode in work["modes"]}
+        assert {"diagnose-underperformance", "review-finished-ad"} <= modes
+    for route in ("/workbench.js", "/cpa-calculator.js", "/static-libraries.js", "/scene.js", "/three/build/three.module.js"):
         with urlopen(base + route, timeout=5) as response:
             assert response.headers.get_content_type() == "text/javascript"
+    costs = {"currency": "USD", "revenue": "75", "product_cost": "15", "fulfillment": "5",
+             "other_costs": "4", "profit_target": "10"}
+
+    def cpa(data):
+        request = Request(base + "/api/cpa", data=json.dumps(data).encode("utf-8"),
+                          headers={"Origin": base, "Content-Type": "application/json"})
+        with urlopen(request, timeout=5) as response:
+            return json.load(response)
+
+    estimate = cpa(costs)
+    assert estimate["break_even_cpa"] == "51.00" and estimate["target_cpa"] == "41.00"
+    assert estimate["break_even_roas"] == "1.47"
+    assert cpa(dict(costs, product_cost="100"))["break_even_cpa"] is None
+    zero = cpa(dict(costs, product_cost="66"))
+    assert zero["break_even_cpa"] == "0.00" and zero["break_even_roas"] is None
+    try:
+        cpa(dict(costs, other_costs=""))
+    except HTTPError as error:
+        assert error.code == 400
+    else:
+        raise AssertionError("A missing cost was accepted as zero.")
     with urlopen(base + "/api/static-libraries", timeout=5) as response:
         assert json.load(response) == []
     with urlopen(base + "/api/activity", timeout=5) as response:
@@ -81,5 +105,5 @@ finally:
     else:
         server.terminate()
     server.wait(timeout=10)
-print("Launcher, 62 skills, live activity, ROAS and native install verified.")
+print("Launcher, 62 skills, live activity, CPA, ROAS and native install verified.")
 subprocess.run([sys.executable, "scripts/check_workflow_batches.py"], cwd=ROOT, check=True)

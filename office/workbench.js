@@ -277,6 +277,43 @@ function clearRun() {
   $("#run-form").hidden=false;
   renderSelection();
 }
+function reuseResults(data, approved) {
+  sourceRun=data.id;
+  const source=$("#source-run");
+  source.replaceChildren(element("legend","Reviewed results to reuse"));
+  for (const step of approved) {
+    const label=element("label");
+    const input=element("input");
+    input.type="checkbox";
+    input.name="source-step";
+    input.value=step.id;
+    input.checked=true;
+    label.append(input,document.createTextNode(step.title));
+    source.append(label);
+  }
+  if (data.imageCount) {
+    const label=element("label","","source-images");
+    const input=element("input");
+    input.type="checkbox";
+    input.id="source-images";
+    const count=data.imageCount;
+    label.append(input,document.createTextNode(`Include ${count} ${count===1?'image':'images'} from the previous run`));
+    source.append(label);
+  }
+  source.append(button("Remove previous run","",()=>{
+    sourceRun="";
+    error();
+    renderSelection();
+  },"secondary"));
+  $("#product-name").value=data.product;
+  for (const id of ["#page-url","#brief","#images"]) $(id).value="";
+  updateImageNames();
+  error();
+  workflows.clear();
+  clearRun();
+  showTab("workflow");
+  source.querySelector("input").focus();
+}
 function renderRun(data) {
   runId=data.id;
   $("#workbench").classList.add("run-open");
@@ -306,20 +343,9 @@ function renderRun(data) {
   office.href="/";
   if (["review","blocked","failed","interrupted"].includes(data.status)) {
     controls.append(button("Prepare another run","",clearRun,"secondary"));
-    if (data.steps.some(step=>step.status==="review" && step.handoff)) {
-      controls.append(button("Use reviewed results","",()=>{
-        sourceRun=data.id;
-        $("#product-name").value=data.product;
-        const source=$("#source-run");
-        source.replaceChildren(document.createTextNode("Using reviewed results from "+data.product+" "),
-          button("Remove","Remove previous run results",()=>{
-            sourceRun="";
-            renderSelection();
-          },"secondary"));
-        workflows.clear();
-        clearRun();
-        showTab("workflow");
-      },"secondary"));
+    const approved=data.steps.filter(step=>step.status==="review" && step.handoff && step.artifact);
+    if (approved.length) {
+      controls.append(button("Use reviewed results","",()=>reuseResults(data,approved),"secondary"));
     }
   }
   if (data.steps.some(step=>step.report || step.quality)) {
@@ -400,6 +426,9 @@ async function submit(event) {
   if (url&&!url.includes("://")&&!url.includes(" ")) url="https://"+url;
   const brief=$("#brief").value.trim();
   const files=[...$("#images").files];
+  const sourceSteps=[...document.querySelectorAll('#source-run input[name="source-step"]:checked')].map(input=>input.value);
+  const handoff=isWorkflow&&sourceRun ? {sourceRun,sourceSteps,sourceImages:$("#source-images")?.checked ?? false} : {};
+  if (handoff.sourceRun&&!sourceSteps.length) {error("Select a reviewed result or remove the previous run.");return;}
   if (!url&&!brief&&!files.length&&!(isWorkflow&&sourceRun)) {error("Add a page link, a short brief, or a screenshot first.");$("#page-url").focus();return;}
   if (files.length>3||files.some(file=>file.size>5*1024*1024)) {
     error("Choose up to 3 images, each 5 MB or smaller.");
@@ -411,7 +440,7 @@ async function submit(event) {
   start.firstChild.textContent="Starting your run ";
   try {
     const selection=isWorkflow
-      ? {workflows:[...workflows].map(([id,{mode,stages}])=>({workflow:id,mode:mode.id,stages})),sourceRun}
+      ? {workflows:[...workflows].map(([id,{mode,stages}])=>({workflow:id,mode:mode.id,stages})),...handoff}
       : {skills:selected};
     const response=await fetch("/api/run",{
       method:"POST",headers:{"Content-Type":"application/json"},
