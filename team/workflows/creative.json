@@ -142,9 +142,9 @@
             "id": "draft-hook-variants",
             "skill": "native-ads-research-to-creative",
             "title": "Write openings against the fixed body",
-            "instruction": "First label the control with its ID and quote its exact original opening and locked body. Then write the requested opening variations for the same expectation, desire and angle. When available, use the installed Perry prompt appropriate for the requested job, keeping the Evolve constraints in the brief. Change only the opening unless the user explicitly authorizes changing its lead bridge. Preserve the exact fixed body in every full variant. If headlines are requested, make them consistent with the body and any requested placement limits. Show each opening, the transition boundary, and the complete variants where requested.",
+            "instruction": "First label the control with its ID and quote its exact original opening and locked body. Then write the requested opening variations for the same expectation, desire and angle. When available, use the installed Perry prompt appropriate for the requested job, keeping the Evolve constraints in the brief. Change only the opening unless the user explicitly authorizes changing its lead bridge. Preserve the exact fixed body in every full variant. If headlines are requested, make them consistent with the body and any requested placement limits. Show each opening, the transition boundary, and the complete variants where requested. For multiple openings, make each test a different way into that same belief, such as a recognizable interruption versus the visible marker the reader will return to. Avoid two paraphrases of one question unless the brief specifically requests a wording test. Keep every line grounded in the fixed continuation.",
             "checks": [
-              "Each opening fits the same reader, angle, proof level and eventual payoff.",
+              "Each opening fits the same reader, angle, proof level and eventual payoff. A reader can tell what differs between the requested hooks beyond synonym swaps.",
               "Every edit after the opening boundary is identified and corrected.",
               "The output identifies the control and each variant and reports headline lengths when a field limit applies."
             ]
@@ -153,7 +153,7 @@
             "id": "audit-hook-test",
             "skill": "evolve-test-design",
             "title": "Verify the controlled test",
-            "instruction": "Compare the approved control and each variant against the locked boundary. List what changed, confirm the preserved body and offer, and check that the original hypothesis remains testable. A reach signal is useful for prioritizing a swipe. First-party results and an actual comparison are needed to report a test winner. Read each replacement hook directly into the unchanged second line. Check whether their combined implication introduces a stronger claim, an invented speaker or an unsupported personal outcome. Drop or rewrite a failing hook within the permitted slot.",
+            "instruction": "Compare the approved control and each variant against the locked boundary. List what changed, confirm the preserved body and offer, and check that the original hypothesis remains testable. A reach signal is useful for prioritizing a swipe. First-party results and an actual comparison are needed to report a test winner. Read each replacement hook directly into the unchanged second line. Check whether their combined implication introduces a stronger claim, an invented speaker or an unsupported personal outcome. Drop or rewrite a failing hook within the permitted slot. Compare the hooks to one another, too. If two openings describe the same moment with the same question structure and differ only by synonyms, replace one inside the permitted opening unless the brief requests that narrow wording comparison.",
             "checks": [
               "The audit compares each proposed change to the identifiable control.",
               "Only the authorized test variable changes and no edited variant gains unsupported claims.",
@@ -286,12 +286,12 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
+            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages. In a supplied template, a role is the persuasive or visual job of an element, such as an offer or proof badge. Resolve a requested role count against the reference and its enumerated groups. The selected HQ stages already specify the workflow.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
               "Material claim roles link to target-product evidence, with unsupported claims marked.",
               "Available assets, format and remaining input gaps are named.",
-              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout."
+              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout. Count reference roles as visual or content jobs, without inventing staffing or additional stages."
             ]
           },
           {

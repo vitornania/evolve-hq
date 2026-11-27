@@ -144,9 +144,11 @@ def check_individual_skills(workspace):
     name = "humanizer"
     pack = workspace / ".office/libraries/evolve/skills" / name
     pack.mkdir(parents=True)
-    (pack / "SKILL.md").write_text("Consult the installed method example.", encoding="utf-8")
+    # Exercise Windows line endings even on a POSIX checkout. The runner preserves source bytes.
+    installed_method = "Consult the installed method example.\r\nKeep its evidence in context.\r\n"
+    (pack / "SKILL.md").write_bytes(installed_method.encode("utf-8"))
     (pack / "example.md").write_text("Authorized source fixture.", encoding="utf-8")
-    sentinel = (workspace / "skills" / name / "SKILL.md").read_text(encoding="utf-8").strip()
+    portable_method = (workspace / "skills" / name / "SKILL.md").read_bytes().decode("utf-8")
     cases = skill_runs.load_json(ROOT / "examples/skill-quality-cases.json")
     assert set(cases) == set(guide)
     assert all(case["brief"] and case["expect"] for case in cases.values())
@@ -169,7 +171,7 @@ def check_individual_skills(workspace):
         reviewing = prompt.startswith("Independently review")
         calls[title, reviewing] += 1
         if title == guide[name]["title"]:
-            assert sentinel in prompt and "Consult the installed method example." in prompt
+            assert portable_method in prompt and installed_method in prompt
             assert str(pack) in prompt
         if not reviewing:
             assert "Run exactly this selected Evolve skill:" in prompt
@@ -203,7 +205,7 @@ def check_individual_skills(workspace):
             if skill == name:
                 assert step["revisions"] == 1 and len(step["methodFiles"]) == 2
                 methods, receipt = workflow_batches.selected_method(pack / "SKILL.md")
-                assert step["methodFiles"] == receipt and sentinel in methods
+                assert step["methodFiles"] == receipt and portable_method in methods
         mixed = wait_run(skill_runs.start_run({"skills": ["ab-testing", name], "brief": "Two selected tasks."}))
         assert [step["status"] for step in mixed["steps"]] == ["blocked", "review"]
         assert [step["id"] for step in skill_runs.previous_results(mixed["id"])] == [name]

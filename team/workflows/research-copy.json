@@ -39,7 +39,7 @@
             "checks": [
               "Separate desires from product features and angles, retaining evidence IDs and counterexamples.",
               "Record actual prompt provenance and scope; an unavailable original is never counted as completed.",
-              "For a scoped or portable request, a supported analysis with explicit incomplete original-pass status meets the stage. Require the original when exact execution is requested."
+              "For a scoped or portable request, a supported analysis with explicit incomplete original-pass status meets the stage. For an exact execution claim, identify the original Desire Hunt prompt actually opened in the method receipts."
             ]
           },
           {
@@ -50,7 +50,7 @@
             "checks": [
               "Mechanisms have a traceable factual basis or a specific proof gap, regardless of market sophistication.",
               "Mechanism recommendations explain how the solution would answer the identified problem, with uncertainty preserved.",
-              "Assess a focused fallback on its traceability and explicit incomplete original-pass status. Missing course files alone block only a request that specifically requires the original method."
+              "Assess a focused fallback on its traceability and explicit incomplete original-pass status. Missing course files alone block only a request that specifically requires the original method. When claiming exact execution, include the actual original New Mechanisms prompt in the method receipts and identify the sophistication evidence used."
             ]
           },
           {
@@ -61,7 +61,7 @@
             "checks": [
               "Every new fact has a source, date, scope and implication, or an explicit reason the cell remains empty.",
               "The result does not confuse recency, novelty, interpretation or an example in the course with verified product evidence.",
-              "A clearly identified portable finding or evidence gap can advance a scoped run. Only required exact execution depends on the original being available."
+              "A clearly identified portable finding or evidence gap can advance a scoped run. For exact execution, identify the original New Information prompt actually opened in the method receipts."
             ]
           },
           {
@@ -82,7 +82,7 @@
             "checks": [
               "Angle and hook choices derive from established profiles and source IDs and include an explicit test priority.",
               "Unknown material is indicated instead of filling the requested count with weak or unsupported variants.",
-              "A portable shortlist can advance with the exact original pass still marked incomplete. If exact execution was required, preserve the unmet dependency."
+              "A portable shortlist can advance with the exact original pass still marked incomplete. If exact execution was required, check the actual Ad Angles original in the method receipts or preserve the unmet dependency."
             ]
           },
           {
