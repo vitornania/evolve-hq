@@ -14,6 +14,12 @@ Turn the storefront material the owner supplied into a prioritized list of edits
 3. Review each visible image or slide by order and role. Check whether the gallery shows what is sold, scale or fit, real usage, important details, what is included, and evidence appropriate to the product. Check whether overlays can be read on mobile, crops retain essential details, slides repeat, variants match, and alt text is meaningful where it is inspectable. State keep, improve, replace, or move for consequential images. Do not infer the missing slides or invent visual findings from URLs or extracted text alone.
 4. Ground each priority in a specific observation using the page, section, screenshot, or image number. Label a shopper reaction as a hypothesis. If analytics are supplied, record window, segment, metric definition, and sample size when known. Report observed metrics without assigning causation or promising conversion gains.
 
+## Distinguish a repair from an experiment
+
+Trace the incoming ad or search promise to the first page element that answers it, then verify the price, selected variant, included items and checkout terms against the owner’s evidence. Quote or point to the exact mismatch. For a price or pack mismatch, specify the repair and its acceptance check. Re-select the same SKU, variant and quantity after the change and compare the displayed amount and currency on the mobile product page, in the offer record and at checkout. Mark any uninspected step for verification before an experiment starts. If only copy was supplied, limit the observation to wording; layout, below-fold behavior and analytics remain uninspected.
+
+For an uncertain change, name the buyer question, one change in copy or imagery, the eligible exposure, a downstream purchase or checkout outcome and a guardrail. Use a common denominator and comparable measurement window. A proposed image, preference or correlation cannot establish conversion lift.
+
 ## Return an actionable plan
 
 - Lead with the three highest-priority changes. Rank by strength of evidence, likely influence on the buying decision, and approximate effort. Name the issue and the concrete change.

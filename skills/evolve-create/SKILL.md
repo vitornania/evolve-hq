@@ -17,6 +17,14 @@ A brief or reference, product facts, and constraints.
 2. Develop hooks, proof devices, and a practical visual direction. For adaptations, reuse structural ideas while making original copy and imagery.
 3. Deliver a presentation-ready concept, supporting evidence, and test variable.
 
+## Decision checks
+
+Route by the decision to be made. A new reason to buy needs an original concept brief, a reference whose structure is worth borrowing needs a source analysis, and a proposed change to a known control needs a variation brief. Record the selected route and its evidence.
+
+Choose the narrative or layout based on what the buyer must understand next. A cold buyer may need the product action demonstrated before the offer can carry the close. Pass forward one audience, one desire, a proof asset and the exact deliverable. Separate a visually attractive reference from a measured account winner. If no control or result was supplied, label the work as exploratory.
+
+If an authorized course pack is available, consult Ideation, Imitation and Iteration brief templates for this decision.
+
 ## Deliverable
 
 A concept or variation with a creative handoff.

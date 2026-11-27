@@ -17,6 +17,14 @@ Campaign export, attribution window, and economics.
 2. Compare spend, attributed revenue, acquisition cost, and economics. Distinguish low sample and blended-rate effects.
 3. Recommend whether to hold, test, or change spend with an explicit decision rule.
 
+## Decision checks
+
+Reconcile the decision window, spend, net sales, attribution delay, currency and new-customer share. Compute allowable acquisition cost from the supplied contribution assumptions. Adjust for discounts, returns and variable costs where documented and identify any unknowns.
+
+Compare the cost of additional customers at the next spend level with the account's allowable cost. Cumulative ROAS can hide declining marginal returns. State the proposed change, the observation window, the stopping condition and evidence that would justify further allocation.
+
+If an authorized course pack is available, consult Media Buying Structure and Scaling Protocol for this decision.
+
 ## Deliverable
 
 A recommendation with risks and next checks.

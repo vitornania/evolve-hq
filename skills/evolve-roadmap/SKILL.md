@@ -17,6 +17,14 @@ Existing ads, test notes, and upcoming priorities.
 2. Build a queue of batches with parent creative, test variable, milestones, assets, and result entry.
 3. Show blockers and the next batch using evidence from completed tests.
 
+## Decision checks
+
+Use a stable parent concept ID and separate IDs for creative versions or tests. Keep each learning question, owner, dependency, audience, decision metric and review date attached when work changes hands.
+
+Record briefed, built, live and evaluated states only when their respective evidence exists. Keep a blocked dependency visible and reschedule downstream work without rewriting prior results. Close a test with the observation and the next decision, even if the result is inconclusive.
+
+If an authorized course pack is available, consult Growth Guide and original ad naming templates for this decision.
+
 ## Deliverable
 
 A list of batches, assets, and next tests.

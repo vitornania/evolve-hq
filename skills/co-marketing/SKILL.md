@@ -17,6 +17,12 @@ Your audience, offer, partner options, and objective.
 2. Define a shared idea, audience benefit, commitments, owners, and outcome measures.
 3. Return a campaign brief and an outreach draft when requested.
 
+## Design the exchange and measure each partner’s result
+
+1. Define the shared buyer occasion and what each partner contributes that the other cannot deliver alone, such as expertise, a complementary demo or permissioned distribution. Specify deliverable, owner, timing and the one action a participant can take.
+2. Separate gross audience size, overlapping memberships, unique reach, and attributable responses. Where overlap is unknown, report a range or leave it open. Document where a participant grants permission, which partner can contact them, and which promises each partner can substantiate.
+3. Tag each partner’s referrals and compare qualified opt-ins or purchases for a fixed window against a named baseline. Retain partner-level denominators and the cost of producing the asset. Give the smallest pilot that would warrant expanding the collaboration.
+
 ## Deliverable
 
 A partner shortlist or a joint campaign plan.

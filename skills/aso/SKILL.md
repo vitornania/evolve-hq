@@ -17,6 +17,12 @@ App listing URL or screenshots, category, and target buyer.
 2. Improve the first screenshots, copy, proof, and keyword relevance for the target buyer without inventing claims.
 3. Prioritize revisions and propose a clean listing experiment.
 
+## Find which part of the listing needs to change
+
+1. Separate discovery from conversion and downstream use. For the same storefront, country, version, traffic source and dates, report impressions, product-page views, installs and eligible activations where provided. Calculate each rate with its denominator.
+2. Read the title and first screenshot as the promise made to a new visitor. Compare the impression against the actual app experience, including free limits and paid requirements. Verify current storefront requirements when the task depends on a specific field or character limit.
+3. Test one listing change for the relevant search intent or landing source. Keep offer and attribution window stable, and use activation or paid retention as a guardrail if available. State whether the available data distinguishes low discovery from a mismatch after arrival.
+
 ## Deliverable
 
 Listing copy, image direction, and testing ideas.

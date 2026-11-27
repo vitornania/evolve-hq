@@ -8,7 +8,11 @@ The source is one directory per skill under `skills/`. Each contains a complete 
 python3 setup_hq.py skills all
 ```
 
-This copies skills into `.agents/skills/` for Codex, Cursor, and Google, and into `.claude/skills/` for Claude Code. Open a fresh session in this folder. Ask it to use `store-content-cro-review` with a product link or screenshot. Existing same-named folders are kept. Use `--workspace "/path/to/another/project"` to install into another project you own.
+This installs the bundled skills in `.agents/skills/` for Codex, Cursor, and Google and in `.claude/skills/` for Claude Code. Open a fresh session and ask it to use `store-content-cro-review` with a product link or screenshot. To install into another project, add `--workspace "/path/to/another/project"`.
+
+After updating HQ, run the same command again. The installer recognizes unchanged public releases and refreshes those skill folders, including their local references. A folder with customized text or additional files stays in place and appears in the list of kept skills. To switch a kept skill to the bundled version, move the whole folder to a backup location and rerun the installer. Custom libraries installed with `--source` keep any existing same-named destinations.
+
+Native installs in another project contain the chosen skill files and their bundled resources. The HQ browser workbench resolves an authorized course overlay locally as described below.
 
 ## Use an authorized full Evolve library in the office
 
@@ -18,7 +22,7 @@ If you have an approved Evolve package with the original instruction files, refe
 python3 setup_hq.py import-evolve "/path/to/extracted-evolve-library"
 ```
 
-HQ will use that local copy for matching skills, with internal folder paths and supporting materials intact. The imported files live under `.office/libraries/`, which is ignored by Git. Import only libraries you trust. The app supplies the selected instructions to the AI provider you choose.
+For matching skills, HQ gives the writer and reviewer both the installed course method and the bundled skill guide. Each resolves references from its own folder. The saved quality review records the paths and hashes of the instruction files supplied to the provider. When a reviewer cites a separate local text reference, HQ checks its excerpt against the file and shows the decision it supported under **Quality review**. The imported files live under `.office/libraries/`, which is ignored by Git. Import only libraries you trust. The app supplies the selected instructions to the AI provider you choose.
 
 ## Add Origins Ecommerce or Origins for Friends
 

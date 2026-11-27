@@ -13,12 +13,10 @@ Current messages, triggers, results, and audience.
 
 ## Steps
 
-1. Map lifecycle stage, audience, trigger, delays, and active suppression rules.
-2. Audit overlapping messages and segment or intent mismatches. Draft focused revisions for one channel at a time.
-3. Return a sequencing plan, example copy, and metrics with source definitions.
+1. Define the specific behavior and lifecycle stage. For abandonment, distinguish browse, cart and checkout, confirm message eligibility and consent for the channel, allow for purchase-event lag and recheck purchase, unsubscribe and suppression state immediately before send.
+2. Choose one objection appropriate to that moment and one relevant action. Write the subject, body and destination together. Use real cart contents and current terms. Timing, discounts, inventory warnings and deadlines require support. Check for collisions with higher-intent flows and any exit condition.
+3. Define success for a common eligible cohort and window. To estimate incremental orders, revenue or contribution, hold out a comparable group and account for refunds and incentive costs where relevant. Opens, attributed revenue and revenue per recipient answer different questions. Without a control, describe observed performance only.
 
 ## Deliverable
 
-A flow audit or drafts with timing and priorities.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return the requested messages, trigger, delay, exclusions, exit rule and measurement plan. For a course-specific pass use the installed flow, deliverability and testing references for the relevant channel.

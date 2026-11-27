@@ -17,6 +17,12 @@ Variants, traffic, conversions, and expected change, if known.
 2. For completed tests, verify denominators, assignment imbalance, exposure window, and uncertainty.
 3. Report what the data supports and the most appropriate next decision.
 
+## Design the decision before reading results
+
+1. State the buyer behavior to change, the proposed cause, and what the team will do if the improvement is too small to matter. Define the eligible population, randomization unit, exposure event, primary outcome, guardrail and observation window. Use the same unit for inference or account for clustering.
+2. Use the baseline, economically meaningful effect, traffic, power and uncertainty target to plan sample and duration. Spell out the units. A rise from 5% to 5.5% is 0.5 percentage points and a 10% relative lift. A payment or refund outcome may need time to mature.
+3. Check assignment imbalance, dropped exposures and outcome maturity before interpreting the point estimate. Honor the planned stopping rule or a valid sequential design. Report both arms with denominators and an interval when estimable. An interval spanning a material loss and gain supports another observation, even if one arm currently leads.
+
 ## Deliverable
 
 A test plan or interpretation with limitations.

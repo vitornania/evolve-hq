@@ -23,7 +23,12 @@ Brief, product assets, dimensions, and brand guidance.
 
 1. Draft a clear frame at the requested size with visual hierarchy, safe space, and a primary message.
 2. Specify assets, typography, spacing, variants, and accessibility details. Use supplied artwork or approved references. Verify the source font from editable metadata or the original PDF when available.
-3. Separate the image assets from exact copy and layout. Use approved product photos, offer wording, and logos. Specify which backgrounds or lifestyle images need to be prepared or generated. For a reference build, map the content of every visual and text slot on each page, including images that contain text. Map benefits to benefits and proof to comparable verified proof.
+3. Separate the image assets from exact copy and layout. Use approved product photos, offer wording, and logos. Specify which backgrounds or lifestyle images need to be prepared or generated. For a reference build, map the content of every visual and text slot on each page, including images that contain text. Map benefits to benefits and proof to comparable verified proof. Count claims inside each slot, including each half of a paired-benefit headline. If only one benefit has support, withhold the exact adaptation. A one-benefit layout is a separately labeled alternative test, even if its line breaks match the source.
+
+## Review the rendered ad in its placement
+
+1. At the intended crop and phone size, read the headline, proof and CTA in order and transcribe the smallest material qualifier. Verify the actual render against the approved slot map, including text inside supplied images. If the offer or qualifier disappears in the crop, adjust the layout and re-export before delivery.
+2. When building a variant, mark the element under test and list collateral changes to type, offer, product depiction, or proof. Show which conclusions the resulting comparison can support. A layout plan can be reviewed without a renderer. A production claim needs the inspected export and accessible editable source.
 
 ## Deliverable
 

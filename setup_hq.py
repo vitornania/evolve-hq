@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Check installation, or copy skills into project-local discovery folders."""
 import argparse
+from contextlib import contextmanager
+import hashlib
+import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -25,6 +29,96 @@ def skills_dir(source):
     return skills
 
 
+def native_fingerprint(folder):
+    """Hash the complete skill tree, including extra files and empty directories."""
+    digest = hashlib.sha256()
+    for item in sorted(folder.rglob("*"), key=lambda p: p.relative_to(folder).as_posix()):
+        if item.is_symlink() or not (item.is_file() or item.is_dir()):
+            return None
+        digest.update(item.relative_to(folder).as_posix().encode() + b"\0")
+        if item.is_dir():
+            digest.update(b"D")
+        else:
+            contents = hashlib.sha256()
+            with item.open("rb") as stream:
+                for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                    contents.update(chunk)
+            digest.update(b"F" + contents.digest())
+    return digest.hexdigest()
+
+
+@contextmanager
+def native_lock(state):
+    """OS releases this advisory install lock if the installer stops."""
+    if state.is_symlink():
+        raise ValueError(f"Cannot store installer state in a linked directory: {state}")
+    state.mkdir(exist_ok=True)
+    lock = state / "install.lock"
+    if lock.is_symlink():
+        raise ValueError(f"Cannot use a linked installer lock: {lock}")
+    with lock.open("a+b") as stream:
+        if os.name == "nt":
+            import msvcrt
+            stream.seek(0)
+            msvcrt.locking(stream.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(stream, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        yield
+
+
+def install_native(folder, target, state, legacy):
+    destination = target / folder.name
+    marker = state / (folder.name + ".sha256")
+    managed = legacy is not None
+    if destination.is_symlink() or marker.is_symlink():
+        return "kept"
+    exists = destination.exists()
+    if exists and (not managed or not destination.is_dir()):
+        return "kept"
+    source_hash = native_fingerprint(folder) if managed else None
+    if managed and source_hash is None:
+        raise ValueError(f"Cannot fingerprint the bundled skill {folder.name}.")
+    old_hash = None
+    if exists:
+        old_hash = native_fingerprint(destination)
+        recorded = marker.read_text(encoding="ascii").strip() if marker.is_file() else ""
+        if old_hash is None or (old_hash != source_hash and old_hash != recorded and old_hash not in legacy):
+            return "kept"
+        if old_hash == source_hash and old_hash == recorded:
+            return "current"
+
+    temp = Path(tempfile.mkdtemp(prefix="stage-", dir=state))
+    staged, original = temp / "next", temp / "original"
+    installed = False
+    committed = False
+    try:
+        if managed:
+            (temp / "fingerprint").write_text(source_hash, encoding="ascii")
+        if not exists or source_hash != old_hash:
+            shutil.copytree(folder, staged)
+            if exists:
+                destination.rename(original)
+                if native_fingerprint(original) != old_hash:
+                    raise ValueError(f"{destination} changed during installation. Its original copy was kept.")
+            staged.rename(destination)
+            installed = True
+        if managed:
+            (temp / "fingerprint").replace(marker)
+        committed = True
+    except BaseException:
+        if installed:
+            destination.rename(staged)
+        if original.exists():
+            original.rename(destination)
+        raise
+    finally:
+        # A failed rollback leaves the previous tree in stage-*/original for recovery.
+        if committed or not original.exists():
+            shutil.rmtree(temp)
+    return ("updated" if installed else "current") if exists else "installed"
+
+
 def install(args):
     skills = skills_dir(args.source)
     workspace = args.workspace.expanduser().resolve()
@@ -35,21 +129,21 @@ def install(args):
         "cursor": (".agents/skills",), "gemini": (".agents/skills",),
         "all": (".agents/skills", ".claude/skills"),
     }
+    bundled = skills[0].parent == (ROOT / "skills").resolve() and not (ROOT / ".office/portable-skills").is_dir()
+    legacy = (json.loads((ROOT / "team/native-skill-history.json").read_text(encoding="utf-8"))
+              if bundled else {})
     for name in destinations[args.provider]:
         target = workspace / name
         target.mkdir(parents=True, exist_ok=True)
-        copied = 0
-        conflicts = []
-        for folder in skills:
-            destination = target / folder.name
-            if destination.exists() or destination.is_symlink():
-                conflicts.append(folder.name)
-                continue
-            shutil.copytree(folder, destination)
-            copied += 1
-        print(f"{target}: {copied} installed, {len(conflicts)} existing")
-        if conflicts:
-            print("Existing skills kept: " + ", ".join(conflicts))
+        state = target / ".evolve-hq-native"
+        results = {k: [] for k in ("installed", "updated", "current", "kept")}
+        with native_lock(state):
+            for folder in skills:
+                outcome = install_native(folder, target, state, legacy.get(folder.name, []) if bundled else None)
+                results[outcome].append(folder.name)
+        print(f"{target}: " + ", ".join(f"{len(v)} {k}" for k, v in results.items()))
+        if results["kept"]:
+            print("Existing skills kept: " + ", ".join(results["kept"]))
 
 
 def overlay(args):

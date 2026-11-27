@@ -17,6 +17,14 @@ Angle, product, credible proof, and desired duration.
 2. Outline situation, stakes, discovery, demonstration, proof, and action. Match speaking lines to visuals.
 3. Deliver timings, props, framing, and options for material unavailable at shoot time.
 
+## Decision checks
+
+Find the moment the buyer recognized a problem, the action they tried and what they could directly observe afterward. Use genuine customer words only when the source and permission support that use. An illustrative scene can show a situation without pretending someone gave testimony.
+
+Express the turning point as an observable product action in the story itself. Source descriptions and proof limitations belong in production notes so a listener can follow the scene. Build the ending from the consequence the evidence allows and give the reader one next step. Mark proposed scenes and missing footage in production notes.
+
+If an authorized course pack is available, consult Customer Review to Story and Video Script prompts for this decision.
+
 ## Deliverable
 
 A story outline and shootable script.

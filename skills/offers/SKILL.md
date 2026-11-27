@@ -13,12 +13,10 @@ Current offer, price, audience, economics, and constraints.
 
 ## Steps
 
-1. List price, in-box contents, guarantee, fulfillment terms, and buyer objections.
-2. Improve the offer using value, clarity, risk reduction, and contribution margin. Separate price changes from changes to promise or terms.
-3. Compare two or three options with evidence, risks, and a validation test.
+1. State who the offer is for, the concrete job it helps them do, what is included and excluded, the total price, restrictions, returns and fulfillment terms. Use the live objection to decide whether a clearer bundle, relevant bonus or documented risk reversal is worth testing. Use only real deadlines, inventory and guarantee conditions.
+2. Compare the buyer's perceived effort, delay and likelihood of success against the seller's actual economics. Calculate contribution per order from net proceeds less variable product, fulfillment, fees, bonus and expected refund costs whenever supplied. Mark missing costs. For a multi-quantity offer use the actual quantity delivered and the resulting costs.
+3. Evaluate contribution per eligible visitor against the control: total cohort contribution / eligible visitors, using comparable cohorts and windows. A higher order rate or order value can still dilute contribution. Isolate the offer variable, name a downstream guardrail and keep observed cohort differences distinct from a causal lift.
 
 ## Deliverable
 
-Recommended offer changes and test ideas.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return the customer-ready offer, the reason it addresses the objection, a clearly labelled economic comparison and a bounded test. Leave unpublished terms with the owner for confirmation.

@@ -17,8 +17,16 @@ Product, audience, competitors, and proof.
 2. Choose the belief that must change before the buyer can act. Ground each supporting claim in available proof.
 3. Write a positioning line, a message hierarchy, and questions that could invalidate it.
 
+## Decision checks
+
+Identify what the buyer would realistically do without this product, including waiting or improvising. Explain the situation in which the verified product difference matters and give a concrete observation that demonstrates it.
+
+Make the positioning executable with one paired example. Give the exact ad opening, then name the landing-page photo, comparison or demonstration that would verify the very same promise. Describe what the arriving buyer would actually see and which claim it supports. Label any proposed asset that still needs to be produced. For a user requesting only the strategy statement, honor that narrower scope. Match the claim strength to the demonstration. A single capability or review cannot support superiority over an entire category.
+
+If an authorized course pack is available, consult Positioning exercise, Product Overview and New Mechanisms for this decision.
+
 ## Deliverable
 
-A positioning statement and message hierarchy.
+A positioning statement, message hierarchy and a compact ad-opening/landing-page proof pair when the user requests general positioning.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.

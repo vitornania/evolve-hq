@@ -17,6 +17,14 @@ A product link, draft brief, or description.
 2. Record buyer, market, offer, price, margin assumptions, buying goal, and available proof.
 3. Prioritize three unanswered questions that could change the decision.
 
+## Decision checks
+
+Identify the specific SKU, selling market, currency, offer version, source owner and last-checked date. Link evidence for each claim to that product version. A completed course example can demonstrate format but cannot establish facts about the user's product.
+
+State the buyer problem in their own words if supplied, then list what is known, inferred and still needed. Ask the smallest question that could change the next decision and continue independent work with the verified inputs.
+
+If an authorized course pack is available, consult Onboarding and Product Overview templates for this decision.
+
 ## Deliverable
 
 A product brief and research questions.

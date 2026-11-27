@@ -9,12 +9,15 @@ import subprocess
 import sys
 import tempfile
 import time
+from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "office"))
 from activity import process_running  # noqa: E402
+sys.path.insert(0, str(ROOT))
+import setup_hq  # noqa: E402
 
 assert process_running(os.getpid())
 with subprocess.Popen([sys.executable, "-c", "import time; time.sleep(.5)"]) as child:
@@ -32,7 +35,42 @@ with tempfile.TemporaryDirectory() as folder:
     generated = (workspace / "index.html").read_text(encoding="utf-8")
     assert '<form id="cpa-form">' in generated and 'src="/cpa-calculator.js"' in generated
     assert generated == (ROOT / "index.html").read_text(encoding="utf-8"), "Regenerate the board with hq.py board."
-    subprocess.run([sys.executable, "setup_hq.py", "skills", "all", "--workspace", folder], cwd=ROOT, check=True)
+    # Two installations from the previous public release, one customized by its owner.
+    legacy = (ROOT / "scripts/fixtures/evolve-angles-before-native-refresh.md").read_bytes()
+    native = workspace / ".agents/skills/evolve-angles"
+    custom = workspace / ".claude/skills/evolve-angles"
+    for destination in (native, custom):
+        destination.mkdir(parents=True)
+        (destination / "SKILL.md").write_bytes(legacy)
+    (custom / "owner-notes.md").write_text("Keep my notes.", encoding="utf-8")
+    install = [sys.executable, "setup_hq.py", "skills", "all", "--workspace", folder]
+    subprocess.run(install, cwd=ROOT, check=True)
+    assert (native / "SKILL.md").read_bytes() == (ROOT / "skills/evolve-angles/SKILL.md").read_bytes()
+    assert (custom / "SKILL.md").read_bytes() == legacy and (custom / "owner-notes.md").is_file()
+    # A later managed refresh must put the original back if committing its marker fails.
+    state = native.parent / ".evolve-hq-native"
+    marker = state / "evolve-angles.sha256"
+    expected = marker.read_bytes()
+    next_source = workspace / "next/evolve-angles"
+    next_source.mkdir(parents=True)
+    (next_source / "SKILL.md").write_text("New bundled version.", encoding="utf-8")
+    with patch.object(Path, "replace", side_effect=OSError("simulated marker write failure")):
+        try:
+            setup_hq.install_native(next_source, native.parent, state, [])
+        except OSError:
+            pass
+        else:
+            raise AssertionError("Expected the simulated update to fail.")
+    assert marker.read_bytes() == expected
+    assert (native / "SKILL.md").read_bytes() == (ROOT / "skills/evolve-angles/SKILL.md").read_bytes()
+    # Explicit third-party sources cannot replace a managed public destination.
+    assert setup_hq.install_native(next_source, native.parent, state, None) == "kept"
+    assert setup_hq.install_native(next_source, native.parent, state, []) == "updated"
+    assert (native / "SKILL.md").read_text(encoding="utf-8") == "New bundled version."
+    assert setup_hq.install_native(next_source, native.parent, state, []) == "current"
+    (native / "SKILL.md").write_text("Personal custom instructions.", encoding="utf-8")
+    subprocess.run(install, cwd=ROOT, check=True)
+    assert (native / "SKILL.md").read_text(encoding="utf-8") == "Personal custom instructions."
     for path in (".agents/skills", ".claude/skills"):
         assert len(list((Path(folder) / path).glob("*/SKILL.md"))) == 62
         static = Path(folder) / path / "adapt-reference-ad"
@@ -45,7 +83,9 @@ with tempfile.TemporaryDirectory() as folder:
 
 report = subprocess.run([sys.executable, "hq.py", "run", "roas", "examples/ad-metrics.csv", "--product",
                          "Release check"], cwd=ROOT, capture_output=True, text=True, check=True)
-assert Path(report.stdout.strip().splitlines()[-1]).is_file()
+artifact = Path(report.stdout.strip().splitlines()[-1]).resolve()
+assert artifact.is_file()
+expected_record = (artifact.parent / "RECORD.md").relative_to(ROOT).as_posix()
 
 with socket.socket() as listener:
     listener.bind(("127.0.0.1", 0))
@@ -107,9 +147,9 @@ try:
     with urlopen(base + "/api/static-libraries", timeout=5) as response:
         assert json.load(response) == []
     with urlopen(base + "/api/activity", timeout=5) as response:
-        entry = json.load(response)["roles"]["Performance Analyst"][0]
-    assert entry["record"].startswith("tasks/release-check/")
-    with urlopen(base + "/" + entry["record"], timeout=5) as response:
+        assignments = json.load(response)["roles"]["Performance Analyst"]
+    assert any(entry["record"] == expected_record for entry in assignments)
+    with urlopen(base + "/" + expected_record, timeout=5) as response:
         assert b"Ready for review" in response.read()
 finally:
     if os.name == "nt":

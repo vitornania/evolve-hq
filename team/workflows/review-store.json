@@ -13,7 +13,7 @@
             "id": "inspect-ad",
             "skill": "analyze-ads",
             "title": "Inspect the creative",
-            "instruction": "Identify the source asset and its intended buyer, offer, and action. Audit the opening, reading path, promise, mechanism, proof, and CTA in source order. Cite an exact line, frame or timestamp, or visible image location for each observation. Where a product research record or brief is supplied, compare against its locked desire, angle, claims and evidence IDs. List missing inputs and separate what the ad shows from your interpretation.",
+            "instruction": "Identify the source asset and its intended buyer, offer, and action. Audit the opening, reading path, promise, mechanism, proof, and CTA in source order. Cite an exact line, frame or timestamp, or visible image location for each observation. Where a product research record or brief is supplied, compare against its locked desire, angle, claims and evidence IDs. List missing inputs and separate what the ad shows from your interpretation. Pinpoint the first buyer decision that the creative leaves unresolved. Anchor it to a visible or quoted cue, name the live objection it triggers and explain which kind of proof would answer it. A click or an opinion about the design alone cannot establish that buyers believe the claim.",
             "checks": [
               "Creative observations are anchored to an inspected asset, with unavailable portions clearly marked.",
               "The ad's message and each consequential claim are checked against available product evidence and the intended CTA.",
@@ -52,7 +52,7 @@
             "id": "rank-diagnostic-hypotheses",
             "skill": "analyze-ads",
             "title": "Rank likely causes of the miss",
-            "instruction": "Use the reconciled evidence to consider delivery and measurement, creative, product or offer, landing-page continuity, and checkout. Shortlist up to three plausible causes. For each, cite the strongest observation with an exact line, image region, destination section or metric, name a competing explanation, and say what evidence would change the ranking. A high CTR or low hold rate can generate a hypothesis about the opener or buyer fit; neither alone establishes the cause of weak acquisition. If landing-page or checkout evidence is materially stronger than creative evidence, route the recommendation there. When the evidence is inconclusive, state the next observation needed before picking a fix.",
+            "instruction": "Use the reconciled evidence to consider delivery and measurement, creative, product or offer, landing-page continuity, and checkout. Shortlist up to three plausible causes. For each, cite the strongest observation with an exact line, image region, destination section or metric, name a competing explanation, and say what evidence would change the ranking. A high CTR or low hold rate can generate a hypothesis about the opener or buyer fit; neither alone establishes the cause of weak acquisition. If landing-page or checkout evidence is materially stronger than creative evidence, route the recommendation there. When the evidence is inconclusive, state the next observation needed before picking a fix. For two plausible explanations that predict the same surface metric, identify the next observation that would distinguish them. Trace the break through comparable exposed, landing, checkout and paid populations when supplied. Put reproducible factual or checkout defects ahead of speculative copy changes.",
             "checks": [
               "The ranking checks plausible funnel alternatives, distinguishes observed defects from causality, and gives concrete evidence and a disconfirming check for the leading explanation.",
               "The recommended direction targets the strongest evidence, or requests a named missing observation when the source of underperformance remains unclear."
@@ -80,7 +80,7 @@
             "skill": "analyze-ads",
             "title": "Check the finished export against its brief",
             "requires_image": true,
-            "instruction": "Identify the supplied final asset and version and the approved brief. Use an attached final PNG, JPG or WebP, or attached timecoded frames and supplied transcript for video. A script, slot map, storyboard or brief is preparation evidence. Treat a missing inspectable final asset as a blocker and request the export or representative timecoded frames. Cite the exact image area or supplied timecode for every finding. Check opening and next beat, what the eye sees at feed size, legibility and typos, correct product and use, whether visuals and copy communicate the same desire and supported benefit, claim and offer continuity, brand requirements, and what the CTA asks the viewer to do. For video, inspect captions, timing or audio only when the supplied evidence supports each judgment. Score pacing against comprehension for the chosen format. Mark uninspected aspects and missing proof or brief fields. Return a readiness decision scoped to what you could inspect, with any launch-blocking finding and one specific fix or input for each. Do not offer a performance prediction or launch anything.",
+            "instruction": "Identify the supplied final asset and version and the approved brief. Use an attached final PNG, JPG or WebP, or attached timecoded frames and supplied transcript for video. A script, slot map, storyboard or brief is preparation evidence. Treat a missing inspectable final asset as a blocker and request the export or representative timecoded frames. Cite the exact image area or supplied timecode for every finding. Check opening and next beat, what the eye sees at feed size, legibility and typos, correct product and use, whether visuals and copy communicate the same desire and supported benefit, claim and offer continuity, brand requirements, and what the CTA asks the viewer to do. For video, inspect captions, timing or audio only when the supplied evidence supports each judgment. Score pacing against comprehension for the chosen format. Mark uninspected aspects and missing proof or brief fields. Return a readiness decision scoped to what you could inspect, with any launch-blocking finding and one specific fix or input for each. Do not offer a performance prediction or launch anything. For a proposed blocker, identify whether it violates an approved requirement, materially changes what buyers could infer, or is an optional editorial preference. A different acceptable CTA wording or suggested headline alone cannot justify holding the export.",
             "checks": [
               "The report identifies the actual inspected asset and version, and findings are tied to observable locations or timecodes. If the final asset cannot be inspected, the result is blocked.",
               "The review checks product use, legibility and message and offer continuity where supported, and identifies exactly which footage, audio, brief fields or proofs remain unavailable.",
@@ -110,18 +110,19 @@
             "id": "diagnose-patterns",
             "skill": "evolve-creative-analysis",
             "title": "Diagnose patterns in the batch",
-            "instruction": "Compare aligned results and actual assets. Identify patterns in angle, hook, demonstration, proof, or format using asset IDs and exact observations. Separate attention measures from purchase outcomes and identify reasonable alternative explanations. Apply Evolve outcome criteria only where the criteria and necessary inputs are accessible. Recommend the next test that would distinguish the strongest explanations.",
+            "instruction": "Compare aligned results and actual assets. Identify patterns in angle, hook, demonstration, proof, or format using asset IDs and exact observations. Separate attention measures from purchase outcomes and identify reasonable alternative explanations. Apply Evolve outcome criteria only where the criteria and necessary inputs are accessible. Recommend the next test that would distinguish the strongest explanations. Check whether audience, placement or returning-buyer mix could reverse the apparent ordering. When counts are available, calculate per-segment rates on like denominators and state the weights for any fixed-mix comparison. Keep the blended observation, the within-segment evidence and the cause distinct. Distinguish a hook that earns clicks from a promise whose landing experience earns purchases.",
             "checks": [
               "Each learning links to specific creatives, results and the context that makes the comparison meaningful.",
               "The analysis separates observations, possible causes and the evidence that would disconfirm them.",
-              "The next test targets a named uncertainty and preserves essential comparison conditions."
+              "The next test targets a named uncertainty and preserves essential comparison conditions.",
+              "If mix differs, the readout uses comparable segments and denominators and explains any reversal of the blended ranking."
             ]
           },
           {
             "id": "rank-next-briefs",
             "skill": "evolve-roadmap",
             "title": "Rank the next briefs",
-            "instruction": "Convert the batch findings into a ranked queue of next briefs. For each, give the parent creative ID when available, objective, specific change, locked elements, required assets, primary KPI, and source result or unresolved dependency. Use the existing Evolve roadmap. Where prior briefs or ads show it, group related variants under their underlying buyer, desire, angle and benefit. Show which creative decisions the batch actually varied. Identify a materially different concept as an exploratory option only when evidence supports it and the task calls for broader exploration. Treat a multi-element concept as a package result. Return the next production decision.",
+            "instruction": "Convert the batch findings into a ranked queue of next briefs. For each, give the parent creative ID when available, objective, specific change, locked elements, required assets, primary KPI, and source result or unresolved dependency. Use the existing Evolve roadmap. Where prior briefs or ads show it, group related variants under their underlying buyer, desire, angle and benefit. Show which creative decisions the batch actually varied. Identify a materially different concept as an exploratory option only when evidence supports it and the task calls for broader exploration. Treat a multi-element concept as a package result. Return the next production decision. If delivery mix drives the apparent winner, propose a same-segment controlled comparison, specifying who is eligible, what stays fixed, the primary business outcome and when a decision can be made. Do not label an unrandomized fixed-mix comparison causal.",
             "checks": [
               "Every ranked brief traces to a batch observation or to a clearly labeled exploratory hypothesis.",
               "The queue preserves creative IDs, required assets, the measurement plan and dependencies. When concept history is available, it distinguishes variants from new ideas."
@@ -138,11 +139,11 @@
             "id": "lock-parent",
             "skill": "evolve-creative-analysis",
             "title": "Verify the parent ad",
-            "instruction": "Identify the parent creative ID, version where available, and exact original creative element to change. A supplied ID and faithful text or transcript can support a text-only proposal. Mark the image and any unchanged copy that you could not inspect as unverified; require the original file if the proposed change depends on inspecting it. Align any measurements to the stated parent, period, KPI, spend, conversion volume and comparator. State the locked buyer, angle, offer facts and what remains fixed. Label the project exploratory if available measurements are insufficient to establish a winner.",
+            "instruction": "Identify the parent creative ID, version where available, and exact original creative element to change. A supplied ID and faithful text or transcript can support a text-only proposal. Mark the image and any unchanged copy that you could not inspect as unverified; require the original file if the proposed change depends on inspecting it. Align any measurements to the stated parent, period, KPI, spend, conversion volume and comparator. State the locked buyer, angle, offer facts and what remains fixed. Label the project exploratory if available measurements are insufficient to establish a winner. Check the parent promise and depiction against current product facts before reusing its wording. If the historical control promises something unverified, preserve it in the retrospective record and design a substantiated control for the next live test. For a retrospective or text-only decision, record missing buyer or offer fields and the concrete confirmation required before reuse. Deliver the historical decision with the proposed control explicitly conditional; do not invent missing locks or mark the control launch-ready.",
             "checks": [
               "The parent and the exact element to change are tied to inspected or explicitly supplied evidence. For a text-only proposal, an exact supplied text and parent ID suffice; any uninspected files and unchanged elements are clearly marked.",
               "The supported outcome or exploratory status is explicit and grounded in the available measurements.",
-              "The locked buyer, angle, offer and editable creative elements are recorded."
+              "The buyer, angle, offer and fixed elements are sourced and locked wherever supplied. For a bounded historical or text-only decision, missing locks, their effect on readiness and the exact confirmation needed for reuse are explicit. A control described as ready for live use must have all material locks."
             ]
           },
           {
@@ -196,11 +197,12 @@
             "id": "recommend-cro",
             "skill": "cro",
             "title": "Prioritize fixes and choose one test",
-            "instruction": "Use the inspected findings to deliver up to three ranked changes with exact replacement copy, a revised gallery order or an image brief where relevant, and the buyer question each fix answers. Use only verified terms and approved product proof. Choose the first controlled test with its section, current version, proposed change, primary metric, guardrail and any interim evidence or traffic it needs. Return draft materials for owner review.",
+            "instruction": "Use the inspected findings to deliver up to three ranked changes with exact replacement copy, a revised gallery order or an image brief where relevant, and the buyer question each fix answers. Use only verified terms and approved product proof. Choose the first controlled test with its section, current version, proposed change, primary metric, guardrail and any interim evidence or traffic it needs. Return draft materials for owner review. Classify confirmed wrong prices, broken actions and invented terms as repairs. Validate the corrected path before testing an uncertain persuasion change. For that experiment define the eligible exposure, denominator and primary downstream action; missing baseline traffic or device data limits a lift estimate.",
             "checks": [
               "Every priority cites an audit observation and provides a concrete improvement or usable replacement.",
               "New copy and gallery proposals use verified product facts, with precise placeholders for evidence gaps.",
-              "The first test isolates a named change and gives a primary metric and guardrail without promising uplift."
+              "The first test isolates a named change and gives a primary metric and guardrail without promising uplift.",
+              "Confirmed defects have a verification path and are separated from hypotheses that justify an experiment."
             ]
           }
         ]
@@ -214,7 +216,7 @@
             "id": "map-page-message",
             "skill": "store-content-cro-review",
             "title": "Map the buyer's questions",
-            "instruction": "Use the current page, product research and any supplied ad or brief to map the buyer's first question, desired outcome, offer, main objections, evidence and CTA. Identify which existing sections serve those jobs and which need revision. Keep the approved angle and terms fixed unless the user supplied new ones. Flag an unavailable page and proceed from approved product facts if they support a fresh draft.",
+            "instruction": "Use the current page, product research and any supplied ad or brief to map the buyer's first question, desired outcome, offer, main objections, evidence and CTA. Identify which existing sections serve those jobs and which need revision. Keep the approved angle and terms fixed unless the user supplied new ones. Flag an unavailable page and proceed from approved product facts if they support a fresh draft. Track the exact incoming promise, the first page element that could confirm it and the evidence that qualifies it. Distinguish a verified demonstration on a particular surface or condition from a general product guarantee. Retain bundle contents, options and restrictions at the decision they affect.",
             "checks": [
               "The message map traces the offer, claims, objections and proof to available sources.",
               "Changes to existing copy are tied to inspected sections, and new sections have clear jobs.",
@@ -225,11 +227,12 @@
             "id": "draft-product-page",
             "skill": "write-product-page-copy",
             "title": "Draft the page copy",
-            "instruction": "Draft the requested product-page sections in a mobile-first order, using the prior evidence map. Include a clear hero promise and CTA, benefits and mechanism, proof where substantiated, and an FAQ that addresses the actual objections in scope. Call out which gallery image should support a claim where that matters. Keep pricing, variants, guarantees and shipping faithful to the source. Provide ready-to-paste text and keep verification notes separate.",
+            "instruction": "Draft the requested product-page sections in a mobile-first order, using the prior evidence map. Choose only the requested blocks. Put the primary action at the first supported buying decision. Add a mechanism, proof or FAQ only when it answers a real buyer question in those blocks. Call out which gallery image should support a claim where that matters. Keep pricing, variants, guarantees and shipping faithful to the source. Provide ready-to-paste text and keep verification notes separate. Make each critical condition legible alongside the line it qualifies. Describe the demonstration in ordinary shopper language and preserve its conditions. Keep editorial statements about evidence availability, gallery requests and proposed experiments in the owner notes. Give each block a distinct job and remove repeated contents or prices unless a later purchase decision requires them.",
             "checks": [
               "The draft answers the buyer's main questions in a clear order with a readable first screen and CTA.",
               "Claims and offer details are grounded in available evidence and placeholders are identified separately where needed.",
-              "Each requested section has usable copy and the draft preserves the selected angle and voice."
+              "Each requested section has usable copy and the draft preserves the selected angle and voice.",
+              "Material restrictions and demonstration conditions are legible to a shopper. Each requested block advances the purchase decision without duplicating a neighboring block or exposing internal verification commentary."
             ]
           }
         ]
@@ -254,11 +257,12 @@
             "id": "draft-advertorial",
             "skill": "build-advertorials",
             "title": "Draft the message-matched advertorial",
-            "instruction": "Turn the approved handoff into a mobile-scannable advertorial or revise the requested sections. Start by paying off the ad's opening question, then develop the mechanism, evidence, relevant objections, offer and CTA in order. Identify any needed imagery and disclosures. Cite product proof in verification notes and do not invent testimonials, studies, outcomes or offer terms.",
+            "instruction": "Turn the approved handoff into a mobile-scannable advertorial or revise the requested sections. Start by paying off the ad's opening question, then develop the mechanism, evidence, relevant objections, offer and CTA in order. Identify any needed imagery and disclosures. Cite product proof in verification notes and do not invent testimonials, studies, outcomes or offer terms. Make the brand or actual narrator identifiable. A customer quote, expert endorsement or apparently independent editorial voice needs an attributable source and the correct relationship; use an attributed demonstration or plain brand explanation when unavailable. Check that the closing offer, eligibility and action agree with the destination. Read the opening and proof section together. Set up the shopper’s situation or question in the opening, then show the concrete product action once in the proof beat. Use natural attribution such as first-person brand narration where accurate; keep source-ledger wording for the owner notes.",
             "checks": [
               "The first screen fulfills the intended ad promise and the offer and CTA stay consistent through the page.",
               "Copy is readable on mobile and evidence supports material statements, with explicit gaps for unavailable proof.",
-              "The draft separates ready-to-paste copy from asset, disclosure and verification notes."
+              "The draft separates ready-to-paste copy from asset, disclosure and verification notes.",
+              "The opening creates a reason to keep reading and the proof adds a concrete new observation. Repeating the demonstration or announcing internal documentation does not count as progression."
             ]
           }
         ]
@@ -283,7 +287,7 @@
             "id": "apply-page-lessons",
             "skill": "cro",
             "title": "Turn reference lessons into a test",
-            "instruction": "Translate useful reference structure into an original, evidence-backed suggestion for the user's store. Specify one section, the shopper problem it addresses, the brand-appropriate H1 or creative direction, and a test with control, variant, metric and guardrail. Use the user's style, product and proof instead of borrowing reference photos, testimonial copy, or identity assets.",
+            "instruction": "Translate useful reference structure into an original, evidence-backed suggestion for the user's store. Specify one section, the shopper problem it addresses, the brand-appropriate H1 or creative direction, and a test with control, variant, metric and guardrail. Use the user's style, product and proof instead of borrowing reference photos, testimonial copy, or identity assets. For every borrowed structural device, state the buyer question it answers and identify owned evidence that can answer it for this product. Omit or replace an unsupported proof slot rather than filling it with an invented review count, timer, certification or offer. Define the observable result that would change the recommendation. State the direction of that result. If an uncertainty interval is used for a proposed improvement, an upper bound below the minimum worthwhile gain weakens it; an interval entirely above that gain supports it. With insufficient observations, preserve the uncertainty.",
             "checks": [
               "The recommendation ties to an inspected structural role and does not present a competitor's claims as product evidence.",
               "The proposal uses original wording and appropriate brand direction, with unsupported items marked.",

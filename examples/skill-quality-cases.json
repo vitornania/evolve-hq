@@ -1,0 +1,250 @@
+{
+  "ab-testing": {
+    "brief": "An A/B signup-page export shows equal random assignment, A 503 visitors and 42 signups, B 497 visitors and 45 signups. The preset decision was a 14-day fixed test, this is day 3. Calculate the rates, interpret the result and give the next action. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Computes about 8.35% vs 9.05%, leaves test undecided, keeps the predeclared review and sample requirements."
+  },
+  "adapt-reference-ad": {
+    "brief": "Do a preflight textual slot map only. No rendered asset. Reference R has a two-line benefit headline, a five-star rating row, a $39 offer and a photograph. Our Fieldfold Desk Tray is $24, folds flat, and has an approved photo; customer rating and speed benefits are unavailable. Decide whether to select R for a proof-led test and identify what can be adapted. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Rejects or flags the central rating role absent proof, preserves the source role order, uses $24 and reserves font/visual fidelity until the source image is inspectable."
+  },
+  "ads": {
+    "brief": "One comparable week on mobile US paid social: A spent $300 for 10 first-time buyers and 30 total orders. B spent $240 for 16 first-time buyers and 20 total orders. First-order pre-ad contribution is $22. A mostly retargeted, B mostly prospected. Decide one next step for new-customer acquisition and show the arithmetic. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "$30 vs $15 first-time CPA, difference vs $22 contribution, accounts for audience confound and avoids attributing the difference to creative."
+  },
+  "ai-seo": {
+    "brief": "Audit only these supplied observations: service X, US/en, same day. Query 1 “tray for small desks” cited Fieldfold’s dimensions page but recommended a competitor. Query 2 “Fieldfold size” returned a wrong width of 40 cm, while dated product spec says 30 cm. Identify the actionable finding and design a repeatable check. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Separates a citation from a recommendation and corrects 40 cm to 30 cm on authoritative sources; proposes a repeatable prompt/locale observation rather than estimating market share."
+  },
+  "analytics": {
+    "brief": "The authoritative checkout records order A=$24 and B=$24. Browser events A=$24 twice after a reload, B=$24 once; webhooks for A and B also fire. Compare source totals and design a test for corrected purchase tracking. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Reconciles two genuine orders and $48 to browser three events/$72, tests a stable order ID and retry/reload deduplication across delivery paths."
+  },
+  "analyze-ads": {
+    "brief": "Analyze the supplied timecoded script only. 0–2s promises “clear the entire room in minutes”; 2–6s shows one folded tray on one shelf; end asks “See the tray.” Exact facts only: it folds flat, $24. No impressions/conversion data or export. Give earliest problem, evidenced fix and one next test. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Flags the opening promise as unsupported and mismatched to the demonstrated shelf, preserves $24, avoids judging unseen footage/performance, specifies one scoped test."
+  },
+  "anthony-camacho-research": {
+    "brief": "Focused desire-validation exercise only. R1 individual field note says “I want my tabletop back after lunch.” R2 is a duplicate export of R1. R3 a different person prefers a fixed shelf. The product folds flat. State what this corpus supports and what would be needed for a full specified method. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Counts two independent records, retains contrary preference, distinguishes desire from feature and describes actual prompt availability/completion; no market-wide winning desire."
+  },
+  "aso": {
+    "brief": "Audit a fictional US English app-listing export only: 2,000 eligible listing visitors, 240 first installs. Screenshot 1 promises “free unlimited exports”; current plan allows three free exports per month. Diagnose and propose one isolated creative test. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Computes 12%, corrects three free exports/month, separates listing traffic from install conversion and proposes a controlled first-screenshot test."
+  },
+  "attribution": {
+    "brief": "One store saw 100 orders in one period; ad platform claims 70, email claims 45, including 20 orders with the same IDs in both. Compare deduplicated covered orders with platform totals and tell the owner what this establishes. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "70 + 45 − 20 = 95 unique claimed orders, 5 unmatched, attributed credit cannot establish incremental orders; recommends a feasible causal check."
+  },
+  "build-advertorials": {
+    "brief": "Plan a short clearly sponsored article lead and product transition for a folding tray. The arriving ad shows the tray folding flat after lunch. R1 describes sharing a lunch desk, not using our tray. F1 $24, F2 folds flat; no testimonials or empty-stock evidence. Destination shows $24. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Leads from the same lunch-desk moment through visible folding proof into a $24 product page; preserves sponsorship, avoids invented use, results or scarcity."
+  },
+  "build-static-ads-in-figma": {
+    "brief": "Plan only, using this written brief and no image tools. Test one benefit-led headline on a 1080-square feed ad: Fieldfold tray folds flat and costs $24, the approved illustration exists but is not attached, no ratings or time-savings data. Give design requirements and acceptance checks for the later render. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Keeps one variable, separates supported copy from required assets, specifies layer/editability and mobile checks, marks rendered output unverified."
+  },
+  "churn-prevention": {
+    "brief": "Of 100 subscribers due for renewal, 8 requested cancellation and 6 different cards repeatedly declined. Two cancel-intent customers cited excess stock. Plan separate responses and measurements without claiming all 14 churned. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Separates voluntary intent from involuntary failed payments, suggests pause/skip for excess inventory and payment recovery for declines, uses actual retained paid renewals and refunds."
+  },
+  "co-marketing": {
+    "brief": "A tray brand and a small coworking newsletter want one desk-reset guide. Partner list includes 10,000 subscribers, brand list 3,000, overlap unknown, each can send to its own list. Draft the brief and one measurement plan only. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Defines reciprocal contribution, opt-in and lead ownership, uses unique referred visits/qualified opt-ins without claiming a 13,000 unique audience or sending outreach."
+  },
+  "cold-traffic-ad-craft": {
+    "brief": "Write an 80-word-or-shorter indirect ad. Interview R1: a shared desk has to clear for dinner; not a testimonial. Fieldfold tray folds flat [F1], $24 [F2], observed demo of folding [D1]. Exact CTA “See the tray.” No sale deadline, guarantee, or time savings. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Opens in buyer situation, uses visible folding as proof, offers $24 and exact CTA, no promised time saved or fabricated urgency/testimonial."
+  },
+  "community-marketing": {
+    "brief": "Community pilot: 100 new members, 15 made a first contribution; only 5 of those contributed again the following week. Ask whether to recruit more or improve onboarding, propose one member-value intervention and its measure. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Separates first participation (15/100) from repeat contribution (5/15), proposes member-value improvement and a cohort outcome; no claim that size alone signals health."
+  },
+  "competitor-profiling": {
+    "brief": "Supplied US USD screenshots from same day: A one tray $20 plus $5 mandatory shipping. B two trays $36 with shipping included. B subscription renews at $44 for two after the first delivery. Compare one-time landed cost and renewal, retaining buyer alternatives/uncertainty. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Shows A $25 landed for one, B $36/$18 per unit initially, $44/$22 per unit renewal; distinguishes two-unit cash commitment and avoids inventing comparable one-unit B offer."
+  },
+  "competitors": {
+    "brief": "Draft a brief fair comparison for a buyer choosing between our tray ($24, folds, verified) and a rival ($20, fixed, verified). No durability measurements or shipping terms. Give fit for two buyer situations. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Acknowledges the rival’s lower listed price and use case; limits our advantage to folding and leaves delivered cost and durability open."
+  },
+  "content-strategy": {
+    "brief": "We have one editor and two weeks. Search logs ask “will it fit my shelf?”; support asks “how does it fold?”. Verified size sheet and folding clip available. Plan two content items, destination and decision metric, no estimated search volume. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Matches size question to discoverable spec content and the folding clip to a distinct demonstration, fits two-week capacity, names a decision/measure per item."
+  },
+  "copywriting": {
+    "brief": "Rewrite one mobile PDP hero for Fieldfold. Arrival ad shows a tray folded flat after lunch. Verified F1 folds flat, F2 $24 USD. Proposed draft says “instantly double your desk space.” Actual demo D1 shows one folded tray on a shelf. Exact CTA “See the dimensions.” Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Drops quantified/inferred space gain, retains observable benefit and $24, aligns headline with arrival and exact CTA with its destination."
+  },
+  "cro": {
+    "brief": "Mobile screen P1 lists $36 for one tray, checkout C1 lists $46 for same SKU and currency, owner confirms $46 authoritative. Analytics 50/1,000 completed purchases, no split test or rival page. Audit and give one test after the factual defect is fixed. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Corrects $36 to $46 before experimentation, reports 5% only as observation, separates repair from one controlled follow-up."
+  },
+  "customer-research": {
+    "brief": "Customer notes: Q1 “I clear the table for dinner”; Q2 duplicates Q1, same person; Q3 another individual “I leave it set up all week.” S1 staff says shoppers want premium design. Synthesize decision, limitations and a follow-up question about observed behavior. Fictional QA. Use supplied evidence only, without browsing or external actions.",
+    "expect": "Preserves both speakers and contrary behavior, removes duplicate and staff hypothesis from customer counts, asks about last specific occasion/alternative."
+  },
+  "emails": {
+    "brief": "Draft a two-send welcome sequence for opt-ins to the $28 Fieldfold tray. Email 1 shows its removable divider. Email 2 answers whether it fits a 9-inch shelf (tray is 8 inches wide). The subscriber bought after email 1. A subject-line test increased opens, with no purchase data.",
+    "expect": "Suppress the second acquisition send for the purchaser, retain the practical fit answer for remaining recipients and avoid inferring incremental sales from opens."
+  },
+  "evolve-account-research": {
+    "brief": "USD, same click window, disjoint data for Ad A: Monday $10 spend/1 purchase, Tuesday $300/10. Ad B $45/2. Mature attribution. Goal CPA $25. A's video is lost; B's static is known. Compare CPAs and what can be learned about creative.",
+    "expect": "Calculate A $310/11 ≈ $28.18 and B $22.50, apply $25 consistently and flag that A's missing video prevents creative diagnosis."
+  },
+  "evolve-angles": {
+    "brief": "Fieldfold buyers report 'pens migrate under papers' and 'my partner and I swap desks each night'. Product has removable divider. No productivity or health data. Decide whether 'stop losing pens' and 'always find your pen' are different angles and suggest a meaningful test.",
+    "expect": "Group the two pen-retrieval hooks together, contrast a shared-desk handoff angle, and connect proposed proof to the movable divider."
+  },
+  "evolve-briefs": {
+    "brief": "Write an iteration brief for control TR-14. Only its first frame can change. The $28 price, CTA 'View the tray', removable-divider demonstration and 4:5 crop are locked. Proposed change shows pens scattered before the demo. Audience shares a desk.",
+    "expect": "Identify an iteration brief, preserve locked copy, price and crop exactly, and make the first-frame change reproducible and measurable."
+  },
+  "evolve-competitor-creative": {
+    "brief": "Competitor ad shows a nurse badge, then desk before/after; library lists it active 90 days. Target tray has no endorsement but has an authorized photo of its divider holding pens. What can transfer?",
+    "expect": "Transfer the visual demonstration structure, exclude the nurse endorsement and avoid calling 90 days of visibility proof of profit."
+  },
+  "evolve-copy-review": {
+    "brief": "Review 'As seen in clinics: find your focus again' over a medical cross, CTA 'View the tray', price $28. Verified evidence is an image of a removable divider holding pens. No medical, clinic, focus or testimonial evidence. Give exact corrected copy and an art instruction.",
+    "expect": "Remove or replace the cross and implied medical/focus claim, show the divider's observable action, and preserve the approved offer and CTA."
+  },
+  "evolve-copywriting": {
+    "brief": "Write a short cold ad for a person who loses pens under papers. F1 product is a $28 tray with a removable divider. F2 product photo shows pens in the divider. R1 forum stranger complains about a messy desk and never used this tray. CTA View the tray.",
+    "expect": "Turn the evidence into one credible visual promise and a product-page action without converting R1 into a first-person endorsement or promising increased focus."
+  },
+  "evolve-create": {
+    "brief": "A marketer wants to imitate the visual hierarchy of an outside reference in a tray ad. They have its image, an approved $28 offer, divider photo, and no performance data. Another draft calls it 'winner iteration'. Route and brief the work.",
+    "expect": "Choose the imitation/reference route, preserve which elements come from the reference versus target product, and decline to treat the unmeasured reference as the winning control."
+  },
+  "evolve-creative-analysis": {
+    "brief": "Ad A and B each received 10,000 impressions and 100 outbound clicks. A had 90 landing visits and 9 purchases, B had 40 visits and 4 purchases. B ran in a different placement. Provide a diagnosis and smallest next test.",
+    "expect": "Identify equal CTR (1%) and equal visit-to-purchase rate (10%), locate divergence at click-to-visit, and recommend checking placement/load or tracking before blaming the hook."
+  },
+  "evolve-customer-market": {
+    "brief": "Three records: R1 shopper forum 'pens hide under paperwork', R2 repost of the exact R1 thread, R3 verified tray purchaser 'sorting papers was easy, but big clips won't fit'. Classify voice and turn it into one research question.",
+    "expect": "Count R1/R2 as one source, retain buyer status, surface the limitation from R3, and keep forum language separate from product testimony."
+  },
+  "evolve-hq": {
+    "brief": "I selected only review-copy for a finished ad. Here is the copy: 'Every pen has a place. View the tray.' Verified tray photo shows a removable divider holding two pens. The copy is saved but no provider run, published ad or spend is recorded. Route this job and report the starting state.",
+    "expect": "Route just the requested copy review using supplied evidence and label the prior state as saved, without implying live publication or scheduling upstream research automatically."
+  },
+  "evolve-insights": {
+    "brief": "Four independent support tickets report difficulty finding previously used pens after coworkers move desks. One photo shows the tray divider holds two pens. In one office a policy also required desk cleaning. Give one testable insight.",
+    "expect": "Present shared-desk handoff as a hypothesis, name the policy as a rival explanation, and propose an observation separating them without making productivity an established product claim."
+  },
+  "evolve-intake": {
+    "brief": "US tray launched in March at $28 with a divider. A Canadian landing-page screenshot shows $35 and no currency or SKU. An example template mentions same-day delivery for a dog harness. Intake a Canadian campaign and state the decision-changing question.",
+    "expect": "Retain US and Canadian records separately, request verified Canadian currency/SKU/offer, and do not borrow same-day delivery from the template."
+  },
+  "evolve-iteration": {
+    "brief": "Control TR-18 uses the $28 price, divider photo, CTA View the tray, same audience and temporary window. Test the hypothesis that showing scattered pens first helps buyers recognize the problem. Someone also wants a lower price. Draft one iteration.",
+    "expect": "Create a control-linked first-frame test with fixed price/audience/CTA, defer or separately identify discount testing and name a meaningful measure and decision condition."
+  },
+  "evolve-media-buying": {
+    "brief": "First spend block USD $1,000 brought 50 new customers. An additional $200 brought 5 more, all conversions mature. Verified allowable CAC $30 including variable costs. Sales dashboard cumulative ROAS looks healthy. Advise on next scale step.",
+    "expect": "Compute initial CAC $20, incremental CAC $40 and cumulative CAC about $21.82. Base scale recommendation on the $40 marginal acquisition cost versus $30 ceiling."
+  },
+  "evolve-partnership-ads": {
+    "brief": "Brand can use creator@handle on US paid social only until April 30. Proposed campaign May 1 includes Canada. Creator post has 10k organic likes; there are no paid sales, and the creator fee is $200. Design the next eligible comparison.",
+    "expect": "Flag the expired and geographically limited usage, do not infer paid sales from likes, and describe a controlled paid comparison including the creator fee after rights are available."
+  },
+  "evolve-positioning": {
+    "brief": "Target leaves pens in a spare mug today. Fieldfold has a removable divider and is 8 inches wide; photo shows pens and clips separated. There are no productivity or superiority studies. Position it for a person sharing a desk.",
+    "expect": "Address the real mug alternative and a situation where observable separation matters, pair a specific ad line with a landing demonstration, and avoid unsupported best/focus claims."
+  },
+  "evolve-production": {
+    "brief": "Create a 6-second 9:16 production brief, price $28, CTA View the tray. Photo F1 shows divider. The voice note mentions improved concentration without evidence. No render or music rights are supplied.",
+    "expect": "Produce executable timed shots and captions with visible product proof, omit concentration, and distinguish the specification from a rendered or licensed final asset."
+  },
+  "evolve-research": {
+    "brief": "Run a compact full product research pass using just supplied data: R1 buyer loses pens under papers, F1 divider holds pens, C1 rival ad claims 2x focus without support, R2 buyer uses a mug. Propose one next research question and angle.",
+    "expect": "Follow Desire Hunt → New Mechanisms → New Information → Ad Angles, carry the source and alternative, and do not convert the competitor's focus claim into a Fieldfold fact."
+  },
+  "evolve-roadmap": {
+    "brief": "Concept CF-1 has approved branch CF-1A and pending photo rights on CF-1B. Neither has a live ad ID. Team wants to mark both as live because release is Friday. Provide a practical board update.",
+    "expect": "Retain stable parent/child identity, mark rights as dependency and preserve actual evidence-based states, with a named decision/owner rather than assuming Friday launch."
+  },
+  "evolve-skill": {
+    "brief": "Direct me to the precise lesson/prompt for creating new ad angles. The workspace says a course prompt exists, but for this exercise no private course files are supplied. Product fact: removable divider. Return route and a safe next step.",
+    "expect": "Identify the angle route and access status honestly, retain the original if accessible, and label any independently applied portable fallback instead of presenting it as verbatim course content."
+  },
+  "evolve-storytelling": {
+    "brief": "Write a 3-beat story for the divider. R1 is an anonymous forum complaint from a non-buyer; F1 authorized photo records pens in the tray. No license for a quote and no personal result is verified. Use a clear CTA.",
+    "expect": "Use an illustrative situation and observable turning point rather than fabricating a customer voice or testimonial; end with a supported next action."
+  },
+  "evolve-test-design": {
+    "brief": "You can assign two equally sized audiences randomly, both same platform/offer/week. Test only first frame, primary result purchases per assigned user, seven-day conversion lag. Control first 100 people, two buys; treatment first 100, three buys on day one. Draft decision rules.",
+    "expect": "Predefine comparison, denominator, guardrail and mature observation window; flag day-one figures as insufficient to declare victory and avoid inventing a sample threshold."
+  },
+  "evolve-ugc": {
+    "brief": "Creator has never used the tray; one clip shows the removable divider holding pens. Music rights expire tomorrow and campaign starts next week. Draft a creator brief with proof and paid-media guidance.",
+    "expect": "Use a demonstrable product action without scripted personal transformation, require cleared/replaced music and specify a usable shot and acceptance criterion."
+  },
+  "free-ecommerce-workflows": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Production coordinator has a 20-second vertical MP4, a caption SRT and no media files attached to this brief. They want a 1080×1920 captioned MP4 locally for review. Hand back a short executable plan, exact missing inputs and an export acceptance check. Do not render or fetch media.",
+    "expect": "Identify actual files/paths as blockers to rendering, a local supported caption/export route and a playable export check for dimensions, timing, legibility or audio. Never say it rendered."
+  },
+  "humanizer": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Tighten this brand-voice product line for a tired reader: “Our premium shelf-labeling solution facilitates seamless reorganization of household shelf contents.” Source F1 one hand stamp plus 12 labels, $32. Locked CTA “Choose the starter kit”. Keep meaning and CTA, do not invent benefits.",
+    "expect": "A concrete everyday action, ordinary concise voice and the verbatim CTA; no invented speed, results, review or guarantee."
+  },
+  "last30days": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Write a short signals note for Nov 1–30 2026 using only this owner-provided snapshot. A Nov 4 original renter post asks about labels on glass. B Nov 5 repost quotes A word for word. C Nov 18 independent post asks whether removal damages paint. D Oct 3 asks about cost. No other search occurred.",
+    "expect": "Report A and B as one independent signal; C as another, D outside the specified window; distinguish attention from product demand or product performance."
+  },
+  "launch": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Plan a 48-hour pilot for Relay Shelf Labels at $32. Audience US renters. One authorized draft ad, exactly one available product, checkout in staging, purchase event counts each refresh as another sale. Operator Ana owns checkout; creative owner Vic. No live rollout or target CPA supplied.",
+    "expect": "Make event deduplication a pre-release verification with a repeatable paid-order/reload check, then bounded pilot and accountable observation of orders, not an invented CPA."
+  },
+  "manual-voc-research": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Use only these excerpts. Q1 buyer A: “I cross out every label when my shelves change.” Q2 repost of Q1 by another account, exact wording. Q3 buyer B: “Will it leave marks on paint?” Q4 buyer C: “I keep my boxes as they are.” Code the friction, objection and contrary example. No product proof supplied.",
+    "expect": "Trace exact wording to Q1/Q3/Q4; do not count Q2 as independent support or convert the paint question into product evidence. Preserve Q4 as a boundary."
+  },
+  "market-research": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Research brief, supplied evidence only. Buyer A cites crossed-out shelf labels. Buyer B wants to relabel spice jars when contents change. Product P1 hand stamp and replaceable paper labels; D1 one clean-glass removal demo after 24h. No paint tests. Give the strongest candidate desire and one defensible angle; indicate missing evidence before wider claims.",
+    "expect": "Desire precedes mechanism and angle; stamp/replaceable label facts plus narrowly scoped glass demonstration, no all-surface or inferred novelty; show how missing evidence could change ranking."
+  },
+  "market-research-team": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. One analyst says the product works on every surface because competitor C1 says it does; researcher R1 tested our label on clean glass only, once. Customer Q1 asks if it works on paint. Product P1 costs $32. Deliver one reconciled decision for a two-person research team, using only these sources.",
+    "expect": "Keep own and competitor facts separate; cross-check contradictory conclusions, avoid approving paint promise, identify next evidence with an owner or verification step."
+  },
+  "max-ecommerce-email": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Design only the first cart reminder for $32 shelf labels. Eligible opted-in cart starters who provided email; purchase event arrives up to 20 minutes late. No discount, deadline, or stock info. A suppression list is available. Draft one subject, body and CTA and a measurable holdout.",
+    "expect": "Specific abandoned-cart reentry timing after known event lag; exclude purchasers/suppressed profiles; no invented deadline/discount; compare a common eligible denominator and window."
+  },
+  "metaphor-ads": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Concept only. Ad for a rewritable shelf-label kit; device to explore is “a reset button for your shelf”. Verified: manual hand stamp and replacement paper labels. No digital feature or one-press removal. Give one visual concept, misread risk, and an inexpensive comprehension test.",
+    "expect": "Keep literal manually changed labels legible, surface the one-click/digital implication, ask an unprimed viewer what they think happens before attaching the metaphor to the copy."
+  },
+  "native-ads-research-to-creative": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Write one short brand-authored native post for Relay Shelf Labels. Q1 buyer: “I cross out every label when my shelves change.” P1 hand stamp and 12 labels, $32. D1 one glass removal after 24h; no personal-use story, customer photo or product testimonial authorized. CTA See the kit.",
+    "expect": "Earn attention from friction; explain the manual product and relevant proof without fictitious firsthand experience, personal endorsement, or broader residue claims; match the $32 offer and CTA."
+  },
+  "offers": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Price $40 USD, COGS $14, fulfillment $6 all-in, net payment cost $2, no other variable cost. Control offer sells one kit per buyer, 10 of 100 eligible visitors. Candidate free legitimate accessory costs $4 on every candidate order, 12 of 100 buy. No refund change or randomization evidence. Compare contribution per eligible visitor and recommend a next move.",
+    "expect": "Control $1.80/visitor; candidate $1.68/visitor, lower despite CVR increase; no causal winner from these samples; bound the next comparison with fixed opportunity/cost."
+  },
+  "post-purchase-funnels": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Evaluate a $12 refill upsell after payment. Incremental contribution $6 per accepted upsell after every stated cost; no charge when declined. 200 eligible completed orders, 160 successfully see offer, 16 accept. No downstream cohort or holdout. Show take and contribution with correct denominators and avoid automatically charging anyone.",
+    "expect": "10% take among exposed or 8% of eligible with clear denominator; $96 contribution / 200 eligible = $0.48; explicit opt-in/skip, no uplift or LTV claim."
+  },
+  "pricing": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Comparable observational cohorts: price A $32, 12 paid orders/100 eligible visitors. Price B $40, 9 paid orders/100. Variable cost per paid order $16 at both prices. No returns, taxes, fixed costs or unrelated costs in exercise. Give economic comparison and evidence limits.",
+    "expect": "A = $1.92/visitor and B = $2.16/visitor; conversion and unit contribution move differently; no conclusive causal price recommendation from the observational result."
+  },
+  "store-content-cro-review": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Use supplied copy, no screenshots or analytics: mobile title “Starter kit $28”, CTA “Choose kit”; actual ledger and checkout both say $32. Incoming ad says change shelf labels when contents change. Supply one confirmed repair and one first unmeasured persuasion experiment, separately.",
+    "expect": "Correct price to $32 and verify PDP-to-checkout first; no visual assertion or forecast; subsequent controlled message match or proof experiment names exposed population and downstream outcome."
+  },
+  "vibe-coding-toolkit": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Plan a small fix only. A purchase webhook handler records a second sale when an already-processed event is retried. Unique provider event ID is stable. No repo attached and no change authorized. Define minimal implementation and the exact retry/concurrent-delivery check.",
+    "expect": "Use persistent idempotency/uniqueness or atomic equivalent, handle repeated/concurrent events and confirm only one sale by a test; do not claim an implementation happened."
+  },
+  "write-product-page-copy": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Draft only the mobile hero and CTA. Shelf-label kit $32 includes one hand stamp and 12 labels. D1 one label removed from clean glass after one day with no visible residue. No tested wood surfaces. Ad: “Change the label when the shelf contents change.” CTA exactly “Choose the starter kit”.",
+    "expect": "Keep ad-to-hero promise, contents/price/CTA intact. If mentioning removal proof preserve surface, duration and single observation; no universal residue, paint or free refill claim."
+  },
+  "write-video-ad-scripts": {
+    "brief": "Fictional local QA exercise. Work only from the supplied evidence. Create one 15-second brand shoot plan for a hand stamp and 12 shelf labels, $32. Show replacing a paper label when contents change; footage exists only of hand stamping one new label and the final jar. No before footage, testimonial, speed trial or guaranteed removal. CTA “See the kit”.",
+    "expect": "Feasible spoken length, actual available coverage distinguished from pickup shots, concrete visible demonstration and one locked CTA; no fictional user testimony, measured speed or universal removal claim."
+  }
+}

@@ -17,6 +17,14 @@ Product, target market, and any reviews or interviews.
 2. Use short quotes only when their actual wording and context are available. Record date, region, and source.
 3. Compare patterns across independent sources and note contradictions and sample limits.
 
+## Decision checks
+
+Capture customer words with a locator, date, product context and buyer status when known. Keep exact quotation, paraphrase and inferred motivation distinguishable. Count independent people or sources before calling a theme recurring.
+
+Record counterexamples and the circumstances that might explain them. Turn a repeated situation into a testable buyer hypothesis and name the evidence that would confirm or weaken it. Keep category complaints out of product-specific proof.
+
+If an authorized course pack is available, consult Company Research Document, Desire Hunt and Desire Calendar for this decision.
+
 ## Deliverable
 
 Dated findings with supporting sources.

@@ -13,57 +13,62 @@
             "id": "research-intake",
             "skill": "evolve-intake",
             "title": "Set the product and decision",
-            "instruction": "Set up the Evolve product overview for the selected product, market, and decision. Reuse the supplied saved research and brief, retaining its evidence IDs and dates. Separate current verified product facts and offer terms, seller assertions, assumptions, and gaps. Specify which gaps could change the decision and which sources can fill them.",
+            "instruction": "Set up the Evolve product overview for the selected product, market, and decision. Reuse the supplied saved research and brief, retaining its evidence IDs and dates. Separate current verified product facts and offer terms, seller assertions, assumptions, and gaps. Specify which gaps could change the decision and which sources can fill them. Identify the actual choice the buyer and business face, including the current workaround or decision to do nothing. Preserve price basis, variant and material terms when known; report only economics that change this decision.",
             "checks": [
               "The product, market, decision and relevant offer are explicit or identified as missing.",
-              "Reused facts preserve source IDs, and assumptions and seller claims are distinguished from verified facts."
+              "Reused facts preserve source IDs, and assumptions and seller claims are distinguished from verified facts.",
+              "The decision names the relevant alternative and identifies the specific missing fact most likely to reverse the recommendation."
             ]
           },
           {
             "id": "research-evidence",
             "skill": "evolve-research",
             "title": "Collect customer and competitor evidence",
-            "instruction": "Do the evidence collection section of the Evolve full-product route only. Inspect accessible first-party facts, independent buyer language, competing offers, ad examples, and failed alternatives. Give each item a stable evidence ID, source URL or filename, date or observation date, relevant excerpt and limitation. Deduplicate repeated reviews, retain contradictions, classify swipe sources by use, and record gaps where public or account material is unavailable. Use only the approved sources available to this run. Diagnose awareness and sophistication with supporting evidence before the mechanism and information passes.",
+            "instruction": "Do the evidence collection section of the Evolve full-product route only. Inspect accessible first-party facts, independent buyer language, competing offers, ad examples, and failed alternatives. Give each item a stable evidence ID, source URL or filename, date or observation date, relevant excerpt and limitation. Deduplicate repeated reviews, retain contradictions, classify swipe sources by use, and record gaps where public or account material is unavailable. Use only the approved sources available to this run. Diagnose awareness and sophistication with supporting evidence before the mechanism and information passes. Keep separate the buyer POV, competitor promises and target-product truth. For an awareness diagnosis cite what buyers already recognize; for sophistication cite the promises or mechanisms they have been exposed to. Assess each separately.",
             "checks": [
               "Findings are traceable to inspected evidence or explicitly marked as inference or a gap.",
-              "Contradictions, duplicates, sample limits and the difference between observed competitor activity and measured performance are accounted for."
+              "Contradictions, duplicates, sample limits and the difference between observed competitor activity and measured performance are accounted for.",
+              "The awareness and sophistication readings use the appropriate evidence or explicitly identify which one remains unknown."
             ]
           },
           {
             "id": "desire-hunt",
             "skill": "market-research",
             "title": "Find and rank buying desires",
-            "instruction": "Run only the first original Evolve pass, Desire Hunt, from the full product research route. Verify and use the exact original when available, with product context and known angles supplied separately. Capture distinct ranked desires, exact customer language and stable evidence IDs. Report the prompt source and any unavailable inputs. Where the portable pack lacks the original, label the sourced findings as a focused fallback and keep the exact pass marked incomplete.",
+            "instruction": "Cover Desire Hunt only. Use the first original Evolve pass from the full product research route when its files are available. Verify and use the exact original when available, with product context and known angles supplied separately. Capture distinct ranked desires, exact customer language and stable evidence IDs. Report the prompt source and any unavailable inputs. Where the portable pack lacks the original, label the sourced findings as a focused fallback and keep the exact pass marked incomplete. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. Rank a desired change in the buyer’s life using strength of observed behavior, urgency and source breadth. Distinguish observed intensity from inferred market size, and give the best contrary case where available.",
             "checks": [
               "Separate desires from product features and angles, retaining evidence IDs and counterexamples.",
-              "Record actual prompt provenance and scope; an unavailable original is never counted as completed."
+              "Record actual prompt provenance and scope; an unavailable original is never counted as completed.",
+              "For a scoped or portable request, a supported analysis with explicit incomplete original-pass status meets the stage. Require the original when exact execution is requested."
             ]
           },
           {
             "id": "new-mechanisms",
             "skill": "market-research",
             "title": "Check new mechanisms",
-            "instruction": "Run only the second original Evolve pass, New Mechanisms, using the source map and Market Sophistication document, verified product facts and earlier evidence. Evaluate the problem mechanism and product mechanism separately at the observed sophistication level. Explain which links are established and which need proof. If the original is missing, mark the exact pass incomplete and label any focused mechanism analysis separately.",
+            "instruction": "Cover New Mechanisms only. Use the second original Evolve pass, its source map and Market Sophistication document when available, together with verified product facts and the earlier evidence. Evaluate the problem mechanism and product mechanism separately at the observed sophistication level. Explain which links are established and which need proof. If the original is missing, mark the exact pass incomplete and label any focused mechanism analysis separately. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. Separate the buyer’s explanation for the problem, the action that could address it and the verified feature that performs that action. Indicate where a demonstration ends and a longer-term outcome would require additional evidence.",
             "checks": [
               "Mechanisms have a traceable factual basis or a specific proof gap, regardless of market sophistication.",
-              "Mechanism recommendations explain how the solution would answer the identified problem, with uncertainty preserved."
+              "Mechanism recommendations explain how the solution would answer the identified problem, with uncertainty preserved.",
+              "Assess a focused fallback on its traceability and explicit incomplete original-pass status. Missing course files alone block only a request that specifically requires the original method."
             ]
           },
           {
             "id": "new-information",
             "skill": "market-research",
             "title": "Find and verify new information",
-            "instruction": "Run only the third original Evolve pass, New Information, with the unmodified original when available. Use dated firsthand or primary sources where accessible. For each result, state what is new to this market, where it comes from, and which creative decision it changes. If nothing qualifies, name the gap. If the original is missing, mark the exact pass incomplete and label any focused findings separately.",
+            "instruction": "Cover New Information only. Use the third unmodified Evolve pass when available. Use dated firsthand or primary sources where accessible. For each result, state what is new to this market, where it comes from, and which creative decision it changes. If nothing qualifies, name the gap. If the original is missing, mark the exact pass incomplete and label any focused findings separately. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. Compare the finding against what the specified audience already hears. Explain how it would change a belief or a test, and keep an interesting fact with no such implication out of headline recommendations.",
             "checks": [
               "Every new fact has a source, date, scope and implication, or an explicit reason the cell remains empty.",
-              "The result does not confuse recency, novelty, interpretation or an example in the course with verified product evidence."
+              "The result does not confuse recency, novelty, interpretation or an example in the course with verified product evidence.",
+              "A clearly identified portable finding or evidence gap can advance a scoped run. Only required exact execution depends on the original being available."
             ]
           },
           {
             "id": "buyer-insights",
             "skill": "evolve-insights",
             "title": "Turn evidence into buyer insights",
-            "instruction": "Use the earlier evidence and desire, mechanism and information reports to fill the relevant Research to Ad fields before drafting angles. Define the core buyer, meaningful sub-avatars, their shared desire and the different situation, objection, or proof requirement that warrants a distinct ad. If manual VOC is supplied, reconcile its independently coded evidence and contradictions before finalizing profiles. Record awareness, sophistication, belief shift, failed alternatives, proof needs and remaining unknowns.",
+            "instruction": "Use the earlier evidence and desire, mechanism and information reports to fill the relevant Research to Ad fields before drafting angles. Define the core buyer, meaningful sub-avatars, their shared desire and the different situation, objection, or proof requirement that warrants a distinct ad. If manual VOC is supplied, reconcile its independently coded evidence and contradictions before finalizing profiles. Record awareness, sophistication, belief shift, failed alternatives, proof needs and remaining unknowns. For the leading profile trace a specific occasion through an attempted alternative and its tradeoff to a purchase barrier. If one link is inferred, name the observation that could confirm or overturn it.",
             "checks": [
               "Each retained profile or belief links to specific evidence IDs and the practical messaging consequence.",
               "Each distinct sub-avatar warrants a distinct ad, and unresolved claims never move into the approved proof list."
@@ -73,17 +78,18 @@
             "id": "research-angles",
             "skill": "evolve-angles",
             "title": "Develop and rank ad angles",
-            "instruction": "Run only the fourth original Evolve research pass, Ad Angles, using the retained sub-avatars and prior evidence. When the original is available, preserve the full prompt and examples and supply working inputs separately. Rank three angles per retained profile and three hooks or headlines per angle when evidence permits. Name the first test, the reason for its priority, the pattern used, and the source IDs and claim boundaries. If the original is missing, label the exact pass incomplete and identify any focused fallback.",
+            "instruction": "Cover Ad Angles only. Use the fourth original Evolve pass when available, with the retained sub-avatars and prior evidence. When the original is available, preserve the full prompt and examples and supply working inputs separately. Rank three angles per retained profile and three hooks or headlines per angle when evidence permits. Name the first test, the reason for its priority, the pattern used, and the source IDs and claim boundaries. If the original is missing, label the exact pass incomplete and identify any focused fallback. Pair the lead test with the evidence a skeptical buyer would need after the hook and one observable response that would count against the hypothesis.",
             "checks": [
               "Angle and hook choices derive from established profiles and source IDs and include an explicit test priority.",
-              "Unknown material is indicated instead of filling the requested count with weak or unsupported variants."
+              "Unknown material is indicated instead of filling the requested count with weak or unsupported variants.",
+              "A portable shortlist can advance with the exact original pass still marked incomplete. If exact execution was required, preserve the unmet dependency."
             ]
           },
           {
             "id": "research-handoff",
             "skill": "market-research",
             "title": "Deliver the reusable research record",
-            "instruction": "Assemble the passed research reports without repeating the collection or the four prompt passes. Include the evidence register and coverage limits, a receipt for the actual course prompts consulted, and the strongest and conflicting buyer, competitor and account evidence. End with a clearly labeled Creative Grounding Pack covering the product, market and offer, target buyer, locked or ranked desire, awareness, sophistication, the market gap, mechanism pair, One Belief, proof, permitted and unsupported claims, selected angle or options, VOC IDs, destination continuity and first test. Give the research record a date and product scope. Identify any formal Evolve course report or worksheets still outstanding if this local report run cannot produce them.",
+            "instruction": "Assemble the passed research reports without repeating the collection or the four prompt passes. Include the evidence register and coverage limits, a receipt for the actual course prompts consulted, and the strongest and conflicting buyer, competitor and account evidence. End with a clearly labeled Creative Grounding Pack covering the product, market and offer, target buyer, locked or ranked desire, awareness, sophistication, the market gap, mechanism pair, One Belief, proof, permitted and unsupported claims, selected angle or options, VOC IDs, destination continuity and first test. Give the research record a date and product scope. Identify any formal Evolve course report or worksheets still outstanding if this local report run cannot produce them. Separate what the ad can promise publicly now from unresolved research and attractive claims requiring proof. Put the strongest contrary finding next to the lead angle so it survives the handoff.",
             "checks": [
               "The assembled report retains the evidence record and the order and actual completion status of the four original passes.",
               "A creator can reuse the handoff with its exact facts, proof gaps, buyer and test objective without redoing the research."
@@ -101,7 +107,7 @@
             "skill": "manual-voc-research",
             "index_fresh_sources": true,
             "title": "Index the source language",
-            "instruction": "Process the supplied customer material independently before reading or reconciling any summaries. Preserve exact brief excerpts, surrounding context, stable source IDs, dates and source types when present. Deduplicate repeated copies while retaining counterexamples. Code observed triggers, frustrations, workarounds, objections, desire, and awareness. Mark secondhand material and opt to report the actual sample rather than making population claims. If there are zero customer records to index, identify that missing input and request a review, customer message or attributed interview note before synthesis.",
+            "instruction": "Process the supplied customer material independently before reading or reconciling any summaries. Preserve exact brief excerpts, surrounding context, stable source IDs, dates and source types when present. Deduplicate repeated copies while retaining counterexamples. Code observed triggers, frustrations, workarounds, objections, desire, and awareness. Mark secondhand material and opt to report the actual sample rather than making population claims. If there are zero customer records to index, identify that missing input and request a review, customer message or attributed interview note before synthesis. Separate respondent actions, attributed paraphrases and exact language. Count people, records and duplicates on their own basis; keep unknown speaker identity explicit when a source cannot support a unique-person count.",
             "checks": [
               "At least one inspectable customer record with identifiable provenance is present. A writer's example, seller claim, staff hypothesis or zero-record summary cannot satisfy this criterion. Rate it missing when no customer material was supplied.",
               "Every shared customer excerpt is faithful to supplied wording and linked to its source.",
@@ -112,7 +118,7 @@
             "id": "manual-insights",
             "skill": "customer-research",
             "title": "Update the product findings",
-            "instruction": "Synthesize the indexed voice of customer into distinct themes and opportunity territories. Compare with any saved research and identify what the new evidence confirms, challenges or leaves unresolved. Keep original wording and source IDs in the update. Return a dated handoff containing the most plausible buyer, desire and next research or test decision. Keep unsourced interpretations separate from directly observed material.",
+            "instruction": "Synthesize the indexed voice of customer into distinct themes and opportunity territories. Compare with any saved research and identify what the new evidence confirms, challenges or leaves unresolved. Keep original wording and source IDs in the update. Return a dated handoff containing the most plausible buyer, desire and next research or test decision. Keep unsourced interpretations separate from directly observed material. Connect the strongest supported decision to an actual buying occasion, attempted alternative or barrier when the records contain one. Show the counterexample or uncertainty that limits the recommendation and what observation would change it.",
             "checks": [
               "Major themes can be traced back to the indexed corpus, including relevant counterexamples.",
               "The handoff says what changed, why it matters for the product decision, and what still requires proof."
@@ -129,7 +135,7 @@
             "id": "competitor-offers",
             "skill": "competitor-profiling",
             "title": "Compare offers and alternatives",
-            "instruction": "Build dated profiles grouped by direct competitors and substitutes. Record market, currency, observed or supplied price, pack size, terms, promise, apparent mechanism, proof, landing destination and source for material facts. Make like-for-like comparisons and mark inaccessible details. Reuse existing dated profiles only where still relevant to the decision.",
+            "instruction": "Build dated profiles grouped by direct competitors and substitutes. Record market, currency, observed or supplied price, pack size, terms, promise, apparent mechanism, proof, landing destination and source for material facts. Make like-for-like comparisons and mark inaccessible details. Reuse existing dated profiles only where still relevant to the decision. Separate trial or introductory pricing from the recurring landed price. Show missing fees, eligibility, units or renewal conditions before ranking value, and include doing nothing when it is the buyer’s relevant alternative.",
             "checks": [
               "Comparisons account for market, date, currency and effective unit or bundle size when relevant.",
               "Visible assertions and terms are attributed accurately without treating them as verified efficacy."
@@ -139,7 +145,7 @@
             "id": "competitor-creative",
             "skill": "evolve-competitor-creative",
             "title": "Find transferable creative patterns",
-            "instruction": "Use the offer profiles and ads that can actually be inspected. Capture dated ad references, hook and beat structure, visual device, proof and destination. Classify separate swipes as cross-niche structure, direct-competitor message territory, or organic format. Identify the saturated message and one buyer-relevant gap with evidence or mark the gap provisional. Suggest an original hypothesis grounded in the user's research. Treat longevity, reach and observed activity as leads.",
+            "instruction": "Use the offer profiles and ads that can actually be inspected. Capture dated ad references, hook and beat structure, visual device, proof and destination. Classify separate swipes as cross-niche structure, direct-competitor message territory, or organic format. Identify the saturated message and one buyer-relevant gap with evidence or mark the gap provisional. Suggest an original hypothesis grounded in the user's research. Treat longevity, reach and observed activity as leads. Split the visible attention device from the persuasive proposition and the evidence offered for it. A borrowed format requires independent proof for the target product’s words and visuals.",
             "checks": [
               "Each recommendation distinguishes observed creative, performance evidence or its absence, and proposed execution.",
               "A pattern has a stated use, supporting sources and a proof requirement before transfer to another product."
@@ -156,10 +162,11 @@
             "id": "account-baseline",
             "skill": "evolve-account-research",
             "title": "Establish the creative baseline",
-            "instruction": "Match supplied creatives and ad IDs to the export and attribution window. Compare spend, reach, conversions and performance over compatible periods. Flag thin samples, mixed attribution and absent metrics. Name controls by the available evidence and identify a realistic one-variable test. Return source IDs and gaps for the creative brief.",
+            "instruction": "Match supplied creatives and ad IDs to the export and attribution window. Compare spend, reach, conversions and performance over compatible periods. Flag thin samples, mixed attribution and absent metrics. Name controls by the available evidence and design the comparison around the business question. To validate two existing packages, randomly compare both within the same eligible audience while holding delivery conditions fixed. To isolate a particular concept, express both concepts in a matched format. A hook-only variant answers a hook question. Return source IDs and gaps for the creative brief. Use the business goal to choose the comparison. If acquisition is the decision, compute new-customer CPA from spend and aligned first-time customers when available; compare with first-order contribution only on the same basis. Reconcile conflicting platform signals and isolate targeting, offer or page differences before attributing a result to an ad.",
             "checks": [
               "The baseline uses actual compatible first-party inputs and clearly marks missing or inconclusive metrics.",
-              "Each proposed control and test can be traced to a creative ID and an observable metric or caveat."
+              "Each proposed control and test can be traced to a creative ID and an observable metric or caveat.",
+              "A performance recommendation shows the relevant inputs and denominator, and states which confounds prevent a causal creative verdict. The proposed comparison can answer the named business question."
             ]
           }
         ]
@@ -180,7 +187,7 @@
             "id": "angle-shortlist",
             "skill": "evolve-angles",
             "title": "Rank evidence-backed angles",
-            "instruction": "Start with the existing buyer and desire findings. Use the original Evolve Ad Angles method when available and disclose the actual source. Rank angles that express distinct reasons to buy or distinct ways to activate a locked desire. For each, include buyer, triggering situation, angle, evidence IDs, claim boundaries, hook direction and predicted response. Propose the first test and its independent variable.",
+            "instruction": "Start with the existing buyer and desire findings. Use the original Evolve Ad Angles method when available and disclose the actual source. A portable shortlist should identify its method and retain the buyer, desire and evidence locks. Rank angles that express distinct reasons to buy or distinct ways to activate a locked desire. For each, include buyer, triggering situation, angle, evidence IDs, claim boundaries, hook direction and predicted response. Propose the first test and its independent variable. For the leading angle state the belief that must change, the demonstration or other proof capable of changing it, and a credible reason a buyer might reject it. Keep a new hook attached to its existing angle when only the expression changes.",
             "checks": [
               "Angles are strategically distinct within the requested scope, and relevant claims and test variables are grounded in the research.",
               "Recommendations preserve any existing desire or audience lock."
@@ -197,9 +204,10 @@
             "id": "write-brief",
             "skill": "evolve-briefs",
             "title": "Complete the Evolve brief",
-            "instruction": "Pick the matching original Evolve brief: Ideation for a new concept, Imitation for a swipe, or Iteration for a measured parent ad. Preserve the template fields and identify the original consulted. Reuse the dated product research and any user-locked angle. Record buyer, desire, awareness, idea, format, hook direction, promise, source IDs, supported proof, claim limits, offer, destination, CTA and test objective. For adaptation, note what the reference contributes. For iteration, include the retained controls and the one proposed change. Mark proposed decisions as such and never assume approval.",
+            "instruction": "Choose Ideation for a new concept, Imitation for a swipe, or Iteration for a measured parent ad. When the matching original Evolve brief is available, preserve its fields and identify it. In a portable run use the corresponding brief structure and identify the actual source. Reuse the dated product research and any user-locked angle. Record buyer, desire, awareness, idea, format, hook direction, promise, source IDs, supported proof, claim limits, offer, destination, CTA and test objective. For adaptation, note what the reference contributes. For iteration, include the retained controls and the one proposed change. Mark proposed decisions as such and never assume approval. Make the passage from opening promise to demonstration and destination concrete. If available proof can support only a narrower promise, give production that narrower wording and identify the unproved leap.",
             "checks": [
               "The route and the brief fields match the evidence, objective and intended format.",
+              "If the course template is absent, evaluate the identified portable brief on its applicable fields and scope. Missing exact fields matter when the user explicitly requests the original template.",
               "Downstream creative can reuse the approved product facts, buyer, desire, proof and test objective without guessing."
             ]
           }
@@ -214,7 +222,7 @@
             "id": "draft-ad-copy",
             "skill": "evolve-copywriting",
             "title": "Draft for the selected placement",
-            "instruction": "Use the supplied Evolve brief or clearly label a provisional brief when critical inputs are missing. Route to the original Evolve writing method for this placement when available. Keep the buyer, desire, angle, claim limits and offer fixed. Make each hook or format change deliberate. Return a complete draft and a separate source map for substantive claims, proof, testimonials and offer terms.",
+            "instruction": "Use the supplied Evolve brief or clearly label a provisional brief when critical inputs are missing. Route to the original Evolve writing method for this placement when available. Keep the buyer, desire, angle, claim limits and offer fixed. Make each hook or format change deliberate. Return a complete draft and a separate source map for substantive claims, proof, testimonials and offer terms. Begin at the awareness supported by the brief. Lead a problem-aware reader from a recognizable occasion to the useful action and its proof; shorten the explanation for a reader already evaluating the offer. Translate product facts into consequences at the scope actually demonstrated. Where the brief supports it, let the reader picture the before-and-after choice in one ordinary moment. A single concrete product action can carry both the explanation and the payoff. Give the reader one next action that the destination fulfills.",
             "checks": [
               "Draft follows the requested placement and conveys the same promise and test hypothesis as the brief.",
               "No factual claim, statistic, testimonial, scarcity or offer term exceeds the provided evidence."
@@ -224,10 +232,11 @@
             "id": "finish-ad-copy",
             "skill": "evolve-copy-review",
             "title": "Check claims, clarity and voice",
-            "instruction": "Read the entire draft in order using the original Evolve line-review criteria where available. Check specificity, buyer relevance, mechanism, proof, offer, reason to buy, mobile readability and continuity into the destination. Keep a short change log linking exact lines to the reason and evidence. Apply a voice polish only when useful and preserve verbatim sourced customer language and locked decisions. Return a clean placement-ready copy block separate from review notes and remaining gaps.",
+            "instruction": "Read the entire draft in order using the original Evolve line-review criteria where available. Check specificity, buyer relevance, mechanism, proof, offer, reason to buy, mobile readability and continuity into the destination. Keep a short change log linking exact lines to the reason and evidence. Apply a voice polish only when useful and preserve verbatim sourced customer language and locked decisions. Return a clean placement-ready copy block separate from review notes and remaining gaps. Read as a skeptical first-time buyer: identify the first line that asks for more belief than the preceding copy and evidence earn. Repair the leap or explain why the existing sequence earns the action. Read the public copy aloud. If one sentence names a benefit and then immediately repeats it as a feature list or directions, combine the useful detail into one natural line. Preserve exact user-locked words, qualifiers, quantities and offer conditions.",
             "checks": [
               "The review identifies concrete issues or confirms why the relevant lines work.",
-              "The revised copy preserves the offer, claim limits and designated test variables and is usable for the selected placement."
+              "The revised copy preserves the offer, claim limits and designated test variables and is usable for the selected placement.",
+              "The final promise, strength of proof, and CTA fit the reader's awareness and destination; words and visuals imply no broader result than the evidence supports."
             ]
           }
         ]
@@ -241,7 +250,7 @@
             "id": "review-draft",
             "skill": "evolve-copy-review",
             "title": "Diagnose and rewrite the weak lines",
-            "instruction": "Use the Evolve copy review method for the supplied draft, check against the brief and available sources, and return exact original lines, the issue, the smallest effective revision and the rationale. Supply a consolidated clean version where requested. Preserve substantiated facts, offer, voice and control placements, and call out unsupported claims with a needed proof or a grounded replacement.",
+            "instruction": "Use the Evolve copy review method for the supplied draft, check against the brief and available sources, and return exact original lines, the issue, the smallest effective revision and the rationale. Supply a consolidated clean version where requested. Preserve substantiated facts, offer, voice and control placements, and call out unsupported claims with a needed proof or a grounded replacement. Start with the earliest material break in the reader’s decision: recognition, relevance, belief, value or action. Keep later lines that already do their job. Distinguish a true claim or continuity defect from a stylistic alternative.",
             "checks": [
               "The review stays within the requested edit scope and cites the original lines it diagnoses.",
               "Suggested revisions improve specificity, momentum or proof without adding unsupported assertions."
@@ -258,17 +267,18 @@
             "id": "lock-script-inputs",
             "skill": "evolve-briefs",
             "title": "Lock the angle, desire, facts and hook",
-            "instruction": "Set up the relevant Evolve brief and the one-take format separately. Record the exact supplied opening hook, one angle, one desire, and the concrete subject to teach. Mark a suggested hook or other assumption explicitly if it was not supplied. Build a line-level ledger of usable facts, mechanism, proof, and genuine firsthand experience if supplied. Identify the one functional need that bridges from the problem to the product. Flag example claims or requested visuals that lack evidence.",
+            "instruction": "Set up the relevant Evolve brief and the one-take format separately. Record the exact supplied opening hook, one angle, one desire, and the concrete subject to teach. Mark a suggested hook or other assumption explicitly if it was not supplied. Build a line-level ledger of usable facts, mechanism, proof, and genuine firsthand experience if supplied. Identify the one functional need that bridges from the problem to the product. Flag example claims or requested visuals that lack evidence. Identify what the audience can see in one take and what remains an interpretation. If locked words assert an unsupported outcome, quote the original in review notes, propose a supportable alternative separately, and identify the missing proof or owner decision. Hold the ready-to-film script until the locked claim is resolved.",
             "checks": [
               "The exact supplied hook is present and the other three inputs are explicit, or the missing input is clearly identified.",
-              "The plan uses one camera-facing speaker and distinguishes product truth, example material and missing substantiation."
+              "The plan uses one camera-facing speaker and distinguishes product truth, example material and missing substantiation.",
+              "The locked hook can be spoken as written on the supplied evidence. If it makes an unsupported claim, mark the required proof or revised approval missing before handing off to drafting."
             ]
           },
           {
             "id": "draft-script",
             "skill": "write-video-ad-scripts",
             "title": "Write the three-act spoken draft",
-            "instruction": "Use the verified brief and the one-take format to write the script as numbered spoken sentences with one sentence per line. Aim for 12 to 16 sentences, using the evidence to determine act lengths without filler or compression. Act 1 opens with the exact supplied hook, then teaches the issue through specific, sourced facts and a plain analogy if it clarifies the evidence. Keep brand and product out of Acts 1 and 2. Act 2 is exactly one sentence and states the specific functional need. The first line of Act 3 names the actual product and explains how its supported mechanism meets that need. Close by returning to the original emotion with a simple link CTA. Use grounded speech. Separate optional visuals and production notes from the spoken lines, and keep them compatible with one continuous performance.",
+            "instruction": "Use the verified brief and the one-take format to write the script as numbered spoken sentences with one sentence per line. Aim for 12 to 16 sentences, using the evidence to determine act lengths without filler or compression. Act 1 opens with the exact supplied hook, then teaches the issue through specific, sourced facts and a plain analogy if it clarifies the evidence. Keep brand and product out of Acts 1 and 2. Act 2 is exactly one sentence and states the specific functional need. The first line of Act 3 names the actual product and explains how its supported mechanism meets that need. Close by returning to the original emotion with a simple link CTA. Use grounded speech. Separate optional visuals and production notes from the spoken lines, and keep them compatible with one continuous performance. Where the bridge introduces a functional need, pay it off with the simplest action the audience could witness in that same take. Preserve any offer qualifier that materially affects the decision.",
             "checks": [
               "The spoken hook is exact, Acts 1 and 2 are product-free, the bridge is one sentence, and the first line of Act 3 introduces the product.",
               "The technical explanation uses only grounded facts and any personal experience is supplied or phrased without invented testimony."
@@ -278,7 +288,7 @@
             "id": "check-script-evidence",
             "skill": "evolve-copy-review",
             "title": "Review the mechanism and evidence",
-            "instruction": "Audit each factual spoken line and any optional shot against the locked evidence. Assess whether the education actually establishes the need, the single bridge is specific, and the mechanism answers it. Identify implied claims and unsupported first-person results. Compare the performance features against the available step-by-step reference, including early concreteness, length, mechanism clarity and emotional payoff, treating the example as a format and voice reference. Return the revised script and a concise record of fixes. Preserve the supplied hook while flagging any evidence issue it contains for the user to resolve.",
+            "instruction": "Audit each factual spoken line and any optional shot against the locked evidence. Assess whether the education actually establishes the need, the single bridge is specific, and the mechanism answers it. Identify implied claims and unsupported first-person results. Compare the performance features against the available step-by-step reference, including early concreteness, length, mechanism clarity and emotional payoff, treating the example as a format and voice reference. Return the revised script and a concise record of fixes. Preserve the supplied hook while flagging any evidence issue it contains for the user to resolve. For each visual demonstration check the actual conditions under which it works. Keep category research out of the presenter's personal history and out of implied product results.",
             "checks": [
               "Material facts and visuals trace to the evidence, and any unresolved claim is visible for approval.",
               "The corrected bridge and mechanism answer the same need, and the comparison covers structure without inheriting example facts."
@@ -288,10 +298,11 @@
             "id": "finish-script",
             "skill": "humanizer",
             "title": "Check the read aloud and deliver",
-            "instruction": "Read the corrected script as one speaker talking to a phone. Open with the supplied hook and a concrete thing the viewer can picture early. Show separate headings for Act 1, Act 2 and Act 3, with one spoken sentence on each numbered line and exactly one functional bridge sentence in Act 2. Introduce the product only in Act 3. Remove redundant lines. Express the audience's frustration and payoff through an observable action, prop or moment when the brief supports one, and bring it back just before the link. Do not invent a testimonial or a result. Keep only facts needed for the demo or requested by the user; combine required offer facts into natural speech. Replace awkward spoken caveats with an observable detail when it does the same teaching job. Keep evidence limits and visual notes outside the spoken copy. Preserve the hook, grounded mechanism, required approved wording and CTA intent. Return the clean script and a brief comparison of structure, spoken rhythm and payoff, citing actual lines if a step-by-step reference was supplied.",
+            "instruction": "Read the corrected script as one speaker talking to a phone. Open with the supplied hook and a concrete thing the viewer can picture early. Show separate headings for Act 1, Act 2 and Act 3, with one spoken sentence on each numbered line and exactly one functional bridge sentence in Act 2. Introduce the product only in Act 3. Keep the first product sentence about how the product serves the bridge, then place price and quantity where they help the listener. Before cutting the 12–16 spoken-sentence benchmark, look for grounded teaching, a meaningful alternative, a necessary demo condition or a closing recognition beat that would improve comprehension. Retain a shorter cut only for an explicit timing constraint or when the evidence has no further useful beat, and identify that precise reason outside the script. Express the audience's frustration and payoff through an observable action, prop or moment when the brief supports one, and bring it back just before the link. Do not invent a testimonial or a result. Keep only facts needed for the demo or requested by the user; combine required offer facts into natural speech. Replace awkward spoken caveats with an observable detail when it does the same teaching job. Keep evidence limits and visual notes outside the spoken copy. Preserve the hook, grounded mechanism, required approved wording and CTA intent. Return the clean script and a brief comparison of structure, spoken rhythm and payoff, citing actual lines if a step-by-step reference was supplied. When a hook or CTA was explicitly locked, compare the final spoken words against it. If a supplied reference is absent, evaluate the actual script against the requested constraints and leave the reference comparison open.",
             "checks": [
               "Act 1, Act 2 and Act 3 are explicitly labeled. The exact hook opens Act 1; Act 2 is one functional bridge sentence; the product enters in Act 3. Numbered speech has one sentence per line and sounds natural without filler, catalog-style lists or repeated mechanism statements.",
-              "The closing earns the CTA through a concrete callback to the opening problem where the brief supports it. The product explanation remains accurate, and any comparison uses an available reference."
+              "The closing earns the CTA through a concrete callback to the opening problem where the brief supports it. The product explanation remains accurate, and any comparison uses an available reference.",
+              "Count the spoken sentences and check the first product line against the preceding need. Use the 12–16 range when the evidence supports it. For a shorter script, explain the specific constraint or exhausted evidence and preserve the first actionable mechanism beat."
             ]
           }
         ]

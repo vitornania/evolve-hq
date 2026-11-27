@@ -78,8 +78,9 @@ def command_for(provider, executable, prompt, files, schema):
         return [executable, "--print", "--mode", "ask", "--output-format", "json",
                 "--sandbox", "enabled", "--trust"], prompt
     if provider == "antigravity":
-        return [executable, "--mode", "plan", "--sandbox", "--disable-slash-commands",
-                "--output-format", "text", "--print=" + prompt], ""
+        message = json.dumps({"event": "user", "message": {"content": prompt}}) + "\n"
+        return [executable, "--mode", "plan", "--sandbox",
+                "--input-format", "stream-json", "--output-format", "stream-json"], message
     return [executable, "--approval-mode", "plan", "--sandbox",
             "--policy", str(Path(__file__).with_name("gemini-review.toml")),
             "--allowed-mcp-server-names", "evolve-hq-no-mcp",
@@ -87,10 +88,8 @@ def command_for(provider, executable, prompt, files, schema):
 
 
 def response_text(provider, output):
-    if provider == "antigravity":
-        return output.strip()
     reply = ""
-    for line in output.splitlines() if provider == "codex" else (output.strip(),):
+    for line in output.splitlines() if provider in {"codex", "antigravity"} else (output.strip(),):
         try:
             event = json.loads(line)
         except json.JSONDecodeError:
@@ -101,6 +100,10 @@ def response_text(provider, output):
             item = event.get("item", {})
             if event.get("type") == "item.completed" and item.get("type") == "agent_message":
                 reply = item.get("text") or reply
+        elif provider == "antigravity":
+            if event.get("event") == "result":
+                result = event.get("result") or {}
+                reply = result.get("response", "") if result.get("status") != "ERROR" else ""
         elif provider == "gemini":
             reply = event.get("response") or ""
         elif not event.get("is_error"):

@@ -17,6 +17,14 @@ Parent ad, results, and the element to change.
 2. Change one material variable and preserve the other cues that define the control.
 3. Return a comparison-ready variation, prediction, asset list, and measurement plan.
 
+## Decision checks
+
+Keep the parent ad ID, source files and dated results with the new child ID. Freeze the audience, offer, destination and all untested creative elements. Specify the one change in executable terms, such as replacing only the first spoken sentence.
+
+State why that change should move the chosen metric, what could confound it and when the decision can be read. Retain inconclusive results as such. Establish a fresh control if several consequential variables must change together.
+
+If an authorized course pack is available, consult Ten-Step iteration process and Iteration Brief for this decision.
+
 ## Deliverable
 
 An iteration brief with a testable change.

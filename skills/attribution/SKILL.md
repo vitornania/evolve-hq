@@ -17,6 +17,12 @@ Channel results, windows, and how attribution is defined.
 2. Compare what each method measures. Document data gaps, duplicate credit, and modeled results.
 3. Report a decision range and propose a measurement check that improves confidence.
 
+## Reconcile credits before recommending spend
+
+1. Align report dates, time zones, attribution windows, channels, currency and order status. Join on order IDs where permitted. Identify unique covered orders, overlaps and unmatched orders before allocating credit. With aggregate data, mark overlap unknown or bound it explicitly.
+2. Explain what the named model rewards on the actual path. A view-through window, last click, post-purchase survey and ledger answer different questions. Report measured credited revenue alongside spend and contribution when available.
+3. Use a holdout, randomized lift test or defensible geographical comparison to ask how much would have happened without the channel. Define treatment, baseline, contamination risks and decision metric. Label any budget move based on modeled credit with that uncertainty.
+
 ## Deliverable
 
 A measurement comparison and gaps to resolve.

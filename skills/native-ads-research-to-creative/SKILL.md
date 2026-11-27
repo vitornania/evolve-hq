@@ -13,12 +13,10 @@ Product research, buyer, offer, and desired format.
 
 ## Steps
 
-1. Anchor the lead in a sourced buyer observation and keep the story relevant to the offer.
-2. Plan the transitions from opening to explanation, proof, and action. Review independently for claim support and readable flow.
-3. Deliver the draft, hook variants, and the evidence or asset gaps.
+1. Identify the route: fresh concept, translation of a demonstrated winner, structural swipe or revision. Lock reader, awareness, one desire, current belief, approved product claim, proof, offer and action. Separate buyer language and experiences from the identity and actual experience of the narrator.
+2. Draft in the requested length. Identify the first line’s promise or open question and begin paying it off in the next beat. Use sourced audience language in context. Make the opening recognizable to that reader, show the existing workaround or reason for skepticism, explain how the product changes the situation, use proof that resolves this reader’s particular doubt, then make the next action clear. When formal outcome proof is thin, retain a grounded reader situation and explain the ordinary, observable use of a verified product component in the next line. Name what the buyer can do; avoid turning that action into an efficacy claim. An unrelated demonstration or generic product announcement rarely pays off a specific lead. On a swipe, preserve the job of each beat and supply your own facts; a protected detail or missing proof slot is not a license to invent a replacement.
+3. Review strategy and claim support first; then review transitions, specificity, spoken rhythm and the first-screen reading experience. Show what a buyer can actually do or see in ordinary language. Keep internal phrases such as “the research supports” or “this evidence shows,” source IDs and reviewer reasoning outside the published narrative. A customer story, testimonial or independent editorial frame requires a real attributable source and correct relationship. For an original course or Perry route, consult the installed route, original prompts and integrity check; distinguish a bounded adaptation from a completed original sequence.
 
 ## Deliverable
 
-A written ad with review notes and supporting claims.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

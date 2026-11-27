@@ -17,6 +17,14 @@ The draft, target audience, and desired action.
 2. Rewrite the smallest passages that fix those issues, preserving substantiated meaning and voice.
 3. Give original and revised examples and explain what each revision changes.
 
+## Decision checks
+
+Read the opening, image and close together and write the claim a reasonable buyer would take away. Check both that claim and the literal wording against the target evidence, including product version, population and timeframe. A qualifier in fine print may leave the main promise intact.
+
+Find the first unsupported leap between desire, mechanism, proof and offer. Show the exact changed passage and its evidence. Preserve locked terms and the campaign CTA, then reread the revised copy on its own. Replace internal evidence commentary with concrete buyer-facing action and remove repeated assertions.
+
+If an authorized course pack is available, consult Copywriting Checklist and the Video Script prompt for this decision.
+
 ## Deliverable
 
 Specific feedback and revised copy.

@@ -17,6 +17,14 @@ Research notes or a source-indexed evidence file.
 2. Write compact profiles with evidence IDs and counterexamples. Avoid demographic assumptions the sources cannot establish.
 3. Map promising beliefs to message or offer tests.
 
+## Decision checks
+
+Start with an observation that has a source, name the buyer situation it might explain, and state a competing explanation. Describe what would look different in research or behavior if the interpretation were true.
+
+Prioritize one implication by evidence strength, commercial consequence and ease of testing. Record category context separately from verified facts about the target product. Give the next owner a specific decision and the missing piece that could reverse it.
+
+If an authorized course pack is available, consult Desire Hunt, Avatar Training and New Mechanisms for this decision.
+
 ## Deliverable
 
 Buyer profiles, beliefs, and ad opportunities.

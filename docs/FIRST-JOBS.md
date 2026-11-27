@@ -7,6 +7,8 @@
 3. Click **Start run**. Independent workflows run side by side. Each workflow works through its selected stages in order. A stage drafts its deliverable, checks every required criterion in a separate model call, and can revise and recheck up to twice. A dependent stage starts after every criterion passes. A blocked workflow leaves its draft and findings available while the others continue.
 4. Open **Quality review** to see the finding and evidence for each criterion. After a research or brief run, click **Use reviewed results**, choose the reports you need, and optionally include the earlier images. Add the next job's brief and select a workflow. For a finished-ad review, attach the ad or its timecoded frames to the new run.
 
+For one task, open the individual skills library, select a skill and describe the exact deliverable. The writer and a separate review call both receive the selected method. Open **Quality review** to see which criteria passed and why. A draft can be revised twice. When you select several individual skills, each is checked separately and only approved results carry forward.
+
 Each receiving workflow gets the complete approved reports in its local `reviewed-inputs` folder. Its quality review checks the new work against those reports for exact wording, figures, source evidence and claim limits. For example, when Copywriting hands a control to Native Ads for a hook test, the reviewer can compare the fixed body word for word.
 
 When you hand earlier work to **Analyze customer material I provide**, the first pass indexes the current brief, page and newly attached material. It saves that index before the next pass receives the earlier reports and images. That makes it possible to check whether a new interview really supports an old ad angle.
@@ -23,6 +25,10 @@ If the provider gives no answer, the workflow retries that call once. If a stage
 | Static Ads | Reviews the selected library or reference, maps every visual and copy slot, and checks the evidence, typography and render handoff. |
 | Review & Iterate Ads | Diagnoses misses across the ad and the store, checks finished creative, and plans the next controlled test. |
 | Store Review & CRO | Audits the supplied page and gallery, prioritizes specific edits, and proposes a first conversion test. |
+
+## Check an individual skill on a practice brief
+
+Run `python3 scripts/exercise_skills.py evolve-angles` from the HQ folder. You can list several skill IDs or select `--all` for all 62. This uses your signed-in provider for each draft, review and any revisions. Each exercise starts a fresh run. Open the report at the printed path and compare the actual decision with the expected result printed afterward. The [practice briefs](../examples/skill-quality-cases.json) use fictional products and include cases where declining a claim or requesting evidence is the correct decision.
 
 ## Review a store
 

@@ -13,12 +13,10 @@ Product, audience, angle, length, and available footage.
 
 ## Steps
 
-1. Set duration, format, sources, available footage, and speaking pace.
-2. Write a timed shot list with spoken line, action, on-screen text, and proof cues.
-3. Review for production feasibility, legibility, and claim support. Mark optional alternative takes.
+1. Lock the buyer, desire, present belief, objection, substantiated mechanism, proof, offer, CTA, duration and usable footage. Select the route: original concept, direct-competitor territory, cross-category beat structure or native organic format. On a swipe, map the job of each beat before replacing its actors, claims, dialogue and footage with supported material.
+2. Plan the first visible action and first spoken line together. Build a credible progression from recognizable situation to product action, appropriate proof and next step. Draft timing, shot, spoken line and on-screen text; distinguish supplied footage from a proposed pickup or demonstration. Keep the spoken copy and CTA clean enough to hand directly to talent.
+3. Read the script aloud against the requested duration; distinguish an estimate from a timed recording. Check that the shot can prove the line, and inspect readability and verbal continuity in a separate pass. Offer alternate hooks only when requested. For an original Evolve or Origins prompt run use the installed course routing and integrity verifier; for a supplied voice-over benchmark compare pacing and beat function without inheriting its claims.
 
 ## Deliverable
 
-A production-ready script and shot cues.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return a recordable script and a shootable edit plan for the requested scope. Identify missing footage and proof outside the words spoken to the viewer.

@@ -13,12 +13,10 @@ The feature, problem, or codebase context.
 
 ## Steps
 
-1. Clarify the normal user journey and observable acceptance conditions.
-2. Inspect the existing entry points and dependencies. Choose the smallest complete, maintainable change.
-3. Deliver a practical build plan, verification steps, and handoff notes.
+1. Turn the request into an observable acceptance case. Identify the normal entry point, existing state and failure or retry most likely to break it. For planning-only work, distinguish confirmed behavior from details requiring repository access.
+2. Inspect existing callers and persistence boundaries before changing behavior. Reuse the normal code path. For work that can be retried or run concurrently, identify the durable identity and atomic boundary needed to avoid duplicate effects. Preserve compatibility with existing data where the change touches its shape.
+3. Verify the happy path and the consequential failure or concurrency case through the user's entry point. Check the resulting state or artifact, not only the response. Distinguish a proposed check from one actually run and keep setup assumptions in the handoff.
 
 ## Deliverable
 
-A technical plan and concrete acceptance checks.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return the smallest complete plan or implementation for the requested scope, its acceptance result and any unverified behavior. Use the installed project workflow references for larger technical builds.

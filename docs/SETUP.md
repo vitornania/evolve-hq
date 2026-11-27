@@ -46,7 +46,7 @@ In PowerShell, use `npm.cmd` if your system blocks the PowerShell npm shim. CLI 
 
 ### Google Gemini and Antigravity
 
-- **Individual Google accounts.** Use [Google Antigravity CLI](https://antigravity.google/docs/getting-started?tab=cli). Run `agy` in Terminal, follow Google’s sign-in prompts, then select **Google Antigravity** in HQ.
+- **Individual Google accounts.** Use [Google Antigravity CLI](https://antigravity.google/docs/getting-started?tab=cli). Run `agy` in Terminal, follow Google’s sign-in prompts, then select **Google Antigravity** in HQ. Use a version with [streaming prompt input](https://antigravity.google/docs/cli/headless/) so full course material can be passed on Windows as well as Mac.
 - **Supported Gemini CLI accounts.** Install [Gemini CLI](https://geminicli.com/docs/get-started/installation/) and authenticate using [Google’s supported methods](https://geminicli.com/docs/get-started/authentication/). Start Gemini CLI from the Evolve HQ folder and use its [folder trust menu](https://geminicli.com/docs/cli/trusted-folders/) to trust this downloaded project if you have reviewed it. Select **Gemini CLI** in HQ. Enable Plan Mode if your settings disable it. Google explains [who can still use Gemini CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/).
 - To use the skills directly in either Google tool, run `python3 setup_hq.py skills gemini` and open a fresh session in the project. See [Antigravity skills](https://antigravity.google/docs/skills) and [Gemini CLI skills](https://geminicli.com/docs/cli/skills/).
 

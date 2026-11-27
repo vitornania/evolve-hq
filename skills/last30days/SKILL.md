@@ -13,12 +13,10 @@ A topic, brand, or product category.
 
 ## Steps
 
-1. Define the 30-day window and sources at the start of the work.
-2. Collect independently dated posts or statements. Distinguish publication dates, revisions, and reposts from first-hand accounts.
-3. Group corroborated themes with links and note platform and sampling gaps.
+1. Define the inclusive date window, market, language and decision. Report which sources were actually searched or supplied. Preserve publication date, original link or source ID and enough context to distinguish buyers, commentators, sellers and secondhand accounts.
+2. Trace reposts and cross-posts to their origin. Group independent speakers separately from repeats and syndicated coverage. Where a source was updated, distinguish the date of the update from the date of the underlying event. Exclude outside-window evidence from recent counts.
+3. Describe what changed or recurred, who said it and the counterexample that bounds it. Distinguish attention, expressed purchase intent, reported experience and verified product facts. A viral thread or a handful of posts cannot establish population prevalence. Propose one research question the limited record can actually resolve.
 
 ## Deliverable
 
-A dated summary with public source links.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return dated observations with sources, search coverage, independent support and gaps. Mark an owner-supplied snapshot as such. If current sources are unavailable, report the limitation.

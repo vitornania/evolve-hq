@@ -17,6 +17,14 @@ Audience, offer, trigger, and email goal.
 2. Draft the sequence with subject, preheader, message, CTA, interval, and exit condition.
 3. Give a quality checklist for links, segments, frequency, consent, and monitoring.
 
+## Decision checks
+
+Give each send one decision and a reason the reader would make it now. For a welcome series, introduce the useful difference, answer the main objection with evidence, then present the verified offer. Tie the CTA to the page that fulfills it.
+
+Map the entry trigger, the delay, and the events that remove someone from the flow. Check for a purchase during the delay before sending an acquisition incentive. Judge revenue per eligible recipient against a comparable holdout when available. Opens alone cannot establish sales impact.
+
+Consult the installed sequence templates and copy guidelines when available.
+
 ## Deliverable
 
 An email sequence with timing and copy.

@@ -384,6 +384,15 @@ function renderRun(data) {
         }
         review.append(results);
       }
+      if (step.references?.length) {
+        const sources=element("ul");
+        for (const source of step.references) {
+          const file=source.file.split(/[\\/]/).slice(-2).join("/");
+          const location=source.startLine ? file+" line "+source.startLine : file;
+          sources.append(element("li",location+" · "+source.decision));
+        }
+        review.append(element("strong","Local references checked"),sources);
+      }
       content.append(review);
     }
     if (step.report) markdown(content,step.report);

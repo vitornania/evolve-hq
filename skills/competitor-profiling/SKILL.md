@@ -17,6 +17,12 @@ Product, target market, and competitor names or links.
 2. Capture market, currency, date, pack size, price, guarantee, delivery terms, and source for each comparable offer.
 3. Normalize units where appropriate and flag claims or terms that could not be inspected.
 
+## Compare the buyer’s alternatives on equal terms
+
+1. Include the default workaround or doing nothing if customers actually use it. For each candidate capture buyer occasion, SKU and quantities, region and date, landed first order, renewal terms, and reproducible source. Compute unit costs on comparable quantities and durations before making a price claim.
+2. Distinguish what a competitor says, what independent or observed evidence demonstrates, and which outcomes remain unknown. An ad’s runtime or polished appearance does not establish unit economics. Normalize comparisons with bundle, subscription and mandatory-fee differences visible.
+3. Identify one criterion that changes the buyer’s choice, an exception where the alternative wins, and the evidence that could disprove your proposed positioning. Give a fair next experiment or research action.
+
 ## Deliverable
 
 Dated profiles with like-for-like comparisons.

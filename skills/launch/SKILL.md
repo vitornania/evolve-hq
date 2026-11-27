@@ -13,12 +13,10 @@ What is launching, who it is for, and a target date.
 
 ## Steps
 
-1. Map the first buyer group, offer, and launch milestone.
-2. Sequence prerequisites, proof, messages, channels, quality checks, and responsibilities.
-3. Define a launch readiness decision, rollback trigger, and measures for week one.
+1. Specify the first eligible audience, their reason to act, the offer, destination and primary purchase event. Define the smallest release that can answer the owner's launch question. Identify owners for the preflight, launch decision and first review.
+2. Walk an actual order or staging equivalent from the incoming promise through price, inventory, checkout and confirmation. Verify one order produces one purchase event even when confirmation is refreshed or a delivery is retried. Reconcile a failed or cancelled payment where the path supports it.
+3. Sequence prerequisite repairs, launch and learning. State what would pause exposure, who can address it and what would verify recovery. After a small launch, separate low reach from weak conversion; compare eligible traffic and fulfilled paid orders before judging copy or extrapolating profitability.
 
 ## Deliverable
 
-A launch timeline and channel plan.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Provide a dated or relative launch sequence with owners, a go/no-go decision and what to measure in the first cohort. Use the installed site launch QA route when the store itself is in scope.

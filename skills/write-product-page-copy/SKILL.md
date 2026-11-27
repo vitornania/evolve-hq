@@ -13,12 +13,10 @@ Product facts, target buyer, offer, and any current copy.
 
 ## Steps
 
-1. Start with buyer, product facts, offer, credible proof, and likely objections.
-2. Draft hero, benefit and proof sections, how it works, buyer FAQs, and CTA copy.
-3. Verify product claims and terms. Supply mobile-first copy with optional variants.
+1. Scope the requested page or sections and the actual incoming traffic message. Lock the buyer's desired outcome, actual selection, product mechanism, in-box contents, price, restrictions, proof and CTA. Match the first mobile viewport to the ad promise, while answering what the shopper gets and why they should believe it.
+2. Give each requested block a job: explain the offer, show how it works, substantiate a specific claim or answer a purchase-stopping objection. Put decisive qualifications alongside their claim. Describe a demonstration in ordinary shopper language and limit the statement to the actual material, duration and conditions tested. Use the most informative image or demonstration for each uncertainty.
+3. Read the result as a shopper following the ad to checkout. Verify prices, variants, included items, paid extras and returns against the source. Keep every locked CTA exactly. Remove repeated section content. Keep editorial phrasing about insufficient evidence, asset requests and test ideas in owner notes. For a reference page, preserve section purpose and scope without borrowing its claims or reviews.
 
 ## Deliverable
 
-Ready-to-paste product-page copy.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Return mobile-first, paste-ready copy for the requested sections. When accessible, use the installed Evolve CRO angle, content and testing modules to choose page work appropriate to the request.

@@ -14,6 +14,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "office"))
 import activity  # noqa: E402
+import providers  # noqa: E402
 from providers import ProviderNoAnswer  # noqa: E402
 import skill_runs  # noqa: E402
 import workflow_batches  # noqa: E402
@@ -138,6 +139,77 @@ def check_standalone_modes(workspace):
     print(f"Standalone execution verified for {sum(len(w['modes']) for w in catalog)} modes and {total} stages.")
 
 
+def check_individual_skills(workspace):
+    # A local pack can augment the built-in method without replacing its decision guidance.
+    name = "humanizer"
+    pack = workspace / ".office/libraries/evolve/skills" / name
+    pack.mkdir(parents=True)
+    (pack / "SKILL.md").write_text("Consult the installed method example.", encoding="utf-8")
+    (pack / "example.md").write_text("Authorized source fixture.", encoding="utf-8")
+    sentinel = (workspace / "skills" / name / "SKILL.md").read_text(encoding="utf-8").strip()
+    cases = skill_runs.load_json(ROOT / "examples/skill-quality-cases.json")
+    assert set(cases) == set(guide)
+    assert all(case["brief"] and case["expect"] for case in cases.values())
+    calls = Counter()
+    methods = [{"file": str(pack / "SKILL.md")}]
+    valid = {"file": "example.md", "anchor": "Authorized source", "decision": "Check the example."}
+    verified = workflow_batches.verify_references({"references": [valid]}, methods)
+    assert verified["references"][0]["file"] == str(pack / "example.md")
+    assert verified["references"][0]["startLine"] == verified["references"][0]["endLine"] == 1
+    for invalid in (valid | {"anchor": "Invented words"}, valid | {"file": str(workspace / "tasks/run.json")}):
+        try:
+            workflow_batches.verify_references({"references": [invalid]}, methods)
+        except workflow_batches.ReviewFormatError:
+            pass
+        else:
+            raise AssertionError("Unverified local reference was accepted.")
+
+    def respond(_provider, directory, prompt, *, files):
+        title = next(line[7:] for line in prompt.splitlines() if line.startswith("Stage: "))
+        reviewing = prompt.startswith("Independently review")
+        calls[title, reviewing] += 1
+        if title == guide[name]["title"]:
+            assert sentinel in prompt and "Consult the installed method example." in prompt
+            assert str(pack) in prompt
+        if not reviewing:
+            assert "Run exactly this selected Evolve skill:" in prompt
+            return "A scoped report with an evidence-based decision."
+        criteria = prompt.split("Check all of these:\n", 1)[1].split("\n\nInspect", 1)[0].splitlines()
+        status = "met"
+        if title == guide[name]["title"] and calls[title, reviewing] == 1:
+            status = "fix"
+        if title == guide["ab-testing"]["title"]:
+            status = "missing"
+        return json.dumps({
+            "checklist": [{"number": n, "status": status, "evidence": "Selected method and draft inspected."}
+                          for n in range(1, len(criteria) + 1)],
+            "feedback": "Fixture review.", "handoff": "Reviewed decision." if status == "met" else "",
+        })
+
+    with patch.object(skill_runs, "reply", side_effect=respond):
+        for skill in guide:
+            # Each skill starts cold; no previous report or answer key.
+            run = wait_run(skill_runs.start_run({"skills": [skill], "brief": cases[skill]["brief"]}))
+            step = run["steps"][0]
+            assert not run["workflows"] and step["id"] == skill
+            attempts = 2 if skill == name else 1
+            assert calls[step["title"], True] == calls[step["title"], False] == attempts
+            if skill == "ab-testing":
+                assert step["status"] == "blocked" and not step.get("artifact")
+                continue
+            assert step["status"] == "review" and len(step["checks"]) == len(step["checkResults"])
+            assert Path(step["artifact"]).name == f"01-{skill}.md"
+            assert skill_runs.previous_results(run["id"])[0]["report"] == step["report"]
+            if skill == name:
+                assert step["revisions"] == 1 and len(step["methodFiles"]) == 2
+                methods, receipt = workflow_batches.selected_method(pack / "SKILL.md")
+                assert step["methodFiles"] == receipt and sentinel in methods
+        mixed = wait_run(skill_runs.start_run({"skills": ["ab-testing", name], "brief": "Two selected tasks."}))
+        assert [step["status"] for step in mixed["steps"]] == ["blocked", "review"]
+        assert [step["id"] for step in skill_runs.previous_results(mixed["id"])] == [name]
+    print(f"Individual draft/review, artifact reuse and method resolution verified for {len(guide)} skills.")
+
+
 def check_handoff_matrix(workspace):
     flows = [flow["id"] for flow in catalog]
     jobs = [{"workflow": flow["id"], "mode": flow["modes"][0]["id"],
@@ -214,6 +286,14 @@ def check_handoff_matrix(workspace):
 
 with tempfile.TemporaryDirectory() as folder:
     workspace = Path(folder).resolve()
+    long_prompt = "Reference evidence. " * 3000
+
+    command, message = providers.command_for("antigravity", "agy", long_prompt, [], None)
+    assert len(" ".join(command)) < 1024 and "stream-json" in command and "plan" in command
+    assert json.loads(message)["message"]["content"] == long_prompt and len(message.splitlines()) == 1
+    stream = '{"event":"init"}\n{"event":"result","result":{"status":"SUCCESS","response":"Verified."}}'
+    assert providers.response_text("antigravity", stream) == "Verified."
+    assert not providers.response_text("antigravity", '{"event":"result","result":{"status":"ERROR"}}')
     shutil.copytree(ROOT / "team", workspace / "team")
     shutil.copytree(ROOT / "skills", workspace / "skills")
     with ExitStack() as stack:
@@ -221,6 +301,7 @@ with tempfile.TemporaryDirectory() as folder:
             patch.object(activity, "ROOT", workspace),
             patch.object(activity, "DB", workspace / "activity.sqlite3"),
             patch.object(skill_runs, "ROOT", workspace),
+            patch.object(skill_runs, "PACKS", workspace / ".office/libraries"),
             patch.object(workflow_batches, "ROOT", workspace),
             patch.object(skill_runs, "require", return_value="stub"),
             patch.object(skill_runs, "reply", side_effect=provider),
@@ -305,6 +386,7 @@ with tempfile.TemporaryDirectory() as folder:
         assert prior_image_only["status"] == "blocked" and len(events) == provider_calls
         standalone = wait_run(skill_runs.start_run({"skills": ["humanizer"], "brief": "Polish this line."}))
         assert standalone["status"] == "review" and standalone["steps"][0]["report"] == "Standalone report."
+        check_individual_skills(workspace)
         check_handoff_matrix(workspace)
         check_standalone_modes(workspace)
 

@@ -17,6 +17,12 @@ Product, market, and customer research sources.
 2. Separate a real desire from beliefs about what makes a solution work. Track supporting evidence and contradictions.
 3. Propose an evidence-based message test and describe the evidence still needed.
 
+## Run the requested depth and preserve the dependency order
+
+1. For a full named-method run with an authorized pack, open its prompt map, verify the original files, and run all 14 mapped blocks in their dependency order. Start with intake and both awareness passes, then competitor research. Follow desire extraction with validation and the God Tier desire pass. Continue through macro avatars, language extraction, emerging avatar and avatar research, then mechanism generation, mechanism evaluation and the master research document. Carry the actual prior artifact and its source IDs into each dependent block.
+2. For a focused request, identify the relevant block and the evidence its prerequisites supply. If the originals are unavailable, provide a portable analysis with the exact missing route identified. Record which blocks were actually read and executed when reporting completion.
+3. Separate how intensely one person wants an outcome from the breadth of independent demand. Compare the current workaround, failed alternative or purchase event across sources and retain a counterexample. Attribute verbatim language to a retrievable record. Verify that the proposed product mechanism performs the action before turning a buyer belief into public copy.
+
 ## Deliverable
 
 A structured buyer motivation brief and next test.

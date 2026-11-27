@@ -17,6 +17,14 @@ A product and the outcome you want.
 2. Offer up to three precise skill IDs with required inputs. If the user selects one, preserve their selection and scope.
 3. Record the chosen desk, approval needed, and next deliverable.
 
+## Decision checks
+
+Translate the request into the job the user wants to finish and the concrete artifact that will show completion. If they selected one skill or stage, run that selection with its existing inputs. Surface a missing prerequisite precisely and carry valid prior work forward.
+
+Report the actual state of each requested job using run evidence. Distinguish a saved brief, an active run and a verified deliverable. An output intended for a campaign stays a draft until the requested publishing or spend action has its own authorization.
+
+Use the project team catalog and roster to identify the selected owner and action.
+
 ## Deliverable
 
 A desk assignment and plan for the work.

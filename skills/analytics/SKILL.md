@@ -17,6 +17,12 @@ Event map, reporting examples, and key actions.
 2. Check event definitions, duplicates, missing parameters, timezone, filters, and attribution windows.
 3. Provide test events, expected values, and fixes ranked by measurement impact.
 
+## Reconcile the event with the transaction
+
+1. For each decision-critical event specify the trigger, unit, event and transaction identifiers, timestamp, currency, value basis, consent condition and owner. Separate a completed payment from a button click. Decide how retries, cancellations and refunds appear.
+2. Trace a known transaction from the browser or server through reporting and the order ledger. If both paths send the purchase, deduplicate by a shared stable ID and check that distinct orders still appear. Reconcile raw events, unique orders, source-of-truth totals and the difference for the same window and time zone.
+3. Define rates with explicit eligible denominators and attribution scope. Write an unavailable rate as unknown when its denominator is zero or missing. Expose gaps from consent, filtering, currency conversion or incomplete refunds before interpreting movement.
+
 ## Deliverable
 
 A tracking checklist and recommended fixes.

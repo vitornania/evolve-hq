@@ -13,11 +13,12 @@
             "id": "native-brief",
             "skill": "cold-traffic-ad-craft",
             "title": "Lock the research and creative brief",
-            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft.",
+            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it.",
             "checks": [
               "The brief names the target product, buyer, offer, exact awareness conversation, locked desire and angle.",
               "Product facts, customer language, and creative hypotheses stay distinguishable, with source IDs for usable evidence.",
-              "Any required missing evidence or unresolved swipe route is explicit."
+              "Any required missing evidence or unresolved swipe route is explicit.",
+              "The brief identifies a believable starting point and an available proof asset for the intended shift."
             ]
           },
           {
@@ -35,11 +36,12 @@
             "id": "review-strategy-n2",
             "skill": "native-ads-research-to-creative",
             "title": "Review strategy and evidence",
-            "instruction": "Read Draft N1 against the brief and source-linked evidence. Check awareness, desire, angle, central idea, mechanism, proof sequence and offer continuity. Mark line-level unsupported claims and repair them without broadening the promise. Identify what the lead earns and what the offer can substantiate. Deliver the complete revised Draft N2, a concise change log, and unresolved blockers. This pass concerns strategic and evidentiary quality.",
+            "instruction": "Read Draft N1 against the brief and source-linked evidence. Check awareness, desire, angle, central idea, mechanism, proof sequence and offer continuity. Mark line-level unsupported claims and repair them without broadening the promise. Identify what the lead earns and what the offer can substantiate. Deliver the complete revised Draft N2, a concise change log, and unresolved blockers. This pass concerns strategic and evidentiary quality. Read the opening, illustration and close as one buyer takeaway. Check implied outcomes, testimonial identity and urgency against the evidence. Distinguish category or ingredient support from tested product-specific effects. Repair the weakest belief change inside the full draft using the strongest available demonstration. Write the revised consumer copy in natural, concrete language that lets the reader picture using the product. Keep evidence IDs, internal reviewer narration and explanations of what the demonstration establishes in the review notes. Read the copy alone and replace sentences that merely restate the previous line.",
             "checks": [
               "The review gives specific findings with draft lines and evidence, plus a concrete revision or grounded reason to retain the line.",
               "The complete Draft N2 and issues requiring user evidence can be distinguished from the review notes.",
-              "The locked audience, desire, angle, offer and test remain identifiable after revision."
+              "The locked audience, desire, angle, offer and test remain identifiable after revision.",
+              "The revised draft earns its material promise with target-specific proof and retains the supported offer and next action. The buyer-facing copy can stand on its own, with direct product action and no internal review commentary."
             ]
           },
           {
@@ -64,22 +66,24 @@
             "id": "inspect-swipe",
             "skill": "native-ads-research-to-creative",
             "title": "Analyze the reference",
-            "instruction": "Read the supplied ad or script and establish its transfer route from the user’s selection. Cross-niche structure, direct-competitor message, and organic format each have a distinct job. If the route or source is missing, identify the specific input needed. Map the observed hook, desire, awareness, story beats, mechanism, open loops, and proof sequence. For cross-niche structure, produce the beat map, stripped skeleton, fill-in template, and supported target-product map. Keep a swipe construction ledger. Use verified performance when calling a source a measured winner. Treat views, reach, and longevity as signals.",
+            "instruction": "Read the supplied ad or script and establish its transfer route from the user’s selection. Cross-niche structure, direct-competitor message, and organic format each have a distinct job. If the route or source is missing, identify the specific input needed. Map the observed hook, desire, awareness, story beats, mechanism, open loops, and proof sequence. For cross-niche structure, produce the beat map, stripped skeleton, fill-in template, and supported target-product map. Keep a swipe construction ledger. Use verified performance when calling a source a measured winner. Treat views, reach, and longevity as signals. Mark which elements were directly observed and which performance or audience conclusions are inferred. A borrowed proof sequence needs target-specific evidence at each corresponding beat.",
             "checks": [
               "The source is identified and directly inspected, or the missing original is named.",
               "Every proposed borrowing has a scoped job and a note on what requires new product-specific evidence.",
-              "Claims of winning cite measured evidence or are presented as hypotheses."
+              "Claims of winning cite measured evidence or are presented as hypotheses.",
+              "The source-to-target map identifies a persuasive beat that needs replacement or new evidence when applicable."
             ]
           },
           {
             "id": "native-brief",
             "skill": "cold-traffic-ad-craft",
             "title": "Lock the research and creative brief",
-            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft.",
+            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it.",
             "checks": [
               "The brief names the target product, buyer, offer, exact awareness conversation, locked desire and angle.",
               "Product facts, customer language, and creative hypotheses stay distinguishable, with source IDs for usable evidence.",
-              "Any required missing evidence or unresolved swipe route is explicit."
+              "Any required missing evidence or unresolved swipe route is explicit.",
+              "The brief identifies a believable starting point and an available proof asset for the intended shift."
             ]
           },
           {
@@ -97,11 +101,12 @@
             "id": "review-strategy-n2",
             "skill": "native-ads-research-to-creative",
             "title": "Review strategy and evidence",
-            "instruction": "Read Draft N1 against the brief and source-linked evidence. Check awareness, desire, angle, central idea, mechanism, proof sequence and offer continuity. Mark line-level unsupported claims and repair them without broadening the promise. Identify what the lead earns and what the offer can substantiate. Deliver the complete revised Draft N2, a concise change log, and unresolved blockers. This pass concerns strategic and evidentiary quality.",
+            "instruction": "Read Draft N1 against the brief and source-linked evidence. Check awareness, desire, angle, central idea, mechanism, proof sequence and offer continuity. Mark line-level unsupported claims and repair them without broadening the promise. Identify what the lead earns and what the offer can substantiate. Deliver the complete revised Draft N2, a concise change log, and unresolved blockers. This pass concerns strategic and evidentiary quality. Read the opening, illustration and close as one buyer takeaway. Check implied outcomes, testimonial identity and urgency against the evidence. Distinguish category or ingredient support from tested product-specific effects. Repair the weakest belief change inside the full draft using the strongest available demonstration. Write the revised consumer copy in natural, concrete language that lets the reader picture using the product. Keep evidence IDs, internal reviewer narration and explanations of what the demonstration establishes in the review notes. Read the copy alone and replace sentences that merely restate the previous line.",
             "checks": [
               "The review gives specific findings with draft lines and evidence, plus a concrete revision or grounded reason to retain the line.",
               "The complete Draft N2 and issues requiring user evidence can be distinguished from the review notes.",
-              "The locked audience, desire, angle, offer and test remain identifiable after revision."
+              "The locked audience, desire, angle, offer and test remain identifiable after revision.",
+              "The revised draft earns its material promise with target-specific proof and retains the supported offer and next action. The buyer-facing copy can stand on its own, with direct product action and no internal review commentary."
             ]
           },
           {
@@ -148,11 +153,12 @@
             "id": "audit-hook-test",
             "skill": "evolve-test-design",
             "title": "Verify the controlled test",
-            "instruction": "Compare the approved control and each variant against the locked boundary. List what changed, confirm the preserved body and offer, and check that the original hypothesis remains testable. A reach signal is useful for prioritizing a swipe. First-party results and an actual comparison are needed to report a test winner.",
+            "instruction": "Compare the approved control and each variant against the locked boundary. List what changed, confirm the preserved body and offer, and check that the original hypothesis remains testable. A reach signal is useful for prioritizing a swipe. First-party results and an actual comparison are needed to report a test winner. Read each replacement hook directly into the unchanged second line. Check whether their combined implication introduces a stronger claim, an invented speaker or an unsupported personal outcome. Drop or rewrite a failing hook within the permitted slot.",
             "checks": [
               "The audit compares each proposed change to the identifiable control.",
               "Only the authorized test variable changes and no edited variant gains unsupported claims.",
-              "The test record identifies the metric and assumptions, and performance remains unmeasured unless results were supplied."
+              "The test record identifies the metric and assumptions, and performance remains unmeasured unless results were supplied.",
+              "Each surviving hook fits the fixed continuation, its implied promise and the verified evidence."
             ]
           }
         ]
@@ -185,11 +191,12 @@
             "id": "choose-template",
             "skill": "build-static-ads-in-figma",
             "title": "Review the library and rank templates",
-            "instruction": "Inventory the authorized libraries in scope, including multi-frame entries and format variants. Review every distinct candidate against the locked message, evidence slots, and layout constraints. Reuse verified catalog assessments for unchanged assets. Reconcile the frozen inventory and review statuses, then inspect the strongest candidates at readable size. Rank the eligible finalists with references to exact pages or frames. If an inventory cannot be reconciled, list missing or unavailable records and qualify the recommendation to the coverage achieved.",
+            "instruction": "Inventory the authorized libraries in scope, including multi-frame entries and format variants. Review every distinct candidate against the locked message, evidence slots, and layout constraints. Reuse verified catalog assessments for unchanged assets. Reconcile the frozen inventory and review statuses, then inspect the strongest candidates at readable size. Rank the eligible finalists with references to exact pages or frames. If an inventory cannot be reconciled, list missing or unavailable records and qualify the recommendation to the coverage achieved. For every candidate inventory entry, consider whether the target has evidence for its indispensable visual and copy roles. Downgrade references whose central persuasion depends on an unavailable testimonial, certification or result. Identify the best feasible reference and explain the nearest alternative's material tradeoff. If inventory items cannot be inspected, distinguish the best inspected candidate from a library-wide winner.",
             "checks": [
               "Counts distinguish inventoried, reviewed, eligible, excluded, pending and inaccessible records, and unknown source totals are explicit.",
               "The top candidates have verified asset IDs or links and clear reasons grounded in the buyer, message, and proof requirements.",
-              "The recommendation is scoped to the reviewed coverage and a template with unsupported central slots is excluded."
+              "The recommendation is scoped to the reviewed coverage and a template with unsupported central slots is excluded.",
+              "The selection explains which target evidence fills each decisive reference role and accounts for inaccessible candidates in the reported coverage."
             ]
           }
         ]
@@ -215,11 +222,12 @@
             "id": "choose-template",
             "skill": "build-static-ads-in-figma",
             "title": "Review the library and rank templates",
-            "instruction": "Inventory the authorized libraries in scope, including multi-frame entries and format variants. Review every distinct candidate against the locked message, evidence slots, and layout constraints. Reuse verified catalog assessments for unchanged assets. Reconcile the frozen inventory and review statuses, then inspect the strongest candidates at readable size. Rank the eligible finalists with references to exact pages or frames. If an inventory cannot be reconciled, list missing or unavailable records and qualify the recommendation to the coverage achieved.",
+            "instruction": "Inventory the authorized libraries in scope, including multi-frame entries and format variants. Review every distinct candidate against the locked message, evidence slots, and layout constraints. Reuse verified catalog assessments for unchanged assets. Reconcile the frozen inventory and review statuses, then inspect the strongest candidates at readable size. Rank the eligible finalists with references to exact pages or frames. If an inventory cannot be reconciled, list missing or unavailable records and qualify the recommendation to the coverage achieved. For every candidate inventory entry, consider whether the target has evidence for its indispensable visual and copy roles. Downgrade references whose central persuasion depends on an unavailable testimonial, certification or result. Identify the best feasible reference and explain the nearest alternative's material tradeoff. If inventory items cannot be inspected, distinguish the best inspected candidate from a library-wide winner.",
             "checks": [
               "Counts distinguish inventoried, reviewed, eligible, excluded, pending and inaccessible records, and unknown source totals are explicit.",
               "The top candidates have verified asset IDs or links and clear reasons grounded in the buyer, message, and proof requirements.",
-              "The recommendation is scoped to the reviewed coverage and a template with unsupported central slots is excluded."
+              "The recommendation is scoped to the reviewed coverage and a template with unsupported central slots is excluded.",
+              "The selection explains which target evidence fills each decisive reference role and accounts for inaccessible candidates in the reported coverage."
             ]
           },
           {
@@ -248,11 +256,12 @@
             "id": "review-evidence-s2",
             "skill": "build-static-ads-in-figma",
             "title": "Review the message and evidence",
-            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope.",
+            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope. Evaluate the viewer's combined takeaway from the words, icons, badges, depicted transformation and product image. A flavor, format or size can fill a corresponding attribute slot. A performance-benefit slot needs supported benefit evidence. Use a supported role-equivalent replacement or explicitly leave the concept awaiting proof if the role cannot be preserved. Count independently meaningful source ideas within a multi-line slot. When a two-line headline originally promised two different benefits, two fragments of one benefit preserve only one. Supply two distinct role-equivalent benefits with separate support, or mark the missing role and hold exact-structure approval. Put any single-benefit alternative in a separately labeled new-test proposal.",
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review.",
+              "Every material visual or textual implication has matching target evidence, including whether a slot is an attribute, benefit, endorsement or outcome. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off."
             ]
           },
           {
@@ -311,11 +320,12 @@
             "id": "review-evidence-s2",
             "skill": "build-static-ads-in-figma",
             "title": "Review the message and evidence",
-            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope.",
+            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope. Evaluate the viewer's combined takeaway from the words, icons, badges, depicted transformation and product image. A flavor, format or size can fill a corresponding attribute slot. A performance-benefit slot needs supported benefit evidence. Use a supported role-equivalent replacement or explicitly leave the concept awaiting proof if the role cannot be preserved. Count independently meaningful source ideas within a multi-line slot. When a two-line headline originally promised two different benefits, two fragments of one benefit preserve only one. Supply two distinct role-equivalent benefits with separate support, or mark the missing role and hold exact-structure approval. Put any single-benefit alternative in a separately labeled new-test proposal.",
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review.",
+              "Every material visual or textual implication has matching target evidence, including whether a slot is an attribute, benefit, endorsement or outcome. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off."
             ]
           },
           {
@@ -352,22 +362,24 @@
             "id": "plan-original-s1",
             "skill": "build-static-ads-in-figma",
             "title": "Draft the original composition",
-            "instruction": "Use the selected insight, its exact evidence, and the approved Evolve Ideation brief. Choose one lead message and a concrete visual that makes it recognizable at feed size. Draft the full on-image copy, original layout, approved product image placement, logo or offer layers as needed, and readable type hierarchy. Tie meaningful text and imagery to their specific roles. Specify exact content and asset requirements for all requested versions.",
+            "instruction": "Use the selected insight, its exact evidence, and the approved Evolve Ideation brief. Choose one lead message and a concrete visual that makes it recognizable at feed size. Draft the full on-image copy, original layout, approved product image placement, logo or offer layers as needed, and readable type hierarchy. Tie meaningful text and imagery to their specific roles. Specify exact content and asset requirements for all requested versions. Plan a single phone-size reading order from the visible buyer problem to a product demonstration, credible takeaway and action. Name the actual image or layout evidence that can carry the promise before allocating headline and proof space.",
             "checks": [
               "The design makes one claim or message visually prominent and the proposed proof supports it.",
               "Each text slot and visual layer has a defined purpose, position and source or asset requirement.",
-              "The draft preserves the buyer, angle and offer in the research brief. Identify this as the S1 draft awaiting evidence and design review."
+              "The draft preserves the buyer, angle and offer in the research brief. Identify this as the S1 draft awaiting evidence and design review.",
+              "The proposed frame describes what a buyer can see that makes the central claim credible at placement size."
             ]
           },
           {
             "id": "review-evidence-s2",
             "skill": "build-static-ads-in-figma",
             "title": "Review the message and evidence",
-            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope.",
+            "instruction": "Review Draft S1 with the product research beside it. Check that the visual and every material visible line serve the brief, including embedded artwork, proofs, offer qualifications, and small print. Distinguish supported product facts from inferred outcomes. Revise the actual slot map or layout copy into Draft S2 and state what changed. Treat unsupported essential roles as a blocker or route to a verified alternative where selection is in scope. Evaluate the viewer's combined takeaway from the words, icons, badges, depicted transformation and product image. A flavor, format or size can fill a corresponding attribute slot. A performance-benefit slot needs supported benefit evidence. Use a supported role-equivalent replacement or explicitly leave the concept awaiting proof if the role cannot be preserved.",
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review.",
+              "Every material visual or textual implication has matching target evidence, including whether a slot is an attribute, benefit, endorsement or outcome."
             ]
           },
           {
@@ -414,11 +426,12 @@
             "id": "audit-static-variation",
             "skill": "adapt-reference-ad",
             "title": "Verify the variation and prepare the export",
-            "instruction": "Compare the complete control and child plans, including embedded artwork, copy, offer, dimensions, and type. Correct unintended differences. Use the bundled local renderer when available and inspect the PNG and editable SVG visually at full and phone sizes. Otherwise provide a renderer-ready layout with the exact remaining assets or checks. Report the control, child, intended change and measurable hypothesis.",
+            "instruction": "Compare the complete control and child plans, including embedded artwork, copy, offer, dimensions, and type. Correct unintended differences. Use the bundled local renderer when available and inspect the PNG and editable SVG visually at full and phone sizes. Otherwise provide a renderer-ready layout with the exact remaining assets or checks. Report the control, child, intended change and measurable hypothesis. Inspect the changed element together with the original image, badges and adjacent copy. A visual change can imply a new outcome or endorsement even when the words are identical. If repair would require changing another locked element, report the dependency and hold the variant.",
             "checks": [
               "The comparison shows what stayed fixed and verifies the one changed element.",
               "An inspected local export is identified by file with its actual dimensions, or the output is labeled a render handoff.",
-              "Typography and any substitution are recorded and the conclusion separates the hypothesis from measured performance."
+              "Typography and any substitution are recorded and the conclusion separates the hypothesis from measured performance.",
+              "The audit records what the altered execution implies and confirms that the fixed control elements still support that implication."
             ]
           }
         ]

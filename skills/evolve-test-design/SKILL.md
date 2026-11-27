@@ -17,6 +17,14 @@ Hypothesis, current version, candidate variant, and metrics.
 2. Define control, variant, audience rules, tracking, traffic expectations, and stop conditions.
 3. List practical validity checks and what to do if the result is inconclusive.
 
+## Decision checks
+
+Write the decision and hypothesis before launch, then specify control, treatment, assignment, denominator, primary metric, guardrail, conversion window and review timing. Keep consequential settings fixed and document any unavoidable differences.
+
+Choose the method the available traffic and assignment can support. Treat an observational comparison as directional and record the alternatives it cannot exclude. Define how an inconclusive result will be handled without inventing a sample threshold.
+
+If an authorized course pack is available, consult Three Testing Methods and the Growth Guide for this decision.
+
 ## Deliverable
 
 A test setup with success and guardrail metrics.

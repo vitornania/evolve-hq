@@ -13,12 +13,10 @@ The intended output and supplied inputs.
 
 ## Steps
 
-1. Match the requested output to a named local tool in the app's Free local tools page.
-2. Prepare the required structured input and identify whether it needs Ollama, FFmpeg, or the media environment.
-3. Return the input template and execution path. Verify the resulting file before a handoff.
+1. Start from the approved research, angle, script or brief when producing a creative asset. Match the requested artifact to the installed free-tool catalog. Distinguish a draft, a rendered media file and a project import. Confirm the chosen action can read the supplied formats and produce the requested output. If a caption burn-in falls outside the named tools, identify a local FFmpeg route explicitly.
+2. List only the prerequisites for that action. For media, identify the actual files, duration, target frame size and where the result should be written. For Ollama routes, verify the required local model. When an output folder is unspecified, suggest a writable local default and a new filename. Distinguish this reversible choice from missing media or a required dependency.
+3. For a requested execution, run the supported action and inspect its output. For video, check playability, dimensions, duration, audio and a frame where captions or overlays could be cut off. For transcription, inspect a difficult passage against the audio. With the optional local Rea-video tool, compare its proposed cuts or captions with the actual clip. With Earshot, audition the sound at its intended cue before handing it to the editor. Treat a command, storyboard or suggested timeline as a plan until the corresponding artifact exists.
 
 ## Deliverable
 
-An action recommendation and input template. Run files in Local tools.
-
-Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+Supply the selected local action, required inputs and the verified output location, or a clearly identified plan. Use the installed workflow input map or Resolve guide when that integration is requested.

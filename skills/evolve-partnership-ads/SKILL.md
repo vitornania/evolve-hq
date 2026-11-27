@@ -17,6 +17,14 @@ Creator or partner context, assets, and campaign goal.
 2. Draft the message, proof, deliverables, launch dependency, and comparison against the control.
 3. Document approval checkpoints and measurement with a practical test window.
 
+## Decision checks
+
+Separate the creative proposition from the value of the creator's identity. Confirm which asset, handle, markets, duration and paid usage rights are cleared. Log the expiry and any creator or licensing cost in the test economics.
+
+Compare equivalent placements, audience, dates and offer using the brand and creator identities where feasible. Organic reach can justify a hypothesis. Paid incremental purchases or contribution under comparable conditions support an investment decision.
+
+If an authorized course pack is available, consult Partnership Ads and the creator UGC framework for this decision.
+
 ## Deliverable
 
 A partnership brief and test plan.
