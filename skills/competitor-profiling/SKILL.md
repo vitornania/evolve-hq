@@ -23,6 +23,8 @@ Product, target market, and competitor names or links.
 2. Distinguish what a competitor says, what independent or observed evidence demonstrates, and which outcomes remain unknown. An ad’s runtime or polished appearance does not establish unit economics. Normalize comparisons with bundle, subscription and mandatory-fee differences visible.
 3. Identify one criterion that changes the buyer’s choice, an exception where the alternative wins, and the evidence that could disprove your proposed positioning. Give a fair next experiment or research action.
 
+Read negative reviews for the failure the buyer actually encountered. Distinguish what happened in normal use, a defective unit, a wrong shipment and a service issue. Attribute each to the observed unit or seller. A complaint can justify collecting a target-product demonstration or confirming a service term. A comparative superiority claim needs its own evidence.
+
 ## Deliverable
 
 Dated profiles with like-for-like comparisons.

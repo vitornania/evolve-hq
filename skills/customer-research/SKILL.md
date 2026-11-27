@@ -23,6 +23,8 @@ Research question and any existing responses.
 2. Keep one traceable record per observation with source, date, product or category, speaker when known and exact words or explicitly labeled paraphrase. Flag uncertain identities, reposts, affiliate copy and staff claims. Count records and independent people separately. Do not turn a category observation into a product endorsement.
 3. Compare the strongest pattern with an exception or disconfirming case. Explain which choice it might change and what new interview, behavior or transaction could challenge it. Attach evidence IDs so creative can check the original meaning before using any language publicly.
 
+For a purchase-journey interview, give the buyer room to tell the story from the first occasion through the order before probing specific gaps. An unusually large or repeat order can reveal a use case worth investigating. Record how the person was selected, then check the explanation with a contrasting ordinary, first-time or non-buying cohort before describing it as typical.
+
 ## Deliverable
 
 A research plan or themes backed by feedback.

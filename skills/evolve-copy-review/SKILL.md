@@ -23,6 +23,8 @@ Read the opening, image and close together and write the claim a reasonable buye
 
 Find the first unsupported leap between desire, mechanism, proof and offer. Show the exact changed passage and its evidence. Preserve locked terms and the campaign CTA, then reread the revised copy on its own. Replace internal evidence commentary with concrete buyer-facing action and remove repeated assertions.
 
+For a disputed lead or central claim, picture the action, identify an observation that could contradict it, and try the same line under the obvious alternative's name. If a grounded line still fits any product, look for a distinctive detail in this product's exact use or construction. A specific detail can earn the line without claiming the brand alone offers it. Keep the diagnosis with the edit notes. Practical offer terms and locked copy can already be doing their job.
+
 If an authorized course pack is available, consult Copywriting Checklist and the Video Script prompt for this decision.
 
 ## Deliverable

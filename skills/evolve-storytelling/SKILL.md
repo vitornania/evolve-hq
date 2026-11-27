@@ -23,6 +23,8 @@ Find the moment the buyer recognized a problem, the action they tried and what t
 
 Express the turning point as an observable product action in the story itself. Source descriptions and proof limitations belong in production notes so a listener can follow the scene. Build the ending from the consequence the evidence allows and give the reader one next step. Mark proposed scenes and missing footage in production notes.
 
+When choosing among reviews, compare the occasions and choices each speaker actually describes. Prefer a specific account with a before-state, an event that changed what the person did, and an observed consequence over general enthusiasm. Keep events and words attached to their original speaker. A gap in chronology or causation belongs in production notes. If no review carries a story, use a clearly branded demonstration or request the missing account when an attributable story is essential.
+
 If an authorized course pack is available, consult Customer Review to Story and Video Script prompts for this decision.
 
 ## Deliverable

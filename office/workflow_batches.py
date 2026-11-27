@@ -134,7 +134,9 @@ Review read-only. No outbound messages, publishing, paid actions or account chan
 "references": for local text lessons, prompts or HQ team documents you actually consulted, return
 an array of objects with "file" (absolute, or relative to the selected skill folder or HQ project), "anchor" (a short exact
 distinctive phrase of 12 to 350 characters copied from the raw file), and "decision" (what it changed or verified here). Use [] if this job required only
-the skill instructions or no separate text source was available. If an expressly required original is
+the skill instructions or no separate text source was available. Include a source only if its contents
+support a substantive decision on this deliverable. A role listing or index used solely for navigation
+does not support a creative or commercial decision. If an expressly required original is
 missing, reflect that in the relevant criterion. Only cite local .md, .txt, .json or .csv method files
 inside the selected skill library or HQ team/docs here. Cite user-supplied benchmarks (including DOCX),
 customer records, webpages, images and exports in checklist evidence, separate from this array.
@@ -213,6 +215,11 @@ def selected_method(source):
         role = "Portable skill" if portable and path.resolve() == portable.resolve() else "Installed skill"
         sections.append(f"{role}. Resolve its references from {path.parent}:\n{contents.decode('utf-8')}")
         receipt.append({"role": role, "file": str(path), "sha256": hashlib.sha256(contents).hexdigest()})
+        index = path.parent / "references" / "local-sources.md"
+        if index.is_file():
+            sections.append(f"Optional local course references for this skill. Open {index} when the "
+                            "decision calls for an original worksheet, slide, or worked example. "
+                            "Cite the source you actually used and identify its page or worksheet row.")
     instructions = (
         "Use the methods below within the requested scope. Open the required local prompt, lesson or "
         "reference for the decision you are making. Preserve its source order and locked language where "

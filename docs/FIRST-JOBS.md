@@ -51,6 +51,8 @@ Run `python3 scripts/exercise_skills.py evolve-angles` from the HQ folder. You c
 3. The template search accounts for the complete scoped library and separates visually reviewed templates from unavailable entries. For a supplied reference, choose the reference-adaptation mode.
 4. The workbench produces a brief and slot map. For output you can edit locally, open the project in your assistant's full terminal session and follow [local rendering](../skills/adapt-reference-ad/references/local-rendering.md). It produces a PNG and an editable SVG on Mac and Windows. Canva is optional.
 
+For a new ad idea, choose **Shortlist original ad headlines** under **Static Ads**. Supply your buyer, product facts and customer observations. Pick a headline, then choose **Build an original static ad** and include the reviewed shortlist from the previous run.
+
 ## Write a one-take script
 
 1. Open **Copywriting & Briefs** and choose the one-take script mode.

@@ -12,6 +12,8 @@ Choose the reference for that handoff. In the replacement map, tie every materia
 
 ## Review the full library when choosing a template
 
+A library index may describe an older edition. Inspect the present page and match the actual creative using its title, brand, distinctive composition or stable asset ID. Cite the index row and historical page alongside the current deck and verified page or frame ID. A matching number or apparent pagination offset does not establish identity. Mark inaccessible or ambiguous matches unresolved before claiming source wording or transferring a template.
+
 1. Write the test objective, buyer, stage, supported benefits and proof, and visual or format constraints. Use the product research handoff before looking at templates.
 2. Inventory every template and format variant in each authorized library in scope. Reconcile pagination and the known count for each source. When a PDF contains a multi-frame template board, count and inspect the individual layouts. Keep source links and IDs for exact duplicates and reuse an assessment only after confirming visual identity.
 3. Review every candidate in batches. For each, log the actual headline and core message, copy sequence, proof dependencies, layout and assets, and a verdict with a reason. Use saved content and visual annotations if their assets and versions still match. OCR and tags speed up triage. A visual review includes the full frame, embedded images, icons, and legible text at a readable size.

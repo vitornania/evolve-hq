@@ -23,6 +23,8 @@ Write the decision and hypothesis before launch, then specify control, treatment
 
 Choose the method the available traffic and assignment can support. Treat an observational comparison as directional and record the alternatives it cannot exclude. Define how an inconclusive result will be handled without inventing a sample threshold.
 
+Choose the creative comparison by the question. To discover a direction, compare distinct reasons to buy within one underlying desire; a shared body must deliver on every opening. Check that someone could care about one buying reason without caring about the other. When both alternatives describe the same payoff, label them as executions and identify the evidence for a genuinely different reason before funding an angle comparison. To refine an established reason, keep that angle and offer fixed and change a named execution, such as the opening image. If existing creator clips vary in performer, angle and format, screen them as whole packages and carry the strongest feasible candidate into a controlled follow-up. Report which differences remain bundled and which conclusion the design supports.
+
 If an authorized course pack is available, consult Three Testing Methods and the Growth Guide for this decision.
 
 ## Deliverable

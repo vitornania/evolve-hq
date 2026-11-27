@@ -23,6 +23,8 @@ Choose an opening the reader's current awareness can support. Name the buyer's s
 
 Make the promise proportional to the evidence. A category comment can inform the problem description. A product endorsement requires genuine product experience, accurate attribution and the right to use it. Translate visual evidence into buyer-facing action. Describe what the person can do or see with the product. Keep phrases about what the supplied photo or product sheet shows in the source notes whenever the advertising concept does not call for that narration. Close with one action, verified terms and a destination where the reader can take it.
 
+When customer labels matter to the hook, check who used the expression, about whom and in what situation. Keep an observed self-description separate from a seller's nickname or a proposed new label. Without evidence that the reader would recognize the label, open on their documented activity instead.
+
 If an authorized course pack is available, consult Evolve Master Prompt, static brief and Video Script prompt for this decision.
 
 ## Deliverable

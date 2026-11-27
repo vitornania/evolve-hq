@@ -24,6 +24,8 @@ python3 setup_hq.py import-evolve "/path/to/extracted-evolve-library"
 
 For matching skills, HQ gives the writer and reviewer both the installed course method and the bundled skill guide. Each resolves references from its own folder. The saved quality review records the paths and hashes of the instruction files supplied to the provider. When a reviewer cites a separate local text reference, HQ checks its excerpt against the file and shows the decision it supported under **Quality review**. The imported files live under `.office/libraries/`, which is ignored by Git. Import only libraries you trust. The app supplies the selected instructions to the AI provider you choose.
 
+For a skill with additional local course materials, create `references/local-sources.md` inside that skill’s folder. Both the writer and reviewer receive its location when that skill runs. Use the index to point to readable source files within the skill library, with PDF page numbers or worksheet names and row numbers where available. This lets the reviewer verify which source informed a decision.
+
 ## Add Origins Ecommerce or Origins for Friends
 
 Extract each authorized library into its own folder. Install it into a separate working project to keep same-named skills and their references together:

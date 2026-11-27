@@ -148,6 +148,9 @@ def check_individual_skills(workspace):
     installed_method = "Consult the installed method example.\r\nKeep its evidence in context.\r\n"
     (pack / "SKILL.md").write_bytes(installed_method.encode("utf-8"))
     (pack / "example.md").write_text("Authorized source fixture.", encoding="utf-8")
+    source_index = pack / "references/local-sources.md"
+    source_index.parent.mkdir()
+    source_index.write_text("An optional local worksheet index.", encoding="utf-8")
     portable_method = (workspace / "skills" / name / "SKILL.md").read_bytes().decode("utf-8")
     cases = skill_runs.load_json(ROOT / "examples/skill-quality-cases.json")
     assert set(cases) == set(guide)
@@ -173,6 +176,9 @@ def check_individual_skills(workspace):
         if title == guide[name]["title"]:
             assert portable_method in prompt and installed_method in prompt
             assert str(pack) in prompt
+            assert str(source_index) in prompt
+        else:
+            assert str(source_index) not in prompt
         if not reviewing:
             assert "Run exactly this selected Evolve skill:" in prompt
             return "A scoped report with an evidence-based decision."

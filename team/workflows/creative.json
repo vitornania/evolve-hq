@@ -25,11 +25,12 @@
             "id": "draft-n1",
             "skill": "native-ads-research-to-creative",
             "title": "Write Draft N1",
-            "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When installed, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. Where the original is inaccessible, identify the portable method used. Produce the full first draft for the requested concept. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages.",
+            "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When installed, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. Where the original is inaccessible, identify the portable method used. Produce the full first draft for the requested concept. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages. If this is a source-led customer story, select one attributable account whose own events support a meaningful change. Keep praise from a different reviewer and plausible backstory out of that account. A rating alone establishes no narrative. Where the source has no usable sequence, use a clearly branded demonstration if the brief allows it or identify the missing story.",
             "checks": [
               "The result contains full primary text rather than an outline or a collection of hooks.",
               "The copy follows the locked buyer, angle and offer, and every material assertion has an identified support or gap.",
-              "The hook starts the same story the ad delivers, and any source borrowing follows its assigned role."
+              "The hook starts the same story the ad delivers, and any source borrowing follows its assigned role.",
+              "For any customer-story route, one identifiable speaker supports the event sequence and outcome. A branded or illustrative route is clear when firsthand material is insufficient."
             ]
           },
           {
@@ -66,7 +67,7 @@
             "id": "inspect-swipe",
             "skill": "native-ads-research-to-creative",
             "title": "Analyze the reference",
-            "instruction": "Read the supplied ad or script and establish its transfer route from the user’s selection. Cross-niche structure, direct-competitor message, and organic format each have a distinct job. If the route or source is missing, identify the specific input needed. Map the observed hook, desire, awareness, story beats, mechanism, open loops, and proof sequence. For cross-niche structure, produce the beat map, stripped skeleton, fill-in template, and supported target-product map. Keep a swipe construction ledger. Use verified performance when calling a source a measured winner. Treat views, reach, and longevity as signals. Mark which elements were directly observed and which performance or audience conclusions are inferred. A borrowed proof sequence needs target-specific evidence at each corresponding beat.",
+            "instruction": "Read the supplied ad or script and establish its transfer route from the user’s selection. Cross-niche structure, direct-competitor message, and organic format each have a distinct job. If the route or source is missing, identify the specific input needed. Map the observed hook, desire, awareness, story beats, mechanism, open loops, and proof sequence. For cross-niche structure, produce the beat map, stripped skeleton, fill-in template, and supported target-product map. Keep a swipe construction ledger. Use verified performance when calling a source a measured winner. Treat views, reach, and longevity as signals. Mark which elements were directly observed and which performance or audience conclusions are inferred. A borrowed proof sequence needs target-specific evidence at each corresponding beat. Identify whether the source opening is inside the image/video, spoken, visual-only or in the primary caption. Keep that distinction when borrowing a structure. A silent visual example supplies no transcribed line.",
             "checks": [
               "The source is identified and directly inspected, or the missing original is named.",
               "Every proposed borrowing has a scoped job and a note on what requires new product-specific evidence.",
@@ -90,11 +91,12 @@
             "id": "draft-n1",
             "skill": "native-ads-research-to-creative",
             "title": "Write Draft N1",
-            "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When installed, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. Where the original is inaccessible, identify the portable method used. Produce the full first draft for the requested concept. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages.",
+            "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When installed, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. Where the original is inaccessible, identify the portable method used. Produce the full first draft for the requested concept. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages. If this is a source-led customer story, select one attributable account whose own events support a meaningful change. Keep praise from a different reviewer and plausible backstory out of that account. A rating alone establishes no narrative. Where the source has no usable sequence, use a clearly branded demonstration if the brief allows it or identify the missing story.",
             "checks": [
               "The result contains full primary text rather than an outline or a collection of hooks.",
               "The copy follows the locked buyer, angle and offer, and every material assertion has an identified support or gap.",
-              "The hook starts the same story the ad delivers, and any source borrowing follows its assigned role."
+              "The hook starts the same story the ad delivers, and any source borrowing follows its assigned role.",
+              "For any customer-story route, one identifiable speaker supports the event sequence and outcome. A branded or illustrative route is clear when firsthand material is insufficient."
             ]
           },
           {
@@ -432,6 +434,24 @@
               "An inspected local export is identified by file with its actual dimensions, or the output is labeled a render handoff.",
               "Typography and any substitution are recorded and the conclusion separates the hypothesis from measured performance.",
               "The audit records what the altered execution implies and confirms that the fixed control elements still support that implication."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shortlist-headlines",
+        "title": "Shortlist original ad headlines",
+        "description": "Choose the line and visual idea worth developing before laying out an ad.",
+        "steps": [
+          {
+            "id": "shortlist-headlines",
+            "skill": "build-static-ads-in-figma",
+            "title": "Shortlist the headline and visual idea",
+            "instruction": "Deliver a selection sheet for an original image ad. Use the specified buyer, research, product facts and buying motive. Write the number requested. In a portable run with no count specified, give nine short on-image lines across three concepts, one lead and two wording variants per concept. Keep variants within each concept and make the concepts meaningfully different. Give each concept one feasible visual direction, the source fact or observation that earns it, and a reason to test it. For a supplied reference, credit its structural device and actual placement. Distinguish words inside a creative from its feed caption. For an indexed deck source, verify the creative against the current frame using its identity and visual details. Report the historical index locator and verified current locator separately. If identity cannot be resolved, leave that attribution open and proceed with supported original lines when possible. A visual-only source contributes an action or image. Identify any proposed new line as yours. Prioritize case evidence over course examples. For an expressly requested exact Banger Static Ads exercise, follow the installed original's selection sequence and counts, or disclose the missing original. For that exact exercise, when a required intake answer or permission to start is absent, ask the next unanswered original question in sequence and stop. An intake reply contains no speculative shortlist. When the brief already supplies the answer or confirmation, count it as complete. Finish at selection. Offer the strongest candidate with reasoning and leave the choice to the reader unless selection is delegated. If the brief already names a selection, carry it forward.",
+            "checks": [
+              "With completed inputs, the number of short on-image lines matches the applicable brief. Each concept offers a distinct, evidence-supported reason or presentation for this buyer. Variants within it keep the same idea. On an exact-original intake turn, identify the first missing prerequisite and ask only the next source-ordered question.",
+              "On a shortlist turn, each concept pairs copy with a feasible image and a specific source fact. Source caption, on-asset words and visual-only material are represented in their actual roles, and every proposed original line is distinguishable from source language. Indexed examples have distinct historical and verified current locators tied to the matching creative, or are explicitly unresolved. On an intake turn, withhold headline and visual proposals until the original's prerequisite is met.",
+              "The response stops at the correct decision. An intake turn awaits the required answer. A completed selection sheet respects an existing choice or gives a supported recommendation and identifies the choice still needed. It makes no claim to have rendered or tested an ad."
             ]
           }
         ]

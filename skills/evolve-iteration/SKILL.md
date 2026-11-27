@@ -23,7 +23,15 @@ Keep the parent ad ID, source files and dated results with the new child ID. Fre
 
 State why that change should move the chosen metric, what could confound it and when the decision can be read. Retain inconclusive results as such. Establish a fresh control if several consequential variables must change together.
 
-If an authorized course pack is available, consult Ten-Step iteration process and Iteration Brief for this decision.
+Use the bundled procedure below for an ordinary variation. When an authorized course pack is available, consult the Ten-Step iteration process and Iteration Brief for additional examples. A request to verify fidelity to a particular original requires that original.
+
+## Decide what the parent earned
+
+For a winner-led request, record the parent’s first-week spend and the originating campaign’s spend over those same dates, its acquisition KPI and comparator, and the spend change over comparable weeks. Select the benchmark by monthly ad spend and record its source/version. The high-spend tier uses total account spend and growth; for that tier also obtain the matching account totals. Other tiers can use initial-campaign share and growth. Keep the numerator, denominator and growth series on the selected scope. A one-ad example or unset worksheet cutoff needs an account rule before it can qualify a parent. If two source versions differ, show a decision-changing discrepancy and identify the rule used. A forced budget does not establish that an ad attracted a high share under campaign-level allocation. Missing figures leave the classification open.
+
+An ad that gained a qualifying share of spend and met the documented scale condition can qualify as a Breakthrough. A high-share ad without scale is a Spend Winner. At a low share, use the agreed KPI to distinguish a KPI Winner from a Loser. Revisit the label as later cohorts mature. Spend and scale are observations; they do not identify the cause or guarantee profitability.
+
+Record a learning for every outcome. Compare what the brief intended with what the customer actually sees in the opening, body and offer. Name one plausible explanation and what would weaken it. Build a winner-derived child for a qualified Spend Winner or Breakthrough. For a KPI Winner or Loser, deliver the learning and a diagnostic next step. An expressly requested exploratory change can still be drafted and labeled as such, including when results are unavailable.
 
 ## Deliverable
 

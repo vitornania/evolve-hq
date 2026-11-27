@@ -4,6 +4,8 @@ Read the team roster and select the matching catalog action before starting a jo
 
 For a selected skill, read its bundled guide in `skills/<name>/SKILL.md` and the matching authorized method in `.office/libraries/evolve/skills/<name>/SKILL.md` when installed. Resolve each reference from its own file. Use the assigned method and inspect the original material that bears on the decision before attributing a result to it.
 
+If either skill folder includes `references/local-sources.md`, use it to locate relevant worksheets, slides or worked examples. Keep the source page or worksheet row with the decision it supports.
+
 Create a task inside this folder for a specific product when the user asks to start work. Preserve the selected product, angle, evidence and asset references across desks. Use the existing role assignments in team/roster.md. Report sequential work as sequential. Review the deliverable before handing it back.
 
 Use `python3 hq.py run ACTION INPUT --product PRODUCT` to run a listed local action and save its task record. For a team sprint, use `python3 hq.py sprint --product PRODUCT --market MARKET --decision DECISION` to make a record. Then follow the Market Research Team skill and save the completed work alongside that record.

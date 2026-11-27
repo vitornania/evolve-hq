@@ -25,6 +25,10 @@ Request the specific framing, shot length, visible proof, clean audio and captio
 
 If an authorized course pack is available, consult Creator selection tracker and the creator UGC framework for this decision.
 
+## Use the trial to decide on repeat work
+
+For a sourcing decision, distinguish the ability to supply usable footage from the ability to deliver profitable paid ads. A sample or organic post can earn a trial. Evaluate a trial against the requested buyer situation, usable demonstration, delivery reliability and cleared placements. Before recommending repeat or retained work, look for repeatable paid contribution after creator costs across comparable assets, or name what the next brief must test. Tie the next brief to a missing scene, angle or demonstration visible in the editor’s shot list. Keep examples of retainers or commissions separate from the brand’s actual agreement.
+
 ## Deliverable
 
 Creator criteria and a content collection plan.

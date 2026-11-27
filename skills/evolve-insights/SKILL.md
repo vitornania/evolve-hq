@@ -25,6 +25,8 @@ Prioritize one implication by evidence strength, commercial consequence and ease
 
 If an authorized course pack is available, consult Desire Hunt, Avatar Training and New Mechanisms for this decision.
 
+Separate what happened in a buyer’s life from what happened when they tried a specific solution. Record expressed emotion and behavior against the speaker who supplied them. Where someone buys for someone else, identify whose decision, objection and use experience each record describes. An example persona can generate a question. Include a sub-avatar in the creative handoff when evidence for the distinction changes a line, demonstration or proof choice.
+
 ## Deliverable
 
 Buyer profiles, beliefs, and ad opportunities.
