@@ -13,8 +13,8 @@ Offer, audience, product facts, and any draft.
 
 ## Steps
 
-1. Assume the buyer is new to the brand and lead with a recognizable problem or event.
-2. Explain the product category and mechanism in plain language before making a comparative or performance claim.
+1. Check what makes this audience cold. First exposure to paid ads, first encounter with the brand and first encounter with the category are different conditions. If evidence shows the buyer already knows the product, open on their outstanding decision. If the brief establishes only a cold placement, use a recognizable situation as a working hypothesis.
+2. Explain as much of the product action as the reader needs to believe the particular promise. A category expert may need a precise difference or fit condition. If the same explanation appears across competing ads, use a verified demonstration or narrower claim.
 3. When variants are requested, change the opening and keep the promise and CTA consistent.
 
 ## Earn the four decisions in the cold read

@@ -19,4 +19,6 @@ Current offer, price, audience, economics, and constraints.
 
 ## Deliverable
 
+When a price cut might create doubt about quality or terms, state any documented business reason and its actual limits in plain language. For example, a change in box artwork can explain an old-package discount if the unchanged contents and eligible stock are verified. Without a verified reason, communicate only the approved price and terms. Distinguish a temporary offer from a permanent price change when comparing the economics.
+
 Return the customer-ready offer, the reason it addresses the objection, a clearly labelled economic comparison and a bounded test. Leave unpublished terms with the owner for confirmation.

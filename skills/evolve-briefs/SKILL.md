@@ -25,6 +25,8 @@ For the course video-script route, check the saved product overview, mechanism r
 
 Give a concrete first frame or layout, the proof asset with its source ID, and the click destination. For each requested slot or shot, specify what the viewer should understand and how the asset supports that takeaway. Flag which missing asset would prevent production.
 
+If buyer research shows people want the outcome but question the product, give the producer the specific disbelief, the source behind it and the shot or evidence that answers it. Keep any material effort or condition visible in the handoff. For a buyer who has already seen and accepted the demonstration, use the available space for their remaining buying question.
+
 If an authorized course pack is available, consult Ideation, Imitation and Iteration brief templates for this decision.
 
 ## Deliverable

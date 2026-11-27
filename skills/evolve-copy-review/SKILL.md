@@ -25,6 +25,8 @@ Find the first unsupported leap between desire, mechanism, proof and offer. Show
 
 For a disputed lead or central claim, picture the action, identify an observation that could contradict it, and try the same line under the obvious alternative's name. If a grounded line still fits any product, look for a distinctive detail in this product's exact use or construction. A specific detail can earn the line without claiming the brand alone offers it. Keep the diagnosis with the edit notes. Practical offer terms and locked copy can already be doing their job.
 
+For a skeptical audience, distinguish a supported claim placed too early from a claim missing support. Move the relevant demonstration earlier when it resolves the reader’s doubt. Narrow or remove a claim that the demonstration cannot establish. Check a reframed objection against the actual trade-off: state any required tool, buyer effort, eligibility or total price that could change the purchase. A cost-per-use comparison needs a defensible use count and a comparable alternative when savings are claimed. Consult the [direct-response decision guide](../evolve-skill/references/direct-response-decisions.md) when reviewing how an argument earns belief.
+
 If an authorized course pack is available, consult Copywriting Checklist and the Video Script prompt for this decision.
 
 ## Deliverable

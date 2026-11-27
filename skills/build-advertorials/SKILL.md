@@ -23,6 +23,8 @@ Ad angle, offer, buyer, and substantiated proof.
 2. Identify the narrator and sponsorship accurately. A customer quote needs its real source, scope and permission. A product demonstration supports only what the reader can observe. Verify comparative, quantified, health and before/after implications in headlines, images and captions.
 3. Before the handoff, put the strongest evidence next to the claim it supports, answer the most consequential objection, and preview the actual destination offer with its material terms. Write the buyer-facing event plainly. Internal notes such as “our owner’s demonstration,” asset IDs, source status and review instructions belong in the evidence record. Deliver the public copy separately from proof notes and the first weak link to test.
 
+For a comparison-led page, identify the alternative this reader actually uses and the decision they need to make. Pair its documented limitation with what the target product does on that same task under comparable conditions. Include any condition where the familiar choice still fits. If the evidence covers only the target, show its action on its own and keep the proposed comparison in the owner notes. Adapt the host’s reading rhythm and section length while retaining the actual advertiser, source of the demonstration and sponsorship disclosure at entry.
+
 ## Deliverable
 
 A structured advertorial draft and proof gaps.

@@ -25,6 +25,8 @@ Express the turning point as an observable product action in the story itself. S
 
 When choosing among reviews, compare the occasions and choices each speaker actually describes. Prefer a specific account with a before-state, an event that changed what the person did, and an observed consequence over general enthusiasm. Keep events and words attached to their original speaker. A gap in chronology or causation belongs in production notes. If no review carries a story, use a clearly branded demonstration or request the missing account when an attributable story is essential.
 
+When the brief calls for a longer story around one benefit, give each additional beat a different job. A first-use action can show how it works. A documented later occasion can show why that action matters. Remove scenes that simply restate the payoff. When a story turns on who the buyer wants to be, show a practice that buyer recognizes. Support the social consequence separately before attributing admiration, professional status or belonging to product use.
+
 If an authorized course pack is available, consult Customer Review to Story and Video Script prompts for this decision.
 
 ## Deliverable

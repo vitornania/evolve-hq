@@ -17,6 +17,8 @@ Product facts, target buyer, offer, and any current copy.
 2. Give each requested block a job: explain the offer, show how it works, substantiate a specific claim or answer a purchase-stopping objection. Put decisive qualifications alongside their claim. Describe a demonstration in ordinary shopper language and limit the statement to the actual material, duration and conditions tested. Use the most informative image or demonstration for each uncertainty.
 3. Read the result as a shopper following the ad to checkout. Verify prices, variants, included items, paid extras and returns against the source. Keep every locked CTA exactly. Remove repeated section content. Keep editorial phrasing about insufficient evidence, asset requests and test ideas in owner notes. For a reference page, preserve section purpose and scope without borrowing its claims or reviews.
 
+Choose the amount of explanation from what the arriving shopper understands. A returning buyer who knows the mechanism may need compatibility, pack contents or price first. A newcomer asking how a feature delivers a benefit may need one concrete action and its immediate effect. In a market full of similar promises, lead with a distinctive mechanism only when the product evidence supports the difference. Put outcome evidence where the reader would question that outcome, and keep the scope of the evidence visible there.
+
 ## Deliverable
 
 Return mobile-first, paste-ready copy for the requested sections. When accessible, use the installed Evolve CRO angle, content and testing modules to choose page work appropriate to the request.

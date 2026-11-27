@@ -27,6 +27,8 @@ Brief, product assets, dimensions, and brand guidance.
 
 ## Shortlist headlines before layout
 
+Decide what the headline should earn in this placement. For a reader who needs to see how the product works, the line can introduce the product action and the image can supply its visible payoff. For a purchaser waiting on a specific size, item or price, let the verified availability or terms lead. Check what remains intelligible when the headline and image are viewed together. Keep the same selling idea when testing ways of expressing it, including the strength of the claim. A swipe’s numerical specificity or speed claim transfers only with corresponding product evidence.
+
 For a headline selection request, start with the supplied reader, research and product evidence. Give the requested number of options. The portable default is nine short lines grouped into three ideas with two wording alternatives for each lead. Explain the visual device and the product-specific reason to keep each idea in a brief note per group. Keep the selected idea open for the owner or make the choice if delegated. Deliver the shortlist here. Move into layout when the assignment calls for it.
 
 When a sheet or saved index points to a deck, open the current creative and match its identity by brand, title, distinctive artwork or a stable frame ID. Record the sheet row and its historical page separately from the verified current page or frame. Editions can add, move or remove slides at different points. If the match is ambiguous or unavailable, keep attribution unresolved and use independently supported ideas for any remaining work.

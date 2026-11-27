@@ -23,6 +23,8 @@ Existing copy, buyer, offer, and the next action.
 2. Trace each important claim from feature to action to observed result, keeping the benefit at the level supported. Audit visual implications and implied guarantees too. Build the angle around one reason to choose. Hook variants change the opening while keeping that reason and promise comparable.
 3. Place the most relevant proof near the claim, resolve the objection that might stall the choice, then ask for the action the actual destination supports. Preserve fixed copy, scope and offer conditions. Read the public copy aloud. Show one recognizable moment or action that makes the supported payoff easy to picture. Read the headline directly into the body. If both describe the same action, let the body supply distinct decision information, an observable detail or a practical reason to use the CTA. Remove copy that simply repeats the mechanism in different words. Return clean customer-facing copy with any claim exceptions or evidence notes separately.
 
+When an objection concerns effort, demonstrate what the buyer would actually do and name the required condition. When an objection concerns value, compare genuine alternatives on the same basis and keep the total price visible. Leave any material cost or inconvenience clear enough for a buyer to decide.
+
 ## Deliverable
 
 Revised copy with key changes explained.

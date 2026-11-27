@@ -23,6 +23,8 @@ Map the requested decision to a lesson, prompt, template or account artifact. Op
 
 Keep the exact original prompt intact in an authorized installation and supply the target context separately. Note which source actually informed the deliverable and which decision it changed. Retrieve only the lessons and inputs needed for the requested scope.
 
+For a decision about desire, readiness, category claim exposure, proof, or the placement of a message, use [Choosing a direct-response message](references/direct-response-decisions.md). Apply the relevant distinction inside the selected Evolve stage. Keep the product’s own evidence with the resulting choice.
+
 If an authorized course pack is available, consult Course Prompt Routing and the course prompt manifest for this decision.
 
 ## Deliverable

@@ -25,6 +25,8 @@ Make the promise proportional to the evidence. A category comment can inform the
 
 When customer labels matter to the hook, check who used the expression, about whom and in what situation. Keep an observed self-description separate from a seller's nickname or a proposed new label. Without evidence that the reader would recognize the label, open on their documented activity instead.
 
+Check what the reader already wants separately from what they accept about this product. If they want the outcome but doubt it is possible, open on an observation they recognize or can inspect. Put the deciding action and its observable result in the ad itself or its designated shot. A proof note the shopper never sees cannot answer that doubt. If they already accept the result and ask about fit or price, answer that buying question directly. Choose between these leads using the actual audience evidence. The [direct-response decision guide](../evolve-skill/references/direct-response-decisions.md) gives further guidance for a disputed lead.
+
 If an authorized course pack is available, consult Evolve Master Prompt, static brief and Video Script prompt for this decision.
 
 ## Deliverable

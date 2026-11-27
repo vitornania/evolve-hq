@@ -21,6 +21,8 @@ Product facts and research or customer evidence.
 
 Start with a buyer situation, the outcome they already want and what they currently believe will deliver it. Develop angles that change the reason for buying. Two phrasings of the same reason belong under the same angle as hook variants.
 
+Before choosing a hook or a swipe, select the product action that can deliver the desired outcome for this buyer on this occasion. A material or specification can explain how the action works. It can also lead when the buyer is explicitly choosing by size, fit or another verified specification. Keep the opening focused on one buying reason. A clever reference headline cannot supply missing demand or product proof.
+
 For each distinct angle, name the proof the buyer would accept and the observation that would make the angle less plausible. Select one to test against the current control and carry the same desire and evidence into the brief.
 
 If an authorized course pack is available, consult How to Come Up With Ad Angles and the Hook Library for this decision.
