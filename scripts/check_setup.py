@@ -2,6 +2,8 @@
 import json
 import os
 from pathlib import Path
+import shutil
+import signal
 import socket
 import subprocess
 import sys
@@ -21,6 +23,15 @@ with subprocess.Popen([sys.executable, "-c", "import time; time.sleep(.5)"]) as 
     assert process_running(child.pid) is False
 
 with tempfile.TemporaryDirectory() as folder:
+    workspace = Path(folder)
+    for filename in ("hq.py", "board.html", "team/catalog.json", "office/activity.py"):
+        target = workspace / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / filename, target)
+    subprocess.run([sys.executable, "hq.py", "board"], cwd=workspace, check=True)
+    generated = (workspace / "index.html").read_text(encoding="utf-8")
+    assert '<form id="cpa-form">' in generated and 'src="/cpa-calculator.js"' in generated
+    assert generated == (ROOT / "index.html").read_text(encoding="utf-8"), "Regenerate the board with hq.py board."
     subprocess.run([sys.executable, "setup_hq.py", "skills", "all", "--workspace", folder], cwd=ROOT, check=True)
     for path in (".agents/skills", ".claude/skills"):
         assert len(list((Path(folder) / path).glob("*/SKILL.md"))) == 62
@@ -43,7 +54,8 @@ if os.name == "nt":
     launch = f'cmd.exe /d /c call "Open Evolve HQ.cmd" --no-open --port {port}'
 else:
     launch = ["node", "scripts/start.mjs", "--no-open", "--port", str(port)]
-server = subprocess.Popen(launch, cwd=ROOT)
+server = subprocess.Popen(launch, cwd=ROOT, stdout=subprocess.PIPE if os.name != "nt" else None,
+                          start_new_session=os.name != "nt")
 base = f"http://127.0.0.1:{port}"
 try:
     for _ in range(100):
@@ -102,8 +114,17 @@ try:
 finally:
     if os.name == "nt":
         subprocess.run(["taskkill", "/PID", str(server.pid), "/T", "/F"], capture_output=True)
+        server.wait(timeout=10)
     else:
         server.terminate()
-    server.wait(timeout=10)
+        try:
+            server.communicate(timeout=10)
+        except subprocess.TimeoutExpired as error:
+            os.killpg(server.pid, signal.SIGKILL)
+            server.communicate(timeout=10)
+            raise AssertionError("Stopping the launcher left a process holding its output pipe.") from error
+        with socket.socket() as probe:
+            probe.settimeout(2)
+            assert probe.connect_ex(("127.0.0.1", port)) != 0, "The office port is still open."
 print("Launcher, 62 skills, live activity, CPA, ROAS and native install verified.")
 subprocess.run([sys.executable, "scripts/check_workflow_batches.py"], cwd=ROOT, check=True)

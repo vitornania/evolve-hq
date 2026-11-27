@@ -93,6 +93,51 @@ def provider(_provider, directory, prompt, *, files):
     })
 
 
+def check_standalone_modes(workspace):
+    total = 0
+    for workflow in catalog:
+        for mode in workflow["modes"]:
+            steps = mode["steps"]
+            route = f"{workflow['id']}/{mode['id']}"
+            calls = []
+
+            def respond(_provider, directory, prompt, *, files):
+                index = len(calls) // 2
+                stage = steps[index]
+                reviewing = prompt.startswith("Independently review")
+                assert reviewing == bool(len(calls) % 2)
+                assert f"Stage: {stage['title']}\n" in prompt
+                assert "Selected previous run summaries:\nNone" in prompt
+                assert workflow_batches.HANDOFF_CHECK not in prompt
+                assert not (directory / "reviewed-inputs").exists()
+                for earlier in steps[:index]:
+                    assert f"Reviewed fixture {route}/{earlier['id']}." in prompt
+                token = f"{route}/{stage['id']}"
+                calls.append((stage["id"], reviewing))
+                if not reviewing:
+                    return f"Draft fixture {token}."
+                assert f"Draft fixture {token}." in prompt
+                return json.dumps({
+                    "checklist": [{"number": i, "status": "met", "evidence": token}
+                                  for i in range(1, len(stage["checks"]) + 1)],
+                    "feedback": "Fixture reviewed.", "handoff": f"Reviewed fixture {token}.",
+                })
+
+            with patch.object(skill_runs, "reply", side_effect=respond):
+                run = wait_run(skill_runs.start_run({
+                    "product": "Standalone fixture", "brief": f"Fresh inputs for {route}.",
+                    "images": [original_image] if any(s.get("requires_image") for s in steps) else [],
+                    "workflows": [{"workflow": workflow["id"], "mode": mode["id"]}],
+                }))
+            assert run["status"] == "review", (route, [(s["id"], s.get("quality")) for s in run["steps"]])
+            assert calls == [(s["id"], reviewing) for s in steps for reviewing in (False, True)]
+            assert not skill_runs.load_json(workspace / "tasks" / run["id"] / "run.json")["carried"]
+            for result in run["steps"]:
+                assert Path(result["artifact"]).read_text(encoding="utf-8").strip() == result["report"]
+            total += len(steps)
+    print(f"Standalone execution verified for {sum(len(w['modes']) for w in catalog)} modes and {total} stages.")
+
+
 def check_handoff_matrix(workspace):
     flows = [flow["id"] for flow in catalog]
     jobs = [{"workflow": flow["id"], "mode": flow["modes"][0]["id"],
@@ -261,6 +306,7 @@ with tempfile.TemporaryDirectory() as folder:
         standalone = wait_run(skill_runs.start_run({"skills": ["humanizer"], "brief": "Polish this line."}))
         assert standalone["status"] == "review" and standalone["steps"][0]["report"] == "Standalone report."
         check_handoff_matrix(workspace)
+        check_standalone_modes(workspace)
 
 print("Parallel workflows, ordered checklist reviews, revisions, provider recovery, isolated blocking, "
       "finished-asset requirement, selective report and image reuse, 36 sender/receiver combinations, "

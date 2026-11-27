@@ -46,9 +46,9 @@
             "id": "review-copy-n3",
             "skill": "native-ads-research-to-creative",
             "title": "Review the reading experience and deliver Final N3",
-            "instruction": "Read Draft N2 as a cold reader. Apply the installed Evolve wording checks where available. Review emotional specificity, mobile pacing, voice, hook payoff, transitions, and the close. Trace material edits back to the approved evidence, and preserve the strategic fixes from the prior review. Provide the full revised Final N3 and a short record of the most consequential edits. Include one awareness-matched native photo direction tied to an observable moment or evidence in the ad. Avoid presenting a photo direction as a rendered asset.",
+            "instruction": "Read Draft N2 as a cold reader. Apply the installed Evolve wording checks where available. Review emotional specificity, mobile pacing, voice, hook payoff, transitions, and the close. Trace material edits back to the approved evidence, and preserve the strategic fixes from the prior review. Provide the full revised Final N3 and a short record of the most consequential edits. Include one awareness-matched native photo direction tied to an observable moment or evidence in the ad. Avoid presenting a photo direction as a rendered asset. Read the public text aloud paragraph by paragraph. Merge lines that repeat a mechanism, payoff, objection or CTA without adding a specific observation, evidence, or next action. Keep purposeful callbacks that earn their place; do not pad a requested word count with restatements.",
             "checks": [
-              "The copy review names concrete lines and evaluates pacing, hook payoff, and believability separately from the strategy pass.",
+              "The copy review names concrete lines and evaluates pacing, hook payoff, and believability separately from the strategy pass. Inspect the final public copy itself for repeated claims and caveats. Each retained repetition earns its place through a new observation, proof, or action; otherwise revise the line.",
               "Final N3 is complete, readable as one ad, and free of unsupported proof or a changed offer.",
               "The image direction conveys one recognizable moment at feed size and its role ties back to specific copy or customer evidence."
             ]
@@ -108,9 +108,9 @@
             "id": "review-copy-n3",
             "skill": "native-ads-research-to-creative",
             "title": "Review the reading experience and deliver Final N3",
-            "instruction": "Read Draft N2 as a cold reader. Apply the installed Evolve wording checks where available. Review emotional specificity, mobile pacing, voice, hook payoff, transitions, and the close. Trace material edits back to the approved evidence, and preserve the strategic fixes from the prior review. Provide the full revised Final N3 and a short record of the most consequential edits. Include one awareness-matched native photo direction tied to an observable moment or evidence in the ad. Avoid presenting a photo direction as a rendered asset.",
+            "instruction": "Read Draft N2 as a cold reader. Apply the installed Evolve wording checks where available. Review emotional specificity, mobile pacing, voice, hook payoff, transitions, and the close. Trace material edits back to the approved evidence, and preserve the strategic fixes from the prior review. Provide the full revised Final N3 and a short record of the most consequential edits. Include one awareness-matched native photo direction tied to an observable moment or evidence in the ad. Avoid presenting a photo direction as a rendered asset. Read the public text aloud paragraph by paragraph. Merge lines that repeat a mechanism, payoff, objection or CTA without adding a specific observation, evidence, or next action. Keep purposeful callbacks that earn their place; do not pad a requested word count with restatements.",
             "checks": [
-              "The copy review names concrete lines and evaluates pacing, hook payoff, and believability separately from the strategy pass.",
+              "The copy review names concrete lines and evaluates pacing, hook payoff, and believability separately from the strategy pass. Inspect the final public copy itself for repeated claims and caveats. Each retained repetition earns its place through a new observation, proof, or action; otherwise revise the line.",
               "Final N3 is complete, readable as one ad, and free of unsupported proof or a changed offer.",
               "The image direction conveys one recognizable moment at feed size and its role ties back to specific copy or customer evidence."
             ]
@@ -173,11 +173,12 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route.",
+            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
               "Material claim roles link to target-product evidence, with unsupported claims marked.",
-              "Available assets, format and remaining input gaps are named."
+              "Available assets, format and remaining input gaps are named.",
+              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout."
             ]
           },
           {
@@ -202,11 +203,12 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route.",
+            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
               "Material claim roles link to target-product evidence, with unsupported claims marked.",
-              "Available assets, format and remaining input gaps are named."
+              "Available assets, format and remaining input gaps are named.",
+              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout."
             ]
           },
           {
@@ -239,7 +241,7 @@
             "checks": [
               "Each slot has source content or asset, rhetorical role, replacement, source ID where relevant, and visual position.",
               "The copy delivers the locked message and preserves role and layout constraints across all in-scope pages.",
-              "Any unsupported central role or incomplete source remains visible before rendering."
+              "Any unsupported central role or incomplete source remains visible before rendering. Identify this as the S1 draft awaiting evidence and design review."
             ]
           },
           {
@@ -250,7 +252,7 @@
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
             ]
           },
           {
@@ -275,11 +277,12 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route.",
+            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
               "Material claim roles link to target-product evidence, with unsupported claims marked.",
-              "Available assets, format and remaining input gaps are named."
+              "Available assets, format and remaining input gaps are named.",
+              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout."
             ]
           },
           {
@@ -301,7 +304,7 @@
             "checks": [
               "Each slot has source content or asset, rhetorical role, replacement, source ID where relevant, and visual position.",
               "The copy delivers the locked message and preserves role and layout constraints across all in-scope pages.",
-              "Any unsupported central role or incomplete source remains visible before rendering."
+              "Any unsupported central role or incomplete source remains visible before rendering. Identify this as the S1 draft awaiting evidence and design review."
             ]
           },
           {
@@ -312,7 +315,7 @@
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
             ]
           },
           {
@@ -337,11 +340,12 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route.",
+            "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
               "Material claim roles link to target-product evidence, with unsupported claims marked.",
-              "Available assets, format and remaining input gaps are named."
+              "Available assets, format and remaining input gaps are named.",
+              "The output is a production brief. It carries forward requested deliverables and locked wording without drafting the finished ad, issuing S1/S2/S3 approvals or supplying a final renderer layout."
             ]
           },
           {
@@ -352,7 +356,7 @@
             "checks": [
               "The design makes one claim or message visually prominent and the proposed proof supports it.",
               "Each text slot and visual layer has a defined purpose, position and source or asset requirement.",
-              "The draft preserves the buyer, angle and offer in the research brief."
+              "The draft preserves the buyer, angle and offer in the research brief. Identify this as the S1 draft awaiting evidence and design review."
             ]
           },
           {
@@ -363,7 +367,7 @@
             "checks": [
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
-              "Unresolved evidence or source fit is explicit before final design."
+              "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review."
             ]
           },
           {

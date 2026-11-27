@@ -101,8 +101,9 @@
             "skill": "manual-voc-research",
             "index_fresh_sources": true,
             "title": "Index the source language",
-            "instruction": "Process the supplied customer material independently before reading or reconciling any summaries. Preserve exact brief excerpts, surrounding context, stable source IDs, dates and source types when present. Deduplicate repeated copies while retaining counterexamples. Code observed triggers, frustrations, workarounds, objections, desire, and awareness. Mark secondhand material and opt to report the actual sample rather than making population claims.",
+            "instruction": "Process the supplied customer material independently before reading or reconciling any summaries. Preserve exact brief excerpts, surrounding context, stable source IDs, dates and source types when present. Deduplicate repeated copies while retaining counterexamples. Code observed triggers, frustrations, workarounds, objections, desire, and awareness. Mark secondhand material and opt to report the actual sample rather than making population claims. If there are zero customer records to index, identify that missing input and request a review, customer message or attributed interview note before synthesis.",
             "checks": [
+              "At least one inspectable customer record with identifiable provenance is present. A writer's example, seller claim, staff hypothesis or zero-record summary cannot satisfy this criterion. Rate it missing when no customer material was supplied.",
               "Every shared customer excerpt is faithful to supplied wording and linked to its source.",
               "Deduplication, contradictory evidence and sample limits are explicit."
             ]

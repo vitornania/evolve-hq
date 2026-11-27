@@ -68,6 +68,19 @@ See **Free local tools** in the app for the other actions, including storyboards
 - Choose **Diagnose an underperforming ad**. Supply the exact ad or transcript, its page and offer, and comparable delivery and purchase figures. Add checkout observations if available. The workflow ranks plausible causes against your evidence and proposes one change or one observation to collect.
 - Choose **Review a finished ad before launch**. Attach the final image and give its version and approved brief. For video, attach representative frames and list their timestamps in the brief with the relevant transcript. The review names what it could inspect and any remaining footage or audio checks.
 
+### Prepare video references and sound effects
+
+With the optional Rea-video and Earshot tools installed, run these commands in a terminal from the folder containing your reference video:
+
+```sh
+rea-video decompose reference.mp4 -o reference-breakdown --lang en --no-vlm
+earshot make "a soft click" --seed 17 -o reveal-click.wav
+```
+
+For **Ad Review**, open `reference-breakdown/report.html`, check the cuts and captions against the clip, and attach up to three representative frames with their timestamps. For **Copywriting**, those observations can help plan when the hook, demonstration and product reveal occur. Production-method labels are estimates.
+
+For **Video Editing**, listen to the WAV against the actual cut. Include it with the footage, script and cue time when preparing the Resolve handoff. The commands above use local processing. Rea-video may download model files on first use. [Rea-video setup](https://github.com/JuneYaooo/rea-video) · [Earshot setup](https://github.com/Leonxlnx/earshot)
+
 ## Calculate first-order CPA
 
 Open **Free local tools → Calculate break-even CPA** and enter average first-order revenue and costs from the same period and currency. Break-even CPA uses the contribution before ads. Target CPA also subtracts the contribution you want to keep per order. The tool runs locally without an AI provider. Click **Copy for ad review** to include the calculation in a Weekly Review brief alongside the same-basis acquisition figures.

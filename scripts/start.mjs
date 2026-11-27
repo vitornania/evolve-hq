@@ -17,5 +17,10 @@ const flags = requested.filter(value => value !== "--no-open");
 if (!requested.includes("--no-open")) flags.push("--open");
 const script = fileURLToPath(new URL("../office/server.py", import.meta.url));
 const child = spawn(executable, [...prefix, script, ...flags], {stdio: "inherit"});
+if (!windows) {
+  for (const signal of ["SIGHUP", "SIGINT", "SIGTERM"]) {
+    process.on(signal, () => child.kill(signal));
+  }
+}
 child.once("error", error => { console.error(error.message); process.exitCode = 1; });
 child.once("exit", (code, signal) => { process.exitCode = signal ? 1 : code ?? 1; });
