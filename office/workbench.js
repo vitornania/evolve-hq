@@ -373,6 +373,11 @@ function renderRun(data) {
       const revisions=step.revisions ? ` after ${step.revisions} revision${step.revisions===1?"":"s"}` : "";
       review.append(element("summary","Quality review · "+result+revisions),
         element("p",step.quality));
+      if (step.judgment) {
+        const note=step.judgment;
+        review.append(element("strong","Why this approach"),element("p",note.choice),
+          element("p",note.basis),element("strong","What would change it"),element("p",note.reconsiderIf));
+      }
       if (step.checkResults?.length) {
         const results=element("ul");
         const checkLabels={met:"Met",fix:"Needs revision",missing:"Missing input"};

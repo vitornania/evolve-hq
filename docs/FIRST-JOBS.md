@@ -92,3 +92,5 @@ For **Video Editing**, listen to the WAV against the actual cut. Include it with
 ## Calculate first-order CPA
 
 Open **Free local tools → Calculate break-even CPA** and enter average first-order revenue and costs from the same period and currency. Break-even CPA uses the contribution before ads. Target CPA also subtracts the contribution you want to keep per order. The tool runs locally without an AI provider. Click **Copy for ad review** to include the calculation in a Weekly Review brief alongside the same-basis acquisition figures.
+
+To practice choosing between approaches, run `python3 scripts/check_judgment.py` or select a pair such as `python3 scripts/check_judgment.py review`. Each pair varies one fact. Compare the actual recommendations and their evidence with the expected decisions printed after both runs. This uses your selected signed-in provider.

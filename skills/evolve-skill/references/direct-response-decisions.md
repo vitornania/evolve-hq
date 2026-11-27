@@ -2,6 +2,8 @@
 
 Use this guide within the selected Evolve workflow when you need to choose a promise, opening or proof. The questions draw on Eugene M. Schwartz’s *Breakthrough Advertising*. Page numbers refer to the 209-page PDF edition. Bring the current product facts, customer evidence, tested control and offer terms into the decision. A historical ad illustrates a writing choice. Its results and claims belong to that advertiser.
 
+When two approaches fit, use [Choosing a method](choosing-a-method.md) to decide which evidence distinguishes them.
+
 ## Find a technique by its name in the book
 
 - **Intensification** (pp. 78–106) makes a desired outcome more concrete by showing another meaningful occasion, perspective or consequence.

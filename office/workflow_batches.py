@@ -18,6 +18,7 @@ HANDOFF_CHECK = (
     "figure, wording or source that matters to this stage. Preserve locked material and its evidence "
     "limits unless the current brief or stronger evidence justifies a change. Treat proposed copy "
     "and test hypotheses as proposals rather than observed customer language or measured results. "
+    "Check whether fresh evidence meets an earlier condition for reconsideration. Treat the earlier rationale as an interpretation. "
     "Preserve each item's approval status. A suggested line inside an approved report is still a suggestion."
 )
 ORDER = ("market-research", "copywriting", "native-ads", "static-ads", "ad-review", "store-cro")
@@ -48,6 +49,13 @@ def review_reply(text, criteria):
             or not isinstance(result.get("feedback"), str) or not result["feedback"].strip()
             or not isinstance(result.get("handoff"), str)):
         raise ReviewFormatError("The quality review did not cover every required criterion.")
+    judgment = result.get("judgment")
+    if judgment is not None and (
+        not isinstance(judgment, dict)
+        or any(not isinstance(judgment.get(key), str) or not judgment[key].strip()
+               for key in ("choice", "basis", "reconsiderIf"))
+    ):
+        raise ReviewFormatError("A decision note needs the choice, its evidence and what would change it.")
     statuses = set()
     for index, check in enumerate(result["checklist"], 1):
         if (not isinstance(check, dict) or type(check.get("number")) is not int
@@ -70,7 +78,8 @@ def verify_references(review, methods):
     references = review.get("references", [])
     if not isinstance(references, list):
         raise ReviewFormatError("Return the consulted local references as an array.")
-    supplied = {Path(method["file"]).resolve() for method in methods}
+    # A delivered guide can still be cited for a specific passage the reviewer used.
+    supplied = {Path(method["file"]).resolve() for method in methods if method.get("role") != "Decision reference"}
     roots = [Path(method["file"]).parent for method in methods]
     allowed = [root.parent.resolve() for root in roots] + [(ROOT / "team").resolve(), (ROOT / "docs").resolve()]
     verified = []
@@ -125,11 +134,20 @@ deliverable, a self-review, and confident tone are insufficient. Cite the actual
 source ID or artifact for each decision. Check exact constraints such as unchanged copy, counts and ordering.
 Flag installation or method-status narration that intrudes on the requested work. Retain necessary
 product evidence, material limitations and any explicitly requested comparison with an original.
+For a commercial result, read the headline, owner summary and handoff on their own. If any presents
+a modeled outcome as observed, mark the relevant criterion "fix" even when a later footnote qualifies it.
+Check the measured unit (orders, units, revenue or contribution) against the claim.
 Return only one JSON object with these keys:
 "checklist": an array with one object per criterion in the exact order above. Each object has "number"
 (the integer from the list), "status" ("met", "fix", or "missing"), and "evidence" (the specific basis).
 "feedback": a short summary of the result and any concrete changes.
 "handoff": a compact evidence-linked working summary only when every criterion is met, otherwise "".
+"judgment": for a substantive choice, give an object with three short strings: "choice" (the action the
+draft actually selects), "basis" (the deciding product, buyer or experiment evidence and its limit),
+and "reconsiderIf" (an observation that would justify a different action). If a required fact is
+missing, the valid choice may be to defer only the affected part. Use null for routine execution.
+Check whether the strongest plausible alternative would change the action. Apply any unsupported
+choice to the relevant checklist criterion and ask for a fix. Keep speculative motives out of the note.
 Review read-only. No outbound messages, publishing, paid actions or account changes.
 "references": for local text lessons, prompts or HQ team documents you actually consulted, return
 an array of objects with "file" (absolute, or relative to the selected skill folder or HQ project), "anchor" (a short exact
@@ -180,11 +198,20 @@ def prepare_handoff(folder, carried):
     return reports
 
 
+def reviewed_decision(step):
+    summary = step["handoff"]
+    note = step.get("judgment")
+    if note:
+        summary += (f"\nEarlier choice: {note['choice']}\nBasis in the earlier case: {note['basis']}"
+                    f"\nReconsider if: {note['reconsiderIf']}")
+    return summary
+
+
 def stage_context(fields, carried, prior):
     product, url, brief = fields
-    imported = "\n\n".join(f"{step['title']}\n{step['handoff']}" for step in carried)
+    imported = "\n\n".join(f"{step['title']}\n{reviewed_decision(step)}" for step in carried)
     approved = "\n\n".join(
-        f"{step['title']} ({step['artifact']})\n{step['handoff']}" for step in prior
+        f"{step['title']} ({step['artifact']})\n{reviewed_decision(step)}" for step in prior
     )
     artifacts = "\n\n".join(
         f"{step['workflow']} / {step['title']}\nApproved copy: {step['snapshot']}\n"
@@ -201,27 +228,52 @@ def stage_context(fields, carried, prior):
     )
 
 
-def selected_method(source):
+def decision_references(portable, workflow):
+    # The selected bundled skill names its subject guides. Briefs and imported
+    # documents cannot nominate arbitrary files for automatic inclusion.
+    links = re.findall(
+        r"\]\((?:\.\./evolve-skill/)?references/(book-(?:copy|customer|offer)-decisions\.md)\)",
+        portable.read_text(encoding="utf-8"),
+    )
+    subjects = list(dict.fromkeys(links))
+    if not workflow and not subjects:
+        return []
+    directory = portable.parent.parent / "evolve-skill" / "references"
+    guides = [directory / "choosing-a-method.md"]
+    if len(subjects) == 1:
+        guides.append(directory / subjects[0])
+    return [(guide, "Decision reference") for guide in guides if guide.is_file()]
+
+
+def selected_method(source, *, workflow=False):
     """Keep the installed method and portable decision guidance available to both calls."""
     name = source.parent.name
     candidates = [ROOT / ".office/portable-skills" / name / "SKILL.md", ROOT / "skills" / name / "SKILL.md"]
     portable = next((path for path in candidates if path.is_file()), None)
-    paths = [source]
-    if portable and portable.resolve() != source.resolve():
-        paths.append(portable)
+    paths = [(source, "Installed skill")]
+    if portable:
+        if portable.resolve() == source.resolve():
+            paths = [(portable, "Portable skill")]
+        else:
+            paths.append((portable, "Portable skill"))
+        paths.extend(decision_references(portable, workflow))
+
     sections, receipt = [], []
-    for path in paths:
+    for path, role in paths:
         contents = path.read_bytes()
-        role = "Portable skill" if portable and path.resolve() == portable.resolve() else "Installed skill"
-        sections.append(f"{role}. Resolve its references from {path.parent}:\n{contents.decode('utf-8')}")
+        body = contents.decode("utf-8")
+        sections.append(f"{role}. Resolve its references from {path.parent}:\n{body}")
         receipt.append({"role": role, "file": str(path), "sha256": hashlib.sha256(contents).hexdigest()})
+        if role == "Decision reference":
+            continue
         index = path.parent / "references" / "local-sources.md"
         if index.is_file():
-            sections.append(f"Optional local course references for this skill. Open {index} when the "
-                            "decision calls for an original worksheet, slide, or worked example. "
-                            "Cite the source you actually used and identify its page or worksheet row.")
+            sections.append(f"Optional local source index: {index}. Open the relevant original for a "
+                            "worksheet, book passage or worked example. If the method is named, contested or the choice turns on a narrow exception, open the original passage. Cite the specific source used.")
     instructions = (
-        "Use the methods below within the requested scope. Open the required local prompt, lesson or "
+        "Use the selected Evolve method and approved brief to define this stage. For a consequential choice, "
+        "apply only a guide whose conditions fit the evidence. A book can suggest a test or an explanation; "
+        "verify product claims, buyer motives and outcomes against this job's records. Open the required prompt, lesson or "
         "reference for the decision you are making. Preserve its source order and locked language where "
         "applicable. Record any material source limitation. Never attribute a fallback to an unseen "
         "original. Put method-file provenance in the separate quality review. Discuss it in the report "
@@ -304,7 +356,7 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
                                 + source_index)
                     set_phase(step, "Drafting")
                 source = sources[step["id"]]
-                method, receipt = selected_method(source)
+                method, receipt = selected_method(source, workflow=bool(workflow))
                 context += "\n\nSelected skill method:\n" + method
                 route = (f"Workflow: {workflow['title']}\nMode: {workflow['modeTitle']}" if workflow else
                          f"Run exactly this selected Evolve skill: {source.parent.name}.")
@@ -362,6 +414,8 @@ What the reviewer will verify:
                 review["methodFiles"] = receipt
                 path.with_suffix(".quality.json").write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
                 outcome = {"methodFiles": receipt, "references": review["references"], "quality": review["feedback"], "checkResults": review["checklist"], "report": draft}
+                if review.get("judgment"):
+                    outcome["judgment"] = review["judgment"]
                 if review["verdict"] == "pass":
                     artifact = path.with_suffix(".md")
                     artifact.write_text(draft + "\n", encoding="utf-8")

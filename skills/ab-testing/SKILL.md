@@ -25,6 +25,8 @@ Variants, traffic, conversions, and expected change, if known.
 
 When planning a behavior test, define eligibility, comparison and downstream cost. Add a measure that would reveal buyers selecting the wrong item. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Lead with the outcome actually measured. Order counts and assigned prices establish order rates when group sizes are known. To report realized revenue, inspect quantities, baskets and paid amounts. If you model revenue, put the assumption alongside the number wherever it drives a decision, including the headline and handoff. For example, “Order rate rose from 5% to 6%. At one unit per order the estimated revenue difference is −$30. Actual revenue is unknown.”
+
 ## Deliverable
 
 A test plan or interpretation with limitations.

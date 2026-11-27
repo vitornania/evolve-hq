@@ -2,6 +2,8 @@
 
 Start with the audience, angle, offer, proof and placement approved in the Evolve brief. Use the decision below that is holding up the work. Keep source notes with the brief so a reviewer can check a decision without adding commentary to the ad.
 
+When two approaches fit, use [Choosing a method](choosing-a-method.md) to decide which evidence distinguishes them.
+
 ## Choose the first thing the reader needs to know
 
 Identify one proposition the reader must accept to take the next action. Write down what the customer already believes, the first part they might reasonably question and what this brand can show them. Use a dated customer observation or a recorded buying objection when one exists. A story about another advertiser can suggest a test. It cannot establish this buyer's awareness or this product's performance.
@@ -13,6 +15,8 @@ Identify one proposition the reader must accept to take the next action. Write d
 | Buyers describe a recurring situation but rarely name this category. | Begin at that moment. Use a short incident or problem lead when the product plays a necessary, understandable part in its resolution. | Remove the product from the story. If the story still delivers its entire payoff, find a closer connection or try a direct lead. |
 
 These distinctions combine Robert Collier's discussion of the reader's current interests, the lead selection examples in *Great Leads*, the central buying belief in Evaldo Albuquerque's *The 16-Word Sales Letter*, and the awareness questions in [Choosing a direct-response message](direct-response-decisions.md).
+
+A past purchase is a clue about familiarity. A documented return can establish a more recent, specific obstacle. For someone who returned an item because it did not fit their model, verify compatibility before sending a restock pitch. If the fit is still unknown, give the buyer the available measurement and invite a fit check.
 
 ## Connect the claim to something the buyer can inspect
 

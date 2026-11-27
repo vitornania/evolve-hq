@@ -16,6 +16,10 @@ Native installs in another project contain the chosen skill files and their bund
 
 ## How the workflows use the reading library
 
+In HQ the selected stage determines the skill. The writer and reviewer both receive [Choosing a method](../skills/evolve-skill/references/choosing-a-method.md). When the skill points to a single specialist book guide, HQ includes that guide too. Skills spanning several subjects link to the guides so the agent can open the one the decision calls for. In a standalone native agent, follow the links from the selected skill. An authorized local source index can point to the relevant book or course passage.
+
+For a substantive choice, expand **Quality review** to see the action, the evidence behind it, and what finding could change it. When a later stage reuses an approved result, it receives that reasoning and can check new evidence against the earlier condition. A verified source entry identifies a passage the reviewer checked. The review is an AI assessment.
+
 The selected Evolve method sets the brief and review criteria. A skill links to a short guide when a book can help decide what to do with the supplied evidence. For example, two buyers may want the same tray. Someone waiting for their chosen size can use restock news. Someone unsure it clears their cabinet hinge needs a measurement or a bounded demonstration.
 
 - Use [Copy and proof decisions](../skills/evolve-skill/references/book-copy-decisions.md) for openings, copy structure, visual proof and clean creative tests.

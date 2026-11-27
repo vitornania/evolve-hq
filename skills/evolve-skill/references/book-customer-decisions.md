@@ -2,6 +2,8 @@
 
 Use these decisions inside the selected Evolve research, creative, storefront or iteration method. Start with its product facts, dated customer evidence and control. Use a book to suggest a competing explanation or a better observation. Only the current job's evidence can support a claim about its buyers.
 
+When two approaches fit, use [Choosing a method](choosing-a-method.md) to decide which evidence distinguishes them.
+
 ## Find the reason behind an action
 
 **If a theme comes from prompted answers**, find out what happened before the prompt. Ask for the last occasion, what the person tried, the cost or inconvenience, and what they did next. Reflect their account and invite correction. Record the unprompted remark and the prompted answer separately. If someone agrees with the interviewer's suggested reason but bought for a different reason, retain both pieces of evidence. Sources include Carnegie on listening and Voss and Raz on summaries and calibrated questions.

@@ -95,6 +95,8 @@ def provider(_provider, directory, prompt, *, files):
 
 
 def check_standalone_modes(workspace):
+    router = workspace / "skills/evolve-skill/SKILL.md"
+    assert [p.name for p, _ in workflow_batches.decision_references(router, False)] == ["choosing-a-method.md"]
     total = 0
     for workflow in catalog:
         for mode in workflow["modes"]:
@@ -105,6 +107,7 @@ def check_standalone_modes(workspace):
             def respond(_provider, directory, prompt, *, files):
                 index = len(calls) // 2
                 stage = steps[index]
+                assert "Choosing a method for an Evolve decision" in prompt
                 reviewing = prompt.startswith("Independently review")
                 assert reviewing == bool(len(calls) % 2)
                 assert f"Stage: {stage['title']}\n" in prompt
@@ -169,11 +172,31 @@ def check_individual_skills(workspace):
         else:
             raise AssertionError("Unverified local reference was accepted.")
 
+    try:
+        workflow_batches.review_reply(json.dumps({
+            "checklist": [], "feedback": "Reviewed.", "handoff": "Reviewed recommendation.",
+            "judgment": {"choice": "Launch.", "basis": "Unknown."},
+        }), [])
+    except workflow_batches.ReviewFormatError:
+        pass
+    else:
+        raise AssertionError("An incomplete decision note was accepted.")
+
+    guide_path = workspace / "skills/evolve-skill/references/choosing-a-method.md"
+    supplied = methods + [{"role": "Decision reference", "file": str(guide_path)}]
+    cited = {"file": str(guide_path), "anchor": "Match the evidence to the question",
+             "decision": "Checked which source supports the claim."}
+    assert workflow_batches.verify_references({"references": [cited]}, supplied)["references"][0]["startLine"] > 0
+
     def respond(_provider, directory, prompt, *, files):
         title = next(line[7:] for line in prompt.splitlines() if line.startswith("Stage: "))
         reviewing = prompt.startswith("Independently review")
         calls[title, reviewing] += 1
+        if title == guide["vibe-coding-toolkit"]["title"]:
+            assert "Choosing a method for an Evolve decision" not in prompt
         if title == guide[name]["title"]:
+            assert "Choosing a method for an Evolve decision" in prompt
+            assert "book-copy-decisions.md" in prompt
             assert portable_method in prompt and installed_method in prompt
             assert str(pack) in prompt
             assert str(source_index) in prompt
@@ -192,6 +215,8 @@ def check_individual_skills(workspace):
             "checklist": [{"number": n, "status": status, "evidence": "Selected method and draft inspected."}
                           for n in range(1, len(criteria) + 1)],
             "feedback": "Fixture review.", "handoff": "Reviewed decision." if status == "met" else "",
+            "judgment": {"choice": "Use the narrower claim.", "basis": "One measured setup.",
+                         "reconsiderIf": "A second setup verifies the broader claim."} if title == guide[name]["title"] else None,
         })
 
     with patch.object(skill_runs, "reply", side_effect=respond):
@@ -209,7 +234,10 @@ def check_individual_skills(workspace):
             assert Path(step["artifact"]).name == f"01-{skill}.md"
             assert skill_runs.previous_results(run["id"])[0]["report"] == step["report"]
             if skill == name:
-                assert step["revisions"] == 1 and len(step["methodFiles"]) == 2
+                assert step["revisions"] == 1 and step["judgment"]["basis"] == "One measured setup."
+                assert [Path(m["file"]).name for m in step["methodFiles"]] == [
+                    "SKILL.md", "SKILL.md", "choosing-a-method.md", "book-copy-decisions.md",
+                ]
                 methods, receipt = workflow_batches.selected_method(pack / "SKILL.md")
                 assert step["methodFiles"] == receipt and portable_method in methods
         mixed = wait_run(skill_runs.start_run({"skills": ["ab-testing", name], "brief": "Two selected tasks."}))
@@ -248,6 +276,8 @@ def check_handoff_matrix(workspace):
             assert len(snapshots) == 1 and snapshots[0].read_text(encoding="utf-8") == reports[sender]
             assert str(snapshots[0]) in prompt and f"Summary from {sender}." in prompt
             assert not any(f"Summary from {other}." in prompt for other in flows if other != sender)
+            assert f"Reconsider if: New evidence for {sender}." in prompt
+            assert not any(f"New evidence for {other}." in prompt for other in flows if other != sender)
             if len(reports[sender]) <= workflow_batches.INLINE_REPORT_CHARS:
                 assert reports[sender] in prompt
             else:
@@ -266,6 +296,8 @@ def check_handoff_matrix(workspace):
             "checklist": [{"number": n, "status": "met", "evidence": "Checked the approved fixture."}
                           for n in range(1, len(checks) + 1)],
             "feedback": "Fixture reviewed.", "handoff": f"Summary from {receiver}.",
+            "judgment": {"choice": "Keep the control.", "basis": "The new offer is unverified.",
+                         "reconsiderIf": f"New evidence for {receiver}."},
         })
 
     with patch.object(skill_runs, "reply", side_effect=matrix_provider):

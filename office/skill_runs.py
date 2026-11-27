@@ -145,7 +145,8 @@ def previous_results(identifier, selected=None):
         if artifact.is_relative_to(directory) and artifact.is_file():
             collected.append({"id": step["id"], "title": step["title"],
                               "workflow": step.get("workflow", "Individual skill"), "artifact": str(artifact),
-                              "handoff": step["handoff"], "report": step.get("report")})
+                              "handoff": step["handoff"], "report": step.get("report"),
+                              "judgment": step.get("judgment")})
     if not collected:
         raise ValueError("That run has no reviewed results to reuse.")
     if selected is not None:

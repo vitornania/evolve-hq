@@ -2,6 +2,8 @@
 
 Read the team roster and select the matching catalog action before starting a job. Use the bundled skills and any authorized local overlay as the source for methods. Use Market Research Team for an explicit research sprint and the free local runner for the named local actions.
 
+When a marketing decision has two plausible approaches, use [Choosing a method](skills/evolve-skill/references/choosing-a-method.md) and the specialist guide linked by the selected skill. Keep the evidence behind the choice and a condition that would reverse it in the working handoff. Open a book or course passage before attributing that choice to the original.
+
 For a selected skill, read its bundled guide in `skills/<name>/SKILL.md` and the matching authorized method in `.office/libraries/evolve/skills/<name>/SKILL.md` when installed. Resolve each reference from its own file. Use the assigned method and inspect the original material that bears on the decision before attributing a result to it.
 
 If either skill folder includes `references/local-sources.md`, use it to locate relevant worksheets, slides or worked examples. Keep the source page or worksheet row with the decision it supports.
