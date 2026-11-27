@@ -14,6 +14,10 @@ PROVIDERS = {
 }
 
 
+class ProviderNoAnswer(RuntimeError):
+    """The provider returned no usable answer and did not identify an account problem."""
+
+
 def find(provider):
     folders = [Path.home() / ".local/bin", Path.home() / ".antigravity/bin"]
     if os.name == "nt":
@@ -117,7 +121,10 @@ def reply(provider, directory, prompt, *, files=(), schema=None, timeout=600):
     text = response_text(provider, result.stdout)
     if result.returncode or not text:
         hints = (result.stderr or "").lower()
-        if "quota" in hints or "limit reached" in hints:
+        if "quota" in hints or "limit reached" in hints or "rate limit" in hints:
             raise RuntimeError(f"{label} reported a usage limit. Check your provider account.")
-        raise RuntimeError(f"{label} didn’t return an answer. Check its sign-in, workspace permissions, and usage.")
+        message = f"{label} didn’t return an answer. Check its sign-in, workspace permissions, and usage."
+        if any(hint in hints for hint in ("unauthorized", "authentication failed", "not logged in")):
+            raise RuntimeError(message)
+        raise ProviderNoAnswer(message)
     return text

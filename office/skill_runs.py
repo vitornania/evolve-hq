@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 
 from activity import ROOT, new_task, process_running, update
 from providers import reply, require
+from workflow_batches import MAX_WORKFLOWS, run_batches, workflow_catalog
 
 MAX_REQUEST_BYTES = 22 * 1024 * 1024
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
@@ -77,24 +78,86 @@ def decode_images(values):
     return images
 
 
+def selected_workflows(payload, guide, owners):
+    requests = payload.get("workflows", [])
+    if not isinstance(requests, list) or len(requests) > MAX_WORKFLOWS:
+        raise ValueError("Choose up to six workflows.")
+    if not requests:
+        return [], [], {}
+    workflows = {workflow["id"]: workflow for workflow in workflow_catalog()}
+    selected, steps, sources = [], [], {}
+    seen = set()
+    for request in requests:
+        if not isinstance(request, dict):
+            raise ValueError("Choose a workflow and mode.")
+        job_id, mode_id = request.get("workflow"), request.get("mode")
+        if not isinstance(job_id, str) or job_id not in workflows or job_id in seen:
+            raise ValueError("Choose each workflow once per batch.")
+        workflow = workflows[job_id]
+        mode = next((mode for mode in workflow["modes"] if mode["id"] == mode_id), None)
+        if mode is None:
+            raise ValueError("Choose an available workflow mode.")
+        available = {stage["id"] for stage in mode["steps"]}
+        requested = request.get("stages", list(available))
+        if (not isinstance(requested, list) or not requested
+                or any(not isinstance(key, str) or key not in available for key in requested)
+                or len(set(requested)) != len(requested)):
+            raise ValueError("Choose at least one available stage in each workflow.")
+        seen.add(job_id)
+        selected.append({"id": job_id, "title": workflow["title"], "mode": mode_id, "modeTitle": mode["title"]})
+        for stage in mode["steps"]:
+            if stage["id"] not in requested:
+                continue
+            name = stage["skill"]
+            key = f"{job_id}-{stage['id']}"
+            sources[key] = skill_location(name)
+            steps.append({
+                **stage, "stage": stage["id"], "id": key, "workflow": job_id, "kind": guide[name]["kind"],
+                "role": ROLE_OVERRIDES.get(name, owners.get(name)), "status": "queued",
+            })
+    return selected, steps, sources
+
+
+def previous_results(identifier):
+    if not identifier:
+        return []
+    run = get_run(identifier)
+    if not run or run["status"] in {"working", "queued"}:
+        raise ValueError("Choose a previous run that has finished.")
+    directory = (ROOT / "tasks" / identifier).resolve()
+    collected = []
+    for step in run["steps"]:
+        if step["status"] != "review" or not step.get("handoff") or not step.get("artifact"):
+            continue
+        artifact = Path(step["artifact"]).resolve()
+        if artifact.is_relative_to(directory) and artifact.is_file():
+            collected.append({"title": step["title"], "artifact": str(artifact), "handoff": step["handoff"]})
+    if not collected:
+        raise ValueError("That run has no reviewed workflow results to reuse.")
+    return collected
+
+
 def validate(payload):
     if not isinstance(payload, dict):
         raise ValueError("The request must contain a run brief.")
     guide = load_json(ROOT / "team/skill-guide.json")
     catalog = load_json(ROOT / "team/catalog.json")
     owners = {name: DESK_OWNERS[desk["name"]] for desk in catalog["desks"] for name in desk["skills"]}
-    requested = payload.get("skills")
-    if not isinstance(requested, list) or not requested or any(
+    workflows, steps, sources = selected_workflows(payload, guide, owners)
+    requested = payload.get("skills", [])
+    if not isinstance(requested, list) or any(
             not isinstance(name, str) or name not in guide for name in requested):
         raise ValueError("Choose at least one skill from the library.")
     if len(set(requested)) != len(requested):
         raise ValueError("Each skill can appear once in a run.")
-    steps = [
+    if bool(requested) == bool(workflows):
+        raise ValueError("Choose workflows or individual skills for this run.")
+    steps.extend(
         {"id": name, "title": guide[name]["title"], "kind": guide[name]["kind"],
          "role": ROLE_OVERRIDES.get(name, owners.get(name)), "status": "queued"}
         for name in requested
-    ]
-    sources = {name: skill_location(name) for name in requested}
+    )
+    sources.update({name: skill_location(name) for name in requested})
     product = field(payload, "product", 120)
     url = field(payload, "url", 1800)
     brief = field(payload, "brief", 12000)
@@ -103,11 +166,16 @@ def validate(payload):
         parsed = urlsplit(url)
         if parsed.scheme not in ("http", "https") or not parsed.hostname or parsed.username or parsed.password:
             raise ValueError("Enter a public page link starting with https:// or http://.")
-    if not (url or brief or images):
+    prior_id = field(payload, "sourceRun", 350)
+    if prior_id and not workflows:
+        raise ValueError("Choose a workflow to reuse reviewed results.")
+    carried = previous_results(prior_id)
+    if not (url or brief or images or carried):
         raise ValueError("Add a page link, describe what you want, or attach a screenshot.")
     provider = payload.get("provider", "codex")
     require(provider)
-    return product or (urlsplit(url).hostname if url else "Skill review"), url, brief, images, steps, sources, provider
+    return (product or (urlsplit(url).hostname if url else "Skill review"), url, brief,
+            images, steps, sources, provider, workflows, carried)
 
 
 def save_run(directory, data):
@@ -117,7 +185,8 @@ def save_run(directory, data):
         draft.replace(directory / "run.json")
     record = directory / "RECORD.md"
     record.write_text("\n".join([
-        "# Selected Evolve skills", "", f"- Product: {data['product']}",
+        "# Evolve workflow batch" if data.get("workflows") else "# Selected Evolve skills",
+        "", f"- Product: {data['product']}",
         f"- Status: {data['status']}", "",
         *[f"- {step['title']} ({step['id']}) — {step['status']}" for step in data["steps"]],
         "", f"Open in Evolve HQ: {data['view']}", "",
@@ -134,6 +203,7 @@ def get_run(run_id):
         if process_running(data["pid"]) is False:
             data["status"] = "interrupted"
     data.pop("pid", None)
+    data.pop("carried", None)
     return data
 
 
@@ -169,6 +239,14 @@ def run_steps(provider, data, directory, files, sources, fields):
     record = directory / "RECORD.md"
     try:
         data["status"] = "working"
+        if data.get("workflows"):
+            save_run(directory, data)
+            run_batches(
+                data, directory, files, fields, sources,
+                lambda folder, prompt, inputs: reply(provider, folder, prompt, files=inputs),
+                save_run, Lock(),
+            )
+            return
         previous = []
         for index, step in enumerate(data["steps"], 1):
             step["status"] = "working"
@@ -202,7 +280,7 @@ def run_steps(provider, data, directory, files, sources, fields):
 
 
 def start_run(payload):
-    product, url, brief, images, steps, sources, provider = validate(payload)
+    product, url, brief, images, steps, sources, provider, workflows, carried = validate(payload)
     if not RUN_LOCK.acquire(blocking=False):
         raise RuntimeError("A skill run is already in progress. Wait for it to finish before starting another.")
     try:
@@ -215,6 +293,7 @@ def start_run(payload):
         run_id = directory.relative_to(ROOT / "tasks").as_posix()
         from urllib.parse import quote
         data = {"id": run_id, "product": product, "status": "queued", "steps": steps, "provider": provider,
+                "workflows": workflows, "carried": carried,
                 "view": "/workflows?run=" + quote(run_id, safe=""), "pid": os.getpid()}
         save_run(directory, data)
         if not (queued := get_run(run_id)):

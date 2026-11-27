@@ -61,6 +61,10 @@ try:
             assert response.read().count(b'<header class="hq-bar">') == 1
     with urlopen(base + "/skill-guide.json", timeout=5) as response:
         assert len(json.load(response)) == 62
+    with urlopen(base + "/api/workflows", timeout=5) as response:
+        workflows = json.load(response)
+        assert len(workflows) == 6
+        assert all(mode["steps"] for work in workflows for mode in work["modes"])
     for route in ("/workbench.js", "/static-libraries.js", "/scene.js", "/three/build/three.module.js"):
         with urlopen(base + route, timeout=5) as response:
             assert response.headers.get_content_type() == "text/javascript"
@@ -78,3 +82,4 @@ finally:
         server.terminate()
     server.wait(timeout=10)
 print("Launcher, 62 skills, live activity, ROAS and native install verified.")
+subprocess.run([sys.executable, "scripts/check_workflow_batches.py"], cwd=ROOT, check=True)

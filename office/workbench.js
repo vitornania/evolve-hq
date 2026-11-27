@@ -1,18 +1,14 @@
 import {initAdvisor} from "./advisor.js";
 
 const $=selector=>document.querySelector(selector);
-const presets={
-  store:["store-content-cro-review"],
-  angles:["evolve-angles","evolve-test-design"],
-  ad:["analyze-ads"],
-  page:["write-product-page-copy"]
-};
-const labels={queued:"Queued",working:"Working",review:"Ready",failed:"Stopped",skipped:"Skipped",interrupted:"Interrupted"};
+const labels={queued:"Queued",working:"Working",review:"Ready",blocked:"Needs attention",failed:"Stopped",skipped:"Skipped",interrupted:"Interrupted"};
 let guide={}, deskBySkill={}, selected=[], visibleLimit=12, runId, sending=false, lastRun="";
+let activeTab="workflow", sourceRun="";
+const workflows=new Map();
 let pending;
 const stateMessages={
   queued:"Your selected skills are queued.", working:"The team is preparing your reports.",
-  review:"Your reports are ready to review.", failed:"The run stopped.",
+  review:"Your reports are ready to review.", blocked:"Finished stages are available. Some stages need attention.", failed:"The run stopped.",
   interrupted:"The Mac stopped while this run was in progress."
 };
 
@@ -34,11 +30,13 @@ function error(message="") {
   $("#run-error").hidden=!message;
 }
 function showTab(tab) {
+  activeTab=tab;
   const skills=tab==="skill";
   $("#skill-panel").hidden=!skills;
   $("#workflow-panel").hidden=skills;
   $("#workflow-tab").setAttribute("aria-pressed",String(!skills));
   $("#skill-tab").setAttribute("aria-pressed",String(skills));
+  renderSelection();
 }
 function bringSelection() {
   $("#run-title").closest(".composer").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
@@ -51,10 +49,27 @@ function renderSelection() {
     add.setAttribute("aria-pressed",String(state));
   }
   if (runId) return;
-  $("#selection-empty").hidden=Boolean(selected.length);
+  const isWorkflow=activeTab==="workflow";
+  const count=isWorkflow ? workflows.size : selected.length;
+  $("#selection-empty").hidden=Boolean(count);
   const list=$("#selected");
-  list.hidden=!selected.length;
+  list.hidden=!count;
   list.replaceChildren();
+  for (const action of document.querySelectorAll("[data-workflow-add]")) {
+    const current=workflows.get(action.dataset.workflowAdd);
+    action.textContent=current?.mode.id===action.dataset.mode ? "Update selection" : "Add to run";
+  }
+  if (isWorkflow) for (const [id, {workflow,mode,stages}] of workflows) {
+    const li=element("li");
+    const row=element("div","","selected-line");
+    row.append(element("strong",workflow.title),button("×","Remove "+workflow.title,()=>{
+      workflows.delete(id);
+      renderSelection();
+    }));
+    li.append(row,element("p",mode.title+" · "+stages.length+" "+(stages.length===1?"stage":"stages"),"muted selected-mode"));
+    list.append(li);
+  }
+  else
   selected.forEach((id,index)=>{
     const info=guide[id];
     const li=element("li");
@@ -71,9 +86,64 @@ function renderSelection() {
     li.append(row);
     list.append(li);
   });
-  $("#selected-count").textContent=`${selected.length} selected`;
-  $("#start").disabled=!selected.length || sending;
-  $("#jump-to-run").hidden=!selected.length || Boolean(runId);
+  $("#selected-count").textContent=`${count} selected`;
+  $("#start").disabled=!count || sending;
+  $("#jump-to-run").hidden=!count;
+  $("#source-run").hidden=!sourceRun || !isWorkflow;
+}
+
+function renderWorkflows(catalog) {
+  const list=$("#workflow-list");
+  for (const workflow of catalog) {
+    const card=element("details","","workflow-card");
+    const summary=element("summary");
+    summary.append(element("strong",workflow.title),element("span",workflow.description));
+    const content=element("div","","workflow-options");
+    const picker=element("select");
+    const label=element("label","What do you want to do?");
+    label.append(picker);
+    for (const mode of workflow.modes) {
+      const option=element("option",mode.title);
+      option.value=mode.id;
+      picker.append(option);
+    }
+    const help=element("p","","workflow-help");
+    const stages=element("fieldset","","workflow-stages");
+    const add=element("button","Add to run","secondary workflow-add");
+    add.type="button";
+    add.dataset.workflowAdd=workflow.id;
+    add.addEventListener("click",()=>{
+      const mode=workflow.modes.find(item=>item.id===picker.value);
+      const selectedStages=[...stages.querySelectorAll("input:checked")].map(input=>input.value);
+      workflows.set(workflow.id,{workflow,mode,stages:selectedStages});
+      renderSelection();
+      bringSelection();
+    });
+    function renderMode() {
+      const mode=workflow.modes.find(item=>item.id===picker.value);
+      const existing=workflows.get(workflow.id);
+      add.dataset.mode=mode.id;
+      help.textContent=mode.description;
+      stages.replaceChildren(element("legend","Choose your stages"));
+      for (const stage of mode.steps) {
+        const label=element("label");
+        const input=element("input");
+        input.type="checkbox";
+        input.value=stage.id;
+        input.checked=existing?.mode.id===mode.id ? existing.stages.includes(stage.id) : true;
+        label.append(input,document.createTextNode(stage.title));
+        stages.append(label);
+      }
+      add.disabled=!stages.querySelector("input:checked");
+      renderSelection();
+    }
+    stages.addEventListener("change",()=>{add.disabled=!stages.querySelector("input:checked");});
+    picker.addEventListener("change",renderMode);
+    content.append(label,help,stages,add);
+    card.append(summary,content);
+    list.append(card);
+    renderMode();
+  }
 }
 
 function skillRow(id) {
@@ -215,7 +285,8 @@ function renderRun(data) {
   $("#run-form").hidden=true;
   $("#selection-empty").hidden=true;
   $("#selected").hidden=true;
-  $("#selected-count").textContent=`${data.steps.length} ${data.steps.length===1?"skill":"skills"}`;
+  const units=data.workflows?.length ? "stage" : "skill";
+  $("#selected-count").textContent=`${data.steps.length} ${units}${data.steps.length===1?"":"s"}`;
   $("#jump-to-run").hidden=true;
   const progress=$("#run-progress");
   progress.hidden=false;
@@ -223,17 +294,35 @@ function renderRun(data) {
   const list=element("ol","","step-results");
   for (const step of data.steps) {
     const li=element("li");
-    li.append(element("span",step.title),element("span",labels[step.status] || step.status,"state "+step.status));
+    const job=data.workflows?.find(workflow=>workflow.id===step.workflow);
+    const label=element("span",step.title);
+    if (job) label.prepend(element("small",job.title,"stage-workflow"));
+    li.append(label,element("span",step.phase || labels[step.status] || step.status,"state "+step.status));
     list.append(li);
   }
   progress.append(list);
   const controls=element("div","","progress-actions");
   const office=element("a","See the live office");
   office.href="/";
-  if (["review","failed","interrupted"].includes(data.status)) {
+  if (["review","blocked","failed","interrupted"].includes(data.status)) {
     controls.append(button("Prepare another run","",clearRun,"secondary"));
+    if (data.steps.some(step=>step.status==="review" && step.handoff)) {
+      controls.append(button("Use reviewed results","",()=>{
+        sourceRun=data.id;
+        $("#product-name").value=data.product;
+        const source=$("#source-run");
+        source.replaceChildren(document.createTextNode("Using reviewed results from "+data.product+" "),
+          button("Remove","Remove previous run results",()=>{
+            sourceRun="";
+            renderSelection();
+          },"secondary"));
+        workflows.clear();
+        clearRun();
+        showTab("workflow");
+      },"secondary"));
+    }
   }
-  if (data.steps.some(step=>step.report)) {
+  if (data.steps.some(step=>step.report || step.quality)) {
     const reportsLink=element("a","Read reports");
     reportsLink.href="#reports";
     controls.append(reportsLink);
@@ -241,16 +330,37 @@ function renderRun(data) {
   controls.append(office);progress.append(controls);
   const reports=$("#report-list");
   reports.replaceChildren();
-  for (const step of data.steps.filter(step=>step.report)) {
+  for (const step of data.steps.filter(step=>step.report || step.quality)) {
     const card=element("article","","report");
     const header=element("header");
     const copy=button("Copy report","",async()=>{
       try {await navigator.clipboard.writeText(step.report);copy.textContent="Copied";}
       catch {copy.textContent="Select report text to copy";}
     },"secondary");
-    header.append(element("h3",step.title),copy);
+    header.append(element("h3",step.title));
+    if (step.report) header.append(copy);
     const content=element("div","","report-body");
-    markdown(content,step.report);
+    if (step.quality) {
+      const review=element("details","","quality-note");
+      review.open=step.status!=="review";
+      const result=step.status==="review"?"passed":"needs attention";
+      const revisions=step.revisions ? ` after ${step.revisions} revision${step.revisions===1?"":"s"}` : "";
+      review.append(element("summary","Quality review · "+result+revisions),
+        element("p",step.quality));
+      if (step.checkResults?.length) {
+        const results=element("ul");
+        const checkLabels={met:"Met",fix:"Needs revision",missing:"Missing input"};
+        for (const check of step.checkResults) {
+          const item=element("li");
+          item.append(element("strong",checkLabels[check.status]+" · "+check.criterion),
+            element("p",check.evidence));
+          results.append(item);
+        }
+        review.append(results);
+      }
+      content.append(review);
+    }
+    if (step.report) markdown(content,step.report);
     card.append(header,content);reports.append(card);
   }
   if (!reports.childElementCount) {
@@ -283,13 +393,14 @@ function follow(id) {
 }
 async function submit(event) {
   event.preventDefault();
-  if (sending||runId||!selected.length) return;
+  const isWorkflow=activeTab==="workflow";
+  if (sending||runId||!(isWorkflow?workflows.size:selected.length)) return;
   error();
   let url=$("#page-url").value.trim();
   if (url&&!url.includes("://")&&!url.includes(" ")) url="https://"+url;
   const brief=$("#brief").value.trim();
   const files=[...$("#images").files];
-  if (!url&&!brief&&!files.length) {error("Add a page link, a short brief, or a screenshot first.");$("#page-url").focus();return;}
+  if (!url&&!brief&&!files.length&&!(isWorkflow&&sourceRun)) {error("Add a page link, a short brief, or a screenshot first.");$("#page-url").focus();return;}
   if (files.length>3||files.some(file=>file.size>5*1024*1024)) {
     error("Choose up to 3 images, each 5 MB or smaller.");
     return;
@@ -299,22 +410,26 @@ async function submit(event) {
   const start=$("#start");
   start.firstChild.textContent="Starting your run ";
   try {
+    const selection=isWorkflow
+      ? {workflows:[...workflows].map(([id,{mode,stages}])=>({workflow:id,mode:mode.id,stages})),sourceRun}
+      : {skills:selected};
     const response=await fetch("/api/run",{
       method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({skills:selected,url,brief,provider:$("#provider").value || "codex",images:await Promise.all(files.map(toBase64))})
+      body:JSON.stringify({...selection,product:$("#product-name").value.trim(),url,brief,
+        provider:$("#provider")?.value || "codex",images:await Promise.all(files.map(toBase64))})
     });
     const data=await response.json();
     if (!response.ok) throw new Error(data.error || "The run couldn’t start.");
     history.replaceState(null,"",data.view);
     renderRun(data);follow(data.id);
   } catch (failure) {error(failure.message || "The run couldn’t start. Try again.");}
-  finally {sending=false;start.firstChild.textContent="Run selected skills ";renderSelection();}
+  finally {sending=false;start.firstChild.textContent="Start run ";renderSelection();}
 }
 async function initialize() {
   const placeholder=$("#loading-library");
   placeholder.hidden=false;
   try {
-    const [catalog,descriptions]=await Promise.all(["/catalog.json","/skill-guide.json"].map(async url=>{
+    const [catalog,descriptions,workflows]=await Promise.all(["/catalog.json","/skill-guide.json","/api/workflows"].map(async url=>{
       const response=await fetch(url);
       if (!response.ok) throw new Error();
       return response.json();
@@ -327,6 +442,7 @@ async function initialize() {
       for (const id of desk.skills) deskBySkill[id]=desk.name;
     }
     $("#skill-count").textContent=Object.keys(guide).length;
+    renderWorkflows(workflows);
     placeholder.hidden=true;
   } catch {
     placeholder.textContent="The library couldn’t load. Reopen Evolve HQ or refresh this page.";
@@ -360,11 +476,6 @@ async function initialize() {
   showProvider();
   $("#workflow-tab").addEventListener("click",()=>showTab("workflow"));
   $("#skill-tab").addEventListener("click",()=>{showTab("skill");renderSkills();});
-  for (const item of document.querySelectorAll("[data-preset]")) item.addEventListener("click",()=>{
-    selected=[...presets[item.dataset.preset]];
-    if (!runId) renderSelection();
-    bringSelection();
-  });
   for (const input of [$("#search"),$("#desk")]) input.addEventListener("input",()=>{
     visibleLimit=12;renderSkills();
   });
@@ -378,7 +489,8 @@ async function initialize() {
     addSkills:(ids,brief)=>{
       selected=[...new Set([...selected,...ids])];
       if (brief&&!$("#brief").value.trim()) $("#brief").value=brief;
-      renderSelection();
+      showTab("skill");
+      renderSkills();
       if (!runId) bringSelection();
     }
   });

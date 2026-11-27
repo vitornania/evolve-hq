@@ -13,6 +13,7 @@ from activity import ROOT, snapshot
 from advisor import MAX_CHAT_BYTES, respond_to_chat
 from providers import status as provider_status
 from skill_runs import MAX_REQUEST_BYTES, get_run, start_run
+from workflow_batches import workflow_catalog
 
 DEFAULT_PORT = 8739
 OFFICE = Path(__file__).resolve().parent
@@ -92,6 +93,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/api/providers":
             self.json_response(provider_status())
+            return
+        if path == "/api/workflows":
+            self.json_response(workflow_catalog())
             return
         if path == "/api/static-libraries":
             config = ROOT / ".office/static-libraries.json"

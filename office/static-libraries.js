@@ -36,6 +36,25 @@ function render() {
       copy.append(note);
     }
     row.append(copy);
+    const include = document.createElement("button");
+    include.type = "button";
+    include.className = "secondary";
+    include.textContent = "Include in run";
+    include.setAttribute("aria-label", "Include " + item.name + " in the run brief");
+    include.addEventListener("click", () => {
+      const brief = document.querySelector("#brief");
+      const line = "Static library in scope · " + item.name + " · " + item.url;
+      if (!brief.value.split("\n").includes(line)) {
+        const value = [brief.value.trimEnd(), line].filter(Boolean).join("\n");
+        if (value.length > brief.maxLength) {
+          status.textContent = "The brief is full. Shorten it before adding a library.";
+          return;
+        }
+        brief.value = value;
+      }
+      status.textContent = item.name + " is in your run brief.";
+    });
+    row.append(include);
     if (saved.some(savedItem => savedItem.url === item.url)) {
       const remove = document.createElement("button");
       remove.type = "button";

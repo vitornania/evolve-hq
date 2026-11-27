@@ -1,0 +1,240 @@
+[
+  {
+    "id": "ad-review",
+    "title": "Review & Iterate Ads",
+    "description": "Find what to fix in a draft, learn from a batch, or plan a clean variation of an existing ad.",
+    "modes": [
+      {
+        "id": "single-ad",
+        "title": "Review one ad",
+        "description": "Use an ad image, script, video frames, or results to get specific revisions.",
+        "steps": [
+          {
+            "id": "inspect-ad",
+            "skill": "analyze-ads",
+            "title": "Inspect the creative",
+            "instruction": "Identify the source asset and its intended buyer, offer, and action. Audit the opening, reading path, promise, mechanism, proof, and CTA in source order. Cite an exact line, frame or timestamp, or visible image location for each observation. Where a product research record or brief is supplied, compare against its locked desire, angle, claims and evidence IDs. List missing inputs and separate what the ad shows from your interpretation.",
+            "checks": [
+              "Creative observations are anchored to an inspected asset, with unavailable portions clearly marked.",
+              "The ad's message and each consequential claim are checked against available product evidence and the intended CTA.",
+              "The review distinguishes visible or written facts from hypotheses about how a buyer might react."
+            ]
+          },
+          {
+            "id": "prioritize-edits",
+            "skill": "evolve-creative-analysis",
+            "title": "Prioritize revisions",
+            "instruction": "Use the inspected asset and findings to give up to three prioritized edits, each with its affected line, shot or image element, a specific replacement, and the expected buyer or creative effect. If results were supplied, check the asset match, comparable exposure, reporting window and KPI before using them. Identify one next test or edit and the evidence that would support it.",
+            "checks": [
+              "Each revision includes actionable replacement copy or a concrete visual change grounded in the prior audit.",
+              "Creative critique and measured results are separate, with any weak or unavailable performance evidence labeled.",
+              "The recommended first change preserves the selected offer, angle, and substantiated product claims unless the brief explicitly requests a change."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "weekly-review",
+        "title": "Review a weekly batch",
+        "description": "Use creative assets and their performance export to decide what to repeat, revise, or test next.",
+        "steps": [
+          {
+            "id": "reconcile-results",
+            "skill": "evolve-creative-analysis",
+            "title": "Match assets to their results",
+            "instruction": "Start from the available Evolve Weekly Creative Review method. Reconcile each reporting row to the actual creative ID and inspected asset. Capture the period, spend, exposure, volume, attribution context, KPI target, and comparator as supplied. Label unmatched or incomparable records. If you report blended rates, compute them from totals and show the numerator and denominator.",
+            "checks": [
+              "The batch table preserves creative IDs and comparison context, including gaps and unmatched rows.",
+              "Calculated blended metrics use summed numerators and denominators, with undefined values labeled.",
+              "Winner language is supported by the relevant decision criteria and measured inputs, or the outcome is uncertain."
+            ]
+          },
+          {
+            "id": "diagnose-patterns",
+            "skill": "evolve-creative-analysis",
+            "title": "Diagnose patterns in the batch",
+            "instruction": "Compare aligned results and actual assets. Identify patterns in angle, hook, demonstration, proof, or format using asset IDs and exact observations. Separate attention measures from purchase outcomes and identify reasonable alternative explanations. Apply Evolve outcome criteria only where the criteria and necessary inputs are accessible. Recommend the next test that would distinguish the strongest explanations.",
+            "checks": [
+              "Each learning links to specific creatives, results and the context that makes the comparison meaningful.",
+              "The analysis separates observations, possible causes and the evidence that would disconfirm them.",
+              "The next test targets a named uncertainty and preserves essential comparison conditions."
+            ]
+          },
+          {
+            "id": "rank-next-briefs",
+            "skill": "evolve-roadmap",
+            "title": "Rank the next briefs",
+            "instruction": "Convert the batch findings into a ranked queue of next briefs. For each, give the parent creative ID when available, objective, specific change, locked elements, required assets, primary KPI, and source result or unresolved dependency. Use the existing Evolve roadmap and experiment fields where available. Return a reusable plan with the next production decision clearly identified.",
+            "checks": [
+              "Every ranked brief traces to a batch observation or to a clearly labeled exploratory hypothesis.",
+              "The queue preserves creative IDs, required assets, the measurement plan and any dependency before production."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "iterate-winner",
+        "title": "Plan a variation",
+        "description": "Use one parent ad to create a controlled next test.",
+        "steps": [
+          {
+            "id": "lock-parent",
+            "skill": "evolve-creative-analysis",
+            "title": "Verify the parent ad",
+            "instruction": "Identify the parent creative ID, version where available, and exact original creative element to change. A supplied ID and faithful text or transcript can support a text-only proposal. Mark the image and any unchanged copy that you could not inspect as unverified; require the original file if the proposed change depends on inspecting it. Align any measurements to the stated parent, period, KPI, spend, conversion volume and comparator. State the locked buyer, angle, offer facts and what remains fixed. Label the project exploratory if available measurements are insufficient to establish a winner.",
+            "checks": [
+              "The parent and the exact element to change are tied to inspected or explicitly supplied evidence. For a text-only proposal, an exact supplied text and parent ID suffice; any uninspected files and unchanged elements are clearly marked.",
+              "The supported outcome or exploratory status is explicit and grounded in the available measurements.",
+              "The locked buyer, angle, offer and editable creative elements are recorded."
+            ]
+          },
+          {
+            "id": "draft-variation",
+            "skill": "evolve-iteration",
+            "title": "Draft one testable change",
+            "instruction": "Follow the available original Evolve iteration process and Iteration Brief for this parent. Choose one material change and write a variation with a specific hypothesis. Identify parent and child IDs, show the exact original and replacement, name the elements held fixed, and retain the evidence IDs for claims. A larger requested swing should be labeled a package comparison with each changed element listed.",
+            "checks": [
+              "The draft gives an exact before and after for the selected change and preserves the original as the control.",
+              "A single-variable comparison changes one material variable and records what was held fixed.",
+              "The variation carries forward approved claims and labels any unsupported claim or provisional result."
+            ]
+          },
+          {
+            "id": "plan-comparison",
+            "skill": "evolve-test-design",
+            "title": "Plan the comparison",
+            "instruction": "Write a reusable Evolve experiment card with the parent and child IDs, test unit, assignment conditions, primary KPI, guardrail, observation window, tracking and decision rule. Use supplied baseline and traffic to justify thresholds when available. Define an inconclusive result and leave missing numeric conditions open. Provide a result-log entry for the eventual reading.",
+            "checks": [
+              "The comparison defines the control, variant, isolated variable, KPI, and conditions for a decision or inconclusive result.",
+              "The audience, placement, destination and offer stay comparable or differences are recorded as confounds.",
+              "Numeric thresholds are grounded in the provided economics and traffic or marked as inputs still needed."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "store-cro",
+    "title": "Store Review & CRO",
+    "description": "Improve a store's copy, product images and path to purchase, or write a page that delivers on an ad's promise.",
+    "modes": [
+      {
+        "id": "store-audit",
+        "title": "Review store content and images",
+        "description": "Start from a store URL, screenshots, gallery images, copy, or analytics.",
+        "steps": [
+          {
+            "id": "audit-store",
+            "skill": "store-content-cro-review",
+            "title": "Inspect the page and gallery",
+            "instruction": "Start with the supplied storefront, target buyer, traffic source and conversion action. Inspect mobile first at roughly 390 pixels where feasible and compare desktop if provided or accessible. Record exactly which page sections, slides, viewport and purchase states could be inspected. Check first-screen promise, offer, proof, gallery roles and readability, variants, shipping and returns, CTA, and purchase friction. Use research evidence or label the gap. Offer a keep, move, improve or replace decision for each consequential inspected gallery image.",
+            "checks": [
+              "Each visual or mobile finding cites a screenshot, section, slide or accessible viewport, with the scope and gaps stated.",
+              "The audit covers the first screen, purchasing offer, images and next action to the extent those are observable.",
+              "Findings separate observed blockers from hypotheses about shopper reaction and cite any supplied metric context."
+            ]
+          },
+          {
+            "id": "recommend-cro",
+            "skill": "cro",
+            "title": "Prioritize fixes and choose one test",
+            "instruction": "Use the inspected findings to deliver up to three ranked changes with exact replacement copy, a revised gallery order or an image brief where relevant, and the buyer question each fix answers. Use only verified terms and approved product proof. Choose the first controlled test with its section, current version, proposed change, primary metric, guardrail and any interim evidence or traffic it needs. Return draft materials for owner review.",
+            "checks": [
+              "Every priority cites an audit observation and provides a concrete improvement or usable replacement.",
+              "New copy and gallery proposals use verified product facts, with precise placeholders for evidence gaps.",
+              "The first test isolates a named change and gives a primary metric and guardrail without promising uplift."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "product-page-copy",
+        "title": "Write or rewrite a product page",
+        "description": "Turn product evidence and buyer objections into a mobile-friendly sales page.",
+        "steps": [
+          {
+            "id": "map-page-message",
+            "skill": "store-content-cro-review",
+            "title": "Map the buyer's questions",
+            "instruction": "Use the current page, product research and any supplied ad or brief to map the buyer's first question, desired outcome, offer, main objections, evidence and CTA. Identify which existing sections serve those jobs and which need revision. Keep the approved angle and terms fixed unless the user supplied new ones. Flag an unavailable page and proceed from approved product facts if they support a fresh draft.",
+            "checks": [
+              "The message map traces the offer, claims, objections and proof to available sources.",
+              "Changes to existing copy are tied to inspected sections, and new sections have clear jobs.",
+              "Evidence gaps, conflicting terms and unverified claims are distinguished from approved inputs."
+            ]
+          },
+          {
+            "id": "draft-product-page",
+            "skill": "write-product-page-copy",
+            "title": "Draft the page copy",
+            "instruction": "Draft the requested product-page sections in a mobile-first order, using the prior evidence map. Include a clear hero promise and CTA, benefits and mechanism, proof where substantiated, and an FAQ that addresses the actual objections in scope. Call out which gallery image should support a claim where that matters. Keep pricing, variants, guarantees and shipping faithful to the source. Provide ready-to-paste text and keep verification notes separate.",
+            "checks": [
+              "The draft answers the buyer's main questions in a clear order with a readable first screen and CTA.",
+              "Claims and offer details are grounded in available evidence and placeholders are identified separately where needed.",
+              "Each requested section has usable copy and the draft preserves the selected angle and voice."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "advertorial",
+        "title": "Match an advertorial to an ad",
+        "description": "Carry the ad's hook, promise and proof through to a presell or landing page.",
+        "steps": [
+          {
+            "id": "map-ad-to-page",
+            "skill": "store-content-cro-review",
+            "title": "Map the ad-to-page handoff",
+            "instruction": "Identify the version of the ad, its intended reader, the promise and question the hook opens, the evidence available, and the actual offer. Inspect the existing destination if supplied and accessible. Show where the first mobile screen resolves the ad's premise or introduces a disconnect, then map emotional and factual continuity from click through the CTA. Label any provisional interpretation when a source is missing.",
+            "checks": [
+              "The handoff references the actual ad and any destination that was inspected.",
+              "Each gap specifies the affected buyer question, claim, evidence or offer term.",
+              "The map preserves the ad's locked reader, core message and substantiated promise."
+            ]
+          },
+          {
+            "id": "draft-advertorial",
+            "skill": "build-advertorials",
+            "title": "Draft the message-matched advertorial",
+            "instruction": "Turn the approved handoff into a mobile-scannable advertorial or revise the requested sections. Start by paying off the ad's opening question, then develop the mechanism, evidence, relevant objections, offer and CTA in order. Identify any needed imagery and disclosures. Cite product proof in verification notes and do not invent testimonials, studies, outcomes or offer terms.",
+            "checks": [
+              "The first screen fulfills the intended ad promise and the offer and CTA stay consistent through the page.",
+              "Copy is readable on mobile and evidence supports material statements, with explicit gaps for unavailable proof.",
+              "The draft separates ready-to-paste copy from asset, disclosure and verification notes."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "competitor-page",
+        "title": "Teardown a competitor page",
+        "description": "Learn from a reference page's structure, proof, copy roles and visual system.",
+        "steps": [
+          {
+            "id": "map-reference-page",
+            "skill": "store-content-cro-review",
+            "title": "Map the reference page",
+            "instruction": "Use the supplied public page or screenshots. Inventory each inspectable section in order and describe its job, proof, mobile role and visual hierarchy. Identify reusable structure and section roles, then extract the target store's own visual references into a brand kit for future drafts if supplied. Record measured type and colors separately from estimates. Flag unspecified or inaccessible views and avoid unsupported conversion claims.",
+            "checks": [
+              "The inventory covers each inspected section in order and says which screen or page areas were inaccessible.",
+              "Evidence distinguishes source claims, actual proof, and any hypotheses about section effectiveness.",
+              "The brand kit distinguishes verified measurements and own-brand choices from estimates or reference observations."
+            ]
+          },
+          {
+            "id": "apply-page-lessons",
+            "skill": "cro",
+            "title": "Turn reference lessons into a test",
+            "instruction": "Translate useful reference structure into an original, evidence-backed suggestion for the user's store. Specify one section, the shopper problem it addresses, the brand-appropriate H1 or creative direction, and a test with control, variant, metric and guardrail. Use the user's style, product and proof instead of borrowing reference photos, testimonial copy, or identity assets.",
+            "checks": [
+              "The recommendation ties to an inspected structural role and does not present a competitor's claims as product evidence.",
+              "The proposal uses original wording and appropriate brand direction, with unsupported items marked.",
+              "The test specifies one change, comparison conditions, a primary metric and a guardrail."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
