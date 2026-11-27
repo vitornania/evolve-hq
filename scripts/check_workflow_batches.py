@@ -164,6 +164,24 @@ def check_individual_skills(workspace):
     verified = workflow_batches.verify_references({"references": [valid]}, methods)
     assert verified["references"][0]["file"] == str(pack / "example.md")
     assert verified["references"][0]["startLine"] == verified["references"][0]["endLine"] == 1
+    original = pack / "references/Exact template (original).txt"
+    anchor = "Original form field in its authored order."
+    original.write_text(anchor + "\n\n[image]: <data:image/png;base64,aW1hZ2U=>", encoding="utf-8")
+    linked_method = pack / "linked.md"
+    linked_method.write_text(
+        "[Selected form](references/Exact%20template%20%28original%29.txt)\n"
+        "[External](https://example.com/file.md)\n[Escaped](../../../outside.md)\n",
+        encoding="utf-8",
+    )
+    (pack.parents[2] / "outside.md").write_text("Unrelated input.", encoding="utf-8")
+    selected, files = workflow_batches.selected_method(
+        linked_method, original_links=("Selected form", "External", "Escaped", "Not present"),
+    )
+    assert files[-1]["role"] == "Original method" and Path(files[-1]["file"]) == original
+    assert anchor in selected and "[embedded image in the local original]" in selected
+    assert "aW1hZ2U=" not in selected and "Unrelated input." not in selected
+    used = {"file": str(original), "anchor": anchor, "decision": "Kept the original field order."}
+    assert workflow_batches.verify_references({"references": [used]}, files)["references"][0]["file"] == str(original)
     for invalid in (valid | {"anchor": "Invented words"}, valid | {"file": str(workspace / "tasks/run.json")}):
         try:
             workflow_batches.verify_references({"references": [invalid]}, methods)
@@ -265,7 +283,7 @@ def check_handoff_matrix(workspace):
         receiver = directory.name
         if prompt.startswith("Index only the new customer records"):
             assert receiver == "market-research" and sender is not None
-            assert "Selected previous run summaries:\nNone" in prompt and "Approved copy:" not in prompt
+            assert "Selected previous run summaries:\nNone" in prompt and "Reviewed copy:" not in prompt
             assert "Summary from " not in prompt and "reused-image" not in prompt
             assert [file.name for file in files] == ["supplied-image-1.png"]
             first_passes.add(sender)

@@ -23,6 +23,8 @@ For a full draft, read the lead as the intended buyer. If they want the result b
 
 When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
+When first-person proof is unavailable, a brand can still write a substantive native ad. Start with a recognizable buyer situation drawn from the research. Show the decision that the usual workaround leaves unresolved. Give the reader a proof cue that fits the placement. A photo can show a single action, while a video can show how the result changes over time. Keep deployment conditional when the required proof asset is missing. Present imagined scenes as possibilities, keep them free of test results, and place the product claim where the evidence earns it. Use the length the placement and story warrant.
+
 ## Deliverable
 
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

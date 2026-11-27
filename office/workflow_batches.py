@@ -6,6 +6,7 @@ import logging
 import os
 import re
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 from activity import ROOT, update
 from providers import ProviderNoAnswer
@@ -14,12 +15,13 @@ MAX_WORKFLOWS = 6
 MAX_REVISIONS = 2
 INLINE_REPORT_CHARS = 12000
 HANDOFF_CHECK = (
-    "Compare the deliverable to the selected approved reports. Cite the specific inherited decision, "
+    "Compare the deliverable to the selected reviewed reports. Cite the specific inherited decision, "
     "figure, wording or source that matters to this stage. Preserve locked material and its evidence "
     "limits unless the current brief or stronger evidence justifies a change. Treat proposed copy "
     "and test hypotheses as proposals rather than observed customer language or measured results. "
     "Check whether fresh evidence meets an earlier condition for reconsideration. Treat the earlier rationale as an interpretation. "
-    "Preserve each item's approval status. A suggested line inside an approved report is still a suggestion."
+    "Preserve each item's approval status. An HQ review approves the analysis for handoff. Publication, "
+    "claim substantiation and current SKU, offer or destination match need their own evidence and authorization."
 )
 ORDER = ("market-research", "copywriting", "native-ads", "static-ads", "ad-review", "store-cro")
 
@@ -79,7 +81,8 @@ def verify_references(review, methods):
     if not isinstance(references, list):
         raise ReviewFormatError("Return the consulted local references as an array.")
     # A delivered guide can still be cited for a specific passage the reviewer used.
-    supplied = {Path(method["file"]).resolve() for method in methods if method.get("role") != "Decision reference"}
+    supplied = {Path(method["file"]).resolve() for method in methods
+                if method.get("role") not in {"Decision reference", "Original method"}}
     roots = [Path(method["file"]).parent for method in methods]
     allowed = [root.parent.resolve() for root in roots] + [(ROOT / "team").resolve(), (ROOT / "docs").resolve()]
     verified = []
@@ -214,7 +217,7 @@ def stage_context(fields, carried, prior):
         f"{step['title']} ({step['artifact']})\n{reviewed_decision(step)}" for step in prior
     )
     artifacts = "\n\n".join(
-        f"{step['workflow']} / {step['title']}\nApproved copy: {step['snapshot']}\n"
+        f"{step['workflow']} / {step['title']}\nReviewed copy: {step['snapshot']}\n"
         f"Original location for resolving source citations: {step['artifact']}\n"
         + (step["report"] or "Read the complete approved copy before relying on this report.")
         for step in carried
@@ -223,7 +226,7 @@ def stage_context(fields, carried, prior):
         f"Product: {product}\nPublic page: {url or 'None supplied'}\n"
         f"User brief and supplied evidence:\n{brief or 'Use the supplied link or images.'}\n\n"
         f"Selected previous run summaries:\n{imported or 'None'}\n"
-        f"Approved source reports. Use these to verify exact wording, facts and limits:\n{artifacts or 'None'}\n\n"
+        f"Reviewed source reports. Check exact wording and the scope of each fact against current inputs:\n{artifacts or 'None'}\n\n"
         f"Reviewed preceding stages in this workflow:\n{approved or 'None'}"
     )
 
@@ -245,7 +248,24 @@ def decision_references(portable, workflow):
     return [(guide, "Decision reference") for guide in guides if guide.is_file()]
 
 
-def selected_method(source, *, workflow=False):
+def linked_originals(source, labels):
+    if not labels:
+        return []
+    links = dict(re.findall(r"\[([^\]\n]+)\]\(([^)\s]+)\)", source.read_text(encoding="utf-8")))
+    originals = []
+    for label in labels:
+        url = urlsplit(links.get(label, ""))
+        relative = Path(unquote(url.path))
+        if url.scheme or url.netloc or relative.is_absolute():
+            continue
+        path = (source.parent / relative).resolve()
+        if (path.is_relative_to(source.parent.parent.resolve())
+                and path.suffix.lower() in {".md", ".txt"} and path.is_file()):
+            originals.append(path)
+    return originals
+
+
+def selected_method(source, *, workflow=False, original_links=()):
     """Keep the installed method and portable decision guidance available to both calls."""
     name = source.parent.name
     candidates = [ROOT / ".office/portable-skills" / name / "SKILL.md", ROOT / "skills" / name / "SKILL.md"]
@@ -257,14 +277,18 @@ def selected_method(source, *, workflow=False):
         else:
             paths.append((portable, "Portable skill"))
         paths.extend(decision_references(portable, workflow))
+    paths.extend((path, "Original method") for path in linked_originals(source, original_links))
 
     sections, receipt = [], []
     for path, role in paths:
         contents = path.read_bytes()
         body = contents.decode("utf-8")
+        if role == "Original method":
+            body = re.sub(r"data:image/[\w.+-]+;base64,[A-Za-z0-9+/=]+",
+                          "[embedded image in the local original]", body)
         sections.append(f"{role}. Resolve its references from {path.parent}:\n{body}")
         receipt.append({"role": role, "file": str(path), "sha256": hashlib.sha256(contents).hexdigest()})
-        if role == "Decision reference":
+        if role in {"Decision reference", "Original method"}:
             continue
         index = path.parent / "references" / "local-sources.md"
         if index.is_file():
@@ -356,7 +380,8 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
                                 + source_index)
                     set_phase(step, "Drafting")
                 source = sources[step["id"]]
-                method, receipt = selected_method(source, workflow=bool(workflow))
+                method, receipt = selected_method(source, workflow=bool(workflow),
+                                                  original_links=step.get("original_links", []))
                 context += "\n\nSelected skill method:\n" + method
                 route = (f"Workflow: {workflow['title']}\nMode: {workflow['modeTitle']}" if workflow else
                          f"Run exactly this selected Evolve skill: {source.parent.name}.")

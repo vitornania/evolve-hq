@@ -21,6 +21,8 @@ Ad files, results, and the decision you need to make.
 
 Put spend, purchases and revenue beside the creative ID, comparison dates and attribution window. Where available, compare rates at the same funnel step, from impression to outbound click, click to landing visit, and visit to purchase. Use the matching denominator at each step.
 
+Check for overlapping windows before comparing exports. A later cumulative report can show that the reported average changed as more spend came in. To locate the change in time, get daily data or matched non-overlapping cohorts with the same attribution settings and reporting grain. Keep two similarly named rows separate until an ID or an authenticated archive connects them. A dominant spend share within the export alone cannot establish account growth, audience expansion or a reason for changing performance.
+
 For video metrics with compatible play definitions, report three-second plays per impression, ThruPlays per impression, and ThruPlays per three-second play. The last rate conditions on viewers who reached the hook threshold. Label the lengths and completion rule before comparing cuts, and treat a zero denominator as undefined. Use the largest divergence to locate a question about the opening or bridge; check purchase evidence separately.
 
 Explain which observation supports the diagnosis and which other change could explain it, such as a placement shift, offer change or slow page. Recommend the smallest follow-up comparison that separates the two explanations.

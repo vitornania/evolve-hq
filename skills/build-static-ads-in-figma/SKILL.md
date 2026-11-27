@@ -42,6 +42,8 @@ In the Evolve Hook Library, use the hook that appears inside the image or video 
 
 When adapting an image, distinguish what the picture independently demonstrates from what needs a measurement, label or source. Write the exact shopper-visible measurement and qualifier as they should appear on the artwork. Put source IDs and production instructions in the adjacent brief notes. Read every quoted overlay aloud as finished ad copy before selecting the line. Check what survives the target crop. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
+Read the packshot, on-image text and depicted result together before a launch recommendation. File approval tells you which art you can use. A visible “perfect fit” claim still needs matching product evidence, including when it appears on the package. If the user locks an unsupported claim in the required art, preserve the file and mark the layout as an internal draft. Release needs evidence for the exact claim or an approved replacement asset. Keep that decision in the handoff through final export review.
+
 ## Deliverable
 
 Return the brief and selection coverage for planning. For a build, use the [local PNG and editable SVG renderer](../adapt-reference-ad/references/local-rendering.md) or the requested connected editor. Use a fresh design, preserve the reference, and check full-size and mobile renders.
