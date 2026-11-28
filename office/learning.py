@@ -1,5 +1,5 @@
 """Local, source-linked corrections and measured creative history for HQ runs."""
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
@@ -41,10 +41,11 @@ CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
 def database(root):
     office = root / ".office"
     office.mkdir(exist_ok=True)
-    with sqlite3.connect(office / "learning.sqlite3", timeout=5) as db:
+    with closing(sqlite3.connect(office / "learning.sqlite3", timeout=5)) as db:
         db.row_factory = sqlite3.Row
         db.executescript(SCHEMA)
-        yield db
+        with db:
+            yield db
 
 
 def words(text):
