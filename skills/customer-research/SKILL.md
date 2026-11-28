@@ -27,6 +27,8 @@ For a purchase-journey interview, give the buyer room to tell the story from the
 
 When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 A research plan or themes backed by feedback.

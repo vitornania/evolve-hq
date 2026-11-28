@@ -31,6 +31,8 @@ For a supplied story ad and an image-only request, preserve the copy. Choose dis
 
 Two crops of the same incident are framing variants unless they show different actions or answer different buyer questions. Label them accordingly. For a generator-ready option in HQ, put the prompt text alone inside a Markdown fence labeled `image-prompt` so it can be copied with one click. Keep camera notes, claim checks and copy anchors outside the fence. When the concept depends on an actual photograph or result, give a shoot or edit brief and state the evidence needed.
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

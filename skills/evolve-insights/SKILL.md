@@ -31,6 +31,8 @@ When two explanations predict the same words or clicks, preserve both until a so
 
 When asked why people hesitate, rank the strongest supported belief beside an alternative such as friction, timing or price. For each candidate, connect the actual event, attempted solution, stated or inferred belief, and buying action. Explain what observation or proof could change the recommendation. If the evidence is thin, give one specific question about a recent choice and a useful provisional next step. Reserve market-wide estimates and demographic splits for sources with a suitable population and denominator.
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 Buyer profiles, beliefs, and ad opportunities.

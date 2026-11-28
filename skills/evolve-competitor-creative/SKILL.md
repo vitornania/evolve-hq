@@ -29,6 +29,8 @@ Use the Company Research Document when it is available. Use the Winning Ads exam
 
 Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
 ## Deliverable
 
 An annotated competitor creative review.

@@ -29,6 +29,8 @@ If an authorized course pack is available, consult Three Testing Methods and the
 
 When planning a behavior test, define eligibility, comparison and downstream cost. Add a measure that would reveal buyers selecting the wrong item. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 A test setup with success and guardrail metrics.

@@ -25,6 +25,8 @@ State the buyer problem in their own words if supplied, then list what is known,
 
 If an authorized course pack is available, consult Onboarding and Product Overview templates for this decision.
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
 ## Deliverable
 
 A product brief and research questions.

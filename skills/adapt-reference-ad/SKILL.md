@@ -19,3 +19,5 @@ For a brief, return the review counts, selection rationale, and source-to-target
 2. If the source depends on proof the product lacks, choose another reference for a library-selection request. For a specified reference, show the exact blocked slot and the closest supported treatment, including how it changes the test. If only one of two promised benefits is supported, mark the exact adaptation blocked. A one-benefit execution may be proposed separately as a different test. Keep approved names, figures and qualifiers legible at the actual placement crop. Record any change to the control besides the intended test variable.
 
 When adapting an image, distinguish what the picture independently demonstrates from what needs a measurement, label or source. Check what survives the target crop before selecting the line. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
+
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).

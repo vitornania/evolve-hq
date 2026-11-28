@@ -29,6 +29,8 @@ Include the buyer’s actual substitute or current workaround. Verify the criter
 
 Where links or supplied captures permit it, walk the same ad through the landing page, product page and visible offer. Record the date, market, public promise, proof, price and next action at each inspected step. Keep unavailable cart or checkout states open. Record the exact break in the journey rather than guessing what the rest of the funnel does, which audience sees it or what it earns.
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
 ## Deliverable
 
 Dated profiles with like-for-like comparisons.

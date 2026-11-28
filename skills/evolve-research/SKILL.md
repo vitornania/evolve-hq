@@ -27,6 +27,8 @@ If an authorized course pack is available, consult Full Product Research and its
 
 When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
 ## Deliverable
 
 A research dossier or focused findings.

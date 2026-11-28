@@ -23,6 +23,8 @@ If the brief requests the course's modular B-roll test, build three openings fro
 
 When a story is carrying the sale, check who can tell it firsthand, which event changes the buyer’s belief and where the product evidence earns that change. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 Return a recordable script and a shootable edit plan for the requested scope. Identify missing footage and proof outside the words spoken to the viewer.

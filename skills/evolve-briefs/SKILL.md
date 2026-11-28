@@ -31,6 +31,8 @@ If an authorized course pack is available, consult Ideation, Imitation and Itera
 
 When comparing leads, identify the expectation each creates and the evidence the body must supply. Test a wording change against the same buying reason. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 A brief in the appropriate Evolve format.

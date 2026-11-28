@@ -31,6 +31,10 @@ If an authorized course pack is available, consult Positioning exercise, Product
 
 Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
+For a full positioning request, trace the buyer’s real alternative through verified difference, value, best-fit situation and category before writing the ad and its matching proof cue. [Positioning decision](../evolve-skill/references/book-offer-decisions.md#position-the-offer-in-a-category-the-buyer-understands)
+
 ## Deliverable
 
 A positioning statement, message hierarchy and a compact ad-opening/landing-page proof pair when the user requests general positioning.

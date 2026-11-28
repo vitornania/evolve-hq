@@ -97,7 +97,10 @@ def provider(_provider, directory, prompt, *, files):
 
 def check_standalone_modes(workspace):
     router = workspace / "skills/evolve-skill/SKILL.md"
-    assert [p.name for p, _ in workflow_batches.decision_references(router, False)] == ["choosing-a-method.md"]
+    assert [p.name for p, _ in workflow_batches.decision_references(router, False)] == [
+        "choosing-a-method.md", "direct-response-decisions.md", "book-copy-decisions.md",
+        "book-customer-decisions.md", "book-offer-decisions.md",
+    ]
     total = 0
     for workflow in catalog:
         for mode in workflow["modes"]:
@@ -109,6 +112,9 @@ def check_standalone_modes(workspace):
                 index = len(calls) // 2
                 stage = steps[index]
                 assert "Choosing a method for an Evolve decision" in prompt
+                skill = workspace / "skills" / stage["skill"] / "SKILL.md"
+                if "market-and-creative-test-decisions.md" in skill.read_text(encoding="utf-8"):
+                    assert "# Market and creative test decisions" in prompt
                 reviewing = prompt.startswith("Independently review")
                 assert reviewing == bool(len(calls) % 2)
                 assert f"Stage: {stage['title']}\n" in prompt
@@ -212,10 +218,17 @@ def check_individual_skills(workspace):
              "decision": "Checked which source supports the claim."}
     assert workflow_batches.verify_references({"references": [cited]}, supplied)["references"][0]["startLine"] > 0
 
+    extra_titles = {
+        guide[skill]["title"] for skill in guide
+        if "market-and-creative-test-decisions.md" in (
+            workspace / "skills" / skill / "SKILL.md").read_text(encoding="utf-8")
+    }
+
     def respond(_provider, directory, prompt, *, files):
         title = next(line[7:] for line in prompt.splitlines() if line.startswith("Stage: "))
         reviewing = prompt.startswith("Independently review")
         calls[title, reviewing] += 1
+        assert ("# Market and creative test decisions" in prompt) == (title in extra_titles)
         if title == guide["vibe-coding-toolkit"]["title"]:
             assert "Choosing a method for an Evolve decision" not in prompt
         if title == guide["evolve-angles"]["title"]:

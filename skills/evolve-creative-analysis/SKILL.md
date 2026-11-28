@@ -37,6 +37,8 @@ For a creative postmortem, pair the original brief with the actual opening and b
 
 If interest and retained purchases tell different stories, compare like-for-like cohorts and mature outcomes, then identify a check that distinguishes a misleading expectation from a delivery problem. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 Findings and the next creative tests.

@@ -25,6 +25,8 @@ Ad image, script, or exported frames and audience.
 
 If interest and retained purchases tell different stories, compare like-for-like cohorts and mature outcomes, then identify a check that distinguishes a misleading expectation from a delivery problem. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 A prioritized critique and revised creative suggestions.

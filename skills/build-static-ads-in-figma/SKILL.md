@@ -46,6 +46,8 @@ For a shortlist of distinct buying reasons, write the question each headline ans
 
 Read the packshot, on-image text and depicted result together before a launch recommendation. File approval tells you which art you can use. A visible “perfect fit” claim still needs matching product evidence, including when it appears on the package. If the user locks an unsupported claim in the required art, preserve the file and mark the layout as an internal draft. Release needs evidence for the exact claim or an approved replacement asset. Keep that decision in the handoff through final export review.
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 Return the brief and selection coverage for planning. For a build, use the [local PNG and editable SVG renderer](../adapt-reference-ad/references/local-rendering.md) or the requested connected editor. Use a fresh design, preserve the reference, and check full-size and mobile renders.

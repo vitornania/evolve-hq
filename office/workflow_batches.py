@@ -235,7 +235,7 @@ def decision_references(portable, workflow):
     # The selected bundled skill names its subject guides. Briefs and imported
     # documents cannot nominate arbitrary files for automatic inclusion.
     links = re.findall(
-        r"\]\((?:\.\./evolve-skill/)?references/(book-(?:copy|customer|offer)-decisions\.md)\)",
+        r"\]\((?:\.\./evolve-skill/)?references/((?:book-(?:copy|customer|offer)-decisions|direct-response-decisions|market-and-creative-test-decisions)\.md)(?:#[^\s)]+)?\)",
         portable.read_text(encoding="utf-8"),
     )
     subjects = list(dict.fromkeys(links))
@@ -243,8 +243,7 @@ def decision_references(portable, workflow):
         return []
     directory = portable.parent.parent / "evolve-skill" / "references"
     guides = [directory / "choosing-a-method.md"]
-    if len(subjects) == 1:
-        guides.append(directory / subjects[0])
+    guides.extend(directory / subject for subject in subjects)
     return [(guide, "Decision reference") for guide in guides if guide.is_file()]
 
 

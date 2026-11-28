@@ -21,6 +21,8 @@ Choose the amount of explanation from what the arriving shopper understands. A r
 
 When shoppers stall at a selector, distinguish missing decision information from excessive choice. Give shoppers the comparison they need and keep material terms visible. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Keep the category label and first proof cue consistent with the buyer’s reason to choose the product. [Positioning decision](../evolve-skill/references/book-offer-decisions.md#position-the-offer-in-a-category-the-buyer-understands)
+
 ## Deliverable
 
 Return mobile-first, paste-ready copy for the requested sections. When accessible, use the installed Evolve CRO angle, content and testing modules to choose page work appropriate to the request.

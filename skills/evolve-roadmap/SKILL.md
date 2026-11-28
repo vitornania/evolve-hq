@@ -27,6 +27,8 @@ If an authorized course pack is available, consult Growth Guide and original ad 
 
 Choose a follow-up that can distinguish a change in buyer mix or unit economics from a change in creative effectiveness. Carry the original denominator and cohort window into the test. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 A list of batches, assets, and next tests.

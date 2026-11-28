@@ -21,6 +21,8 @@ When several motives fit a quote, reconstruct the last real choice and its alter
 
 For buying hesitation, record what happened, what the buyer tried or did next, what they actually said they believed, and how they described feeling. Leave unsupported cells open. Keep independent speakers, repeated accounts and contradictions visible. A quote from someone who did buy can describe their earlier hesitation. It cannot establish why another shopper left.
 
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
 ## Deliverable
 
 Return a source-linked quote bank, implications and open questions. On an exact workbook or local Evolve synthesis pass, consult the installed evidence and analysis contract and manual VOC synthesis prompt; keep raw and interpreted fields separate.

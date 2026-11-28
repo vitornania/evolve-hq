@@ -27,6 +27,10 @@ When several motives fit a quote, reconstruct the last real choice and its alter
 
 When mapping buying hesitation, link what happened, what the buyer tried, what they said they believed and what they did next. Rank a barrier by its relevance to a real buying choice, independent support and what this product can credibly address. Consider practical blockers such as price, timing and checkout. For a beginner, lead with who to talk to first, what they already know and what the first ad could show. Give an awareness split, demographic share or market size only when a suitable source and population support it.
 
+Apply the relevant checks in [Market opportunity and competitive evidence](../evolve-skill/references/market-and-creative-test-decisions.md#decide-whether-the-opportunity-is-worth-testing).
+
+When the user needs to choose a position, compare the buyer’s real alternatives and the situations that make a verified difference matter. [Positioning decision](../evolve-skill/references/book-offer-decisions.md#position-the-offer-in-a-category-the-buyer-understands)
+
 ## Deliverable
 
 Hand off the decision, strongest alternative, relevant source IDs, approved claims and restrictions. State missing product evidence where it affects the decision. When an exact original method was requested, identify any unavailable pass in its method receipt. Keep installation details out of the ordinary marketing handoff.

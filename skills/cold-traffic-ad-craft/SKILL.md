@@ -32,3 +32,5 @@ When a brief includes several possible objections, tie the leading hesitation to
 A cold-audience copy direction or revision.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+When the brief leaves the format open, use [buyer and product evidence to choose the format](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).

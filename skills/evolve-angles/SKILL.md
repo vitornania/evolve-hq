@@ -31,6 +31,8 @@ Use the original How to Come Up With Ad Angles prompt where available. Consult t
 
 When two explanations predict the same words or clicks, preserve both until a source distinguishes them. Name the finding that would reverse the angle. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
 ## Deliverable
 
 Angles with audiences, reasoning, and test ideas.

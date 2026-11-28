@@ -29,3 +29,5 @@ When shoppers stall at a selector, distinguish missing decision information from
 - Provide a reordered mobile gallery and specific shot briefs for missing assets. For each new shot, specify the buyer question, subject, framing, what must be visible, suggested overlay or alt text, and approval needs for any proof.
 - Recommend one first change or test with the control, proposed variant, primary metric, and guardrail. Choose a meaningful action such as add-to-cart or purchase and note whether the supplied traffic supports an experiment. Identify measurement or evidence gaps.
 - End with an implementation checklist and the items awaiting the owner. Edits to a connected store, new imagery, conversations with customers, and publishing require a separate request.
+
+Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
