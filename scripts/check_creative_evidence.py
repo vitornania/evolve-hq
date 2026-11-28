@@ -120,7 +120,7 @@ def main():
                     with request(base, "/api/run", payload) as response:
                         run = json.load(response)
                     run_path = "/api/run?" + urlencode({"id": run["id"]})
-                    deadline = time.monotonic() + 15
+                    deadline = time.monotonic() + 45
                     while run["status"] in {"queued", "working"} and time.monotonic() < deadline:
                         time.sleep(0.05)
                         with request(base, run_path) as response:

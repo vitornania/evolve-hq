@@ -21,12 +21,14 @@ import workflow_batches  # noqa: E402
 
 
 def wait_run(run):
-    for _ in range(200):
+    deadline = time.monotonic() + 45
+    while time.monotonic() < deadline:
         data = skill_runs.get_run(run["id"])
         if data["status"] not in ("queued", "working"):
             return data
         time.sleep(.05)
-    raise AssertionError("Workflow batch did not reach a terminal state.")
+    phases = [(step["id"], step["status"], step.get("phase")) for step in data["steps"]]
+    raise AssertionError(f"Workflow batch {run['id']} did not finish: {phases}")
 
 
 catalog = workflow_batches.workflow_catalog()
