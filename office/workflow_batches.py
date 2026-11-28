@@ -472,4 +472,3 @@ What the reviewer will verify:
             data["status"] = "failed"
         else:
             data["status"] = "blocked"
-        save_run(directory, data)

@@ -296,9 +296,10 @@ def run_steps(provider, data, directory, files, sources, fields):
                 step["status"] = "failed" if step["status"] == "working" else "skipped"
                 update(record, step["title"], data["product"], step["role"], "failed",
                        "The selected run stopped. Open the run for details.")
-        save_run(directory, data)
     finally:
         RUN_LOCK.release()
+        # Publish the terminal status after the next run can be accepted.
+        save_run(directory, data)
 
 
 def start_run(payload):
