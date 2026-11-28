@@ -3,7 +3,25 @@ import {initAdvisor} from "./advisor.js";
 const $=selector=>document.querySelector(selector);
 const labels={queued:"Queued",working:"Working",review:"Ready",blocked:"Needs attention",failed:"Stopped",skipped:"Skipped",interrupted:"Interrupted"};
 let guide={}, deskBySkill={}, selected=[], visibleLimit=12, runId, sending=false, lastRun="";
-let activeTab="workflow", sourceRun="";
+let activeTab="workflow", sourceRun="", workspace, workspaceMode, skillPage="";
+let workflowCatalog=[];
+const pageQuery=new URLSearchParams(location.search);
+const directions={
+  "market-research":["What do you sell, and what would you like to find out?","Example: I sell adjustable dog harnesses. I want to find out why people hesitate to order."],
+  "copywriting":["Who are you writing for, and what should they do next?","Example: Write the opening for first-time visitors. I want them to check which size fits."],
+  "native-ads":["What should the ad make someone understand or do?","Example: Write a short Facebook story for people who are unsure how to measure their dog."],
+  "static-ads":["What should someone understand from the picture?","Example: Show where to measure a dog. I can supply a product photo."],
+  "ad-review":["What did you expect this ad to do, and what happened?","Example: The ad gets clicks but few sales. Help me find where shoppers lose interest."],
+  "store-cro":["Which page should we look at, and where might shoppers get stuck?","Example: On phones, people ask what comes in the bundle. Review the first screen."],
+};
+const supplementarySkills={
+  "market-research":["evolve-positioning","evolve-competitor-creative"],
+  "copywriting":["humanizer","offers"],
+  "native-ads":["cold-traffic-ad-craft","write-video-ad-scripts"],
+  "static-ads":["build-static-ads-in-figma","adapt-reference-ad","metaphor-ads"],
+  "ad-review":["evolve-test-design","evolve-roadmap"],
+  "store-cro":["ab-testing","analytics"],
+};
 const workflows=new Map();
 let pending;
 const stateMessages={
@@ -41,6 +59,7 @@ function showTab(tab) {
   const skills=tab==="skill";
   $("#skill-panel").hidden=!skills;
   $("#workflow-panel").hidden=skills;
+  $("#static-libraries").hidden=skills;
   $("#workflow-tab").setAttribute("aria-pressed",String(!skills));
   $("#skill-tab").setAttribute("aria-pressed",String(skills));
   renderSelection();
@@ -56,12 +75,16 @@ function renderSelection() {
     add.setAttribute("aria-pressed",String(state));
   }
   if (runId) return;
+  const home=activeTab==="workflow"&&!workspace&&!$("#batch-picker").open&&!workflows.size&&!sourceRun;
+  $("#workbench").classList.toggle("directory-open",home);
+  $(".composer").hidden=home;
   const isWorkflow=activeTab==="workflow";
   const count=isWorkflow ? workflows.size : selected.length;
   const materials=isWorkflow
     ? [...workflows.values()].map(({mode})=>[mode.title,mode.inputs])
     : selected.map(id=>[guide[id].title,guide[id].inputs]);
   const guidance=$("#input-guidance");
+  const stepCount=workspace ? workflows.get(workspace.id)?.stages.length||0 : 0;
   if (materials.length>1) {
     const list=element("ul");
     for (const [title,inputs] of materials) {
@@ -83,7 +106,7 @@ function renderSelection() {
     const current=workflows.get(action.dataset.workflowAdd);
     action.textContent=current?.mode.id===action.dataset.mode ? "Update selection" : "Add to run";
   }
-  if (isWorkflow) for (const [id, {workflow,mode,stages}] of workflows) {
+  if (isWorkflow&&!workspace) for (const [id, {workflow,mode,stages}] of workflows) {
     const li=element("li");
     const row=element("div","","selected-line");
     row.append(element("strong",workflow.title),button("×","Remove "+workflow.title,()=>{
@@ -93,7 +116,7 @@ function renderSelection() {
     li.append(row,element("p",mode.title+" · "+stages.length+" "+(stages.length===1?"stage":"stages"),"muted selected-mode"));
     list.append(li);
   }
-  else
+  else if (!isWorkflow)
   selected.forEach((id,index)=>{
     const info=guide[id];
     const li=element("li");
@@ -110,10 +133,146 @@ function renderSelection() {
     li.append(row);
     list.append(li);
   });
-  $("#selected-count").textContent=`${count} selected`;
-  $("#start").disabled=!count || sending;
+  if (workspace&&!stepCount) guidance.textContent="Select at least one step in the plan to start.";
+  $("#selected-count").textContent=workspace
+    ? `${stepCount} ${stepCount===1?"step":"steps"} selected` : `${count} selected`;
+  if (workspace) $("#selection-empty").hidden=true;
+  $("#start").disabled=!count||sending||Boolean(workspace&&!stepCount);
   $("#jump-to-run").hidden=!count;
+  $("#jump-to-run").textContent=workspace?"Go to run setup":"Review your selections";
   $("#source-run").hidden=!sourceRun || !isWorkflow;
+}
+
+function workspaceURL(workflow,mode) {
+  const query=new URLSearchParams({workflow});
+  if (mode) query.set("mode",mode);
+  return "/workflows?"+query;
+}
+
+function newTabLink(text,href,style="") {
+  const link=element("a",text,style);
+  link.href=href;
+  link.target="_blank";
+  link.rel="noopener";
+  return link;
+}
+
+function renderDirectory(catalog) {
+  const list=$("#workflow-directory");
+  for (const workflow of catalog) {
+    const link=newTabLink("",workspaceURL(workflow.id),"directory-card");
+    link.setAttribute("aria-label",workflow.title+" (opens in a new tab)");
+    const heading=element("div","","directory-card-head");
+    const arrow=element("span","↗");
+    arrow.setAttribute("aria-hidden","true");
+    heading.append(element("h2",workflow.title),arrow);
+    link.append(heading,element("p",workflow.description));
+    list.append(link);
+  }
+}
+
+function restoreWorkspace() {
+  $("#pick-intro").hidden=Boolean(workspace);
+  $("#guided-intro").hidden=!workspace;
+  $("#guided-setup").hidden=!workspace;
+  $("#workflow-panel").hidden=Boolean(workspace)||activeTab==="skill";
+  $("#library-switch").hidden=Boolean(workspace);
+  $("#static-libraries").hidden=workspace ? workspace.id!=="static-ads" : activeTab==="skill";
+  $("#input-heading").textContent=workspace?"What should the team know?":"What should we use?";
+  const [question,example]=directions[workspace?.id]||[
+    "What would you like to improve?",
+    "Example: Review the first screen on mobile and tell me which photos to replace."
+  ];
+  $("#brief-caption").textContent=question;
+  $("#brief").placeholder=example;
+  document.title=workspace?`${workspace.title} · Evolve HQ`:"Workflows & skills · Evolve HQ";
+}
+
+function openWorkspace(workflow,requestedMode) {
+  workspace=workflow;
+  $("#guided-title").textContent=workflow.title;
+  $("#guided-description").textContent=workflow.description;
+  const nav=$("#workflow-navigation");
+  const back=element("a","All workflows","workflow-back");
+  back.href="/workflows";
+  nav.replaceChildren(back);
+  const tabs=element("div","","workflow-tabs");
+  for (const entry of workflowCatalog) {
+    const link=element("a",entry.title);
+    link.href=workspaceURL(entry.id);
+    if (entry.id===workflow.id) link.setAttribute("aria-current","page");
+    tabs.append(link);
+  }
+  nav.append(tabs);
+
+  const setup=$("#guided-setup");
+  const goals=element("fieldset","","guided-goals");
+  const plan=element("section","","guided-plan");
+  goals.append(element("legend","What do you want to do?"));
+  setup.replaceChildren(goals,plan);
+  const modes=element("div","","guided-modes");
+  goals.append(modes);
+  for (const mode of workflow.modes) {
+    const label=element("label","","guided-mode");
+    const input=element("input");
+    input.type="radio";
+    input.name="guided-mode";
+    input.value=mode.id;
+    label.append(input,element("span",mode.title,"mode-name"));
+    modes.append(label);
+  }
+
+  function chooseMode(modeId) {
+    const mode=workflow.modes.find(entry=>entry.id===modeId)||workflow.modes[0];
+    workspaceMode=mode.id;
+    modes.querySelectorAll("input").forEach(input=>{input.checked=input.value===mode.id;});
+    workflows.set(workflow.id,{workflow,mode,stages:mode.steps.map(step=>step.id)});
+    const overview=element("p",mode.description,"plan-description");
+    const steps=element("fieldset","","guided-steps workflow-stages");
+    steps.append(element("legend","What the team will do"));
+    for (const step of mode.steps) {
+      const row=element("div","","guided-step");
+      const label=element("label");
+      const input=element("input");
+      input.type="checkbox";
+      input.value=step.id;
+      input.checked=true;
+      const skill=guide[step.skill];
+      label.append(input,element("span",step.title,"step-name"));
+      row.append(label);
+      if (skill) {
+        const link=newTabLink(skill.title,"/workflows?skill="+encodeURIComponent(step.skill),"step-skill");
+        link.setAttribute("aria-label","Run on its own: "+skill.title+" (opens in a new tab)");
+        row.append(link);
+      }
+      steps.append(row);
+    }
+    steps.addEventListener("change",()=>{
+      workflows.get(workflow.id).stages=[...steps.querySelectorAll("input:checked")].map(input=>input.value);
+      renderSelection();
+    });
+    const otherSkills=element("details","","related-skills");
+    otherSkills.append(element("summary","Skills available for this workflow"));
+    const skills=element("ul");
+    const usedSkills=new Set(mode.steps.map(step=>step.skill));
+    const allSkills=new Set(workflow.modes.flatMap(entry=>entry.steps.map(step=>step.skill)));
+    for (const id of supplementarySkills[workflow.id]||[]) allSkills.add(id);
+    for (const id of allSkills) {
+      const skill=guide[id];
+      if (!skill) continue;
+      const row=element("li");
+      row.append(newTabLink(skill.title,"/workflows?skill="+encodeURIComponent(id)),element("p",skill.description));
+      if (usedSkills.has(id)) row.classList.add("used-skill");
+      skills.append(row);
+    }
+    otherSkills.append(skills);
+    plan.replaceChildren(overview,steps,otherSkills);
+    if (!new URLSearchParams(location.search).has("run")&&!runId) history.replaceState(null,"",workspaceURL(workflow.id,mode.id));
+    renderSelection();
+  }
+  modes.addEventListener("change",event=>chooseMode(event.target.value));
+  restoreWorkspace();
+  chooseMode(requestedMode);
 }
 
 function renderWorkflows(catalog) {
@@ -352,11 +511,11 @@ function imagePreview(run,step) {
 function clearRun() {
   clearTimeout(pending);
   runId=undefined;lastRun="";
-  history.replaceState(null,"","/workflows");
+  history.replaceState(null,"",workspace ? workspaceURL(workspace.id,workspaceMode) : skillPage ? "/workflows?skill="+encodeURIComponent(skillPage) : "/workflows");
   $("#run-progress").hidden=true;
   $("#reports").hidden=true;
   $("#workbench").classList.remove("run-open");
-  $("#pick-intro").hidden=false;
+  restoreWorkspace();
   $("#result-intro").hidden=true;
   $("#run-form").hidden=false;
   renderSelection();
@@ -394,6 +553,9 @@ function reuseResults(data, approved) {
   updateImageNames();
   error();
   workflows.clear();
+  workspace=undefined;
+  skillPage="";
+  $("#batch-picker").open=true;
   clearRun();
   showTab("workflow");
   source.querySelector("input").focus();
@@ -401,7 +563,10 @@ function reuseResults(data, approved) {
 function renderRun(data) {
   runId=data.id;
   $("#workbench").classList.add("run-open");
+  $(".composer").hidden=false;
+  $("#workbench").classList.remove("directory-open");
   $("#pick-intro").hidden=true;
+  $("#guided-intro").hidden=true;
   $("#result-intro").hidden=false;
   $("#run-form").hidden=true;
   $("#selection-empty").hidden=true;
@@ -519,7 +684,8 @@ function follow(id) {
 async function submit(event) {
   event.preventDefault();
   const isWorkflow=activeTab==="workflow";
-  if (sending||runId||!(isWorkflow?workflows.size:selected.length)) return;
+  if (sending||runId||!(isWorkflow?workflows.size:selected.length)||
+      (workspace&&!workflows.get(workspace.id)?.stages.length)) return;
   error();
   let url=$("#page-url").value.trim();
   if (url&&!url.includes("://")&&!url.includes(" ")) url="https://"+url;
@@ -548,7 +714,12 @@ async function submit(event) {
     });
     const data=await response.json();
     if (!response.ok) throw new Error(data.error || "The run couldn’t start.");
-    history.replaceState(null,"",data.view);
+    const resultURL=new URL(data.view,location.origin);
+    if (workspace) {
+      resultURL.searchParams.set("workflow",workspace.id);
+      resultURL.searchParams.set("mode",workspaceMode);
+    } else if (skillPage) resultURL.searchParams.set("skill",skillPage);
+    history.replaceState(null,"",resultURL);
     renderRun(data);follow(data.id);
   } catch (failure) {error(failure.message || "The run couldn’t start. Try again.");}
   finally {sending=false;start.firstChild.textContent="Start run ";renderSelection();}
@@ -570,6 +741,8 @@ async function initialize() {
       for (const id of desk.skills) deskBySkill[id]=desk.name;
     }
     $("#skill-count").textContent=Object.keys(guide).length;
+    workflowCatalog=workflows;
+    renderDirectory(workflows);
     renderWorkflows(workflows);
     placeholder.hidden=true;
   } catch {
@@ -608,7 +781,12 @@ async function initialize() {
     visibleLimit=12;renderSkills();
   });
   $("#images").addEventListener("change",updateImageNames);
-  $("#jump-to-run").addEventListener("click",bringSelection);
+  const jump=$("#jump-to-run");
+  jump.addEventListener("click",bringSelection);
+  const observeForm=new IntersectionObserver(([entry])=>{
+    jump.classList.toggle("form-in-view",entry.isIntersecting);
+  });
+  observeForm.observe($("#run-title"));
   $("#run-form").addEventListener("submit",submit);
   initAdvisor({
     guide,
@@ -622,7 +800,18 @@ async function initialize() {
       if (!runId) bringSelection();
     }
   });
-  const id=new URLSearchParams(location.search).get("run");
+  $("#batch-picker").addEventListener("toggle",renderSelection);
+  const workflow=workflowCatalog.find(entry=>entry.id===pageQuery.get("workflow"));
+  const requestedSkill=pageQuery.get("skill");
+  if (workflow) openWorkspace(workflow,pageQuery.get("mode"));
+  else if (requestedSkill&&Object.hasOwn(guide,requestedSkill)) {
+    skillPage=requestedSkill;
+    selected=[skillPage];
+    $("#search").value=skillPage;
+    showTab("skill");
+    renderSkills();
+  }
+  const id=pageQuery.get("run");
   if (id) {
     runId=id;
     $("#run-form").hidden=true;

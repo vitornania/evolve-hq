@@ -1,8 +1,15 @@
 # Your first jobs
 
+## Start with one workflow
+
+1. Open **Workflows & skills** and click a workflow. Its workspace opens in a new browser tab.
+2. Choose what you want to do. The page shows what to bring and which steps are selected. Keep the suggested steps for a first run, or uncheck specific steps you do not need.
+3. Answer the question beside the plan, add any useful link or images, and click **Start run**. The run and its reports stay in that tab.
+4. Click the skill beside a step to open it by itself. **Skills available for this workflow** also lists tools for its other tasks.
+
 ## Run workflows together
 
-1. Open **Workflows & skills**. Pick a mode in any of the six core workflows.
+1. Open **Workflows & skills**. Open **Combine workflows in one run**, then pick a mode in any of the six core workflows.
 2. Check the stages you want and click **Add to run**. Add another workflow if it has its own inputs or can use the same starting brief. Put each workflow's objective in the brief if they differ.
 3. Click **Start run**. Independent workflows run side by side. Each workflow works through its selected stages in order. A stage drafts its deliverable, checks every required criterion in a separate model call, and can revise and recheck up to twice. A dependent stage starts after every criterion passes. A blocked workflow leaves its draft and findings available while the others continue.
 4. Open **Quality review** to see the finding and evidence for each criterion. After a research or brief run, click **Use reviewed results**, choose the reports you need, and optionally include the earlier images. Add the next job's brief and select a workflow. For a finished-ad review, attach the ad or its timecoded frames to the new run.

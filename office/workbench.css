@@ -106,3 +106,50 @@ input:not([type=file]),textarea,select{font-weight:430}
 #static-library-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) max-content;align-items:end;gap:8px;padding:9px 0 3px}
 #static-library-form button{height:35px}
 @media(max-width:480px){#static-library-form{grid-template-columns:1fr}#static-library-form button{justify-self:start}}
+
+.jump-run.form-in-view{display:none}
+.directory-open{grid-template-columns:1fr}
+.workflow-directory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.directory-card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px 18px;text-decoration:none;transition:background .2s,border-color .2s}
+.directory-card:hover{background:#eef3e8;border-color:#aec4ab}
+.directory-card-head{display:flex;align-items:baseline;justify-content:space-between;gap:9px}
+.directory-card-head h2{margin:0;font-size:20px;line-height:1.2;letter-spacing:-.04em}
+.directory-card-head span{color:#41664e;font-size:17px}
+.directory-card p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5;max-width:35ch}
+.batch-picker{margin-top:16px}
+.batch-picker>summary{font-size:13px;font-weight:620;color:#41634b;cursor:pointer;width:max-content;max-width:100%}
+.batch-picker .workflow-cards{margin-top:10px}
+
+.guided-intro{padding:23px 0 24px;border-bottom:1px solid var(--line)}
+.guided-intro h1{font-size:clamp(38px,5.8vw,69px);line-height:1.02;letter-spacing:-.07em;font-weight:650;margin:22px 0 7px}
+.guided-intro p{color:var(--muted);font-size:15px;line-height:1.5;margin:0;max-width:54ch}
+.workflow-back{font-size:13px;font-weight:630;color:#3a5d46}
+.workflow-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.workflow-tabs a{display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--line);background:var(--panel);border-radius:8px;text-decoration:none;font-size:12px;color:var(--muted);font-weight:580}
+.workflow-tabs a:hover{border-color:#a9bdac;color:var(--green)}
+.workflow-tabs a[aria-current="page"]{background:#e4eddc;border-color:#b8cbb5;color:#294c36}
+.guided-goals,.guided-steps{border:0;margin:0;padding:0;min-inline-size:0}
+.guided-goals legend,.guided-steps legend{font-size:21px;line-height:1.15;font-weight:650;letter-spacing:-.035em;padding:0;margin-bottom:10px}
+.guided-modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.guided-mode{display:flex;gap:9px;align-items:center;min-height:48px;padding:9px 12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;cursor:pointer}
+.guided-mode:hover{border-color:#a9bdac}
+.guided-mode:has(input:checked){background:#e8efe0;border-color:#a7c1a7}
+.guided-mode input[type=radio]{margin:0;width:15px;height:15px;padding:0;accent-color:#365b46;flex:none}
+.guided-mode .mode-name,.guided-step .step-name,.brief-caption#brief-caption{margin:0;font:inherit;color:var(--text)}
+.guided-mode .mode-name{font-size:13px;line-height:1.35}
+.guided-plan{margin-top:21px;padding:16px 17px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.plan-description{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.5}
+.guided-steps legend{font-size:17px;margin-bottom:5px}
+.guided-step{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;border-bottom:1px solid var(--line);padding:8px 0}
+.guided-step label{margin:0;min-width:0;cursor:pointer}
+.guided-step .step-name{font-size:14px;font-weight:620;line-height:1.35}
+.step-skill{flex:none;color:#3d644d;font-size:12px;text-align:right;max-width:46%;overflow-wrap:anywhere}
+.related-skills{margin-top:13px;font-size:13px;color:var(--green)}
+.related-skills summary{width:max-content;max-width:100%;cursor:pointer;font-weight:610}
+.related-skills ul{list-style:none;margin:7px 0 0;padding:0}
+.related-skills li{padding:8px 0;border-bottom:1px solid var(--line)}
+.related-skills li:last-child{border-bottom:0}
+.related-skills p{color:var(--muted);margin:4px 0 0;font-size:12px;line-height:1.45}
+.related-skills .used-skill a{font-weight:650}
+@media(max-width:940px){.workflow-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.workflow-directory,.guided-modes{grid-template-columns:1fr}.guided-intro{padding-top:16px}.guided-step{align-items:flex-start;flex-direction:column;gap:5px}.step-skill{margin-left:24px;max-width:calc(100% - 24px);text-align:left}}

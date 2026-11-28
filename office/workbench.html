@@ -29,6 +29,11 @@
       </form>
     </aside>
   </section>
+  <section class="guided-intro" id="guided-intro" hidden>
+    <nav id="workflow-navigation" aria-label="Workflow pages"></nav>
+    <h1 id="guided-title"></h1>
+    <p id="guided-description"></p>
+  </section>
   <section class="intro" id="result-intro" hidden>
     <h1>Review your work</h1>
     <p>Follow each selected skill here and read its report as soon as it’s ready.</p>
@@ -41,7 +46,7 @@
   </div>
   <div class="workbench" id="workbench">
     <section class="library" aria-label="Workflow and skill library">
-      <div class="switch" aria-label="Library view">
+      <div class="switch" id="library-switch" aria-label="Library view">
         <button type="button" id="workflow-tab" aria-pressed="true">Core workflows</button>
         <button type="button" id="skill-tab" aria-pressed="false">All skills <span id="skill-count"></span></button>
       </div>
@@ -59,7 +64,11 @@
         <span id="static-library-status" role="status"></span>
       </details>
       <div id="workflow-panel">
-        <div id="workflow-list" class="workflow-cards"></div>
+        <div id="workflow-directory" class="workflow-directory"></div>
+        <details id="batch-picker" class="batch-picker">
+          <summary>Combine workflows in one run</summary>
+          <div id="workflow-list" class="workflow-cards"></div>
+        </details>
       </div>
       <div id="skill-panel" hidden>
         <div class="search-row">
@@ -69,6 +78,7 @@
         <div id="skill-results" aria-live="polite"></div>
         <div id="skill-list" class="skill-list"></div>
       </div>
+      <section id="guided-setup" hidden></section>
       <div id="loading-library" class="library-placeholder" hidden>Loading the Evolve library…</div>
     </section>
     <aside class="composer" aria-labelledby="run-title">
@@ -80,12 +90,12 @@
       </div>
       <ol id="selected" class="selected-list" hidden></ol>
       <form id="run-form" novalidate>
-        <h3>What should we use?</h3>
+        <h3 id="input-heading">What should we use?</h3>
         <div id="input-guidance" class="muted" aria-live="polite">Select a workflow or skill to see what to bring.</div>
         <label>Product or project name <span>optional</span><input id="product-name" maxlength="120" placeholder="Example: Flow"></label>
         <fieldset id="source-run" class="workflow-stages source-run" hidden></fieldset>
         <label>Page link <span>optional</span><input id="page-url" inputmode="url" placeholder="mystore.com/products/your-product" maxlength="1800"></label>
-        <label>What would you like to improve? <span>optional</span><textarea id="brief" rows="3" placeholder="Example: Review the first screen on mobile and tell me which photos to replace." maxlength="12000"></textarea></label>
+        <label><span class="brief-caption" id="brief-caption">What would you like to improve?</span> <span>optional</span><textarea id="brief" rows="3" placeholder="Example: Review the first screen on mobile and tell me which photos to replace." maxlength="12000"></textarea></label>
         <div class="attachments">
           <label class="attach-button" for="images">Attach screenshots or product images</label>
           <input id="images" type="file" multiple accept="image/png,image/jpeg,image/webp" aria-describedby="image-help">
