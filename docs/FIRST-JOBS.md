@@ -7,6 +7,8 @@
 3. Click **Start run**. Independent workflows run side by side. Each workflow works through its selected stages in order. A stage drafts its deliverable, checks every required criterion in a separate model call, and can revise and recheck up to twice. A dependent stage starts after every criterion passes. A blocked workflow leaves its draft and findings available while the others continue.
 4. Open **Quality review** to see the finding and evidence for each criterion. After a research or brief run, click **Use reviewed results**, choose the reports you need, and optionally include the earlier images. Add the next job's brief and select a workflow. For a finished-ad review, attach the ad or its timecoded frames to the new run.
 
+The run form shows what to bring for each selected workflow mode or individual skill.
+
 For one task, open the individual skills library, select a skill and describe the exact deliverable. The writer and a separate review call both receive the selected method. Open **Quality review** to see which criteria passed and why. A draft can be revised twice. When you select several individual skills, each is checked separately and only approved results carry forward.
 
 Each receiving workflow gets the complete reviewed reports in its local `reviewed-inputs` folder. Its quality review checks the new work against those reports for exact wording, figures, source evidence and claim limits. When Copywriting hands a control to Native Ads for a hook test, the reviewer can compare the fixed body word for word. Review status means the work is ready to hand off for its stated scope. Check the report for deployment gates such as an unverified paired visual, outdated destination or an unsupported claim printed on locked packaging.
@@ -32,7 +34,7 @@ In **Market Research**, pick **Why are people hesitating to buy?** Paste a few r
 
 ## Plan images for an existing story ad
 
-In **Native Ads**, pick **Plan images for my story ad**. Paste the ad text in the brief or reuse the reviewed draft. You’ll get a first pick and a small set of distinct photo ideas tied to lines in the ad. Copy the shot brief to a photographer or the prompt to your image tool. If a shot needs to show a real result or product comparison, the brief tells you what evidence to supply.
+In **Native Ads**, pick **Plan images for my story ad**. Paste the ad text in the brief or reuse the reviewed draft. You’ll get a first pick and a small set of distinct photo ideas tied to lines in the ad. Send a shot brief to a photographer or use **Copy image prompt** to take a generator-ready option to your image tool. If a shot needs to show a real result or product comparison, the brief tells you what evidence to supply.
 
 ## Check an individual skill on a practice brief
 

@@ -25,6 +25,13 @@ function button(text,label,action,cls="") {
   item.addEventListener("click",action);
   return item;
 }
+function copyButton(label,content,fallback) {
+  const item=button(label,"",async()=>{
+    try {await navigator.clipboard.writeText(content);item.textContent="Copied";}
+    catch {item.textContent=fallback;}
+  },"secondary");
+  return item;
+}
 function error(message="") {
   $("#run-error").textContent=message;
   $("#run-error").hidden=!message;
@@ -51,6 +58,23 @@ function renderSelection() {
   if (runId) return;
   const isWorkflow=activeTab==="workflow";
   const count=isWorkflow ? workflows.size : selected.length;
+  const materials=isWorkflow
+    ? [...workflows.values()].map(({mode})=>[mode.title,mode.inputs])
+    : selected.map(id=>[guide[id].title,guide[id].inputs]);
+  const guidance=$("#input-guidance");
+  if (materials.length>1) {
+    const list=element("ul");
+    for (const [title,inputs] of materials) {
+      const row=element("li");
+      row.append(element("strong",title+" — "),document.createTextNode(inputs||"Add relevant context or screenshots."));
+      list.append(row);
+    }
+    guidance.replaceChildren(list);
+  } else {
+    guidance.textContent=materials.length
+      ? materials[0][1] || "Add a page link, a brief, or relevant screenshots."
+      : "Select a workflow or skill to see what to bring.";
+  }
   $("#selection-empty").hidden=Boolean(count);
   const list=$("#selected");
   list.hidden=!count;
@@ -208,14 +232,22 @@ function inline(text, target) {
   }
 }
 function markdown(body, markdownText) {
-  let list, code, block, quote;
+  let list, code, block, quote, imagePrompt;
   const lines=markdownText.split("\n");
   const cells=line=>line.trim().replace(/^\||\|$/g,"").split("|").map(cell=>cell.trim());
   for (let index=0;index<lines.length;index++) {
     const raw=lines[index];
     const line=raw.trim();
     if (line.startsWith("```")) {
-      if (code) {code=null;continue;}
+      if (code) {
+        const content=code.textContent.slice(0,-1);
+        if (imagePrompt&&content.trim()) {
+          body.append(copyButton("Copy image prompt",content,"Select the prompt to copy"));
+        }
+        code=null;
+        continue;
+      }
+      imagePrompt=line==="```image-prompt";
       code=element("pre");
       body.append(code);list=null;block=null;continue;
     }
@@ -359,10 +391,7 @@ function renderRun(data) {
   for (const step of data.steps.filter(step=>step.report || step.quality)) {
     const card=element("article","","report");
     const header=element("header");
-    const copy=button("Copy report","",async()=>{
-      try {await navigator.clipboard.writeText(step.report);copy.textContent="Copied";}
-      catch {copy.textContent="Select report text to copy";}
-    },"secondary");
+    const copy=copyButton("Copy report",step.report,"Select report text to copy");
     header.append(element("h3",step.title));
     if (step.report) header.append(copy);
     const content=element("div","","report-body");

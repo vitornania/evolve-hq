@@ -29,6 +29,8 @@ Read the lead and the available proof as a pair. If a lead asks whether the prod
 
 For a supplied story ad and an image-only request, preserve the copy. Choose distinct moments already in the story, such as a recognizable situation, its telling detail, or a documented demonstration. Give each idea its exact anchor line, what the feed reader will notice, an actionable phone-photo brief and a standalone image-generator prompt. Prefer two useful, different options over filling a quota. A product belongs in the image when the proof depends on showing it. A fictional scene can illustrate context when labeled. Use authenticated visuals for product results, testimonials and comparisons, with the scope and permission identified. Deliver shot briefs that work without a generator. Render only when an image tool is available, the user requests generation, and any required cost is authorized.
 
+Two crops of the same incident are framing variants unless they show different actions or answer different buyer questions. Label them accordingly. For a generator-ready option in HQ, put the prompt text alone inside a Markdown fence labeled `image-prompt` so it can be copied with one click. Keep camera notes, claim checks and copy anchors outside the fence. When the concept depends on an actual photograph or result, give a shoot or edit brief and state the evidence needed.
+
 ## Deliverable
 
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

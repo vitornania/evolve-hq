@@ -8,6 +8,7 @@
         "id": "from-research",
         "title": "Write a native ad from research",
         "description": "Start with the evidence, write the full ad, and give strategy and copy separate review passes.",
+        "inputs": "Add the product, offer, and what buyers care about. Include any source you want the story or proof to draw from.",
         "steps": [
           {
             "id": "native-brief",
@@ -63,6 +64,7 @@
         "id": "adapt-swipe",
         "title": "Adapt a native ad reference",
         "description": "Use a supplied swipe for a defined job and rebuild the rest around your own evidence.",
+        "inputs": "Paste the reference ad or include its link, then share your product facts, offer, and available proof.",
         "steps": [
           {
             "id": "inspect-swipe",
@@ -130,12 +132,13 @@
         "id": "story-images",
         "title": "Plan images for my story ad",
         "description": "Paste the ad text in the brief or reuse your reviewed draft. Get distinct phone-photo ideas and prompts you can use with an image tool or send to a photographer.",
+        "inputs": "Paste the exact ad text or reuse your reviewed draft. Attach any actual product or customer photo you want the plan to use.",
         "steps": [
           {
             "id": "story-image-moments",
             "skill": "native-ads-research-to-creative",
             "title": "Find the moments worth showing",
-            "instruction": "Treat the supplied finalized native ad or advertorial as locked copy and leave it intact. Select two or three genuinely distinct moments already in the copy, or fewer when only one moment is usable. Quote the exact short anchor line and name what the viewer should notice on a phone. Consider a recognizable situation, a distinctive object or detail, and a witnessed application when each serves the story. If the image needs to show a product to explain an action, keep the product and identify which authentic asset is needed. Treat illustrative scenes as illustrations. A visual cannot present an invented customer, endorsement, product result or before-and-after as proof. If the exact copy was not supplied or accessible, ask for that copy rather than making it up.",
+            "instruction": "Treat the supplied finalized native ad or advertorial as locked copy and leave it intact. Select two or three genuinely distinct moments already in the copy, or fewer when only one moment is usable. Quote the exact short anchor line and name what the viewer should notice on a phone. Classify two camera views of the same incident as framing variants unless the visible action or the buyer question changes. If the only genuine second concept depends on missing proof, identify it as deferred. Consider a recognizable situation, a distinctive object or detail, and a witnessed application when each serves the story. If the image needs to show a product to explain an action, keep the product and identify which authentic asset is needed. Treat illustrative scenes as illustrations. A visual cannot present an invented customer, endorsement, product result or before-and-after as proof. If the exact copy was not supplied or accessible, ask for that copy rather than making it up.",
             "checks": [
               "Every proposed moment is tied to an exact supplied copy line and has a distinct purpose, or the report explains why the evidence supports fewer options.",
               "The supplied copy is preserved. Any scene that needs actual product, customer or outcome proof identifies the authentic material or the missing input.",
@@ -146,10 +149,10 @@
             "id": "story-image-briefs",
             "skill": "native-ads-research-to-creative",
             "title": "Write shot briefs and image prompts",
-            "instruction": "Turn the useful moments into two or three compact phone-photo shot briefs, or use the smaller supported set. Start with the first image you would try and why. For each, include the exact copy anchor, who took the photo or camera angle, subject and visible action, setting and light, the one detail that matters at feed size, and a standalone text prompt. Note which crops work for a square or portrait feed. Clearly label illustrative scenes and keep real product results, customer identity and comparisons tied to authenticated visuals and usage rights. If a proof concept needs real materials, give a shoot direction or use the supplied approved asset before proposing a generated substitute. Keep generated or staged details out of evidentiary claims. Do not rewrite the ad or say that an image was generated. Give a useful first brief or input request when exact copy or proof is missing. Deliver directions and prompts suitable for a photographer or the user’s chosen tool.",
+            "instruction": "Turn the useful moments into two or three compact phone-photo shot briefs, or use the smaller supported set. Start with the first image you would try and why. For each, include the exact copy anchor, who took the photo or camera angle, subject and visible action, setting and light, the one detail that matters at feed size, and a standalone text prompt. Note which crops work for a square or portrait feed. Clearly label illustrative scenes and keep real product results, customer identity and comparisons tied to authenticated visuals and usage rights. If a proof concept needs real materials, give a shoot direction or use the supplied approved asset before proposing a generated substitute. Keep generated or staged details out of evidentiary claims. Do not rewrite the ad or say that an image was generated. Give a useful first brief or input request when exact copy or proof is missing. Deliver directions and prompts suitable for a photographer or the user’s chosen tool. Put each generator-ready prompt by itself in a Markdown image-prompt code fence. For a concept that requires an authentic result or customer asset, provide only the shoot, edit or asset brief until the evidence is available.",
             "checks": [
-              "Each useful concept has a copy anchor, concrete shot direction and standalone prompt, with a practical first pick.",
-              "The camera, crop and action match the intended moment and preserve the ad as supplied. Distinct concepts test different visuals.",
+              "Each useful concept has a copy anchor and concrete shot direction, with a practical first pick. Generator-ready prompt text sits in its own image-prompt fence. Evidence-dependent shots name the authentic asset or shot needed.",
+              "The camera, crop and action match the intended moment and preserve the ad as supplied. Distinct concepts show a different action or answer a different buyer question. Alternate framing of the same incident is labeled as a variant.",
               "Any illustrated scene, actual evidence asset or missing proof is accurately identified, and a shot brief or prompt is never described as a finished image."
             ]
           }
@@ -159,6 +162,7 @@
         "id": "hook-test",
         "title": "Test hooks on an existing native ad",
         "description": "Keep the approved body and offer fixed while testing opening copy.",
+        "inputs": "Paste the full existing ad and identify the opening you want to change. Leave the body and offer in the brief so they can be preserved.",
         "steps": [
           {
             "id": "lock-native-control",
@@ -208,6 +212,7 @@
         "id": "find-template",
         "title": "Find a template",
         "description": "Review the authorized library against your research and get a ranked shortlist.",
+        "inputs": "Share your product, the message you want the image to communicate, and any format or library preference.",
         "steps": [
           {
             "id": "static-brief",
@@ -240,6 +245,7 @@
         "id": "find-and-build",
         "title": "Find a template and build the ad",
         "description": "Review the library first, then develop the copy and layout from the best verified match.",
+        "inputs": "Add your product facts, offer, and available product images. Tell us what the ad should test and which libraries are in scope.",
         "steps": [
           {
             "id": "static-brief",
@@ -317,6 +323,7 @@
         "id": "use-reference",
         "title": "Use my reference",
         "description": "Inspect the reference and adapt each message and visual slot to your product.",
+        "inputs": "Attach the reference image and your product image. Include the exact offer and any claims the new design can support.",
         "steps": [
           {
             "id": "static-brief",
@@ -382,6 +389,7 @@
         "id": "new-static",
         "title": "Build an original static ad",
         "description": "Turn a supported customer insight into a new composition and copy.",
+        "inputs": "Add the product, offer, and one message to test. Attach your actual product image or approved visual if the ad should show it.",
         "steps": [
           {
             "id": "static-brief",
@@ -437,6 +445,7 @@
         "id": "make-variation",
         "title": "Make one variation",
         "description": "Use an existing ad as the control and change the selected element.",
+        "inputs": "Attach the existing ad and tell us what you want to change. Identify any copy, images, or offer terms that must stay.",
         "steps": [
           {
             "id": "lock-static-control",
@@ -478,17 +487,18 @@
         "id": "shortlist-headlines",
         "title": "Shortlist original ad headlines",
         "description": "Choose the line and visual idea worth developing before laying out an ad.",
+        "inputs": "Add the product, audience, and the evidence the headlines can rely on. Say how many you want.",
         "steps": [
           {
             "id": "shortlist-headlines",
             "skill": "build-static-ads-in-figma",
             "title": "Shortlist the headline and visual idea",
-            "instruction": "Deliver a selection sheet for an original image ad. Use the specified buyer, research, product facts and buying motive. Choose what the line needs to communicate given what this buyer already knows and what the paired image can demonstrate. Write the number requested. In a portable run with no count specified, give nine short on-image lines across three concepts, one lead and two wording variants per concept. Keep variants within each concept and make the concepts meaningfully different. Give each concept one feasible visual direction, the source fact or observation that earns it, and a reason to test it. For a supplied reference, credit its structural device and actual placement. Distinguish words inside a creative from its feed caption. For an indexed deck source, verify the creative against the current frame using its identity and visual details. Report the historical index locator and verified current locator separately. If identity cannot be resolved, leave that attribution open and proceed with supported original lines when possible. A visual-only source contributes an action or image. Identify any proposed new line as yours. Prioritize case evidence over course examples. For an expressly requested exact Banger Static Ads exercise, follow the installed original's selection sequence and counts, or disclose the missing original. For that exact exercise, when a required intake answer or permission to start is absent, ask the next unanswered original question in sequence and stop. An intake reply contains no speculative shortlist. When the brief already supplies the answer or confirmation, count it as complete. Finish at selection. Offer the strongest candidate with reasoning and leave the choice to the reader unless selection is delegated. If the brief already names a selection, carry it forward. If the image could be read as proving more than the photographed setup, identify what is visible and what needs a legible measurement or qualifier. Keep the headline and visual within the same claim. Give each shopper-visible label verbatim and put evidence references in the production notes, outside its wording.",
+            "instruction": "Deliver a selection sheet for an original image ad. Use the specified buyer, research, product facts and buying motive. Choose what the line needs to communicate given what this buyer already knows and what the paired image can demonstrate. Write the number requested. In a portable run with no count specified, give nine short on-image lines across three concepts, one lead and two wording variants per concept. Keep variants within each concept and make the concepts meaningfully different. Give each concept one feasible visual direction, the source fact or observation that earns it, and a reason to test it. For a supplied reference, credit its structural device and actual placement. Distinguish words inside a creative from its feed caption. For an indexed deck source, verify the creative against the current frame using its identity and visual details. Report the historical index locator and verified current locator separately. If identity cannot be resolved, leave that attribution open and proceed with supported original lines when possible. A visual-only source contributes an action or image. Identify any proposed new line as yours. Prioritize case evidence over course examples. For an expressly requested exact Banger Static Ads exercise, follow the installed original's selection sequence and counts, or disclose the missing original. For that exact exercise, when a required intake answer or permission to start is absent, ask the next unanswered original question in sequence and stop. An intake reply contains no speculative shortlist. When the brief already supplies the answer or confirmation, count it as complete. Finish at selection. Offer the strongest candidate with reasoning and leave the choice to the reader unless selection is delegated. If the brief already names a selection, carry it forward. If the image could be read as proving more than the photographed setup, identify what is visible and what needs a legible measurement or qualifier. Keep the headline and visual within the same claim. Give each shopper-visible label verbatim and put evidence references in the production notes, outside its wording. When the brief asks for distinct reasons to buy, write the buyer question and the exact visible cue for each concept. A crop or rephrasing of the same cue belongs under the same concept. If the evidence supports fewer distinct reasons than the requested lines, keep the requested line count and identify which are wording variants. Put unverified offer terms and accessory exclusions only in production notes as questions to confirm.",
             "checks": [
-              "With completed inputs, the number of short on-image lines matches the applicable brief. Each concept offers a distinct, evidence-supported reason or presentation for this buyer. Variants keep that idea and claim strength fixed unless the brief explicitly tests different promises. The recommended lead addresses the buyer’s outstanding question. On an exact-original intake turn, identify the first missing prerequisite and ask only the next source-ordered question.",
+              "With completed inputs, the number of short on-image lines matches the applicable brief. For each concept, the reviewer can identify a different buyer question and a different supported visual job or cue. If fewer reasons are supportable, extra lines are clearly labeled wording variants. Variants keep that idea and claim strength fixed unless the brief explicitly tests different promises. The recommended lead addresses the buyer’s outstanding question. On an exact-original intake turn, identify the first missing prerequisite and ask only the next source-ordered question.",
               "On a shortlist turn, each concept pairs copy with a feasible image and a specific source fact. Source caption, on-asset words and visual-only material are represented in their actual roles, and every proposed original line is distinguishable from source language. Indexed examples have distinct historical and verified current locators tied to the matching creative, or are explicitly unresolved. On an intake turn, withhold headline and visual proposals until the original's prerequisite is met.",
               "The response stops at the correct decision. An intake turn awaits the required answer. A completed selection sheet respects an existing choice or gives a supported recommendation and identifies the choice still needed. It makes no claim to have rendered or tested an ad.",
-              "When a demonstration or measurement matters, the line and the proposed visible cue support the same bounded claim, and exact shopper-visible labels contain only copy intended for the artwork."
+              "When a demonstration or measurement matters, the line and visible cue support the same bounded claim. Shopper-visible labels contain supported copy only. Unverified terms and exclusions remain questions in production notes."
             ]
           }
         ]

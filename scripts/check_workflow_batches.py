@@ -35,6 +35,7 @@ assert [flow["id"] for flow in catalog] == list(workflow_batches.ORDER)
 for flow in catalog:
     assert len({mode["id"] for mode in flow["modes"]}) == len(flow["modes"])
     for mode in flow["modes"]:
+        assert isinstance(mode.get("inputs"), str) and mode["inputs"].strip(), mode["id"]
         assert len({stage["id"] for stage in mode["steps"]}) == len(mode["steps"])
         for stage in mode["steps"]:
             assert stage["checks"] and stage["instruction"] and stage["skill"] in guide

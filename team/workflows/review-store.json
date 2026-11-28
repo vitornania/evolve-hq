@@ -8,6 +8,7 @@
         "id": "single-ad",
         "title": "Review one ad",
         "description": "Use an ad image, script, video frames, or results to get specific revisions.",
+        "inputs": "Share the ad or exact copy and tell us who it’s for. If you want a performance review, paste the dated results.",
         "steps": [
           {
             "id": "inspect-ad",
@@ -37,6 +38,7 @@
         "id": "diagnose-underperformance",
         "title": "Diagnose an underperforming ad",
         "description": "Compare the ad, funnel and results, then choose one test that could explain the miss.",
+        "inputs": "Share the ad, its destination if known, and dated results. Include spend, purchases and the kind of customer your target covers.",
         "steps": [
           {
             "id": "align-diagnostic-evidence",
@@ -76,6 +78,7 @@
         "id": "review-finished-ad",
         "title": "Review a finished ad before launch",
         "description": "Check the actual ad image or timecoded video frames against the approved brief.",
+        "inputs": "Attach the finished image or timecoded video frames. Include the approved brief and product facts so the final claims can be checked.",
         "steps": [
           {
             "id": "inspect-finished-ad",
@@ -96,6 +99,7 @@
         "id": "weekly-review",
         "title": "Review a weekly batch",
         "description": "Use creative assets and their performance export to decide what to repeat, revise, or test next.",
+        "inputs": "Paste the week’s results with dates, spend and purchases by ad. Include your target and any significant offer or audience changes.",
         "steps": [
           {
             "id": "reconcile-results",
@@ -139,6 +143,7 @@
         "id": "iterate-winner",
         "title": "Plan a variation",
         "description": "Use one parent ad to create a controlled next test.",
+        "inputs": "Share the parent ad, why you chose it, and the dated results. Name the single change you want tested if you know.",
         "steps": [
           {
             "id": "lock-parent",
@@ -187,6 +192,7 @@
         "id": "store-audit",
         "title": "Review store content and images",
         "description": "Start from a store URL, screenshots, gallery images, copy, or analytics.",
+        "inputs": "Add a product page link or phone screenshots. Include what’s sold, any confirmed offer or shipping terms, and where shoppers might hesitate.",
         "steps": [
           {
             "id": "audit-store",
@@ -219,6 +225,7 @@
         "id": "product-page-copy",
         "title": "Write or rewrite a product page",
         "description": "Turn product evidence and buyer objections into a mobile-friendly sales page.",
+        "inputs": "Add the product page, verified product facts and current offer. Paste text from any section you want rewritten.",
         "steps": [
           {
             "id": "map-page-message",
@@ -249,6 +256,7 @@
         "id": "advertorial",
         "title": "Match an advertorial to an ad",
         "description": "Carry the ad's hook, promise and proof through to a presell or landing page.",
+        "inputs": "Share the ad and its destination, if one exists. Include the promise the page should deliver and proof it can show.",
         "steps": [
           {
             "id": "map-ad-to-page",
@@ -279,6 +287,7 @@
         "id": "competitor-page",
         "title": "Teardown a competitor page",
         "description": "Learn from a reference page's structure, proof, copy roles and visual system.",
+        "inputs": "Add the competitor page and your product facts. Identify the page section or decision you want to learn from.",
         "steps": [
           {
             "id": "map-reference-page",

@@ -8,6 +8,7 @@
         "id": "full-research",
         "title": "Research a product",
         "description": "Start with a product, target market, and decision. Get source-linked findings and a handoff for creative and the store.",
+        "inputs": "Add your product link or a short description and the country you sell in. Paste any reviews or customer comments you have.",
         "steps": [
           {
             "id": "research-intake",
@@ -109,6 +110,7 @@
         "id": "buyer-hesitation",
         "title": "Why are people hesitating to buy?",
         "description": "Paste buyer comments, interviews, or a product link with what you have observed. Get the main reason people may be holding back and one useful next step.",
+        "inputs": "Paste a few real buyer comments and say what happened, such as where shoppers stopped. A product link gives useful context.",
         "steps": [
           {
             "id": "collect-belief-evidence",
@@ -138,6 +140,7 @@
         "id": "manual-research",
         "title": "Analyze customer material I provide",
         "description": "Use your pasted reviews, interviews or comments. Get an evidence register and a short list of testable findings.",
+        "inputs": "Paste the exact reviews, interviews, or comments. Include where each came from if you know.",
         "steps": [
           {
             "id": "manual-voc",
@@ -168,6 +171,7 @@
         "id": "competitor-research",
         "title": "Research competitors",
         "description": "Start with competitor names or links. Get a comparable offer map and a separate teardown of ads you can inspect.",
+        "inputs": "Add competitor links or screenshots and tell us what you sell and where. Include an ad and its landing page if you have both.",
         "steps": [
           {
             "id": "competitor-offers",
@@ -197,6 +201,7 @@
         "id": "account-research",
         "title": "Review my ad account evidence",
         "description": "Use an authorized first-party export and sample creatives. Get a comparable baseline for future tests.",
+        "inputs": "Paste the relevant account numbers with dates and explain what decision you’re trying to make.",
         "steps": [
           {
             "id": "account-baseline",
@@ -223,6 +228,7 @@
         "id": "find-angles",
         "title": "Find an angle to test",
         "description": "Use your product research and get a ranked shortlist of distinct reasons to buy.",
+        "inputs": "Add your product link, what you know about customers, and anything you can show to back up a claim.",
         "steps": [
           {
             "id": "angle-shortlist",
@@ -240,6 +246,7 @@
         "id": "creative-brief",
         "title": "Write a creative brief",
         "description": "Use an angle or an existing reference. Get the matching Evolve brief for an original ad, adaptation or variation.",
+        "inputs": "Tell us the product, ad format, and what you want this ad to test. Include the offer or reference if you have one.",
         "steps": [
           {
             "id": "write-brief",
@@ -258,6 +265,7 @@
         "id": "ad-copy",
         "title": "Write and review ad copy",
         "description": "Bring a product brief and placement. Get reviewed copy you can use in the ad.",
+        "inputs": "Add the product and offer, where the ad will run, and any real proof or footage the ad can use.",
         "steps": [
           {
             "id": "draft-ad-copy",
@@ -288,6 +296,7 @@
         "id": "copy-review",
         "title": "Fix specific lines in my draft",
         "description": "Bring copy, its audience and the desired action. Get a diagnosis and targeted revisions.",
+        "inputs": "Paste the copy as it stands and tell us what feels wrong. Include any words, facts, or offer terms that must stay.",
         "steps": [
           {
             "id": "review-draft",
@@ -306,6 +315,7 @@
         "id": "one-take-script",
         "title": "Write a one-take voice-over script",
         "description": "Use an angle, desire, concrete subject and exact hook. Get a camera-ready script with the three-act structure from the supplied example.",
+        "inputs": "Tell us the product, audience, and target length. Paste any required opening or closing line and share what the speaker can demonstrate.",
         "steps": [
           {
             "id": "lock-script-inputs",
