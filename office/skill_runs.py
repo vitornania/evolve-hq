@@ -159,6 +159,16 @@ def previous_results(identifier, selected=None):
     return collected
 
 
+def standalone_originals(skill, brief):
+    # Only catalog entries can nominate local files. A brief can select a known method by name.
+    text = " ".join(brief.casefold().split())
+    labels = list(skill.get("original_links", ()))
+    for name, originals in skill.get("named_originals", {}).items():
+        if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text):
+            labels.extend(originals)
+    return list(dict.fromkeys(labels))
+
+
 def validate(payload):
     if not isinstance(payload, dict):
         raise ValueError("The request must contain a run brief.")
@@ -174,9 +184,10 @@ def validate(payload):
         raise ValueError("Each skill can appear once in a run.")
     if bool(requested) == bool(workflows):
         raise ValueError("Choose workflows or individual skills for this run.")
+    brief = field(payload, "brief", 12000)
     steps.extend(
         {"id": name, "stage": name, "skill": name, "title": guide[name]["title"], "kind": guide[name]["kind"],
-         "original_links": guide[name].get("original_links", []),
+         "original_links": standalone_originals(guide[name], brief),
          "instruction": (f"{guide[name]['description']} Deliver the part requested in the brief. "
                          f"For a full assignment the usual output is: {guide[name]['output']}"
                          + (" For a request to make one original image, prepare the complete static-layout JSON "
@@ -202,7 +213,6 @@ def validate(payload):
     sources.update({name: skill_location(name) for name in requested})
     product = field(payload, "product", 120)
     url = field(payload, "url", 1800)
-    brief = field(payload, "brief", 12000)
     images = decode_images(payload.get("images", []))
     if url:
         parsed = urlsplit(url)

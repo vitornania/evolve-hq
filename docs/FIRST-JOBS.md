@@ -18,6 +18,10 @@ The run form shows what to bring for each selected workflow mode or individual s
 
 For one task, open the individual skills library, select a skill and describe the exact deliverable. The writer and a separate review call both receive the selected method. Open **Quality review** to see which criteria passed and why. A draft can be revised twice. When you select several individual skills, each is checked separately and only approved results carry forward.
 
+For an exact course exercise, name the method in the brief. Individual skills can load installed originals such as Evolve New Mechanisms, the Ideation Brief, or Perry’s native ad prompts. The draft and reviewer get the same available original. The public installation includes the portable decision guides. Attach an authorized local course pack for exercises that require its originals.
+
+An individual image ad with an HQ preview layout must pass the same layout validation used by **Preview image**. Use the preview at phone size to check design quality before sharing the export.
+
 Each receiving workflow gets the complete reviewed reports in its local `reviewed-inputs` folder. Its quality review checks the new work against those reports for exact wording, figures, source evidence and claim limits. When Copywriting hands a control to Native Ads for a hook test, the reviewer can compare the fixed body word for word. Review status means the work is ready to hand off for its stated scope. Check the report for deployment gates such as an unverified paired visual, outdated destination or an unsupported claim printed on locked packaging.
 
 When you hand earlier work to **Analyze customer material I provide**, the first pass indexes the current brief, page and newly attached material. It saves that index before the next pass receives the earlier reports and images. That makes it possible to check whether a new interview really supports an old ad angle.

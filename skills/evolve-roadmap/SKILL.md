@@ -29,6 +29,8 @@ Choose a follow-up that can distinguish a change in buyer mix or unit economics 
 
 Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
 
+When updating from a result tracker, treat a later cumulative record as a new reporting window for the same creative. Preserve earlier observations and avoid counting a second win unless the data identifies a separate test.
+
 ## Deliverable
 
 A list of batches, assets, and next tests.

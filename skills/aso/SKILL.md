@@ -23,6 +23,8 @@ App listing URL or screenshots, category, and target buyer.
 2. Read the title and first screenshot as the promise made to a new visitor. Compare the impression against the actual app experience, including free limits and paid requirements. Verify current storefront requirements when the task depends on a specific field or character limit.
 3. Test one listing change for the relevant search intent or landing source. Keep offer and attribution window stable, and use activation or paid retention as a guardrail if available. State whether the available data distinguishes low discovery from a mismatch after arrival.
 
+Group listing inputs by the buyer situation and the action the app can demonstrate. Compare acquisition and retained use separately when interpreting experiments. [Offer and buyer fit](../evolve-skill/references/book-offer-decisions.md)
+
 ## Deliverable
 
 Listing copy, image direction, and testing ideas.

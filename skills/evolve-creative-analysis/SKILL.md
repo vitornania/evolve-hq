@@ -39,6 +39,8 @@ If interest and retained purchases tell different stories, compare like-for-like
 
 Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
 
+For a creative tracker, preserve the operator’s verdict in its original labels, independent of any Evolve classification. Save the ad ID or row locator, exact reporting dates, source and one testable learning. Keep full video completion per three-second play separate from ThruPlay per three-second play. Use wins plus losses for the tracker’s hit-rate denominator when requested, and state how many rows supplied a decision.
+
 ## Deliverable
 
 Findings and the next creative tests.

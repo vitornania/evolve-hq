@@ -16,6 +16,8 @@ from skill_runs import get_run, saved_images
 PREVIEW_LOCK = Lock()
 LAYOUT_BLOCK = re.compile(r"^```static-layout[ \t]*\r?\n(.*?)^\s*```[ \t]*$", re.M | re.S)
 ARTBOARDS = {(1080, 1080), (1080, 1350)}
+COLOR = re.compile(r"#[0-9a-fA-F]{6}")
+LAYER_ID = re.compile(r"[a-zA-Z][\w-]*")
 FONTS = {
     "sans": ("Arial.ttf", "arial.ttf", "ArialMT"),
     "serif": ("Georgia.ttf", "georgia.ttf", "Georgia"),
@@ -39,16 +41,33 @@ def read_layout(text, images):
         if (type(width) is not int or type(height) is not int or (width, height) not in ARTBOARDS
                 or not isinstance(layers, list) or not 1 <= len(layers) <= 18):
             raise ValueError()
+        background = layout.get("background", "#FFFFFF")
+        if not isinstance(background, str) or not COLOR.fullmatch(background):
+            raise ValueError("Use a six-digit hex background color.")
         used_images = set()
+        ids = set()
         for layer in layers:
             x, y, kind = layer["x"], layer["y"], layer["type"]
+            identifier = layer["id"]
+            if not isinstance(identifier, str) or not LAYER_ID.fullmatch(identifier) or identifier in ids:
+                raise ValueError("Give every layer a unique ID that starts with a letter.")
+            ids.add(identifier)
+            if kind != "image":
+                color = layer.get("fill", "#141318" if kind == "text" else "")
+                if not isinstance(color, str) or not COLOR.fullmatch(color):
+                    raise ValueError("Use six-digit hex colors in text and shape layers.")
             if type(x) is not int or type(y) is not int or not (0 <= x <= width and 0 <= y <= height):
                 raise ValueError()
             if kind == "text":
                 if (layer["font"] not in FONTS or type(layer["size"]) is not int
                         or not 18 <= layer["size"] <= 140 or not isinstance(layer["text"], str)
-                        or not 1 <= len(layer["text"]) <= 120):
-                    raise ValueError()
+                        or not 1 <= len(layer["text"]) <= 120 or "\n" in layer["text"] or "\r" in layer["text"]):
+                    raise ValueError("Use one line per text layer and the sans or serif font.")
+                if layer.get("align", "left") not in ("left", "center", "right"):
+                    raise ValueError("Use left, center or right alignment.")
+                if "max_width" in layer and (type(layer["max_width"]) is not int
+                                             or not 1 <= layer["max_width"] <= width):
+                    raise ValueError("Keep the text slot width within the artboard.")
                 continue
             w, h = layer["width"], layer["height"]
             if (kind not in ("image", "rectangle", "ellipse") or type(w) is not int or type(h) is not int
@@ -60,10 +79,11 @@ def read_layout(text, images):
             if kind == "image":
                 name = layer["file"]
                 if name not in images or name in used_images:
-                    raise ValueError()
+                    raise ValueError("Use an attached photo filename once per layout.")
                 used_images.add(name)
     except (TypeError, KeyError, ValueError) as error:
-        raise ValueError("This layout needs a repair. Ask the image ad skill for one square or portrait preview using your attached photos.") from error
+        detail = str(error) if type(error) is ValueError and str(error) else ""
+        raise ValueError(detail or "This layout needs a repair. Use one square or portrait layout with the required layer fields.") from error
     return layout
 
 

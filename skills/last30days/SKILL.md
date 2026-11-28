@@ -17,6 +17,8 @@ A topic, brand, or product category.
 2. Trace reposts and cross-posts to their origin. Group independent speakers separately from repeats and syndicated coverage. Where a source was updated, distinguish the date of the update from the date of the underlying event. Exclude outside-window evidence from recent counts.
 3. Describe what changed or recurred, who said it and the counterexample that bounds it. Distinguish attention, expressed purchase intent, reported experience and verified product facts. A viral thread or a handful of posts cannot establish population prevalence. Propose one research question the limited record can actually resolve.
 
+Use public discussion to find fresh buyer questions and alternatives. Separate independent experiences, repeats, seller language and direct evidence of buying. [Buyer evidence](../evolve-skill/references/book-customer-decisions.md)
+
 ## Deliverable
 
 Return dated observations with sources, search coverage, independent support and gaps. Mark an owner-supplied snapshot as such. If current sources are unavailable, report the limitation.

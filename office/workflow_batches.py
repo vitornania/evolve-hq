@@ -253,7 +253,7 @@ def linked_originals(source, labels):
     links = dict(re.findall(r"\[([^\]\n]+)\]\(([^)\s]+)\)", source.read_text(encoding="utf-8")))
     originals = []
     for label in labels:
-        url = urlsplit(links.get(label, ""))
+        url = urlsplit(links.get(label, label if label.startswith("references/") else ""))
         relative = Path(unquote(url.path))
         if url.scheme or url.netloc or relative.is_absolute():
             continue
@@ -294,8 +294,10 @@ def selected_method(source, *, workflow=False, original_links=()):
             continue
         index = path.parent / "references" / "local-sources.md"
         if index.is_file():
-            sections.append(f"Optional local source index: {index}. Open the relevant original for a "
-                            "worksheet, book passage or worked example. If the method is named, contested or the choice turns on a narrow exception, open the original passage. Cite the specific source used.")
+            sections.append(f"Optional local source index: {index}. Resolve links from {index.parent}. "
+                            "Open only a relevant original when its details can change this decision. "
+                            "Cite the passage you used. This index only lists available sources.\n"
+                            + index.read_text(encoding="utf-8"))
     instructions = (
         "Use the selected Evolve method and approved brief to define this stage. For a consequential choice, "
         "apply only a guide whose conditions fit the evidence. A book can suggest a test or an explanation; "
@@ -416,7 +418,22 @@ What the reviewer will verify:
                 set_phase(step, "Quality review")
                 update(record, step["title"], data["product"], step["role"], "working",
                        "Independently checking the draft against its stage criteria.", pid=os.getpid())
-                review = gated_stage(ask, draft, step, context, receipt)
+                def review_draft(draft):
+                    review = gated_stage(ask, draft, step, context, receipt)
+                    if workflow or step["skill"] != "build-static-ads-in-figma" or "```static-layout" not in draft:
+                        return review
+                    # Use the same validator as the Preview image button.
+                    from static_preview import read_layout
+                    try:
+                        read_layout(draft, {photo.name: photo for photo in supplied_images})
+                    except ValueError as error:
+                        if review["verdict"] != "blocked":
+                            review.update(verdict="revise", handoff="", judgment=None)
+                            review["checklist"][-1].update(status="fix", evidence=str(error))
+                            review["feedback"] = f"HQ could not read the preview layout. {error}"
+                    return review
+
+                review = review_draft(draft)
                 for revision in range(1, MAX_REVISIONS + 1):
                     if review["verdict"] != "revise":
                         break
@@ -437,7 +454,7 @@ What the reviewer will verify:
                     revisions = revision
                     path.with_suffix(f".revision-{revision}.md").write_text(draft + "\n", encoding="utf-8")
                     set_phase(step, "Rechecking")
-                    review = gated_stage(ask, draft, step, context, receipt)
+                    review = review_draft(draft)
                 review["methodFiles"] = receipt
                 path.with_suffix(".quality.json").write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
                 outcome = {"methodFiles": receipt, "references": review["references"], "quality": review["feedback"], "checkResults": review["checklist"], "report": draft}

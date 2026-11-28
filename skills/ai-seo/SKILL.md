@@ -23,6 +23,8 @@ Brand, topic, target questions, and existing pages.
 2. Trace a wrong or unsupported answer to a specific source the assistant cited when possible. Propose a concise answer backed by a canonical specification, policy, or public primary evidence. Track contradictory pages and ownership of the correction.
 3. Rerun the same prompt set across comparable settings and report counts with denominators and sampling limits. Keep referral traffic and conversions separate from answer inclusion. A small synthetic prompt panel cannot establish the prevalence of real buyer demand.
 
+Use the buyer’s actual alternatives and decision questions to select the prompts. Compare which specific buyer situation the answer fits before proposing a content change. [Buyer evidence](../evolve-skill/references/book-customer-decisions.md)
+
 ## Deliverable
 
 Content improvements and a visibility checklist.

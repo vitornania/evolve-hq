@@ -149,6 +149,58 @@ def check_standalone_modes(workspace):
     print(f"Standalone execution verified for {sum(len(w['modes']) for w in catalog)} modes and {total} stages.")
 
 
+def check_named_original_and_preview(workspace):
+    library = workspace / ".office/libraries/evolve/skills"
+    native = library / "native-ads-research-to-creative"
+    (native / "references").mkdir(parents=True, exist_ok=True)
+    (native / "SKILL.md").write_text("Portable overlay for the original method test.", encoding="utf-8")
+    (native / "references/perry-master-native-ad-prompts.md").write_text(
+        "Original standalone Perry method fixture.", encoding="utf-8")
+    review_calls = Counter()
+    layout = {"width": 1080, "height": 1350, "layers": [
+        {"id": "hook", "type": "text", "x": 80, "y": 150, "size": 52, "font": "sans",
+         "text": "An inspectable result", "max_width": 900},
+    ]}
+    invalid = "```static-layout\n{}\n```"
+    valid_layout = "```static-layout\n" + json.dumps(layout) + "\n```"
+
+    def responder(_provider, _directory, prompt, *, files):
+        is_review = prompt.startswith("Independently review")
+        is_static = "Run exactly this selected Evolve skill: build-static-ads-in-figma." in prompt
+        if "Native method parity request." in prompt:
+            assert "Original standalone Perry method fixture." in prompt
+        if not is_review:
+            if is_static:
+                if review_calls["static"] == 0:
+                    return invalid
+                assert "HQ could not read the preview layout" in prompt
+                return valid_layout
+            return "Scoped method delivered."
+        if "HQ image-preview reference" in prompt:
+            review_calls["static"] += 1
+        criteria = prompt.split("Check all of these:\n", 1)[1].split("\n\nInspect", 1)[0].splitlines()
+        return json.dumps({
+            "checklist": [{"number": i, "status": "met", "evidence": "Fixture approval."}
+                          for i in range(1, len(criteria) + 1)],
+            "feedback": "Fixture approval.", "handoff": "Fixture outcome.",
+        })
+
+    try:
+        with patch.object(skill_runs, "reply", side_effect=responder):
+            native_run = wait_run(skill_runs.start_run({"skills": ["native-ads-research-to-creative"],
+                "brief": "Native method parity request. Follow Perry's master native ad prompts."}))
+            assert native_run["status"] == "review"
+            assert any(Path(method["file"]).name == "perry-master-native-ad-prompts.md"
+                       for method in native_run["steps"][0]["methodFiles"])
+            static_run = wait_run(skill_runs.start_run({"skills": ["build-static-ads-in-figma"],
+                "brief": "Make one image, ready for HQ preview."}))
+            assert static_run["status"] == "review"
+            assert static_run["steps"][0]["revisions"] == 1
+            assert static_run["steps"][0]["report"] == valid_layout
+    finally:
+        shutil.rmtree(native)
+
+
 def check_individual_skills(workspace):
     # A local pack can augment the built-in method without replacing its decision guidance.
     name = "humanizer"
@@ -465,6 +517,7 @@ with tempfile.TemporaryDirectory() as folder:
         assert prior_image_only["status"] == "blocked" and len(events) == provider_calls
         standalone = wait_run(skill_runs.start_run({"skills": ["humanizer"], "brief": "Polish this line."}))
         assert standalone["status"] == "review" and standalone["steps"][0]["report"] == "Standalone report."
+        check_named_original_and_preview(workspace)
         check_individual_skills(workspace)
         check_handoff_matrix(workspace)
         check_standalone_modes(workspace)

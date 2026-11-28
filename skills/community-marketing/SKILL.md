@@ -23,6 +23,8 @@ Audience, existing community, goals, and available time.
 2. Track eligible joiners, first contributors, contributors receiving a meaningful reply, and returning contributors within timed cohorts. Use first contributors as the denominator for contribution retention. Report member value separately from referred customers or sales.
 3. Choose one intervention at the largest observed break, such as getting an unanswered first post a relevant reply. Set an observable follow-up window. Obtain permission before reusing member language as a public testimonial.
 
+Use recurring member questions and workarounds to choose the next contribution. Keep members who engaged, joined, and bought as distinct cohorts. [Buyer evidence](../evolve-skill/references/book-customer-decisions.md)
+
 ## Deliverable
 
 A community plan and practical operating cadence.

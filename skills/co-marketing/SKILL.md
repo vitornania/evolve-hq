@@ -23,6 +23,8 @@ Your audience, offer, partner options, and objective.
 2. Separate gross audience size, overlapping memberships, unique reach, and attributable responses. Where overlap is unknown, report a range or leave it open. Document where a participant grants permission, which partner can contact them, and which promises each partner can substantiate.
 3. Tag each partner’s referrals and compare qualified opt-ins or purchases for a fixed window against a named baseline. Retain partner-level denominators and the cost of producing the asset. Give the smallest pilot that would warrant expanding the collaboration.
 
+Check which plausible substitute the shared offer replaces for that buying occasion. Keep partner-contributed proof tied to its scope and source. [Offer and buyer fit](../evolve-skill/references/book-offer-decisions.md)
+
 ## Deliverable
 
 A partner shortlist or a joint campaign plan.

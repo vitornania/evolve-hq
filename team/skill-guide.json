@@ -42,6 +42,12 @@
     "kind": "workflow"
   },
   "market-research": {
+    "named_originals": {
+      "desire hunt": ["Desire Hunt"],
+      "perry": ["references/prompts/perry-market-research-6-master-prompts.md"],
+      "new mechanisms": ["New Mechanisms"],
+      "new information": ["New Information"]
+    },
     "title": "Research a product and market",
     "description": "Research a product, what buyers already know, and what may be holding them back.",
     "inputs": "Product brief or URL, market, and available sources.",
@@ -78,6 +84,9 @@
     "kind": "skill"
   },
   "evolve-insights": {
+    "named_originals": {
+      "evolve avatar training": ["Evolve Avatar Training"]
+    },
     "title": "Organize customer insights",
     "description": "Turn buyer comments into a clear explanation of who hesitates, why, and what to check next.",
     "inputs": "Research notes or a source-indexed evidence file.",
@@ -142,6 +151,11 @@
     "kind": "skill"
   },
   "evolve-briefs": {
+    "named_originals": {
+      "ideation brief": ["Ideation Brief original fields"],
+      "imitation brief": ["Imitation Brief original fields"],
+      "image ad brief prompt": ["Image ad brief prompt"]
+    },
     "title": "Write a creative brief",
     "description": "Build an Evolve brief for an original ad, a reference, or a variation.",
     "inputs": "Approved angle and any source ad, offer, and constraints.",
@@ -149,6 +163,10 @@
     "kind": "skill"
   },
   "evolve-copywriting": {
+    "named_originals": {
+      "image ad brief prompt": ["Image ad brief prompt"],
+      "evolve video script prompt": ["Evolve Video Script Prompt"]
+    },
     "title": "Write Evolve ad copy",
     "description": "Turn an approved brief into copy for a specific ad format.",
     "inputs": "Approved creative brief, product facts, and voice.",
@@ -156,6 +174,9 @@
     "kind": "skill"
   },
   "evolve-copy-review": {
+    "named_originals": {
+      "copywriting checklist": ["Copywriting checklist"]
+    },
     "title": "Fix weak ad copy",
     "description": "Diagnose where an existing draft breaks down and rewrite it.",
     "inputs": "The draft, target audience, and desired action.",
@@ -184,6 +205,10 @@
     "kind": "skill"
   },
   "native-ads-research-to-creative": {
+    "named_originals": {
+      "perry": ["references/perry-master-native-ad-prompts.md"],
+      "original native copy prompt": ["references/original-native-copy-prompts.md"]
+    },
     "title": "Write a story ad",
     "description": "Write or review a story ad for Facebook or Instagram, or plan photos for an ad you already have.",
     "inputs": "A product link or a few product facts for a new ad. Paste the exact ad text if you want photo ideas for it.",
