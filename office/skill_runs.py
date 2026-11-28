@@ -176,13 +176,16 @@ def validate(payload):
         raise ValueError("Choose workflows or individual skills for this run.")
     steps.extend(
         {"id": name, "stage": name, "skill": name, "title": guide[name]["title"], "kind": guide[name]["kind"],
+         "original_links": guide[name].get("original_links", []),
          "instruction": (f"{guide[name]['description']} Deliver the part requested in the brief. "
                          f"For a full assignment the usual output is: {guide[name]['output']}"),
          "checks": [
              "Deliver the specific work requested in the brief, with its constraints and a usable result. "
              "For an explicitly scoped exercise, evaluate only that scope.",
              "Apply the selected skill's relevant decision rules. In the review, identify an actual decision "
-             "and the input or method supporting it. Use the available primary reference when the skill requires it.",
+             "and the input or method supporting it. Use relevant available primary references. Judge a scoped "
+             "deliverable on its own evidence. Missing optional examples or worksheets limit source-conformity "
+             "claims. Block only a part that actually requires the missing source or when the user requested its exact use.",
              "Check material claims, calculations, quoted words, evidence limits and next action against "
              "the supplied inputs. Separate observations, hypotheses and recommendations where relevant.",
          ],

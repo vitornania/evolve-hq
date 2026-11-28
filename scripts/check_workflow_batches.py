@@ -182,6 +182,11 @@ def check_individual_skills(workspace):
     assert "aW1hZ2U=" not in selected and "Unrelated input." not in selected
     used = {"file": str(original), "anchor": anchor, "decision": "Kept the original field order."}
     assert workflow_batches.verify_references({"references": [used]}, files)["references"][0]["file"] == str(original)
+    angles = pack.parent / "evolve-angles"
+    angles.mkdir()
+    (angles / "SKILL.md").write_text("[Angle development prompt](angle-method.md)\n", encoding="utf-8")
+    angle_example = "Fixture for evaluating a specific buying belief."
+    (angles / "angle-method.md").write_text(angle_example, encoding="utf-8")
     for invalid in (valid | {"anchor": "Invented words"}, valid | {"file": str(workspace / "tasks/run.json")}):
         try:
             workflow_batches.verify_references({"references": [invalid]}, methods)
@@ -212,6 +217,8 @@ def check_individual_skills(workspace):
         calls[title, reviewing] += 1
         if title == guide["vibe-coding-toolkit"]["title"]:
             assert "Choosing a method for an Evolve decision" not in prompt
+        if title == guide["evolve-angles"]["title"]:
+            assert angle_example in prompt and "Original method." in prompt
         if title == guide[name]["title"]:
             assert "Choosing a method for an Evolve decision" in prompt
             assert "book-copy-decisions.md" in prompt

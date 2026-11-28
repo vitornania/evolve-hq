@@ -25,7 +25,9 @@ Before choosing a hook or a swipe, select the product action that can deliver th
 
 For each distinct angle, name the proof the buyer would accept and the observation that would make the angle less plausible. Select one to test against the current control and carry the same desire and evidence into the brief.
 
-If an authorized course pack is available, consult How to Come Up With Ad Angles and the Hook Library for this decision.
+When a supported belief is blocking the decision, compare a recognizable story, a verified new fact and a different way to interpret a familiar experience as candidate approaches. Keep only approaches that give the buyer distinct reasons to reconsider. If the evidence points to price, delivery or checkout, route the issue to that decision. Keep new messages in one comparable test and reserve opening-only changes for a hook test.
+
+Use the original How to Come Up With Ad Angles prompt where available. Consult the Hook Library when examples bear on the chosen angle. A short, evidence-based angle selection can advance with the sources it has. Exact completion of an original prompt or template depends on its required inputs.
 
 When two explanations predict the same words or clicks, preserve both until a source distinguishes them. Name the finding that would reverse the angle. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 

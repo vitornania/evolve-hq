@@ -25,6 +25,8 @@ For more detail on selecting a desire and matching it to a supported product per
 
 When several motives fit a quote, reconstruct the last real choice and its alternatives. Identify which buyer answer or observed action would separate the explanations. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+When mapping buying hesitation, link what happened, what the buyer tried, what they said they believed and what they did next. Rank a barrier by its relevance to a real buying choice, independent support and what this product can credibly address. Consider practical blockers such as price, timing and checkout. For a beginner, lead with who to talk to first, what they already know and what the first ad could show. Give an awareness split, demographic share or market size only when a suitable source and population support it.
+
 ## Deliverable
 
 Hand off the decision, strongest alternative, relevant source IDs, approved claims and restrictions. State missing product evidence where it affects the decision. When an exact original method was requested, identify any unavailable pass in its method receipt. Keep installation details out of the ordinary marketing handoff.

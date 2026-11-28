@@ -43,7 +43,7 @@
   },
   "market-research": {
     "title": "Research a product and market",
-    "description": "Build an evidence base for product positioning and marketing.",
+    "description": "Research a product, what buyers already know, and what may be holding them back.",
     "inputs": "Product brief or URL, market, and available sources.",
     "output": "A reviewed research brief and source list.",
     "kind": "workflow"
@@ -70,6 +70,7 @@
     "kind": "skill"
   },
   "evolve-competitor-creative": {
+    "original_links": ["Company Research Document"],
     "title": "Study competitor ads",
     "description": "Identify what competing ads emphasize across hooks, offers, and formats.",
     "inputs": "Competitor names, ad links, or supplied examples.",
@@ -78,7 +79,7 @@
   },
   "evolve-insights": {
     "title": "Organize customer insights",
-    "description": "Turn raw evidence into buyer profiles and buying motivations.",
+    "description": "Turn buyer comments into a clear explanation of who hesitates, why, and what to check next.",
     "inputs": "Research notes or a source-indexed evidence file.",
     "output": "Buyer profiles, beliefs, and ad opportunities.",
     "kind": "skill"
@@ -126,6 +127,7 @@
     "kind": "skill"
   },
   "evolve-angles": {
+    "original_links": ["Angle development prompt"],
     "title": "Find ad angles to test",
     "description": "Turn customer insights into distinct creative hypotheses.",
     "inputs": "Product facts and research or customer evidence.",
@@ -183,9 +185,9 @@
   },
   "native-ads-research-to-creative": {
     "title": "Build a long-form native ad",
-    "description": "Develop an evidence-led Facebook or Instagram native ad.",
-    "inputs": "Product research, buyer, offer, and desired format.",
-    "output": "A written ad with review notes and supporting claims.",
+    "description": "Write or review a story ad for Facebook or Instagram, or plan photos for an ad you already have.",
+    "inputs": "Product research, buyer and offer for a new ad, or the exact ad text for photo planning.",
+    "output": "A written ad with review notes or, for image-only jobs, photo directions and image prompts.",
     "kind": "workflow"
   },
   "write-video-ad-scripts": {

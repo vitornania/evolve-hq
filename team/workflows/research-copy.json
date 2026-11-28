@@ -96,10 +96,40 @@
             "id": "research-handoff",
             "skill": "market-research",
             "title": "Deliver the reusable research record",
-            "instruction": "Assemble the passed research reports without repeating the collection or the four prompt passes. Include the evidence register and coverage limits, a receipt for the actual course prompts consulted, and the strongest and conflicting buyer, competitor and account evidence. End with a clearly labeled Creative Grounding Pack covering the product, market and offer, target buyer, locked or ranked desire, awareness, sophistication, the market gap, mechanism pair, One Belief, proof, permitted and unsupported claims, selected angle or options, VOC IDs, destination continuity and first test. Give the research record a date and product scope. Identify any formal Evolve course report or worksheets still outstanding if this local report run cannot produce them. Separate what the ad can promise publicly now from unresolved research and attractive claims requiring proof. Put the strongest contrary finding next to the lead angle so it survives the handoff.",
+            "instruction": "Assemble the passed research reports without repeating the collection or the four prompt passes. Include the evidence register and coverage limits, a receipt for the actual course prompts consulted, and the strongest and conflicting buyer, competitor and account evidence. End with a clearly labeled Creative Grounding Pack covering the product, market and offer, target buyer, locked or ranked desire, awareness, sophistication, the market gap, mechanism pair, One Belief, proof, permitted and unsupported claims, selected angle or options, VOC IDs, destination continuity and first test. Give the research record a date and product scope. Identify any formal Evolve course report or worksheets still outstanding if this local report run cannot produce them. Separate what the ad can promise publicly now from unresolved research and attractive claims requiring proof. Put the strongest contrary finding next to the lead angle so it survives the handoff. Lead with who to talk to first, what they already seem to know and what the first ad could show or test. Specify where the evidence is thin and put the detailed source record below. Give market-wide shares or demographics only when the sources support the population and denominator.",
             "checks": [
+              "A beginner can find the first audience, what that audience appears to know and a first message or evidence action at the top. Material uncertainties stay visible.",
               "The assembled report retains the evidence record and the order and actual completion status of the four original passes.",
               "A creator can reuse the handoff with its exact facts, proof gaps, buyer and test objective without redoing the research."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "buyer-hesitation",
+        "title": "Why are people hesitating to buy?",
+        "description": "Paste buyer comments, interviews, or a product link with what you have observed. Get the main reason people may be holding back and one useful next step.",
+        "steps": [
+          {
+            "id": "collect-belief-evidence",
+            "skill": "market-research",
+            "title": "Find what buyers tried and what happened",
+            "instruction": "Research the product and decision the user supplied. If you can inspect public sources, use relevant customer discussions, reviews or supplied records and record links, date, and selection limits. If a page or review cannot be opened, keep it uninspected. For each useful account trace what happened, what the buyer did or tried, what they actually said they believed, and the next buying action if known. Record an emotion only when supported. Keep exact short quotes separate from paraphrases and inferences. Separate buyer accounts from seller copy and repeat postings from independent speakers. Count mentions only in the inspected sample and only when meaningful. Keep competing evidence, price, delivery and other practical blockers. With sparse input, hand off the observed facts and a specific collection question rather than guessing demographics, a market-wide awareness distribution, or why people abandoned.",
+            "checks": [
+              "Each useful account has a source and distinguishes the event, attempted action, belief or inference and any observed buying behavior.",
+              "Repeated sources, contrary cases and material uncertainty remain visible. No unsupported quotes, demographics or market shares appear.",
+              "If evidence is sparse, the report provides a concrete question or observation that would help distinguish the likely barriers."
+            ]
+          },
+          {
+            "id": "choose-buying-barrier",
+            "skill": "evolve-insights",
+            "title": "Choose what to address first",
+            "instruction": "Start with a plain-language answer. State who appears to hesitate, the leading reason, and the most useful thing the owner can check or show next. Compare the leading plausible explanation with a serious alternative such as fit, price, delivery, checkout or timing. Distinguish the buyer’s reported experience and belief from your interpretation of the buying decision. Keep a narrower, local finding where the evidence covers only some buyers. If a belief is best supported, connect it to one verified demonstration or fact, or identify the exact missing proof and a smaller defensible test. If practical friction better explains where buyers stopped, route to the relevant offer, page or checkout check. Recommend one low-risk action and state what evidence would change it. Keep technical language optional.",
+            "checks": [
+              "The opening explains who hesitates, the strongest supported reason and the first useful action in plain language.",
+              "The recommendation compares a genuine rival explanation and is tied to what the supplied evidence can establish.",
+              "The next action goes to the correct part of the buyer journey, with a specific observation that could change the choice. Missing information leads to a useful provisional answer or a targeted question."
             ]
           }
         ]
@@ -143,7 +173,7 @@
             "id": "competitor-offers",
             "skill": "competitor-profiling",
             "title": "Compare offers and alternatives",
-            "instruction": "Build dated profiles grouped by direct competitors and substitutes. Record market, currency, observed or supplied price, pack size, terms, promise, apparent mechanism, proof, landing destination and source for material facts. Make like-for-like comparisons and mark inaccessible details. Reuse existing dated profiles only where still relevant to the decision. Separate trial or introductory pricing from the recurring landed price. Show missing fees, eligibility, units or renewal conditions before ranking value, and include doing nothing when it is the buyer’s relevant alternative. When reviews inform the comparison, separate evidence about normal product use, a faulty unit and the seller's fulfillment or service. Carry the buyer's objection with that scope. A rival's complaint suggests a question or a target demonstration; verify the target product before promising it solves the issue.",
+            "instruction": "Build dated profiles grouped by direct competitors and substitutes. Record market, currency, observed or supplied price, pack size, terms, promise, apparent mechanism, proof, landing destination and source for material facts. Make like-for-like comparisons and mark inaccessible details. Reuse existing dated profiles only where still relevant to the decision. Separate trial or introductory pricing from the recurring landed price. Show missing fees, eligibility, units or renewal conditions before ranking value, and include doing nothing when it is the buyer’s relevant alternative. When reviews inform the comparison, separate evidence about normal product use, a faulty unit and the seller's fulfillment or service. Carry the buyer's objection with that scope. A rival's complaint suggests a question or a target demonstration; verify the target product before promising it solves the issue. Where the sources allow, trace a public ad into its landing page, product page and offer. Keep unseen steps open and separate competitor copy from verified terms.",
             "checks": [
               "Comparisons account for market, date, currency and effective unit or bundle size when relevant.",
               "Visible assertions and terms are attributed accurately without treating them as verified efficacy.",
@@ -153,8 +183,9 @@
           {
             "id": "competitor-creative",
             "skill": "evolve-competitor-creative",
+            "original_links": ["Company Research Document"],
             "title": "Find transferable creative patterns",
-            "instruction": "Use the offer profiles and ads that can actually be inspected. Capture dated ad references, hook and beat structure, visual device, proof and destination. Classify separate swipes as cross-niche structure, direct-competitor message territory, or organic format. Identify the saturated message and one buyer-relevant gap with evidence or mark the gap provisional. Suggest an original hypothesis grounded in the user's research. Treat longevity, reach and observed activity as leads. Split the visible attention device from the persuasive proposition and the evidence offered for it. A borrowed format requires independent proof for the target product’s words and visuals.",
+            "instruction": "Use the offer profiles and ads that can actually be inspected. Capture dated ad references, hook and beat structure, visual device, proof and destination. Classify separate swipes as cross-niche structure, direct-competitor message territory, or organic format. Identify the saturated message and one buyer-relevant gap with evidence or mark the gap provisional. Suggest an original hypothesis grounded in the user's research. Treat longevity, reach and observed activity as leads. Split the visible attention device from the persuasive proposition and the evidence offered for it. A borrowed format requires independent proof for the target product’s words and visuals. For an observed ad and destination, identify the selling idea and proof at both steps and the specific buyer question carried across. A long-running ad alone establishes exposure history.",
             "checks": [
               "Each recommendation distinguishes observed creative, performance evidence or its absence, and proposed execution.",
               "A pattern has a stated use, supporting sources and a proof requirement before transfer to another product."

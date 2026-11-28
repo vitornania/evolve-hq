@@ -29,6 +29,8 @@ Separate what happened in a buyer’s life from what happened when they tried a 
 
 When two explanations predict the same words or clicks, preserve both until a source distinguishes them. Name the finding that would reverse the angle. See [Buyer behavior and evidence](../evolve-skill/references/book-customer-decisions.md).
 
+When asked why people hesitate, rank the strongest supported belief beside an alternative such as friction, timing or price. For each candidate, connect the actual event, attempted solution, stated or inferred belief, and buying action. Explain what observation or proof could change the recommendation. If the evidence is thin, give one specific question about a recent choice and a useful provisional next step. Reserve market-wide estimates and demographic splits for sources with a suitable population and denominator.
+
 ## Deliverable
 
 Buyer profiles, beliefs, and ad opportunities.

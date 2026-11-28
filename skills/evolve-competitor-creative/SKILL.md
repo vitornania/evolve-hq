@@ -23,7 +23,9 @@ Record the observed ad, placement or format, date, and destination where accessi
 
 Identify a transferable element such as question order, visual comparison or proof placement. State which target-product evidence would earn the same role. If the target lacks the competitor's result, endorsement or offer, propose a supportable alternative or omit that execution.
 
-If an authorized course pack is available, consult Company Research Document and Winning Ads examples for this decision.
+For a long-form reference, identify which story beat makes a hesitant reader reconsider and which proof earns the change. Preserve that function using the target product’s own facts and original writing. Record observed runtime and any verified results separately. If the supplied links expose only part of the funnel, keep the remaining steps open and describe the observed transition only.
+
+Use the Company Research Document when it is available. Use the Winning Ads examples when their structure helps answer the brief. A scoped teardown can judge the supplied ad and page without a separate swipe library. A requested exact course comparison depends on its original.
 
 Include the buyer’s actual substitute or current workaround. Verify the criterion it wins on and one observable difference the target product can deliver. See [Offers, positioning and acquisition](../evolve-skill/references/book-offer-decisions.md).
 

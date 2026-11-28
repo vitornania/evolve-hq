@@ -27,6 +27,8 @@ When first-person proof is unavailable, a brand can still write a substantive na
 
 Read the lead and the available proof as a pair. If a lead asks whether the product will work for this reader and the evidence shows one example of use, revise an unlocked lead to ask the smaller question the demonstration can answer. For a locked lead, flag the gap and name the evidence or permission needed. In a revision log, check every quoted line against the actual saved draft and keep each revision identified.
 
+For a supplied story ad and an image-only request, preserve the copy. Choose distinct moments already in the story, such as a recognizable situation, its telling detail, or a documented demonstration. Give each idea its exact anchor line, what the feed reader will notice, an actionable phone-photo brief and a standalone image-generator prompt. Prefer two useful, different options over filling a quota. A product belongs in the image when the proof depends on showing it. A fictional scene can illustrate context when labeled. Use authenticated visuals for product results, testimonials and comparisons, with the scope and permission identified. Deliver shot briefs that work without a generator. Render only when an image tool is available, the user requests generation, and any required cost is authorized.
+
 ## Deliverable
 
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.

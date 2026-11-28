@@ -13,7 +13,7 @@
             "id": "native-brief",
             "skill": "cold-traffic-ad-craft",
             "title": "Lock the research and creative brief",
-            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it.",
+            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it. When multiple barriers are plausible, compare the buyer’s actual workaround and next action with practical causes. If a belief is the best-supported barrier, select a story, verified fact or reframe for the job. Each proposed approach should change the reason to reconsider, while all stay inside the approved proof.",
             "checks": [
               "The brief names the target product, buyer, offer, exact awareness conversation, locked desire and angle.",
               "Product facts, customer language, and creative hypotheses stay distinguishable, with source IDs for usable evidence.",
@@ -80,7 +80,7 @@
             "id": "native-brief",
             "skill": "cold-traffic-ad-craft",
             "title": "Lock the research and creative brief",
-            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it.",
+            "instruction": "Use the saved product research and approved brief where available. Identify one researched buyer, one awareness conversation, one desire, one angle, and one test hypothesis for each requested concept. Set the existing belief and the intended shift. Trace each product claim, mechanism and objection to a current source or record the evidence gap. Assign each supplied swipe a specific job only when its route has been established. Select an Evolve Ideation or Imitation brief as appropriate and preserve the original structure when available. State which creative inputs are sufficiently supported to draft. Distinguish what this buyer knows from what similar ads have already trained them to distrust. Name the first belief that must change and the particular product evidence that could change it. When multiple barriers are plausible, compare the buyer’s actual workaround and next action with practical causes. If a belief is the best-supported barrier, select a story, verified fact or reframe for the job. Each proposed approach should change the reason to reconsider, while all stay inside the approved proof.",
             "checks": [
               "The brief names the target product, buyer, offer, exact awareness conversation, locked desire and angle.",
               "Product facts, customer language, and creative hypotheses stay distinguishable, with source IDs for usable evidence.",
@@ -122,6 +122,35 @@
               "The copy review names concrete lines and evaluates pacing, hook payoff, and believability separately from the strategy pass. Inspect the final public copy itself for repeated claims and caveats. Each retained repetition earns its place through a new observation, proof, or action; otherwise revise the line.",
               "Read Final N3 as a cold feed ad. The opening paragraphs name a concrete evidence-backed buyer moment before the proof and offer. The proof answers a narrow question raised by that situation. In a repair, recover the moment from the available source instead of adding a generic shopping caution. A story brief needs more than a product caption. The offer stays unchanged and every implied result stays within the evidence.",
               "The image direction conveys one recognizable moment at feed size and its role ties back to specific copy or customer evidence."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "story-images",
+        "title": "Plan images for my story ad",
+        "description": "Paste the ad text in the brief or reuse your reviewed draft. Get distinct phone-photo ideas and prompts you can use with an image tool or send to a photographer.",
+        "steps": [
+          {
+            "id": "story-image-moments",
+            "skill": "native-ads-research-to-creative",
+            "title": "Find the moments worth showing",
+            "instruction": "Treat the supplied finalized native ad or advertorial as locked copy and leave it intact. Select two or three genuinely distinct moments already in the copy, or fewer when only one moment is usable. Quote the exact short anchor line and name what the viewer should notice on a phone. Consider a recognizable situation, a distinctive object or detail, and a witnessed application when each serves the story. If the image needs to show a product to explain an action, keep the product and identify which authentic asset is needed. Treat illustrative scenes as illustrations. A visual cannot present an invented customer, endorsement, product result or before-and-after as proof. If the exact copy was not supplied or accessible, ask for that copy rather than making it up.",
+            "checks": [
+              "Every proposed moment is tied to an exact supplied copy line and has a distinct purpose, or the report explains why the evidence supports fewer options.",
+              "The supplied copy is preserved. Any scene that needs actual product, customer or outcome proof identifies the authentic material or the missing input.",
+              "Each usable moment makes sense at feed size and fits the audience without adding unsupported personal or demographic details."
+            ]
+          },
+          {
+            "id": "story-image-briefs",
+            "skill": "native-ads-research-to-creative",
+            "title": "Write shot briefs and image prompts",
+            "instruction": "Turn the useful moments into two or three compact phone-photo shot briefs, or use the smaller supported set. Start with the first image you would try and why. For each, include the exact copy anchor, who took the photo or camera angle, subject and visible action, setting and light, the one detail that matters at feed size, and a standalone text prompt. Note which crops work for a square or portrait feed. Clearly label illustrative scenes and keep real product results, customer identity and comparisons tied to authenticated visuals and usage rights. If a proof concept needs real materials, give a shoot direction or use the supplied approved asset before proposing a generated substitute. Keep generated or staged details out of evidentiary claims. Do not rewrite the ad or say that an image was generated. Give a useful first brief or input request when exact copy or proof is missing. Deliver directions and prompts suitable for a photographer or the user’s chosen tool.",
+            "checks": [
+              "Each useful concept has a copy anchor, concrete shot direction and standalone prompt, with a practical first pick.",
+              "The camera, crop and action match the intended moment and preserve the ad as supplied. Distinct concepts test different visuals.",
+              "Any illustrated scene, actual evidence asset or missing proof is accurately identified, and a shot brief or prompt is never described as a finished image."
             ]
           }
         ]

@@ -25,6 +25,8 @@ Offer, audience, product facts, and any draft.
 
 When the same product serves readers at different stages, choose the opening from what each reader already accepts. Use the next line to answer the first material doubt. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
+When a brief includes several possible objections, tie the leading hesitation to a documented buyer experience and attempted workaround. Check whether a practical obstacle explains the action better. Choose a story, verified fact or reframe according to what would actually change that reader’s decision. Use a bounded demonstration or label the gap if the selected belief calls for proof the product does not have.
+
 ## Deliverable
 
 A cold-audience copy direction or revision.

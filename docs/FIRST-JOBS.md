@@ -26,6 +26,14 @@ If the provider gives no answer, the workflow retries that call once. If a stage
 | Review & Iterate Ads | Diagnoses misses across the ad and the store, checks finished creative, and plans the next controlled test. |
 | Store Review & CRO | Audits the supplied page and gallery, prioritizes specific edits, and proposes a first conversion test. |
 
+## Find why shoppers hesitate
+
+In **Market Research**, pick **Why are people hesitating to buy?** Paste a few real buyer comments or include the product link and what you’ve observed. The report gives you the strongest supported explanation, another possibility worth checking, and one action. When the evidence is thin, it gives you a precise question to ask or an observation to look for.
+
+## Plan images for an existing story ad
+
+In **Native Ads**, pick **Plan images for my story ad**. Paste the ad text in the brief or reuse the reviewed draft. You’ll get a first pick and a small set of distinct photo ideas tied to lines in the ad. Copy the shot brief to a photographer or the prompt to your image tool. If a shot needs to show a real result or product comparison, the brief tells you what evidence to supply.
+
 ## Check an individual skill on a practice brief
 
 Run `python3 scripts/exercise_skills.py evolve-angles` from the HQ folder. You can list several skill IDs or select `--all` for all 62. This uses your signed-in provider for each draft, review and any revisions. Each exercise starts a fresh run. Open the report at the printed path and compare the actual decision with the expected result printed afterward. The [practice briefs](../examples/skill-quality-cases.json) use fictional products and include cases where declining a claim or requesting evidence is the correct decision.
