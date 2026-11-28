@@ -50,4 +50,6 @@ Read the packshot, on-image text and depicted result together before a launch re
 
 Return the brief and selection coverage for planning. For a build, use the [local PNG and editable SVG renderer](../adapt-reference-ad/references/local-rendering.md) or the requested connected editor. Use a fresh design, preserve the reference, and check full-size and mobile renders.
 
+In an individual HQ run requesting an actual image, supply one complete `static-layout` JSON block using [HQ image preview](references/hq-image-preview.md). The reviewed layout enables the **Preview image** button. The user can use that button to create and download the image locally. Check the layout, words, aspect ratio and assets before review. A complete layout is ready for that preview. A claimed preview or export requires a real file. A headline-only or template-only request finishes at the requested choice.
+
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.

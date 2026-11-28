@@ -1,4 +1,6 @@
 """Verify the public release from a new checkout without AI credentials."""
+import base64
+from importlib.util import find_spec
 import json
 import os
 from pathlib import Path
@@ -144,6 +146,38 @@ try:
         assert error.code == 400
     else:
         raise AssertionError("A missing cost was accepted as zero.")
+    with tempfile.TemporaryDirectory(dir=artifact.parent) as directory:
+        preview_task = Path(directory).resolve()
+        preview_id = preview_task.relative_to(ROOT / "tasks").as_posix()
+        snapshot = preview_task / "run.json"
+        preview_layout = {"width": 1080, "height": 1350, "layers": [
+            {"id": "headline", "type": "text", "text": "Check the fit", "font": "sans", "size": 64,
+             "x": 100, "y": 155, "max_width": 880},
+        ]}
+        step = {"id": "build-static-ads-in-figma", "skill": "build-static-ads-in-figma", "status": "review"}
+
+        def preview(layout):
+            step["report"] = "```static-layout\n" + json.dumps(layout) + "\n```"
+            snapshot.write_text(json.dumps({"steps": [step], "status": "review"}), encoding="utf-8")
+            request = Request(base + "/api/static-preview",
+                              data=json.dumps({"run": preview_id, "step": step["id"]}).encode("utf-8"),
+                              headers={"Origin": base, "Content-Type": "application/json"})
+            with urlopen(request, timeout=22) as response:
+                return json.load(response)
+
+        invalid = dict(preview_layout, layers=[{"id": "image", "type": "image", "file": "../not-an-upload.jpg",
+                                               "x": 0, "y": 0, "width": 100, "height": 100}])
+        try:
+            preview(invalid)
+        except HTTPError as error:
+            assert error.code == 400
+        else:
+            raise AssertionError("The preview accepted a photo outside its uploads.")
+        if find_spec("PIL") and find_spec("fontTools"):
+            output = preview(preview_layout)
+            assert base64.b64decode(output["png"]).startswith(b"\x89PNG")
+            svg = base64.b64decode(output["svg"])
+            assert b"Check the fit</text>" in svg and b"data:font/" not in svg
     with urlopen(base + "/api/static-libraries", timeout=5) as response:
         assert json.load(response) == []
     with urlopen(base + "/api/activity", timeout=5) as response:

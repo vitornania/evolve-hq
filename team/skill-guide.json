@@ -184,11 +184,18 @@
     "kind": "skill"
   },
   "native-ads-research-to-creative": {
-    "title": "Build a long-form native ad",
+    "title": "Write a story ad",
     "description": "Write or review a story ad for Facebook or Instagram, or plan photos for an ad you already have.",
-    "inputs": "Product research, buyer and offer for a new ad, or the exact ad text for photo planning.",
+    "inputs": "A product link or a few product facts for a new ad. Paste the exact ad text if you want photo ideas for it.",
     "output": "A written ad with review notes or, for image-only jobs, photo directions and image prompts.",
-    "kind": "workflow"
+    "kind": "workflow",
+    "search_aliases": [
+      "write a Facebook story ad",
+      "build a long-form native ad",
+      "photos for my ad",
+      "plan pictures for a story ad",
+      "write a Facebook ad that tells a story"
+    ]
   },
   "write-video-ad-scripts": {
     "title": "Write a video ad script",
@@ -251,14 +258,26 @@
     "description": "Match the source message, type and layout to your product and test.",
     "inputs": "Reference image, product, verified claims, and target format.",
     "output": "A complete replacement map and instructions for a local or connected-editor build.",
-    "kind": "skill"
+    "kind": "skill",
+    "search_aliases": [
+      "use this ad for my product",
+      "make a picture like this",
+      "adapt an example image ad"
+    ]
   },
   "build-static-ads-in-figma": {
-    "title": "Plan or build static ads",
-    "description": "Review every available template for a test, or turn a customer insight into a layout.",
-    "inputs": "For browsing, a library link or authorized source. For planning, a brief, product assets, dimensions, and brand guidance.",
-    "output": "A template decision and production brief. The skill can also export PNG and editable SVG in a local terminal session.",
-    "kind": "skill"
+    "title": "Plan or build an image ad",
+    "description": "Turn your product into a Facebook or Instagram picture ad, choose headlines, or find a template.",
+    "inputs": "Share a product link or what you sell. Attach a product photo if you want it in the ad. Tell us if you want headlines, a layout, or an image export.",
+    "output": "A headline shortlist or a reviewed layout. Click Preview image in HQ to render and download an image from a supported layout.",
+    "kind": "skill",
+    "search_aliases": [
+      "make a picture ad",
+      "make an image ad without Canva",
+      "make an image ad without Figma",
+      "build a static ad",
+      "plan or build static ads"
+    ]
   },
   "metaphor-ads": {
     "title": "Find visual metaphors for an ad",

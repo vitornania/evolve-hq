@@ -14,6 +14,7 @@ from advisor import MAX_CHAT_BYTES, respond_to_chat
 from cpa import calculate_cpa
 from providers import status as provider_status
 from skill_runs import MAX_REQUEST_BYTES, get_run, start_run
+from static_preview import render_preview
 from workflow_batches import workflow_catalog
 
 DEFAULT_PORT = 8739
@@ -48,6 +49,7 @@ POST_ROUTES = {
     "/api/run": (start_run, MAX_REQUEST_BYTES, 202),
     "/api/advisor": (respond_to_chat, MAX_CHAT_BYTES, 200),
     "/api/cpa": (calculate_cpa, 4096, 200),
+    "/api/static-preview": (render_preview, 4096, 200),
 }
 
 

@@ -277,6 +277,9 @@ def selected_method(source, *, workflow=False, original_links=()):
         else:
             paths.append((portable, "Portable skill"))
         paths.extend(decision_references(portable, workflow))
+        preview_guide = portable.parent / "references/hq-image-preview.md"
+        if not workflow and name == "build-static-ads-in-figma" and preview_guide.is_file():
+            paths.append((preview_guide, "Decision reference"))
     paths.extend((path, "Original method") for path in linked_originals(source, original_links))
 
     sections, receipt = [], []

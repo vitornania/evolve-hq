@@ -157,7 +157,7 @@ def font_css(fonts):
     return escape("\n".join(rules), quote=False)
 
 
-def render(spec_path, output):
+def render(spec_path, output, *, embed_fonts=True):
     try:
         from fontTools.ttLib import TTFont
         from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -194,7 +194,7 @@ def render(spec_path, output):
     canvas.convert("RGB").save(output / "ad.png")
     (output / "ad.svg").write_text(
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'viewBox="0 0 {width} {height}"><defs><style>{font_css(fonts)}</style></defs>\n'
+        f'viewBox="0 0 {width} {height}"><defs><style>{font_css(fonts) if embed_fonts else ""}</style></defs>\n'
         + "\n".join(parts) + "\n</svg>\n", encoding="utf-8",
     )
     summary = {
@@ -202,7 +202,7 @@ def render(spec_path, output):
         "layers": sorted(ids),
         "fonts": [{"file": f.path.name, "family": f.family, "postscript": f.postscript,
                    "version": f.version, "sha256": f.digest,
-                   "weight": f.weight, "embedded_in_svg": f.embeds} for f in fonts.values()],
+                   "weight": f.weight, "embedded_in_svg": embed_fonts and f.embeds} for f in fonts.values()],
     }
     (output / "render-report.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 
@@ -211,9 +211,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("layout", type=Path, help="Local JSON layout and adjacent assets")
     parser.add_argument("output", type=Path, help="Directory for ad.png, ad.svg and render-report.json")
+    parser.add_argument("--no-embed-fonts", action="store_true", help="Use local font names in the SVG")
     args = parser.parse_args()
     try:
-        render(args.layout, args.output)
+        render(args.layout, args.output, embed_fonts=not args.no_embed_fonts)
     except (ValueError, KeyError, TypeError, OSError) as exc:
         print(f"Render failed: {exc}", file=sys.stderr)
         return 1

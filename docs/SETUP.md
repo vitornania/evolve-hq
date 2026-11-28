@@ -57,6 +57,7 @@ Start with a public product link, a short brief, or a screenshot. Tool access an
 ## Optional local tools
 
 - **ROAS and creator queues.** Run directly with Python using the [examples](../examples/).
+- **Image ad preview.** Install the free local renderer dependencies once using the same Python that opens HQ. In the HQ folder run `python3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on a Mac or `py -3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on Windows. Then choose **Preview image** in the reviewed image ad. The preview uses local Arial or Georgia.
 - **Ollama drafts.** Install [Ollama](https://ollama.com/download), then run `ollama pull qwen3:4b-instruct`. The runner connects to Ollama on this machine.
 - **Storyboard previews.** Install [FFmpeg](https://ffmpeg.org/download.html), then install Pillow into your Python environment. For example, `python3 -m venv .venv`, `source .venv/bin/activate`, and `python -m pip install Pillow`. Keep that environment active when you run the storyboard tool.
 - **Offline transcription.** Create an isolated Python 3.12 environment with `python3.12 -m venv .office/envs/edit`. Install `faster-whisper` and `numpy` with `.office/envs/edit/bin/python -m pip install faster-whisper numpy`. Install FFmpeg. The first transcription can download the Whisper model.

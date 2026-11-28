@@ -189,15 +189,26 @@ function skillRow(id) {
   row.append(copy,add,details);
   return row;
 }
+function skillSearchWords(text) {
+  return text.toLowerCase().match(/[\p{L}\p{N}]+/gu)||[];
+}
 function renderSkills() {
-  const search=$("#search").value.toLowerCase().trim().split(/\s+/);
+  const smallWords=new Set(["a","an","the","for","my","to","me","and","on","with","of"]);
+  const search=skillSearchWords($("#search").value).filter(word=>!smallWords.has(word));
+  const phrase=search.join(" ");
   const desk=$("#desk").value;
-  const result=Object.entries(guide).filter(([id,info])=>{
-    const text=[id,info.title,info.description,info.inputs,info.output].join(" ").toLowerCase();
-    return (!desk||deskBySkill[id]===desk) && search.every(term=>text.includes(term));
-  });
+  const result=[];
+  for (const [id,info] of Object.entries(guide)) {
+    if (desk&&deskBySkill[id]!==desk) continue;
+    const names=[id,info.title,...(info.search_aliases||[])];
+    const haystack=skillSearchWords([...names,info.description,info.inputs,info.output].join(" ")).join(" ");
+    if (!search.every(word=>haystack.includes(word))) continue;
+    const direct=phrase&&names.some(name=>skillSearchWords(name).filter(word=>!smallWords.has(word)).join(" ")===phrase);
+    result.push({id,direct:Boolean(direct)});
+  }
+  result.sort((a,b)=>Number(b.direct)-Number(a.direct));
   const list=$("#skill-list");
-  list.replaceChildren(...result.slice(0,visibleLimit).map(([id])=>skillRow(id)));
+  list.replaceChildren(...result.slice(0,visibleLimit).map(({id})=>skillRow(id)));
   if (result.length>visibleLimit) list.append(button("Show more skills","",()=>{
     visibleLimit+=12;
     renderSkills();
@@ -249,7 +260,12 @@ function markdown(body, markdownText) {
       }
       imagePrompt=line==="```image-prompt";
       code=element("pre");
-      body.append(code);list=null;block=null;continue;
+      if(line==="```static-layout") {
+        const layout=element("details");
+        layout.append(element("summary","Layout details"),code);
+        body.append(layout);
+      } else body.append(code);
+      list=null;block=null;continue;
     }
     if (code) {code.append(document.createTextNode(raw+"\n"));continue;}
     if (!line) {list=null;block=null;quote=null;continue;}
@@ -296,6 +312,42 @@ function markdown(body, markdownText) {
       inline(line,block);
     }
   }
+}
+function imagePreview(run,step) {
+  const panel=element("div","","static-preview");
+  const status=element("p","","muted");
+  status.setAttribute("role","status");
+  const preview=button("Preview image","",async()=>{
+    preview.disabled=true;
+    status.textContent="Rendering locally…";
+    try {
+      const response=await fetch("/api/static-preview",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({run,step})
+      });
+      const result=await response.json();
+      if (!response.ok) throw new Error(result.error||"The preview couldn’t render.");
+      const image=element("img");
+      image.src="data:image/png;base64,"+result.png;
+      image.alt="Preview of the reviewed image ad layout";
+      const links=element("div","","progress-actions");
+      for (const [format,type,label] of [["png","png","Download PNG"],["svg","svg+xml","Download editable SVG"]]) {
+        const link=element("a",label);
+        link.href="data:image/"+type+";base64,"+result[format];
+        link.download="image-ad."+format;
+        links.append(link);
+      }
+      status.textContent="Preview ready. Check the image and wording before you use it.";
+      panel.append(image,links);
+      preview.remove();
+    } catch (error) {
+      status.textContent=error.message||"The preview couldn’t render.";
+      preview.disabled=false;
+    }
+  },"secondary");
+  panel.append(preview,status);
+  return panel;
 }
 function clearRun() {
   clearTimeout(pending);
@@ -428,6 +480,10 @@ function renderRun(data) {
         review.append(element("strong","Local references checked"),sources);
       }
       content.append(review);
+    }
+    if (step.status==="review"&&!data.workflows?.length&&step.skill==="build-static-ads-in-figma"
+        &&step.report?.includes("```static-layout")) {
+      content.append(imagePreview(data.id,step.id));
     }
     if (step.report) markdown(content,step.report);
     card.append(header,content);reports.append(card);

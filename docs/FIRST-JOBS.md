@@ -36,6 +36,10 @@ In **Market Research**, pick **Why are people hesitating to buy?** Paste a few r
 
 In **Native Ads**, pick **Plan images for my story ad**. Paste the ad text in the brief or reuse the reviewed draft. You’ll get a first pick and a small set of distinct photo ideas tied to lines in the ad. Send a shot brief to a photographer or use **Copy image prompt** to take a generator-ready option to your image tool. If a shot needs to show a real result or product comparison, the brief tells you what evidence to supply.
 
+## Make a first image ad
+
+Open **All skills** and search for “make a picture ad.” Choose **Plan or build an image ad**, attach the product photo, and say you want one image. Add the product link or any confirmed product facts. When the reviewed layout is ready, click **Preview image** to check it at phone size and download a PNG or editable SVG. [Set up the local preview](SETUP.md#optional-local-tools) if HQ asks for it. The editable SVG uses the fonts installed on the computer that opens it.
+
 ## Check an individual skill on a practice brief
 
 Run `python3 scripts/exercise_skills.py evolve-angles` from the HQ folder. You can list several skill IDs or select `--all` for all 62. This uses your signed-in provider for each draft, review and any revisions. Each exercise starts a fresh run. Open the report at the printed path and compare the actual decision with the expected result printed afterward. The [practice briefs](../examples/skill-quality-cases.json) use fictional products and include cases where declining a claim or requesting evidence is the correct decision.
