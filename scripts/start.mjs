@@ -2,13 +2,17 @@ import {spawn, spawnSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 
 const windows = process.platform === "win32";
-const commands = windows ? [["py", "-3"], ["python"], ["python3"]] : [["python3"], ["python"]];
+const configuredPython = process.env.EVOLVE_HQ_PYTHON;
+const defaults = windows ? [["py", "-3"], ["python"], ["python3"]] : [["python3"], ["python"]];
+const commands = configuredPython ? [[configuredPython]] : defaults;
 const python = commands.find(([executable, ...prefix]) => spawnSync(
   executable, [...prefix, "-c", "import sys; sys.exit(sys.version_info < (3, 9))"],
   {stdio: "ignore", windowsHide: true, timeout: 7000}
 ).status === 0);
 if (!python) {
-  console.error("Install Python 3.9 or newer, then reopen the launcher. See docs/SETUP.md.");
+  console.error(configuredPython
+    ? "EVOLVE_HQ_PYTHON must point to a Python 3.9 or newer executable."
+    : "Install Python 3.9 or newer, then reopen the launcher. See docs/SETUP.md.");
   process.exit(1);
 }
 const [executable, ...prefix] = python;

@@ -106,7 +106,8 @@ if os.name == "nt":
     launch = f'cmd.exe /d /c call "Open Evolve HQ.cmd" --no-open --port {port}'
 else:
     launch = ["node", "scripts/start.mjs", "--no-open", "--port", str(port)]
-server = subprocess.Popen(launch, cwd=ROOT, stdout=subprocess.PIPE if os.name != "nt" else None,
+server = subprocess.Popen(launch, cwd=ROOT, env=dict(os.environ, EVOLVE_HQ_PYTHON=sys.executable),
+                          stdout=subprocess.PIPE if os.name != "nt" else None,
                           start_new_session=os.name != "nt")
 base = f"http://127.0.0.1:{port}"
 try:
@@ -172,8 +173,13 @@ try:
             request = Request(base + "/api/static-preview",
                               data=json.dumps({"run": preview_id, "step": step["id"]}).encode("utf-8"),
                               headers={"Origin": base, "Content-Type": "application/json"})
-            with urlopen(request, timeout=22) as response:
-                return json.load(response)
+            try:
+                with urlopen(request, timeout=22) as response:
+                    return json.load(response)
+            except HTTPError as error:
+                if error.code >= 500:
+                    raise AssertionError(error.read().decode("utf-8", errors="replace")) from error
+                raise
 
         invalid = dict(preview_layout, layers=[{"id": "image", "type": "image", "file": "../not-an-upload.jpg",
                                                "x": 0, "y": 0, "width": 100, "height": 100}])
