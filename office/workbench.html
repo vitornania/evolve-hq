@@ -42,6 +42,7 @@
     <label for="provider">AI provider</label>
     <select id="provider" aria-describedby="provider-status"></select>
     <span id="provider-status" role="status"></span>
+    <a href="/memory">Learning memory</a>
     <a href="/setup-guide" target="_blank" rel="noopener">Setup guide</a>
   </div>
   <div class="workbench" id="workbench">
@@ -92,6 +93,7 @@
       <form id="run-form" novalidate>
         <h3 id="input-heading">What should we use?</h3>
         <div id="input-guidance" class="muted" aria-live="polite">Select a workflow or skill to see what to bring.</div>
+        <label>Brand <span>optional</span><input id="brand-name" maxlength="120" placeholder="Example: Studio North"></label>
         <label>Product or project name <span>optional</span><input id="product-name" maxlength="120" placeholder="Example: Flow"></label>
         <fieldset id="source-run" class="workflow-stages source-run" hidden></fieldset>
         <label>Page link <span>optional</span><input id="page-url" inputmode="url" placeholder="mystore.com/products/your-product" maxlength="1800"></label>

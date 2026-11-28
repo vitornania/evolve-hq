@@ -153,3 +153,20 @@ input:not([type=file]),textarea,select{font-weight:430}
 .related-skills .used-skill a{font-weight:650}
 @media(max-width:940px){.workflow-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.workflow-directory,.guided-modes{grid-template-columns:1fr}.guided-intro{padding-top:16px}.guided-step{align-items:flex-start;flex-direction:column;gap:5px}.step-skill{margin-left:24px;max-width:calc(100% - 24px);text-align:left}}
+
+.memory-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,340px);gap:18px;margin:23px 0}
+.memory-panel{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px}
+.memory-panel h2{font-size:21px;letter-spacing:-.035em;margin:0 0 12px}
+.memory-panel label{margin-bottom:12px}
+.memory-lesson{padding:13px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.memory-lesson h3{margin:0 0 5px;font-size:15px;line-height:1.35}
+.memory-lesson p,.memory-lesson details,.memory-metric,#memory-status{font-size:13px;line-height:1.45;color:var(--muted)}
+.memory-lesson p{margin:4px 0}
+.memory-lesson summary{cursor:pointer;width:max-content;max-width:100%;color:var(--green)}
+.memory-lesson details a{display:inline-block;margin-top:5px}
+.memory-metric{padding:8px 0;border-top:1px solid var(--line);margin:0}
+.memory-metric>*{display:block}
+.memory-metric strong{color:var(--text)}
+.memory-lesson .progress-actions label{flex:1 0 100%;margin:0}
+@media(max-width:760px){.memory-grid{grid-template-columns:1fr}}
+#memory-preference{padding:5px 0 11px;border-bottom:1px solid var(--line)}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning memory · Evolve HQ</title>
+<link rel="stylesheet" href="/workbench.css">
+<script type="module" src="/memory.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to learning memory</a>
+<!-- HQ_HEADER -->
+<main id="main">
+  <section class="guided-intro">
+    <a class="workflow-back" href="/workflows">Workflows &amp; skills</a>
+    <h1>Learning memory</h1>
+    <p>HQ saves evidence-backed corrections and recalls relevant lessons before drafting and review.</p>
+  </section>
+  <div class="memory-grid">
+    <section class="memory-panel" aria-labelledby="lessons-title">
+      <h2 id="lessons-title">Lessons</h2>
+      <label>Filter lessons<input id="lesson-filter" type="search" placeholder="Search by skill, brand, or correction"></label>
+      <div id="lesson-list"></div>
+    </section>
+    <aside class="memory-panel" aria-labelledby="validation-title">
+      <h2 id="validation-title">Background validation</h2>
+      <label>Replay checks per day
+        <select id="replay-limit">
+          <option value="0">Paused</option>
+          <option value="1">1 per day</option>
+          <option value="2">2 per day</option>
+          <option value="3">3 per day</option>
+        </select>
+      </label>
+      <p class="muted">A check uses the original AI provider to compare first drafts across the original task, a new task, and an exception.</p>
+      <form id="memory-preference">
+        <label>Your default preference
+          <textarea id="preference-text" rows="2" maxlength="400" placeholder="Example: Put one recommendation first."></textarea>
+        </label>
+        <button type="submit" class="secondary">Save preference</button>
+      </form>
+      <p role="status" id="memory-status"></p>
+      <h2>First drafts</h2>
+      <div id="memory-counts"></div>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

@@ -202,3 +202,4 @@ finally:
             assert probe.connect_ex(("127.0.0.1", port)) != 0, "The office port is still open."
 print("Launcher, 62 skills, live activity, CPA, ROAS and native install verified.")
 subprocess.run([sys.executable, "scripts/check_workflow_batches.py"], cwd=ROOT, check=True)
+subprocess.run([sys.executable, "scripts/check_learning.py"], cwd=ROOT, check=True)

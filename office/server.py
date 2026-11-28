@@ -12,15 +12,17 @@ from urllib.parse import parse_qs, unquote, urlsplit
 from activity import ROOT, snapshot
 from advisor import MAX_CHAT_BYTES, respond_to_chat
 from cpa import calculate_cpa
+from learning import change as change_memory, dashboard as memory_dashboard
+from learning_replay import start_worker
 from providers import status as provider_status
-from skill_runs import MAX_REQUEST_BYTES, get_run, start_run
+from skill_runs import MAX_REQUEST_BYTES, RUN_LOCK, get_run, start_run
 from static_preview import render_preview
 from workflow_batches import workflow_catalog
 
 DEFAULT_PORT = 8739
 OFFICE = Path(__file__).resolve().parent
 THREE = ROOT / "node_modules/three"
-PAGES = {"/": "office", "/workflows": "workbench", "/local-tools": "local"}
+PAGES = {"/": "office", "/workflows": "workbench", "/local-tools": "local", "/memory": "workbench"}
 CONTENT_TYPES = {".html": "text/html", ".md": "text/plain", ".css": "text/css",
                  ".js": "text/javascript", ".json": "application/json", ".woff2": "font/woff2"}
 FILES = {
@@ -32,6 +34,8 @@ FILES = {
     "/workflows": OFFICE / "workbench.html",
     "/workbench.css": OFFICE / "workbench.css",
     "/workbench.js": OFFICE / "workbench.js",
+    "/memory": OFFICE / "memory.html",
+    "/memory.js": OFFICE / "memory.js",
     "/static-libraries.js": OFFICE / "static-libraries.js",
     "/advisor.js": OFFICE / "advisor.js",
     "/header.css": OFFICE / "header.css",
@@ -50,6 +54,7 @@ POST_ROUTES = {
     "/api/advisor": (respond_to_chat, MAX_CHAT_BYTES, 200),
     "/api/cpa": (calculate_cpa, 4096, 200),
     "/api/static-preview": (render_preview, 4096, 200),
+    "/api/memory": (lambda payload: change_memory(ROOT, payload), 4096, 200),
 }
 
 
@@ -98,6 +103,12 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/api/providers":
             self.json_response(provider_status())
+            return
+        if path == "/api/memory":
+            try:
+                self.json_response(memory_dashboard(ROOT))
+            except (sqlite3.Error, OSError):
+                self.json_response({"error": "Local memory is temporarily unavailable."}, 503)
             return
         if path == "/api/workflows":
             self.json_response(workflow_catalog())
@@ -181,10 +192,13 @@ def main():
         if args.open:
             import webbrowser
             webbrowser.open(url)
+        stop_learning = start_worker(ROOT, RUN_LOCK.locked)
         try:
             server.serve_forever()
         except KeyboardInterrupt:
             pass
+        finally:
+            stop_learning.set()
 
 
 if __name__ == "__main__":

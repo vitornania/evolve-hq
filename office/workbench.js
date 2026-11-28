@@ -548,6 +548,7 @@ function reuseResults(data, approved) {
     error();
     renderSelection();
   },"secondary"));
+  $("#brand-name").value=data.learningContext?.brand||"";
   $("#product-name").value=data.product;
   for (const id of ["#page-url","#brief","#images"]) $(id).value="";
   updateImageNames();
@@ -650,6 +651,28 @@ function renderRun(data) {
         &&step.report?.includes("```static-layout")) {
       content.append(imagePreview(data.id,step.id));
     }
+    if (step.learning) {
+      const details=element("details","","quality-note");
+      details.append(element("summary","Learning memory"));
+      details.append(element("p",step.learning.firstPass
+        ? "The first draft passed its quality review." : "The first draft needed attention."));
+      for (const lesson of step.learning.recalled||[]) {
+        details.append(element("p","Recalled lesson · "+lesson.correction));
+      }
+      if (step.learning.saved) details.append(element("p","A verified correction was saved for later runs."));
+      for (const past of step.learning.pastDecisions||[]) {
+        details.append(element("p","Prior decision · "+past.choice));
+      }
+      for (const record of step.learning.tracker||[]) {
+        details.append(element("p",record.creative+" · "+record.window+" · "+record.verdict));
+      }
+      if (step.learning.repeated?.length) details.append(element("p","The reviewer flagged a repeat of a saved lesson."));
+      if (step.learning.narrowed?.length) details.append(element("p","A lesson was narrowed after repeated misapplication."));
+      const view=element("a","Open learning memory");
+      view.href="/memory";
+      details.append(view);
+      content.append(details);
+    }
     if (step.report) markdown(content,step.report);
     card.append(header,content);reports.append(card);
   }
@@ -709,7 +732,7 @@ async function submit(event) {
       : {skills:selected};
     const response=await fetch("/api/run",{
       method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({...selection,product:$("#product-name").value.trim(),url,brief,
+      body:JSON.stringify({...selection,brand:$("#brand-name").value.trim(),product:$("#product-name").value.trim(),url,brief,
         provider:$("#provider")?.value || "codex",images:await Promise.all(files.map(toBase64))})
     });
     const data=await response.json();

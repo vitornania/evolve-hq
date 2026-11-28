@@ -10,6 +10,7 @@ from threading import Lock, Thread
 from urllib.parse import urlsplit
 
 from activity import ROOT, new_task, process_running, update
+from learning import context as learning_context
 from providers import reply, require
 from workflow_batches import HANDOFF_CHECK, MAX_WORKFLOWS, run_batches, workflow_catalog
 
@@ -314,6 +315,7 @@ def run_steps(provider, data, directory, files, sources, fields):
 
 def start_run(payload):
     product, url, brief, images, reused_images, steps, sources, provider, workflows, carried = validate(payload)
+    identity = learning_context(field(payload, "brand", 120), field(payload, "product", 120), url)
     if not RUN_LOCK.acquire(blocking=False):
         raise RuntimeError("A skill run is already in progress. Wait for it to finish before starting another.")
     try:
@@ -327,7 +329,7 @@ def start_run(payload):
         run_id = directory.relative_to(ROOT / "tasks").as_posix()
         from urllib.parse import quote
         data = {"id": run_id, "product": product, "status": "queued", "steps": steps, "provider": provider,
-                "workflows": workflows, "carried": carried,
+                "workflows": workflows, "carried": carried, "learningContext": identity,
                 "view": "/workflows?run=" + quote(run_id, safe=""), "pid": os.getpid()}
         save_run(directory, data)
         if not (queued := get_run(run_id)):
