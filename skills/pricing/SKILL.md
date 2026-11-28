@@ -22,3 +22,7 @@ Decide which obstacle the offer can actually remove. Compare the full payable te
 ## Deliverable
 
 Return a price comparison with units, assumptions and one decision-ready test. Use the installed price research and tier references when the request is about discovering willingness to pay or redesigning tiers.
+
+## Decision checks for this skill
+
+Attach dated tier and quantity evidence, including shipping and promo eligibility where visible. Keep edited prices linked to the right market and SKU.

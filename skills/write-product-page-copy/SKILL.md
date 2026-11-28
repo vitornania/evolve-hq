@@ -26,3 +26,7 @@ Keep the category label and first proof cue consistent with the buyer’s reason
 ## Deliverable
 
 Return mobile-first, paste-ready copy for the requested sections. When accessible, use the installed Evolve CRO angle, content and testing modules to choose page work appropriate to the request.
+
+## Decision checks for this skill
+
+Separate the visible product facts and claims from the story. Pair the first objection with the first proof and clear quantity terms.

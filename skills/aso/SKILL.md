@@ -30,3 +30,7 @@ Group listing inputs by the buyer situation and the action the app can demonstra
 Listing copy, image direction, and testing ideas.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Version the screenshot sequence against the current listing. Assign one visible promise and an observable success metric to a screenshot test.

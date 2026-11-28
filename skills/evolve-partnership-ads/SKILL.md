@@ -32,3 +32,7 @@ For a creator demonstration, establish what this speaker can know firsthand and 
 A partnership brief and test plan.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Make creator permissions, disclosure and timing part of the creative version. Separate partner change from hook change in the comparison.

@@ -36,7 +36,9 @@
             "id": "desire-hunt",
             "skill": "market-research",
             "title": "Find and rank buying desires",
-            "original_links": ["Desire Hunt"],
+            "original_links": [
+              "Desire Hunt"
+            ],
             "instruction": "Cover Desire Hunt only. Use the first original Evolve pass from the full product research route when its files are available. Verify and use the exact original when available, with product context and known angles supplied separately. Capture distinct ranked desires, exact customer language and stable evidence IDs. Report the prompt source and any unavailable inputs. Where the portable pack lacks the original, label the sourced findings as a focused fallback and keep the exact pass marked incomplete. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. For each serious candidate distinguish urgency, persistence or recurrence for the same buyer, and observed reach across independent buyers. Repeated entries can establish recurrence without expanding reach. An urgent one-off can still lead for an occasion-specific decision. Compare these signals with the audience and verified product action, state where wider demand is unknown, and give the strongest contrary case. For a calendar-sensitive decision, distinguish the occasion when the buyer wants the outcome from the earlier occasion when they choose or order. Use dated evidence from the relevant product and market to place a test. Keep the date provisional if only a seasonal calendar or another market's data is available.",
             "checks": [
               "The leading desire maps to a supported product action. Ranking distinguishes urgency, recurrence and independently observed reach, including unknowns, with source IDs and counterexamples.",
@@ -49,7 +51,9 @@
             "id": "new-mechanisms",
             "skill": "market-research",
             "title": "Check new mechanisms",
-            "original_links": ["New Mechanisms"],
+            "original_links": [
+              "New Mechanisms"
+            ],
             "instruction": "Cover New Mechanisms only. Use the second original Evolve pass, its source map and Market Sophistication document when available, together with verified product facts and the earlier evidence. Evaluate the problem mechanism and product mechanism separately at the observed sophistication level. Explain which links are established and which need proof. If the original is missing, mark the exact pass incomplete and label any focused mechanism analysis separately. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. Separate the buyer’s explanation for the problem, the action that could address it and the verified feature that performs that action. Indicate where a demonstration ends and a longer-term outcome would require additional evidence.",
             "checks": [
               "Mechanisms have a traceable factual basis or a specific proof gap, regardless of market sophistication.",
@@ -61,7 +65,9 @@
             "id": "new-information",
             "skill": "market-research",
             "title": "Find and verify new information",
-            "original_links": ["New Information"],
+            "original_links": [
+              "New Information"
+            ],
             "instruction": "Cover New Information only. Use the third unmodified Evolve pass when available. Use dated firsthand or primary sources where accessible. For each result, state what is new to this market, where it comes from, and which creative decision it changes. If nothing qualifies, name the gap. If the original is missing, mark the exact pass incomplete and label any focused findings separately. For a general or scoped research request, hand off the supported findings with that limitation. Treat missing originals as a blocker when the user requires the exact original pass. Compare the finding against what the specified audience already hears. Explain how it would change a belief or a test, and keep an interesting fact with no such implication out of headline recommendations.",
             "checks": [
               "Every new fact has a source, date, scope and implication, or an explicit reason the cell remains empty.",
@@ -73,7 +79,9 @@
             "id": "buyer-insights",
             "skill": "evolve-insights",
             "title": "Turn evidence into buyer insights",
-            "original_links": ["Evolve Avatar Training"],
+            "original_links": [
+              "Evolve Avatar Training"
+            ],
             "instruction": "Use the earlier evidence and desire, mechanism and information reports to fill the relevant Research to Ad fields when the original workbook is available. Otherwise make a clearly labeled working table with the same practical outputs. For an ordinary research run, missing workbook formatting does not block the source-grounded table. If the owner specifically requests that original workbook, mark exact completion pending and name it. Define the core buyer, meaningful sub-avatars, their shared desire and the different situation, objection, or proof requirement that warrants a distinct ad. If manual VOC is supplied, reconcile its independently coded evidence and contradictions before finalizing profiles. Record awareness, sophistication, belief shift, failed alternatives, proof needs and remaining unknowns. For the leading profile trace a specific occasion through an attempted alternative and its tradeoff to a purchase barrier. If one link is inferred, name the observation that could confirm or overturn it. For a proposed sub-avatar, distinguish a life situation from a prior product attempt. Link an emotion or self-description to the person who expressed it. An example persona can suggest interview questions. Preserve the actual speaker's role when purchaser and user differ, and retain a split only if it changes the message, demonstration or proof. Ask what the second ad would show or say that the first one cannot. If it only repeats a qualifier already shared by both, merge the profile and record the belief or familiarity as a research variable.",
             "checks": [
               "Each retained profile or belief links to specific evidence IDs and the practical messaging consequence. A sourced working table is acceptable for ordinary research when an optional exact workbook is unavailable.",
@@ -85,7 +93,9 @@
             "id": "research-angles",
             "skill": "evolve-angles",
             "title": "Develop and rank ad angles",
-            "original_links": ["Angle development prompt"],
+            "original_links": [
+              "Angle development prompt"
+            ],
             "instruction": "Cover Ad Angles only. Use the fourth original Evolve pass when available, with the retained sub-avatars and prior evidence. When the original is available, preserve the full prompt and examples and supply working inputs separately. Rank three angles per retained profile and three hooks or headlines per angle when evidence permits. Name the first test, the reason for its priority, the pattern used, and the source IDs and claim boundaries. If the original is missing, label the exact pass incomplete and identify any focused fallback. Pair the lead test with the evidence a skeptical buyer would need after the hook and one observable response that would count against the hypothesis.",
             "checks": [
               "Angle and hook choices derive from established profiles and source IDs and include an explicit test priority.",
@@ -101,7 +111,8 @@
             "checks": [
               "A beginner can find the first audience, what that audience appears to know and a first message or evidence action at the top. Material uncertainties stay visible.",
               "The assembled report retains the evidence record and the order and actual completion status of the four original passes.",
-              "A creator can reuse the handoff with its exact facts, proof gaps, buyer and test objective without redoing the research."
+              "A creator can reuse the handoff with its exact facts, proof gaps, buyer and test objective without redoing the research.",
+              "State the concrete customer situation, what the buyer tried, verified product action, strongest alternative and evidence that would reverse the resulting recommendation."
             ]
           }
         ]
@@ -131,7 +142,8 @@
             "checks": [
               "The opening explains who hesitates, the strongest supported reason and the first useful action in plain language.",
               "The recommendation compares a genuine rival explanation and is tied to what the supplied evidence can establish.",
-              "The next action goes to the correct part of the buyer journey, with a specific observation that could change the choice. Missing information leads to a useful provisional answer or a targeted question."
+              "The next action goes to the correct part of the buyer journey, with a specific observation that could change the choice. Missing information leads to a useful provisional answer or a targeted question.",
+              "Distinguish a belief barrier from price, delivery or checkout using the buyer's last observed workaround and where the journey stopped. Name the observation that would distinguish remaining explanations."
             ]
           }
         ]
@@ -162,7 +174,8 @@
             "checks": [
               "Major themes can be traced back to the indexed corpus, including relevant counterexamples.",
               "The handoff says what changed, why it matters for the product decision, and what still requires proof.",
-              "Where competing explanations remain, the proposed observation or neutral interview question could distinguish them."
+              "Where competing explanations remain, the proposed observation or neutral interview question could distinguish them.",
+              "Tie repeated buying situations to independent speakers and exact records. Preserve exceptions and avoid counting duplicate accounts as separate support."
             ]
           }
         ]
@@ -187,12 +200,15 @@
           {
             "id": "competitor-creative",
             "skill": "evolve-competitor-creative",
-            "original_links": ["Company Research Document"],
+            "original_links": [
+              "Company Research Document"
+            ],
             "title": "Find transferable creative patterns",
             "instruction": "Use the offer profiles and ads that can actually be inspected. Capture dated ad references, hook and beat structure, visual device, proof and destination. Classify separate swipes as cross-niche structure, direct-competitor message territory, or organic format. Identify the saturated message and one buyer-relevant gap with evidence or mark the gap provisional. Suggest an original hypothesis grounded in the user's research. Treat longevity, reach and observed activity as leads. Split the visible attention device from the persuasive proposition and the evidence offered for it. A borrowed format requires independent proof for the target product’s words and visuals. For an observed ad and destination, identify the selling idea and proof at both steps and the specific buyer question carried across. A long-running ad alone establishes exposure history.",
             "checks": [
               "Each recommendation distinguishes observed creative, performance evidence or its absence, and proposed execution.",
-              "A pattern has a stated use, supporting sources and a proof requirement before transfer to another product."
+              "A pattern has a stated use, supporting sources and a proof requirement before transfer to another product.",
+              "Link the inspected creative to a dated offer and destination where observable. Describe activity and observed behavior without inferring sales or profitability."
             ]
           }
         ]
@@ -212,7 +228,8 @@
               "The baseline uses actual compatible first-party inputs and clearly marks missing or inconclusive metrics.",
               "Each proposed control and test can be traced to a creative ID and an observable metric or caveat.",
               "A performance recommendation shows the relevant inputs and denominator, and states which confounds prevent a causal creative verdict. The proposed comparison can answer the named business question.",
-              "The next batch addresses the outstanding question. A mixed creator-package lead retains its attribution limits; the plan distinguishes choosing among angles from improving executions of one angle. Proposed angle alternatives express materially different reasons someone might choose the product, or explicitly identify a second reason still to investigate."
+              "The next batch addresses the outstanding question. A mixed creator-package lead retains its attribution limits; the plan distinguishes choosing among angles from improving executions of one angle. Proposed angle alternatives express materially different reasons someone might choose the product, or explicitly identify a second reason still to investigate.",
+              "Link results to the exact creative version, audience and dates when supplied. Explain whether the control remains comparable and leave unmatched results open."
             ]
           }
         ]
@@ -237,7 +254,8 @@
             "instruction": "Start with the existing buyer and desire findings. Use the original Evolve Ad Angles method when available and disclose the actual source. A portable shortlist should identify its method and retain the buyer, desire and evidence locks. Rank angles that express distinct reasons to buy or distinct ways to activate a locked desire. For each, include buyer, triggering situation, angle, evidence IDs, claim boundaries, hook direction and predicted response. Propose the first test and its independent variable. For the leading angle state the belief that must change, the demonstration or other proof capable of changing it, and a credible reason a buyer might reject it. Keep a new hook attached to its existing angle when only the expression changes.",
             "checks": [
               "Angles are strategically distinct within the requested scope, and relevant claims and test variables are grounded in the research.",
-              "Recommendations preserve any existing desire or audience lock."
+              "Recommendations preserve any existing desire or audience lock.",
+              "Group hooks sharing the same buyer situation, buying reason and proof. Rank distinct ideas by evidence for the bridge from the situation to the product, even if the strongest ideas are fewer than requested."
             ]
           }
         ]
@@ -256,7 +274,8 @@
             "checks": [
               "The route and the brief fields match the evidence, objective and intended format.",
               "If the course template is absent, evaluate the identified portable brief on its applicable fields and scope. Missing exact fields matter when the user explicitly requests the original template.",
-              "Downstream creative can reuse the approved product facts, buyer, desire, proof and test objective without guessing."
+              "Downstream creative can reuse the approved product facts, buyer, desire, proof and test objective without guessing.",
+              "Separate approved inputs and proposed execution. For creative production, include the chosen first visual or exact hook, evidence to show, destination cue and one variable to test when applicable."
             ]
           }
         ]
@@ -282,12 +301,15 @@
             "id": "finish-ad-copy",
             "skill": "evolve-copy-review",
             "title": "Check claims, clarity and voice",
-            "original_links": ["Copywriting checklist"],
+            "original_links": [
+              "Copywriting checklist"
+            ],
             "instruction": "Read the entire draft in order using the original Evolve line-review criteria where available. Check specificity, buyer relevance, mechanism, proof, offer, reason to buy, mobile readability and continuity into the destination. Keep a short change log linking exact lines to the reason and evidence. Apply a voice polish only when useful and preserve verbatim sourced customer language and locked decisions. Return a clean copy block separate from review notes and remaining gaps. If a paired asset or destination cannot be verified, finish an owner-review draft with a specific deployment condition. Use the original Evolve checklist when included or available. When an exact source is explicitly requested and cannot be recovered, record that dependency rather than certifying the exact review. Read as a skeptical first-time buyer: identify the first line that asks for more belief than the preceding copy and evidence earn. Repair the leap or explain why the existing sequence earns the action. Read the public copy aloud. If one sentence names a benefit and then immediately repeats it as a feature list or directions, combine the useful detail into one natural line. Preserve exact user-locked words, qualifiers, quantities and offer conditions.",
             "checks": [
               "The review identifies concrete issues or confirms why the relevant lines work.",
               "The revised copy preserves the offer, claim limits and designated test variables and is usable for the selected placement.",
-              "Check that the promise, proof and CTA fit the supplied destination and images. If those assets are missing, review the text, state the exact deployment gates, and avoid marking the copy as launch-cleared. A scoped draft can pass without a missing optional original; report exact checklist use only when the original was available and used."
+              "Check that the promise, proof and CTA fit the supplied destination and images. If those assets are missing, review the text, state the exact deployment gates, and avoid marking the copy as launch-cleared. A scoped draft can pass without a missing optional original; report exact checklist use only when the original was available and used.",
+              "Check what the opening makes the reader expect and which specific line or visual pays it off. Preserve approved claims and terms. Identify any remaining production dependency separately."
             ]
           }
         ]
@@ -306,7 +328,8 @@
             "checks": [
               "The review stays within the requested edit scope and cites the original lines it diagnoses.",
               "Suggested revisions improve specificity, momentum or proof without adding unsupported assertions. Any reframed drawback remains accurate about material effort and terms.",
-              "The review tests the central editable claim against an observable fact and a plausible alternative. Its revision uses substantiated detail without inventing a competitive advantage."
+              "The review tests the central editable claim against an observable fact and a plausible alternative. Its revision uses substantiated detail without inventing a competitive advantage.",
+              "Find the earliest unsupported or awkward reasoning jump and make the smallest useful fix. Verify adjacent approved wording and facts against the original."
             ]
           }
         ]
@@ -335,7 +358,8 @@
             "instruction": "Use the verified brief and the one-take format to write the script as numbered spoken sentences with one sentence per line. Aim for 12 to 16 sentences, using the evidence to determine act lengths without filler or compression. Act 1 opens with the exact supplied hook, then teaches the issue through specific, sourced facts and a plain analogy if it clarifies the evidence. Keep brand and product out of Acts 1 and 2. Act 2 is exactly one sentence and states the specific functional need. The first line of Act 3 names the actual product and explains how its supported mechanism meets that need. Close by returning to the original emotion with a simple link CTA. Use grounded speech. Separate optional visuals and production notes from the spoken lines, and keep them compatible with one continuous performance. Where the bridge introduces a functional need, pay it off with the simplest action the audience could witness in that same take. Preserve any offer qualifier that materially affects the decision.",
             "checks": [
               "The spoken hook is exact, Acts 1 and 2 are product-free, the bridge is one sentence, and the first line of Act 3 introduces the product.",
-              "The technical explanation uses only grounded facts and any personal experience is supplied or phrased without invented testimony."
+              "The technical explanation uses only grounded facts and any personal experience is supplied or phrased without invented testimony.",
+              "Check whether the speaker could know each claim and whether the conversational transition earns the recommendation. Put speech and production cues in separate blocks and never imply a read was timed without timing evidence."
             ]
           },
           {

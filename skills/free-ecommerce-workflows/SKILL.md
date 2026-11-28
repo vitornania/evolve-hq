@@ -20,3 +20,7 @@ The intended output and supplied inputs.
 ## Deliverable
 
 Supply the selected local action, required inputs and the verified output location, or a clearly identified plan. Use the installed workflow input map or Resolve guide when that integration is requested.
+
+## Decision checks for this skill
+
+Document one repeatable local path from a video to measured scenes, checked transcript and production notes. Keep third-party uploads optional.

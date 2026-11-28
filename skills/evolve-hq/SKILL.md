@@ -30,3 +30,7 @@ Use the project team catalog and roster to identify the selected owner and actio
 A desk assignment and plan for the work.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+When a video lands in the wrong mode, route it to review and retain the file and run brief. Preview the first deliverable and ask only for evidence that changes the decision.

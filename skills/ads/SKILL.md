@@ -30,3 +30,7 @@ When acquisition volume rises after an offer change, compare mature net contribu
 A campaign plan or diagnostic checklist.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Record the exact impression asset, offer and destination. Refresh those checks before carrying a campaign recommendation across ads.

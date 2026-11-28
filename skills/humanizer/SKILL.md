@@ -22,3 +22,7 @@ While smoothing a sentence, preserve who observed the event, the test conditions
 ## Deliverable
 
 Return paste-ready copy in the requested format. Flag a consequential ambiguity or change in meaning separately when the owner must resolve it.
+
+## Decision checks for this skill
+
+Have edits preserve speaker knowledge, evidence, product terms and intended reading level. Compare clauses that change claims.

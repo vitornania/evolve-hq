@@ -30,3 +30,7 @@ Use recurring member questions and workarounds to choose the next contribution. 
 A community plan and practical operating cadence.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+When a story informs a test, record the audience, context and permission if quoting customers. Treat discussion as qualitative evidence.

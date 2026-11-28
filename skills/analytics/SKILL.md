@@ -30,3 +30,7 @@ Compare the eligible population, attribution window and net contribution after m
 A tracking checklist and recommended fixes.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Join reporting at its actual measurement grain and show missing IDs. Preserve delivery date and denominator when deriving a comparison.

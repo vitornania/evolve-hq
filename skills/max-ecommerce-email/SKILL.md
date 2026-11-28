@@ -22,3 +22,7 @@ When choosing the subject and first line, match the promise to what this recipie
 ## Deliverable
 
 Return the requested messages, trigger, delay, exclusions, exit rule and measurement plan. For a course-specific pass use the installed flow, deliverability and testing references for the relevant channel.
+
+## Decision checks for this skill
+
+Group subject-line changes under a fixed email and separate message tests from subject tests. Match offer terms across email, SMS and destination.

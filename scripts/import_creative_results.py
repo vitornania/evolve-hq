@@ -3,10 +3,11 @@ import argparse
 import csv
 import json
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = ("brand", "product", "creative", "window", "source")
-OPTIONAL = ("verdict", "metrics", "observation")
+OPTIONAL = ("verdict", "metrics", "observation", "asset_sha256")
 
 
 def main():
@@ -24,6 +25,8 @@ def main():
                 continue
             if not all(record[key] for key in REQUIRED):
                 parser.error(f"Row {number} is missing a brand, product, version, date range, or source.")
+            if record["asset_sha256"] and not re.fullmatch(r"[a-fA-F0-9]{64}", record["asset_sha256"]):
+                parser.error(f"Row {number} has an invalid asset_sha256. Use the 64-digit file hash.")
             rows.append(record)
     body = json.dumps({"version": 1, "records": rows}, ensure_ascii=False, indent=2)
     if len(body.encode()) > 2_000_000:

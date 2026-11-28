@@ -36,3 +36,7 @@ When updating from a result tracker, treat a later cumulative record as a new re
 A list of batches, assets, and next tests.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Give every idea, comparison and rendered version a durable ID. Show variants as children of a control so totals do not count rewordings as new bets.

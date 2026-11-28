@@ -32,3 +32,7 @@ Lead with the outcome actually measured. Order counts and assigned prices establ
 A test plan or interpretation with limitations.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Record parent ID, field changed and any difference detected at delivery. Downgrade a one-variable claim when offer or audience also moved.

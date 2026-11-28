@@ -38,3 +38,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 Angles with audiences, reasoning, and test ideas.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Rank distinct buying reasons and record the evidence that supports each bridge. Group wording swaps under the same idea.

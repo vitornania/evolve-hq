@@ -154,7 +154,7 @@ def save_decision(root, identity, run, step, title, skill, query, judgment):
                     json.dumps(record, ensure_ascii=False), now().isoformat()))
 
 
-def evidence_from_tracker(root, identity):
+def evidence_from_tracker(root, identity, version="", asset_hashes=()):
     """Read the current normalized tracker export on every run."""
     if not all(identity.get(key) for key in ("brand", "product")):
         return []
@@ -171,6 +171,7 @@ def evidence_from_tracker(root, identity):
     if not isinstance(entries, list):
         return []
     rows, seen = [], set()
+    has_asset_context = bool(version or asset_hashes)
     for item in entries:
         if not isinstance(item, dict):
             continue
@@ -182,13 +183,33 @@ def evidence_from_tracker(root, identity):
             ("creative", 140), ("window", 250), ("source", 180), ("verdict", 40),
             ("metrics", 300), ("observation", 480),
         )}
+        if has_asset_context:
+            asset = concise(item.get("asset_sha256"), 64).lower()
+            version_matches = row["creative"] == version
+            if asset and asset in asset_hashes and not version:
+                row["match"] = "exact source file hash, tracker version identified"
+            elif version_matches and asset and asset in asset_hashes:
+                row["match"] = "exact version ID and source file hash"
+            elif version_matches and asset and asset_hashes:
+                row["match"] = "version ID matches but supplied file hash differs"
+            elif version_matches:
+                row["match"] = "same version ID, asset bytes unverified"
+            else:
+                row["match"] = "another version, historical context only"
         key = tuple(row.values())
         if all(row[key] for key in ("creative", "window", "source")) and key not in seen:
             seen.add(key)
             rows.append(row)
-            if len(rows) == TRACKER_LIMIT:
+            if not has_asset_context and len(rows) == TRACKER_LIMIT:
                 break
-    return rows
+    if has_asset_context:
+        order = {
+            "exact source file hash, tracker version identified": 0,
+            "exact version ID and source file hash": 0,
+            "same version ID, asset bytes unverified": 1,
+        }
+        rows.sort(key=lambda row: order.get(row["match"], 2))
+    return rows[:TRACKER_LIMIT]
 
 
 def preference_for(root):
@@ -220,7 +241,7 @@ def prompt_block(lessons, tracker, decisions=(), preference=""):
                      + json.dumps(decisions, ensure_ascii=False))
     if tracker:
         guidance += ("\nCreative tracker observations apply to the entire version and its reporting window. "
-                     "Use for an appropriate comparison or test. Treat causal explanations as hypotheses.\n"
+                     "Use for an appropriate comparison or test. Rows marked other version or hash differs do not establish the current asset’s results. A shared ID without asset verification needs corroboration. Treat causal explanations as hypotheses.\n"
                      + json.dumps(tracker, ensure_ascii=False))
     return guidance
 

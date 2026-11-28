@@ -30,3 +30,7 @@ During desire validation, check whether the motive appeared spontaneously, wheth
 A structured buyer motivation brief and next test.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Keep the existing prompt sequence. At the handoff map major desires to concrete episodes and distinguish source-backed mechanisms from hypotheses.

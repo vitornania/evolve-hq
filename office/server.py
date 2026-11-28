@@ -101,6 +101,22 @@ class Handler(BaseHTTPRequestHandler):
             data = get_run(identifier)
             self.json_response(data or {"error": "Run not found."}, 200 if data else 404)
             return
+        if path == "/api/run-video-frame":
+            params = parse_qs(target.query)
+            identifier = params.get("id", [""])[0]
+            name = params.get("frame", [""])[0]
+            if re.fullmatch(r"(?:prior-)?video-frame-0[1-8]\.jpg", name):
+                data = get_run(identifier)
+                field = "previousVideo" if name.startswith("prior-") else "video"
+                video = (data or {}).get(field) or {}
+                folder = (ROOT / "tasks" / identifier).resolve()
+                picture = folder / name
+                if (any(frame["file"] == name for frame in video.get("frames", []))
+                        and picture.is_file() and not picture.is_symlink()):
+                    self.respond(picture.read_bytes(), "image/jpeg")
+                    return
+            self.send_error(404)
+            return
         if path == "/api/providers":
             self.json_response(provider_status())
             return

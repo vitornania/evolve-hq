@@ -55,3 +55,7 @@ Return the brief and selection coverage for planning. For a build, use the [loca
 In an individual HQ run requesting an actual image, supply one complete `static-layout` JSON block using [HQ image preview](references/hq-image-preview.md). The reviewed layout enables the **Preview image** button. The user can use that button to create and download the image locally. Check the layout, words, aspect ratio and assets before review. A complete layout is ready for that preview. A claimed preview or export requires a real file. A headline-only or template-only request finishes at the requested choice.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Make headline, qualifier, offer and CTA editable. Check actual glyph size, wraps and crop on a phone-sized render before export.

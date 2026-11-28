@@ -104,6 +104,19 @@
           <p id="image-help">Up to 3 images total, including reused images. Use PNG, JPG, or WebP up to 5 MB each.</p>
           <p id="image-names" aria-live="polite"></p>
         </div>
+        <div class="attachments">
+          <label class="attach-button" for="video">Attach a video clip</label>
+          <input id="video" type="file" accept=".mp4,.mov,.webm" aria-describedby="video-help">
+          <p id="video-help">MP4, MOV, or WebM up to 35 MB and 90 seconds. HQ samples frames locally. Paste exact speech or audio notes in the brief if they matter.</p>
+          <p id="video-name" aria-live="polite"></p>
+        </div>
+        <details class="creative-details">
+          <summary>Creative version and comparison <span class="muted">(optional)</span></summary>
+          <p class="muted">For tracker results, enter the same brand, product and creative ID as the export.</p>
+          <label>Current creative ID<input id="creative-version" maxlength="140" placeholder="Use the same ID as your results tracker"></label>
+          <label>Previous creative ID<input id="creative-parent" maxlength="140"></label>
+          <label>What changed?<input id="creative-change" maxlength="400" placeholder="Example: New first shot with the same voice-over"></label>
+        </details>
         <p id="run-error" class="form-error" role="alert" hidden></p>
         <button type="submit" id="start" class="start" disabled>Start run <span aria-hidden="true">↗</span></button>
         <p class="run-note">Workflow stages get a separate quality review. Your selected AI provider runs each call.</p>

@@ -30,3 +30,7 @@ Separate the reason people share an item from the job the product does. When con
 Content themes, priorities, and an editorial plan.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Plan distinct topics by audience situation and proof available. Track different captions on one topic as execution choices.

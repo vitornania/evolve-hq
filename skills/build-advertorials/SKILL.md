@@ -32,3 +32,7 @@ When a story is carrying the sale, check who can tell it firsthand, which event 
 A structured advertorial draft and proof gaps.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Retain a dated map from the ad’s promise to the article’s first proof and the store’s exact offer. Repair mismatches before voice polish.

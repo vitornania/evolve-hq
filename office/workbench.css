@@ -170,3 +170,11 @@ input:not([type=file]),textarea,select{font-weight:430}
 .memory-lesson .progress-actions label{flex:1 0 100%;margin:0}
 @media(max-width:760px){.memory-grid{grid-template-columns:1fr}}
 #memory-preference{padding:5px 0 11px;border-bottom:1px solid var(--line)}
+
+.creative-details{margin:12px 0}
+.creative-details summary,.video-evidence summary{cursor:pointer}
+.creative-details label:first-of-type{margin-top:10px}
+.video-evidence{margin:10px 0}
+.video-frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.video-frames a{display:grid;gap:3px;font-size:11px;justify-items:start}
+.video-frames img{width:100%;height:88px;object-fit:contain;background:#1b211d;border-radius:4px}

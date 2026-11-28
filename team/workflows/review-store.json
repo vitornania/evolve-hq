@@ -7,7 +7,7 @@
       {
         "id": "single-ad",
         "title": "Review one ad",
-        "description": "Use an ad image, script, video frames, or results to get specific revisions.",
+        "description": "Use an ad image, video clip, script, or results to get specific revisions.",
         "inputs": "Share the ad or exact copy and tell us who it’s for. If you want a performance review, paste the dated results.",
         "steps": [
           {
@@ -18,7 +18,8 @@
             "checks": [
               "Creative observations are anchored to an inspected asset, with unavailable portions clearly marked.",
               "The ad's message and each consequential claim are checked against available product evidence and the intended CTA.",
-              "The review distinguishes visible or written facts from hypotheses about how a buyer might react."
+              "The review distinguishes visible or written facts from hypotheses about how a buyer might react.",
+              "Use measured or supplied verified timestamps for video observations. Identify the role of each consequential observed beat and label gaps between samples."
             ]
           },
           {
@@ -59,7 +60,8 @@
               "The ranking checks plausible funnel alternatives, distinguishes observed defects from causality, and gives concrete evidence and a disconfirming check for the leading explanation.",
               "The recommended direction targets the strongest evidence, or requests a named missing observation when the source of underperformance remains unclear.",
               "When video counts are available, attention rates identify their denominators and any material length or event mismatch. A missing comparison remains open.",
-              "Where financial outcomes are supplied, the diagnosis reconciles kept and returned orders, known costs and comparable exposure, and identifies any missing economics."
+              "Where financial outcomes are supplied, the diagnosis reconciles kept and returned orders, known costs and comparable exposure, and identifies any missing economics.",
+              "Match observations to the comparable funnel stage and the actual creative version where known. Keep visual judgment and measured outcome separate."
             ]
           },
           {
@@ -77,20 +79,21 @@
       {
         "id": "review-finished-ad",
         "title": "Review a finished ad before launch",
-        "description": "Check the actual ad image or timecoded video frames against the approved brief.",
-        "inputs": "Attach the finished image or timecoded video frames. Include the approved brief and product facts so the final claims can be checked.",
+        "description": "Check the actual ad image, video clip, or timecoded frames against the approved brief.",
+        "inputs": "Attach the finished image, video clip, or timecoded frames. Include the approved brief and product facts so the final claims can be checked.",
         "steps": [
           {
             "id": "inspect-finished-ad",
             "skill": "analyze-ads",
             "title": "Check the finished export against its brief",
             "requires_image": true,
-            "instruction": "Identify the supplied final asset and version and the approved brief. Use an attached final PNG, JPG or WebP, or attached timecoded frames and supplied transcript for video. A script, slot map, storyboard or brief is preparation evidence. Treat a missing inspectable final asset as a blocker and request the export or representative timecoded frames. Cite the exact image area or supplied timecode for every finding. Check opening and next beat, what the eye sees at feed size, legibility and typos, correct product and use, whether visuals and copy communicate the same desire and supported benefit, claim and offer continuity, brand requirements, and what the CTA asks the viewer to do. For video, inspect captions, timing or audio only when the supplied evidence supports each judgment. Score pacing against comprehension for the chosen format. Mark uninspected aspects and missing proof or brief fields. Return a readiness decision scoped to what you could inspect, with any launch-blocking finding and one specific fix or input for each. Do not offer a performance prediction or launch anything. For a proposed blocker, identify whether it violates an approved requirement, materially changes what buyers could infer, or is an optional editorial preference. A different acceptable CTA wording or suggested headline alone cannot justify holding the export.",
+            "instruction": "Identify the supplied final asset and version and the approved brief. Use an attached final PNG, JPG or WebP, an uploaded video clip with locally decoded frames, or attached timecoded frames. Use supplied transcripts for speech. A script, slot map, storyboard or brief is preparation evidence. Treat a missing inspectable final asset as a blocker and request the export or representative timecoded frames. Cite the exact image area or supplied timecode for every finding. Check opening and next beat, what the eye sees at feed size, legibility and typos, correct product and use, whether visuals and copy communicate the same desire and supported benefit, claim and offer continuity, brand requirements, and what the CTA asks the viewer to do. For video, inspect captions, timing or audio only when the supplied evidence supports each judgment. Score pacing against comprehension for the chosen format. Mark uninspected aspects and missing proof or brief fields. Return a readiness decision scoped to what you could inspect, with any launch-blocking finding and one specific fix or input for each. Do not offer a performance prediction or launch anything. For a proposed blocker, identify whether it violates an approved requirement, materially changes what buyers could infer, or is an optional editorial preference. A different acceptable CTA wording or suggested headline alone cannot justify holding the export.",
             "checks": [
               "The report identifies the actual inspected asset and version, and findings are tied to observable locations or timecodes. If the final asset cannot be inspected, the result is blocked.",
               "The review checks product use, legibility and message and offer continuity where supported, and identifies exactly which footage, audio, brief fields or proofs remain unavailable.",
               "Readiness is scoped to the actual evidence. Each launch-blocking issue has a concrete fix or required input.",
-              "For each copy or CTA mismatch, check the item's own label and the current brief. A proposed line remains optional even under a heading such as 'copy lock'. A wording change alone blocks launch only when that wording was explicitly required. Report other differences as editorial decisions unless there is a separate evidenced defect."
+              "For each copy or CTA mismatch, check the item's own label and the current brief. A proposed line remains optional even under a heading such as 'copy lock'. A wording change alone blocks launch only when that wording was explicitly required. Report other differences as editorial decisions unless there is a separate evidenced defect.",
+              "Review the exact export identified in the inputs. For sampled clips, qualify findings by inspected frames and record unverified audio, captions, continuity and timing gaps."
             ]
           }
         ]
@@ -110,7 +113,8 @@
               "The batch table preserves creative IDs and comparison context, including gaps and unmatched rows.",
               "Calculated blended metrics use summed numerators and denominators, with undefined values labeled.",
               "Winner language is supported by the relevant decision criteria and measured inputs, or the outcome is uncertain.",
-              "Each material outcome uses the applicable share, KPI and scale evidence for its branch, at the benchmark’s period and campaign/account scope. Source-version disagreements that change the decision are explicit. A consistently provisional or open decision names the missing comparison and a revisit condition."
+              "Each material outcome uses the applicable share, KPI and scale evidence for its branch, at the benchmark’s period and campaign/account scope. Source-version disagreements that change the decision are explicit. A consistently provisional or open decision names the missing comparison and a revisit condition.",
+              "Match each result and window to the exact delivered version and report unmatched rows separately. Do not isolate the effect of an individual edit from ad-level totals."
             ]
           },
           {
@@ -165,7 +169,8 @@
             "checks": [
               "For an eligible or explicitly exploratory child, the draft shows the exact change and its control. For a learning-only parent it returns a specific diagnosis and withholds a child.",
               "A proposed child identifies the isolated variable and fixed cues. A diagnostic-only report identifies the evidence that could change the decision.",
-              "Material claims retain their evidence limits, and the output labels its eligibility and status consistently with the parent decision."
+              "Material claims retain their evidence limits, and the output labels its eligibility and status consistently with the parent decision.",
+              "Describe the exact scene, slot or line to change and what stays fixed. For a targeted repair specify how to compare the rest with the parent."
             ]
           },
           {
@@ -202,7 +207,8 @@
             "checks": [
               "Each visual or mobile finding cites a screenshot, section, slide or accessible viewport, with the scope and gaps stated.",
               "The audit covers the first screen, purchasing offer, images and next action to the extent those are observable.",
-              "Findings separate observed blockers from hypotheses about shopper reaction and cite any supplied metric context."
+              "Findings separate observed blockers from hypotheses about shopper reaction and cite any supplied metric context.",
+              "Trace the mobile path from entry promise to the first material mismatch and cite its observed location. Separate confirmed repairs from hypotheses."
             ]
           },
           {
@@ -247,7 +253,8 @@
               "The draft answers the buyer's main questions in a clear order with a readable first screen and CTA.",
               "Claims and offer details are grounded in available evidence and placeholders are identified separately where needed.",
               "Each requested section has usable copy and the draft preserves the selected angle and voice.",
-              "Material restrictions and demonstration conditions are legible to a shopper. Each requested block advances the purchase decision without duplicating a neighboring block or exposing internal verification commentary."
+              "Material restrictions and demonstration conditions are legible to a shopper. Each requested block advances the purchase decision without duplicating a neighboring block or exposing internal verification commentary.",
+              "Connect the main ad promise to the page's first supporting evidence. Preserve current product, quantity, terms and evidence when they are supplied."
             ]
           }
         ]
@@ -266,7 +273,8 @@
             "checks": [
               "The handoff references the actual ad and any destination that was inspected.",
               "Each gap specifies the affected buyer question, claim, evidence or offer term.",
-              "The map preserves the ad's locked reader, core message and substantiated promise."
+              "The map preserves the ad's locked reader, core message and substantiated promise.",
+              "Trace the acquisition claim to the article's first proof and then the store offer. Flag terms or product mismatches before drafting."
             ]
           },
           {
@@ -297,7 +305,8 @@
             "checks": [
               "The inventory covers each inspected section in order and says which screen or page areas were inaccessible.",
               "Evidence distinguishes source claims, actual proof, and any hypotheses about section effectiveness.",
-              "The brand kit distinguishes verified measurements and own-brand choices from estimates or reference observations."
+              "The brand kit distinguishes verified measurements and own-brand choices from estimates or reference observations.",
+              "Record the observed proof and CTA order, where inspection ended and what can transfer to the new product with independent support."
             ]
           },
           {

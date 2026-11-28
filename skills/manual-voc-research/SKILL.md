@@ -26,3 +26,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 ## Deliverable
 
 Return a source-linked quote bank, implications and open questions. On an exact workbook or local Evolve synthesis pass, consult the installed evidence and analysis contract and manual VOC synthesis prompt; keep raw and interpreted fields separate.
+
+## Decision checks for this skill
+
+Add a quote-linked index of real moments and competing explanations. Label sparse segments provisional and preserve the whole quote.

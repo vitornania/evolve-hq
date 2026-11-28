@@ -10,11 +10,13 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from activity import ROOT, update
+from creative_context import creative_prompt, idea_id, reviewed_id
 from learning import (
     evidence_from_tracker, extract_candidate, preference_for, prompt_block, recall, recall_decisions, record_conflicts,
     record_correction, record_outcome, save_decision,
 )
 from providers import ProviderNoAnswer
+from video_evidence import video_prompt
 
 MAX_WORKFLOWS = 6
 MAX_REVISIONS = 2
@@ -77,6 +79,12 @@ def review_reply(text, criteria):
     result["verdict"] = verdict
     if verdict != "pass":
         result["handoff"] = ""
+    brief = result.get("creativeBrief")
+    result["creativeBrief"] = {
+        key: brief[key].strip()[:400]
+        for key in ("sku", "offer", "buyerSituation", "idea", "proof", "change")
+        if isinstance(brief, dict) and isinstance(brief.get(key), str) and brief[key].strip()
+    } if verdict == "pass" else {}
     return result
 
 
@@ -168,6 +176,10 @@ Return only one JSON object with these keys:
 draft actually selects), "basis" (the deciding product, buyer or experiment evidence and its limit),
 and "reconsiderIf" (an observation that would justify a different action). If a required fact is
 missing, the valid choice may be to defer only the affected part. Use null for routine execution.
+For applicable creative work, optionally return "creativeBrief" with only fields supported by
+the draft and evidence: sku, offer, buyerSituation, idea, proof, change. For the proof, name the
+actual source and its limit. Keep user approvals, observed facts and proposals visibly distinct
+in these short fields. Leave gaps out. Routine or unrelated stages can omit the object.
 Check whether the strongest plausible alternative would change the action. Apply any unsupported
 choice to the relevant checklist criterion and ask for a fix. Keep speculative motives out of the note.
 Review read-only. No outbound messages, publishing, paid actions or account changes.
@@ -232,6 +244,10 @@ def reviewed_decision(step):
     if note:
         summary += (f"\nEarlier choice: {note['choice']}\nBasis in the earlier case: {note['basis']}"
                     f"\nReconsider if: {note['reconsiderIf']}")
+    if step.get("reviewedId"):
+        summary += f"\nReviewed report ID: {step['reviewedId']}"
+    if step.get("creativeBrief"):
+        summary += "\nCreative brief fields from this stage: " + json.dumps(step["creativeBrief"], ensure_ascii=False)
     return summary
 
 
@@ -289,7 +305,7 @@ def linked_originals(source, labels):
     return originals
 
 
-def selected_method(source, *, workflow=False, original_links=()):
+def selected_method(source, *, workflow=False, original_links=(), renders_layout=False):
     """Keep the installed method and portable decision guidance available to both calls."""
     name = source.parent.name
     candidates = [ROOT / ".office/portable-skills" / name / "SKILL.md", ROOT / "skills" / name / "SKILL.md"]
@@ -301,8 +317,8 @@ def selected_method(source, *, workflow=False, original_links=()):
         else:
             paths.append((portable, "Portable skill"))
         paths.extend(decision_references(portable, workflow))
-        preview_guide = portable.parent / "references/hq-image-preview.md"
-        if not workflow and name == "build-static-ads-in-figma" and preview_guide.is_file():
+        preview_guide = portable.parent.parent / "build-static-ads-in-figma/references/hq-image-preview.md"
+        if (renders_layout or (not workflow and name == "build-static-ads-in-figma")) and preview_guide.is_file():
             paths.append((preview_guide, "Decision reference"))
     paths.extend((path, "Original method") for path in linked_originals(source, original_links))
 
@@ -338,6 +354,8 @@ def selected_method(source, *, workflow=False, original_links=()):
 def run_batches(data, directory, files, fields, sources, respond, save_run, slot_lock):
     identity = data.get("learningContext", {})
     brief = fields[2]
+    creative = data.get("creative", {})
+    assets = {item["sha256"] for item in creative.get("assets", []) if item["file"].startswith("supplied-")}
     mode_by_workflow = {item["id"]: item["modeTitle"] for item in data["workflows"]}
     queries = {step["id"]: f"{mode_by_workflow.get(step.get('workflow'), '')} {step['title']} {brief}"
                for step in data["steps"]}
@@ -345,7 +363,7 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
         requests = {step["id"]: (step["skill"], queries[step["id"]]) for step in data["steps"]}
         remembered = recall(ROOT, identity, requests)
         history = recall_decisions(ROOT, identity, requests)
-        tracker = evidence_from_tracker(ROOT, identity)
+        tracker = evidence_from_tracker(ROOT, identity, creative.get("version", ""), assets)
         preference = preference_for(ROOT)
     except (sqlite3.Error, OSError, ValueError):
         logging.exception("Local learning memory could not be read.")
@@ -388,8 +406,8 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
             + "\nImages carried forward as prior evidence: " + (", ".join(map(str, reused_images)) or "None")
         )
         for index, step in enumerate(steps, 1):
-            if step.get("requires_image") and not supplied_images:
-                note = "Attach the finished ad image or timecoded frames from the finished video."
+            if step.get("requires_image") and not supplied_images and not (data.get("video") or {}).get("frames"):
+                note = "Attach the finished ad image, video clip, or timecoded frames from the export."
                 finish_step(step, steps[index:], "blocked", note, {"quality": note, "revisions": 0})
                 break
             set_phase(step, "Drafting")
@@ -400,6 +418,8 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
                 update(record, step["title"], data["product"], step["role"], "working",
                        "Drafting this stage, then checking it separately.", pid=os.getpid())
                 context = stage_context(fields, carried, prior) + image_context
+                context += creative_prompt(creative) + video_prompt(directory, data.get("video"))
+                context += video_prompt(directory, data.get("previousVideo"), prior=True)
                 def ask(prompt, attachments=files):
                     try:
                         return respond(folder, prompt, attachments)
@@ -425,7 +445,8 @@ def run_batches(data, directory, files, fields, sources, respond, save_run, slot
                     set_phase(step, "Drafting")
                 source = sources[step["id"]]
                 method, receipt = selected_method(source, workflow=bool(workflow),
-                                                  original_links=step.get("original_links", []))
+                                                  original_links=step.get("original_links", []),
+                                                  renders_layout=step.get("renders_layout", False))
                 context += "\n\nSelected skill method:\n" + method
                 lessons = remembered.get(step["id"], [])
                 past = history.get(step["id"], [])
@@ -463,12 +484,13 @@ What the reviewer will verify:
                        "Independently checking the draft against its stage criteria.", pid=os.getpid())
                 def review_draft(draft, learning_revision=""):
                     review = gated_stage(ask, draft, step, context, receipt, learning_revision)
-                    if workflow or step["skill"] != "build-static-ads-in-figma" or "```static-layout" not in draft:
+                    can_preview = step.get("renders_layout") or (not workflow and step["skill"] == "build-static-ads-in-figma")
+                    if not can_preview or "```static-layout" not in draft:
                         return review
                     # Use the same validator as the Preview image button.
                     from static_preview import read_layout
                     try:
-                        read_layout(draft, {photo.name: photo for photo in supplied_images})
+                        read_layout(draft, {photo.name: photo for photo in (*supplied_images, *reused_images)})
                     except ValueError as error:
                         if review["verdict"] != "blocked":
                             review.update(verdict="revise", handoff="", judgment=None)
@@ -564,7 +586,12 @@ What the reviewer will verify:
                 if review["verdict"] == "pass":
                     artifact = path.with_suffix(".md")
                     artifact.write_text(draft + "\n", encoding="utf-8")
-                    outcome.update(handoff=review["handoff"], artifact=str(artifact))
+                    creative_brief = review["creativeBrief"]
+                    if key := idea_id(identity, creative_brief.get("idea")):
+                        creative_brief = {**creative_brief, "ideaId": key}
+                    outcome.update(handoff=review["handoff"], artifact=str(artifact),
+                                   reviewedId=reviewed_id(data["id"], step["id"], artifact),
+                                   creativeBrief=creative_brief)
                     prior.append({"title": step["title"], **outcome})
                     status, note = "review", "Stage passed its separate quality review."
                 else:

@@ -28,3 +28,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 ## Deliverable
 
 Return a recordable script and a shootable edit plan for the requested scope. Identify missing footage and proof outside the words spoken to the viewer.
+
+## Decision checks for this skill
+
+Supply timed speech and shot cues separately. Show expected action and proof moment per beat and keep price and CTA editable.

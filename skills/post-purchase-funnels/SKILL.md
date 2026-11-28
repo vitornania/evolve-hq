@@ -22,3 +22,7 @@ Distinguish friction at a specific touchpoint from loss of ongoing value. Check 
 ## Deliverable
 
 Return the observable funnel, offer copy, unit economics and next experiment. Use the installed source index for the relevant funnel or platform route when available.
+
+## Decision checks for this skill
+
+Bind offer terms to customer state and the step where they appear. Check SKU eligibility, mobile view and checkout outcome where accessible.

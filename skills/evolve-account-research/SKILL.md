@@ -32,3 +32,7 @@ Compare the eligible population, attribution window and net contribution after m
 A creative baseline for the next test.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Join evidence to the actual delivered file and offer, with period and audience attached. Mark mismatched versions as incomparable.

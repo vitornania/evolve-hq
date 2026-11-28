@@ -36,3 +36,7 @@ Apply the relevant checks in [Market opportunity and competitive evidence](../ev
 Dated profiles with like-for-like comparisons.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Track representative cue, offer terms, mobile proof, capture date and accessibility. Refresh only the claims a decision depends on.

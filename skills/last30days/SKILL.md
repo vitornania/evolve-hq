@@ -22,3 +22,7 @@ Use public discussion to find fresh buyer questions and alternatives. Separate i
 ## Deliverable
 
 Return dated observations with sources, search coverage, independent support and gaps. Mark an owner-supplied snapshot as such. If current sources are unavailable, report the limitation.
+
+## Decision checks for this skill
+
+Distinguish original reports from reposts and timestamp the source. Keep recent anecdotes in discovery until independently supported.

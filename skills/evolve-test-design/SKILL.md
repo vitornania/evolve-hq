@@ -36,3 +36,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 A test setup with success and guardrail metrics.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Define the changed field and a measurable outcome before producing variants. Distinguish separate buying reasons from wording variants.

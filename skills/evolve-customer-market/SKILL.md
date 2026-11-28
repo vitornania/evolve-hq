@@ -34,3 +34,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 Dated findings with supporting sources.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Capture occasion, trigger, workaround and last objection around each quote. Check whether repeated comments come from independent buyers.

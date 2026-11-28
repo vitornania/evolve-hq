@@ -36,3 +36,7 @@ When comparing leads, identify the expectation each creates and the evidence the
 Specific feedback and revised copy.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Find the first jump in logic, tailor the smallest fix to the audience’s awareness and compare the changed text to the approved version.

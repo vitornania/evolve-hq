@@ -32,3 +32,7 @@ When choosing the subject and first line, match the promise to what this recipie
 An email sequence with timing and copy.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Link each offer and proof to the trigger and current landing page. Check a finished preview with actual mobile wrapping before revision.

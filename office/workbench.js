@@ -379,13 +379,14 @@ function renderSkills() {
 const toBase64=file=>new Promise((resolve,reject)=>{
   const reader=new FileReader();
   reader.onload=()=>resolve(String(reader.result).split(",")[1]);
-  reader.onerror=()=>reject(new Error("That image couldn’t be read."));
+  reader.onerror=()=>reject(new Error("That attachment couldn’t be read."));
   reader.readAsDataURL(file);
 });
 
 function updateImageNames() {
   const files=[...$("#images").files];
   $("#image-names").textContent=files.map(file=>file.name).join(" · ");
+  $("#video-name").textContent=$("#video").files[0]?.name || "";
 }
 function inline(text, target) {
   // Treat model output as text. Turn only ordinary links and emphasis into markup.
@@ -543,6 +544,14 @@ function reuseResults(data, approved) {
     label.append(input,document.createTextNode(`Include ${count} ${count===1?'image':'images'} from the previous run`));
     source.append(label);
   }
+  if (data.video?.frames?.length) {
+    const label=element("label","","source-images");
+    const input=element("input");
+    input.type="checkbox";
+    input.id="source-video";
+    label.append(input,document.createTextNode("Include sampled frames from the previous export"));
+    source.append(label);
+  }
   source.append(button("Remove previous run","",()=>{
     sourceRun="";
     error();
@@ -550,7 +559,7 @@ function reuseResults(data, approved) {
   },"secondary"));
   $("#brand-name").value=data.learningContext?.brand||"";
   $("#product-name").value=data.product;
-  for (const id of ["#page-url","#brief","#images"]) $(id).value="";
+  for (const id of ["#page-url","#brief","#images","#video","#creative-version","#creative-parent","#creative-change"]) $(id).value="";
   updateImageNames();
   error();
   workflows.clear();
@@ -578,6 +587,40 @@ function renderRun(data) {
   const progress=$("#run-progress");
   progress.hidden=false;
   progress.replaceChildren(element("p",data.error || stateMessages[data.status] || data.status,"status-line"));
+  for (const [video,label] of [[data.video,"Video evidence"],[data.previousVideo,"Previous video evidence"]]) {
+    if (!video?.frames?.length) continue;
+    const evidence=element("details","","video-evidence");
+    evidence.append(element("summary",`${label} · ${video.frames.length} sampled frames`));
+    evidence.append(element("p","Timestamps locate sampled frames. Review the original for speech and action between frames.","muted"));
+    const frames=element("div","","video-frames");
+    for (const frame of video.frames) {
+      const file=new URLSearchParams({id:data.id, frame:frame.file});
+      const link=element("a");
+      link.href="/api/run-video-frame?"+file;
+      link.target="_blank";
+      link.rel="noopener";
+      const picture=element("img");
+      picture.src=link.href;
+      picture.loading="lazy";
+      picture.alt=`Video still at ${frame.seconds.toFixed(3)} seconds`;
+      link.append(picture,element("span",`${frame.seconds.toFixed(3)} s`));
+      frames.append(link);
+    }
+    evidence.append(frames);
+    if (video.speech?.length) {
+      const transcript=element("details");
+      transcript.append(element("summary","Automatic speech transcript (check before quoting)"));
+      for (const segment of video.speech) transcript.append(element("p",`${segment.start.toFixed(1)} s · ${segment.text}`));
+      evidence.append(transcript);
+    } else if (video.hasAudio) {
+      evidence.append(element("p","No local transcript was available. Add checked wording to review speech.","muted"));
+    }
+    progress.append(evidence);
+  }
+  if (data.video && !data.video.frames?.length && ["queued","working"].includes(data.status)) {
+    progress.append(element("p","Preparing timecoded video frames…","muted"));
+  }
+  if (data.creative?.version) progress.append(element("p",`Creative ID ${data.creative.version}`,"muted"));
   const list=element("ol","","step-results");
   for (const step of data.steps) {
     const li=element("li");
@@ -612,6 +655,7 @@ function renderRun(data) {
     const copy=copyButton("Copy report",step.report,"Select report text to copy");
     header.append(element("h3",step.title));
     if (step.report) header.append(copy);
+    if (step.reviewedId) header.append(copyButton("Copy reviewed report ID",step.reviewedId,"Select ID to copy"));
     const content=element("div","","report-body");
     if (step.quality) {
       const review=element("details","","quality-note");
@@ -647,8 +691,8 @@ function renderRun(data) {
       }
       content.append(review);
     }
-    if (step.status==="review"&&!data.workflows?.length&&step.skill==="build-static-ads-in-figma"
-        &&step.report?.includes("```static-layout")) {
+    const canPreview=data.workflows?.length ? step.renders_layout : step.skill==="build-static-ads-in-figma";
+    if (step.status==="review"&&canPreview&&step.report?.includes("```static-layout")) {
       content.append(imagePreview(data.id,step.id));
     }
     if (step.learning) {
@@ -714,12 +758,17 @@ async function submit(event) {
   if (url&&!url.includes("://")&&!url.includes(" ")) url="https://"+url;
   const brief=$("#brief").value.trim();
   const files=[...$("#images").files];
+  const video=$("#video").files[0];
   const sourceSteps=[...document.querySelectorAll('#source-run input[name="source-step"]:checked')].map(input=>input.value);
-  const handoff=isWorkflow&&sourceRun ? {sourceRun,sourceSteps,sourceImages:$("#source-images")?.checked ?? false} : {};
+  const handoff=isWorkflow&&sourceRun ? {sourceRun,sourceSteps,sourceImages:$("#source-images")?.checked ?? false,sourceVideo:$("#source-video")?.checked ?? false} : {};
   if (handoff.sourceRun&&!sourceSteps.length) {error("Select a reviewed result or remove the previous run.");return;}
-  if (!url&&!brief&&!files.length&&!(isWorkflow&&sourceRun)) {error("Add a page link, a short brief, or a screenshot first.");$("#page-url").focus();return;}
+  if (!url&&!brief&&!files.length&&!video&&!(isWorkflow&&sourceRun)) {error("Add a page link, a short brief, an image, or a video first.");$("#page-url").focus();return;}
   if (files.length>3||files.some(file=>file.size>5*1024*1024)) {
     error("Choose up to 3 images, each 5 MB or smaller.");
+    return;
+  }
+  if (video && (video.size>35*1024*1024 || !/\.(mp4|mov|webm)$/i.test(video.name))) {
+    error("Choose an MP4, MOV, or WebM clip of 35 MB or less.");
     return;
   }
   sending=true;
@@ -733,7 +782,10 @@ async function submit(event) {
     const response=await fetch("/api/run",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({...selection,brand:$("#brand-name").value.trim(),product:$("#product-name").value.trim(),url,brief,
-        provider:$("#provider")?.value || "codex",images:await Promise.all(files.map(toBase64))})
+        provider:$("#provider")?.value || "codex",images:await Promise.all(files.map(toBase64)),
+        video:video ? {name:video.name,body:await toBase64(video)} : undefined,
+        creativeVersion:$("#creative-version").value.trim(),creativeParent:$("#creative-parent").value.trim(),
+        creativeChange:$("#creative-change").value.trim()})
     });
     const data=await response.json();
     if (!response.ok) throw new Error(data.error || "The run couldn’t start.");
@@ -804,6 +856,7 @@ async function initialize() {
     visibleLimit=12;renderSkills();
   });
   $("#images").addEventListener("change",updateImageNames);
+  $("#video").addEventListener("change",updateImageNames);
   const jump=$("#jump-to-run");
   jump.addEventListener("click",bringSelection);
   const observeForm=new IntersectionObserver(([entry])=>{

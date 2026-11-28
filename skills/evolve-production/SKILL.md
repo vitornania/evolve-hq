@@ -34,3 +34,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 A production plan, shot list, or editing handoff.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Lock speaker, product, wardrobe and setting across cuts. Replace only a failed scene where feasible and compare the rest against the parent.

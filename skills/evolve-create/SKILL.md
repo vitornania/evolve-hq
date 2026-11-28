@@ -34,3 +34,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 A concept or variation with a creative handoff.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Present an original concept path and an authorized adaptation path. Track reference, approved execution and delivered version.

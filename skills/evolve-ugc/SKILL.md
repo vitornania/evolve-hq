@@ -36,3 +36,7 @@ For a creator demonstration, establish what this speaker can know firsthand and 
 Creator criteria and a content collection plan.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Brief creator perspective, one action and one proof moment per takeaway. Include pickup clips and exact offer overlay separately.

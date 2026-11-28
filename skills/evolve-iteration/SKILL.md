@@ -42,3 +42,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 An iteration brief with a testable change.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Record the parent, one intentional change and any unavoidable collateral changes. Hold unrelated controls fixed or label the work as exploratory.

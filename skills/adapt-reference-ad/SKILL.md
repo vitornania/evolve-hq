@@ -21,3 +21,7 @@ For a brief, return the review counts, selection rationale, and source-to-target
 When adapting an image, distinguish what the picture independently demonstrates from what needs a measurement, label or source. Check what survives the target crop before selecting the line. See [Copy and proof decisions](../evolve-skill/references/book-copy-decisions.md).
 
 Apply the relevant checks in [Choose a format from buyer and product evidence](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
+## Decision checks for this skill
+
+Audit tiny text, badges, visible geometry and what each slot promises. A second independent benefit needs its own verified evidence. Record every intentional role change.

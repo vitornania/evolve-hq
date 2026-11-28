@@ -38,3 +38,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 A brief in the appropriate Evolve format.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Lock the exact hook, SKU, offer and deliverable. Name visible proof, source asset and what must stay fixed in the test.

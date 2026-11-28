@@ -20,3 +20,7 @@ The feature, problem, or codebase context.
 ## Deliverable
 
 Return the smallest complete plan or implementation for the requested scope, its acceptance result and any unverified behavior. Use the installed project workflow references for larger technical builds.
+
+## Decision checks for this skill
+
+Make a small change with an explicit locked baseline. Use fixture replays and, for rendering changes, compare outputs on known source material.

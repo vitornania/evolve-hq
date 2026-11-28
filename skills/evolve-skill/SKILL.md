@@ -34,3 +34,7 @@ Use [Choosing a method](references/choosing-a-method.md) when plausible approach
 An ecommerce deliverable and the next checkpoint.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Carry the selected idea, proof and version through stage gates. Refresh facts if the SKU or offer changes midstream.

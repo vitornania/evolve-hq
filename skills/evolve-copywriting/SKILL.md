@@ -36,3 +36,7 @@ When the same product serves readers at different stages, choose the opening fro
 Ad copy with hooks and a call to action.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Before polishing, check the immediate payoff to the headline and the sentence that earns the claim. Preserve factual locks through editing.

@@ -22,6 +22,14 @@ py -3 hq.py run roas examples/ad-metrics.csv --product "Example store"
 
 In PowerShell, use `npm.cmd` if your system blocks the PowerShell npm shim. CLI installers may require a fresh terminal to update PATH. Claude Code’s setup page covers its Windows prerequisites. For Gemini on Windows, Antigravity provides a native installer. Gemini CLI’s sandbox can require extra setup depending on your environment.
 
+For video uploads on Windows, install FFmpeg and reopen PowerShell so it picks up the updated PATH.
+
+```powershell
+winget install --id Gyan.FFmpeg --exact
+```
+
+In the new shell, run `ffmpeg -version` and `ffprobe -version`, then reopen HQ. Windows builds are also available through the [FFmpeg download page](https://ffmpeg.org/download.html#build-windows).
+
 ## Choose your AI provider
 
 ### Codex
@@ -57,8 +65,9 @@ Start with a public product link, a short brief, or a screenshot. Tool access an
 ## Optional local tools
 
 - **ROAS and creator queues.** Run directly with Python using the [examples](../examples/).
-- **Image ad preview.** Install the free local renderer dependencies once using the same Python that opens HQ. In the HQ folder run `python3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on a Mac or `py -3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on Windows. Then choose **Preview image** in the reviewed image ad. The preview uses local Arial or Georgia.
+- **Image ad preview.** Install the free local renderer dependencies once using the same Python that opens HQ. In the HQ folder run `python3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on a Mac or `py -3 -m pip install -r skills/adapt-reference-ad/scripts/requirements.txt` on Windows. Then choose **Preview image** in the reviewed standalone or Static Ads workflow report. The preview uses local Arial or Georgia.
 - **Ollama drafts.** Install [Ollama](https://ollama.com/download), then run `ollama pull qwen3:4b-instruct`. The runner connects to Ollama on this machine.
+- **Video review uploads.** Install [FFmpeg and FFprobe](https://ffmpeg.org/download.html) and make both available on your PATH. Relaunch HQ, choose **Review & Iterate Ads** or an individual review skill, and attach an MP4, MOV, or WebM up to 35 MB and 90 seconds. HQ extracts measured stills and possible transitions locally. Tesseract on your PATH can add provisional on-screen text. The selected provider receives the stills or reads them from the run folder. The original clip is saved in the local task. If Faster Whisper and the multilingual base model are already available to HQ’s Python or its edit environment, HQ adds a draft transcript and uses offline mode. No model is downloaded during a workbench run. Paste checked wording for exact speech or timecoded audio notes to review sound design.
 - **Storyboard previews.** Install [FFmpeg](https://ffmpeg.org/download.html), then install Pillow into your Python environment. For example, `python3 -m venv .venv`, `source .venv/bin/activate`, and `python -m pip install Pillow`. Keep that environment active when you run the storyboard tool.
 - **Offline transcription.** Create an isolated Python 3.12 environment with `python3.12 -m venv .office/envs/edit`. Install `faster-whisper` and `numpy` with `.office/envs/edit/bin/python -m pip install faster-whisper numpy`. Install FFmpeg. The first transcription can download the Whisper model.
 - **Person mattes.** On macOS, create `.office/envs/matte` with Python 3.12 and install `av numpy Pillow pyobjc-framework-Vision pyobjc-framework-Quartz` into it. On Windows, run `py -3.12 -m venv .office/envs/matte` and then `.office\envs\matte\Scripts\python.exe -m pip install av numpy Pillow "rembg[cpu]"`. The Windows tool downloads its foreground model on first use. Both write a ProRes MOV with an alpha channel. Check the mask on your footage before exporting.

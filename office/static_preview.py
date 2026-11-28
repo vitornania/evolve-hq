@@ -1,4 +1,4 @@
-"""Render a reviewed, single-skill image layout using HQ's local renderer."""
+"""Render a reviewed image layout using HQ's local renderer."""
 import base64
 import json
 import os
@@ -24,8 +24,9 @@ FONTS = {
 }
 
 
-def is_layout_step(step):
-    return (step.get("skill") == "build-static-ads-in-figma"
+def is_layout_step(step, workflow=False):
+    eligible = step.get("renders_layout") if workflow else step.get("skill") == "build-static-ads-in-figma"
+    return (eligible
             and step.get("status") == "review"
             and bool(LAYOUT_BLOCK.search(step.get("report") or "")))
 
@@ -132,7 +133,8 @@ def render_preview(payload):
     if not isinstance(identifier, str) or not 1 <= len(identifier) <= 350 or not isinstance(key, str):
         raise ValueError("Choose a reviewed image ad layout first.")
     run = get_run(identifier)
-    step = next((s for s in run["steps"] if s["id"] == key and is_layout_step(s)), None) if run and not run.get("workflows") else None
+    step = next((s for s in run["steps"] if s["id"] == key and is_layout_step(s, bool(run.get("workflows")))),
+                None) if run else None
     if step is None:
         raise ValueError("This run has no reviewed image layout to preview.")
     relative = Path("adapt-reference-ad/scripts/render_static.py")

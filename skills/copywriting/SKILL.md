@@ -32,3 +32,7 @@ When the same product serves readers at different stages, choose the opening fro
 Revised copy with key changes explained.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Trace the opening promise to a proof or answer in the copy. Preserve exact terms and give one strong finished version when the brief calls for it.

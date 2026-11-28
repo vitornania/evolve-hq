@@ -30,3 +30,7 @@ Check which plausible substitute the shared offer replaces for that buying occas
 A partner shortlist or a joint campaign plan.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Describe the shared buyer moment, partner proof rights and exactly which variant each partner can use.

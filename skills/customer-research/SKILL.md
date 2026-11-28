@@ -34,3 +34,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 A research plan or themes backed by feedback.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Invite interviewees to reconstruct the last time the problem happened. Ask about alternatives before showing the product.

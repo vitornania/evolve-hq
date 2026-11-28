@@ -36,3 +36,7 @@ Apply the relevant checks in [Market opportunity and competitive evidence](../ev
 An annotated competitor creative review.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Trace a visible ad to its offer and destination. Record date, format, one persuasive cue and limits on performance inference.

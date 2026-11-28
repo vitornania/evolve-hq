@@ -36,3 +36,7 @@ Compare the eligible population, attribution window and net contribution after m
 A recommendation with risks and next checks.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Link delivery and allocation to the exact asset and offer period. Consider changed audiences and page conditions before attributing a result to a creative repair.

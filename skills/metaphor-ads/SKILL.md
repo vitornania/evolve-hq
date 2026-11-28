@@ -22,3 +22,7 @@ Read the metaphor as a buyer might. If the visual suggests a delivery speed, com
 ## Deliverable
 
 Return ranked concept cards, or one resolved concept when requested, with the first frame, misread and cheap comprehension check. Use the installed metaphor lab and production-and-testing references for deeper development.
+
+## Decision checks for this skill
+
+Test whether the viewed image alone implies an unsupported capability. Keep the concept only when the metaphor communicates the chosen supported takeaway.

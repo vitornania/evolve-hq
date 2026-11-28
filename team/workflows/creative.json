@@ -26,13 +26,16 @@
             "id": "draft-n1",
             "skill": "native-ads-research-to-creative",
             "title": "Write Draft N1",
-            "original_links": ["references/original-native-copy-prompts.md"],
+            "original_links": [
+              "references/original-native-copy-prompts.md"
+            ],
             "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When the original prompt and its required inputs are available, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. When a required example is absent, keep the requested scope and use a clearly identified partial or portable route for the sourced draft. Reserve a completion claim for the exact pass with all required original inputs. Put any limitation in the review notes. Produce full primary text. For a story-led placement, even when product proof is narrow, build the lead around one source-linked buyer moment, one thing she tried, and the unresolved choice that earns the demonstration. A brand can use a clearly hypothetical or conditional scene grounded in observed behavior. Choose a concrete proof cue the intended reader can actually inspect in that placement. A feed photo can show a single action. If the proof exists only in an unavailable video or unverified landing page, the draft can explain what to look for and keep the recommendation conditional. Avoid commands to play, pause or compare a clip unless that execution includes it. Do not add a formula explanation, personal outcome or attributed story beyond the evidence. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages. If this is a source-led customer story, select one attributable account whose own events support a meaningful change. Keep praise from a different reviewer and plausible backstory out of that account. A rating alone establishes no narrative. Where the source has no usable sequence, use a clearly branded demonstration if the brief allows it or identify the missing story.",
             "checks": [
               "The draft is complete for the requested placement. A story-led native piece earns its proof through a concrete situation and a meaningful choice. Check that any instruction for the reader can actually be performed with the paired asset. Missing optional swipes or launch assets can leave release conditional while a scoped draft advances. Mark a specifically requested exact original pass incomplete when its required inputs are missing.",
               "The copy follows the locked buyer, angle and offer, and every material assertion has an identified support or gap.",
               "The hook starts the same story the ad delivers, and any source borrowing follows its assigned role.",
-              "For any customer-story route, one identifiable speaker supports the event sequence and outcome. A branded or illustrative route is clear when firsthand material is insufficient."
+              "For any customer-story route, one identifiable speaker supports the event sequence and outcome. A branded or illustrative route is clear when firsthand material is insufficient.",
+              "Check the story beats before drafting. Verify narrator authority, incident, transition, proof and close. Use a direct opening when it better fits the buyer's evidence or awareness. Clearly label hypothetical or dramatized material."
             ]
           },
           {
@@ -75,7 +78,8 @@
               "The source is identified and directly inspected, or the missing original is named.",
               "Every proposed borrowing has a scoped job and a note on what requires new product-specific evidence.",
               "Claims of winning cite measured evidence or are presented as hypotheses.",
-              "The source-to-target map identifies a persuasive beat that needs replacement or new evidence when applicable."
+              "The source-to-target map identifies a persuasive beat that needs replacement or new evidence when applicable.",
+              "Identify the role and order of the reference's persuasive beats. Flag the beats that require new target-product proof before adapting them."
             ]
           },
           {
@@ -94,7 +98,9 @@
             "id": "draft-n1",
             "skill": "native-ads-research-to-creative",
             "title": "Write Draft N1",
-            "original_links": ["references/original-native-copy-prompts.md"],
+            "original_links": [
+              "references/original-native-copy-prompts.md"
+            ],
             "instruction": "Use the approved lock and any swipe ledger from the preceding stages. When the original prompt and its required inputs are available, use the unchanged Evolve Original Mega Prompt with the product context and claim boundaries supplied separately. When a required example is absent, keep the requested scope and use a clearly identified partial or portable route for the sourced draft. Reserve a completion claim for the exact pass with all required original inputs. Put any limitation in the review notes. Produce full primary text. For a story-led placement, even when product proof is narrow, build the lead around one source-linked buyer moment, one thing she tried, and the unresolved choice that earns the demonstration. A brand can use a clearly hypothetical or conditional scene grounded in observed behavior. Choose a concrete proof cue the intended reader can actually inspect in that placement. A feed photo can show a single action. If the proof exists only in an unavailable video or unverified landing page, the draft can explain what to look for and keep the recommendation conditional. Avoid commands to play, pause or compare a clip unless that execution includes it. Do not add a formula explanation, personal outcome or attributed story beyond the evidence. Make the opening and lead fit the same awareness conversation and develop a coherent problem, mechanism, proof, and close. Keep a VOC use ledger with the cited IDs and record any uncertainty. Deliver the first draft for the two later review stages. If this is a source-led customer story, select one attributable account whose own events support a meaningful change. Keep praise from a different reviewer and plausible backstory out of that account. A rating alone establishes no narrative. Where the source has no usable sequence, use a clearly branded demonstration if the brief allows it or identify the missing story.",
             "checks": [
               "The draft is complete for the requested placement. A story-led native piece earns its proof through a concrete situation and a meaningful choice. Check that any instruction for the reader can actually be performed with the paired asset. Missing optional swipes or launch assets can leave release conditional while a scoped draft advances. Mark a specifically requested exact original pass incomplete when its required inputs are missing.",
@@ -153,7 +159,8 @@
             "checks": [
               "Each useful concept has a copy anchor and concrete shot direction, with a practical first pick. Generator-ready prompt text sits in its own image-prompt fence. Evidence-dependent shots name the authentic asset or shot needed.",
               "The camera, crop and action match the intended moment and preserve the ad as supplied. Distinct concepts show a different action or answer a different buyer question. Alternate framing of the same incident is labeled as a variant.",
-              "Any illustrated scene, actual evidence asset or missing proof is accurately identified, and a shot brief or prompt is never described as a finished image."
+              "Any illustrated scene, actual evidence asset or missing proof is accurately identified, and a shot brief or prompt is never described as a finished image.",
+              "Choose a moment the accompanying copy supports. Separate illustration from proof-dependent depiction. Keep approved body copy exact where supplied."
             ]
           }
         ]
@@ -196,7 +203,8 @@
               "The audit compares each proposed change to the identifiable control.",
               "Only the authorized test variable changes and no edited variant gains unsupported claims.",
               "The test record identifies the metric and assumptions, and performance remains unmeasured unless results were supplied.",
-              "Each surviving hook fits the fixed continuation, its implied promise and the verified evidence."
+              "Each surviving hook fits the fixed continuation, its implied promise and the verified evidence.",
+              "Check that the body is identical for a hook-only test and that the opening leads naturally to it. Route a changed buying reason as a separate concept test."
             ]
           }
         ]
@@ -218,7 +226,10 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "original_links": ["Ideation Brief original fields", "Image ad brief prompt"],
+            "original_links": [
+              "Ideation Brief original fields",
+              "Image ad brief prompt"
+            ],
             "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Read legible product packaging as part of the ad. If intact required artwork carries an unsupported claim, keep the asset lock and separate the private layout draft from a release-ready design. State the exact printed claim, the missing same-SKU proof or approved replacement, and that the affected release is blocked. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
@@ -236,7 +247,8 @@
               "Counts distinguish inventoried, reviewed, eligible, excluded, pending and inaccessible records, and unknown source totals are explicit.",
               "The top candidates have verified asset IDs or links and clear reasons grounded in the buyer, message, and proof requirements.",
               "The recommendation is scoped to the reviewed coverage and a template with unsupported central slots is excluded.",
-              "The selection explains which target evidence fills each decisive reference role and accounts for inaccessible candidates in the reported coverage."
+              "The selection explains which target evidence fills each decisive reference role and accounts for inaccessible candidates in the reported coverage.",
+              "Explain which accessible in-scope reference best answers the buyer's question at phone size with supported product proof. Record inaccessible sources separately."
             ]
           }
         ]
@@ -251,7 +263,10 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "original_links": ["Imitation Brief original fields", "Image ad brief prompt"],
+            "original_links": [
+              "Imitation Brief original fields",
+              "Image ad brief prompt"
+            ],
             "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Read legible product packaging as part of the ad. If intact required artwork carries an unsupported claim, keep the asset lock and separate the private layout draft from a release-ready design. State the exact printed claim, the missing same-SKU proof or approved replacement, and that the affected release is blocked. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
@@ -303,19 +318,22 @@
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
               "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review.",
-              "Check every material visual implication, including embedded artwork. A proposal with an unsupported locked claim can advance only as an internal draft with release blocked and a concrete reopening condition. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off."
+              "Check every material visual implication, including embedded artwork. A proposal with an unsupported locked claim can advance only as an internal draft with release blocked and a concrete reopening condition. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off.",
+              "Carry the selected reference ID and record proof and readability obligations for all meaningful visible slots, including small qualifiers, labels and product text."
             ]
           },
           {
             "id": "review-fidelity-s3",
             "skill": "adapt-reference-ad",
             "title": "Review fidelity and prepare the export",
-            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff.",
+            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff. For one requested, buildable image with sufficient inputs, include one complete static-layout block from the HQ preview guide so the user can download the PNG and editable SVG. Describe the artifact as ready to preview until an actual export has been inspected.",
             "checks": [
               "Final S3 is a complete corrected map or layout with a phone-size and typography review, plus specific outstanding visual checks if rendering is pending.",
               "Every title, label, badge, line and image slot is accounted for and actual substitutions are disclosed.",
-              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only."
-            ]
+              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only.",
+              "For an image build or variation with sufficient art and approved copy, the reviewed static-layout block is ready for the HQ preview. Apply the preview guide to editable text and named image layers. A scoped mapping request or an unresolved required asset or claim calls for an explicit handoff, with no invented export."
+            ],
+            "renders_layout": true
           }
         ]
       },
@@ -329,7 +347,10 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "original_links": ["Imitation Brief original fields", "Image ad brief prompt"],
+            "original_links": [
+              "Imitation Brief original fields",
+              "Image ad brief prompt"
+            ],
             "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Read legible product packaging as part of the ad. If intact required artwork carries an unsupported claim, keep the asset lock and separate the private layout draft from a release-ready design. State the exact printed claim, the missing same-SKU proof or approved replacement, and that the affected release is blocked. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages. In a supplied template, a role is the persuasive or visual job of an element, such as an offer or proof badge. Resolve a requested role count against the reference and its enumerated groups. The selected HQ stages already specify the workflow.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
@@ -369,19 +390,22 @@
               "The review cites actual text or image roles and gives evidence-linked corrections.",
               "Draft S2 carries the complete revised copy or layer map and preserves the locked test.",
               "Unresolved evidence or source fit is explicit before final design. Deliver S2 for the design review and reserve final S3 sign-off for that review.",
-              "Check every material visual implication, including embedded artwork. A proposal with an unsupported locked claim can advance only as an internal draft with release blocked and a concrete reopening condition. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off."
+              "Check every material visual implication, including embedded artwork. A proposal with an unsupported locked claim can advance only as an internal draft with release blocked and a concrete reopening condition. Independently meaningful source benefits remain individually accounted for. A changed hypothesis or missing central role prevents exact-adaptation sign-off.",
+              "Require independent evidence for each independent benefit slot. If one lacks support, block the unsupported exact adaptation and only offer a distinctly labeled, supported alternative when appropriate."
             ]
           },
           {
             "id": "review-fidelity-s3",
             "skill": "adapt-reference-ad",
             "title": "Review fidelity and prepare the export",
-            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff. Read the descriptor and badge independently at phone size. Keep a category descriptor in natural product-name order. If an included-item badge names only a connector, material or technology, include the actual item noun in the badge. Preserve the promise, price, other locked text and hierarchy. Measure the shortest accurate wording before shrinking type, and record any copy-fit correction.",
+            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff. Read the descriptor and badge independently at phone size. Keep a category descriptor in natural product-name order. If an included-item badge names only a connector, material or technology, include the actual item noun in the badge. Preserve the promise, price, other locked text and hierarchy. Measure the shortest accurate wording before shrinking type, and record any copy-fit correction. For one requested, buildable image with sufficient inputs, include one complete static-layout block from the HQ preview guide so the user can download the PNG and editable SVG. Describe the artifact as ready to preview until an actual export has been inspected.",
             "checks": [
               "Final S3 is a complete corrected map or layout with a phone-size and typography review, plus specific outstanding visual checks if rendering is pending.",
               "Every title, label, badge, line and image slot is accounted for and actual substitutions are disclosed. Category copy reads naturally, and an included-item badge identifies the physical item clearly on its own.",
-              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only."
-            ]
+              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only.",
+              "For an image build or variation with sufficient art and approved copy, the reviewed static-layout block is ready for the HQ preview. Apply the preview guide to editable text and named image layers. A scoped mapping request or an unresolved required asset or claim calls for an explicit handoff, with no invented export."
+            ],
+            "renders_layout": true
           }
         ]
       },
@@ -395,7 +419,10 @@
             "id": "static-brief",
             "skill": "evolve-briefs",
             "title": "Lock the product evidence and static brief",
-            "original_links": ["Ideation Brief original fields", "Image ad brief prompt"],
+            "original_links": [
+              "Ideation Brief original fields",
+              "Image ad brief prompt"
+            ],
             "instruction": "Reuse the current product research and approved Evolve brief where available. Record the exact product, offer, buyer, desire, angle, test objective, claim limits, source IDs, packshot, brand assets and format. Inspect the supplied product evidence and resolve any disagreement that affects visible copy. Use category evidence for the message hypothesis and target-product evidence for claims. Use the matching Evolve Ideation, Imitation, or Iteration brief and its original fields when available. Identify any evidence or asset gap that affects this route. Read legible product packaging as part of the ad. If intact required artwork carries an unsupported claim, keep the asset lock and separate the private layout draft from a release-ready design. State the exact printed claim, the missing same-SKU proof or approved replacement, and that the affected release is blocked. Deliver only the evidence and production brief. Record downstream deliverables and locked source wording as requirements. Reserve ad copy, completed layer maps and renderer JSON for their selected production stages.",
             "checks": [
               "The product, buyer, desire, angle and one test objective are concrete and reusable.",
@@ -413,7 +440,8 @@
               "The design makes one claim or message visually prominent and the proposed proof supports it.",
               "Each text slot and visual layer has a defined purpose, position and source or asset requirement.",
               "The draft preserves the buyer, angle and offer in the research brief. Identify this as the S1 draft awaiting evidence and design review.",
-              "The proposed frame describes what a buyer can see that makes the central claim credible at placement size."
+              "The proposed frame describes what a buyer can see that makes the central claim credible at placement size.",
+              "Specify the visible buyer action and the supplied or proposed asset that can show it. Check what the image implies independently and identify the crop and small-screen reading order."
             ]
           },
           {
@@ -432,12 +460,14 @@
             "id": "review-fidelity-s3",
             "skill": "adapt-reference-ad",
             "title": "Review fidelity and prepare the export",
-            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff.",
+            "instruction": "Review Draft S2 for copy fit, type metrics, legibility, clipping, reading order, and asset continuity. Preserve hierarchy and measured line anchors. Disclose font substitutions and unresolved product or reference assets. Use the bundled local renderer contract for a fresh design if local rendering is available. Prepare renderer-ready layout JSON with the explicit dimensions and placement, mapped copy, relative input asset names and verified font metadata. Include missing asset and font requirements when needed. For an actual export, verify the PNG and editable SVG at export size and phone size, compare to the source where applicable, and report the files inspected. Otherwise label the result as a render handoff. If a required claim or depicted result remains unsubstantiated, label any saved layout and JSON as internal-only and carry the release blocker and reopening condition in the first line and handoff. For one requested, buildable image with sufficient inputs, include one complete static-layout block from the HQ preview guide so the user can download the PNG and editable SVG. Describe the artifact as ready to preview until an actual export has been inspected.",
             "checks": [
               "Final S3 is a complete corrected map or layout with a phone-size and typography review, plus specific outstanding visual checks if rendering is pending.",
               "Every title, label, badge, line and image slot is accounted for and actual substitutions are disclosed.",
-              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only."
-            ]
+              "The PNG, editable SVG and render report status is supported by inspected files or exact render requirements. If the locked artwork still contains an unsupported claim, the first line and handoff preserve the release block and any layout is internal only.",
+              "For an image build or variation with sufficient art and approved copy, the reviewed static-layout block is ready for the HQ preview. Apply the preview guide to editable text and named image layers. A scoped mapping request or an unresolved required asset or claim calls for an explicit handoff, with no invented export."
+            ],
+            "renders_layout": true
           }
         ]
       },
@@ -473,13 +503,16 @@
             "id": "audit-static-variation",
             "skill": "adapt-reference-ad",
             "title": "Verify the variation and prepare the export",
-            "instruction": "Compare the complete control and child plans, including embedded artwork, copy, offer, dimensions, and type. Correct unintended differences. Use the bundled local renderer when available and inspect the PNG and editable SVG visually at full and phone sizes. Otherwise provide a renderer-ready layout with the exact remaining assets or checks. Report the control, child, intended change and measurable hypothesis. Inspect the changed element together with the original image, badges and adjacent copy. A visual change can imply a new outcome or endorsement even when the words are identical. If repair would require changing another locked element, report the dependency and hold the variant.",
+            "instruction": "Compare the complete control and child plans, including embedded artwork, copy, offer, dimensions, and type. Correct unintended differences. Use the bundled local renderer when available and inspect the PNG and editable SVG visually at full and phone sizes. Otherwise provide a renderer-ready layout with the exact remaining assets or checks. Report the control, child, intended change and measurable hypothesis. Inspect the changed element together with the original image, badges and adjacent copy. A visual change can imply a new outcome or endorsement even when the words are identical. If repair would require changing another locked element, report the dependency and hold the variant. For one requested, buildable image with sufficient inputs, include one complete static-layout block from the HQ preview guide so the user can download the PNG and editable SVG. Describe the artifact as ready to preview until an actual export has been inspected.",
             "checks": [
               "The comparison shows what stayed fixed and verifies the one changed element.",
               "An inspected local export is identified by file with its actual dimensions, or the output is labeled a render handoff.",
               "Typography and any substitution are recorded and the conclusion separates the hypothesis from measured performance.",
-              "The audit records what the altered execution implies and confirms that the fixed control elements still support that implication."
-            ]
+              "The audit records what the altered execution implies and confirms that the fixed control elements still support that implication.",
+              "Record the exact parent where supplied, intended change and any accidental or unavoidable collateral changes. Classify what the resulting comparison actually tests.",
+              "For an image build or variation with sufficient art and approved copy, the reviewed static-layout block is ready for the HQ preview. Apply the preview guide to editable text and named image layers. A scoped mapping request or an unresolved required asset or claim calls for an explicit handoff, with no invented export."
+            ],
+            "renders_layout": true
           }
         ]
       },
@@ -498,7 +531,8 @@
               "With completed inputs, the number of short on-image lines matches the applicable brief. For each concept, the reviewer can identify a different buyer question and a different supported visual job or cue. If fewer reasons are supportable, extra lines are clearly labeled wording variants. Variants keep that idea and claim strength fixed unless the brief explicitly tests different promises. The recommended lead addresses the buyer’s outstanding question. On an exact-original intake turn, identify the first missing prerequisite and ask only the next source-ordered question.",
               "On a shortlist turn, each concept pairs copy with a feasible image and a specific source fact. Source caption, on-asset words and visual-only material are represented in their actual roles, and every proposed original line is distinguishable from source language. Indexed examples have distinct historical and verified current locators tied to the matching creative, or are explicitly unresolved. On an intake turn, withhold headline and visual proposals until the original's prerequisite is met.",
               "The response stops at the correct decision. An intake turn awaits the required answer. A completed selection sheet respects an existing choice or gives a supported recommendation and identifies the choice still needed. It makes no claim to have rendered or tested an ad.",
-              "When a demonstration or measurement matters, the line and visible cue support the same bounded claim. Shopper-visible labels contain supported copy only. Unverified terms and exclusions remain questions in production notes."
+              "When a demonstration or measurement matters, the line and visible cue support the same bounded claim. Shopper-visible labels contain supported copy only. Unverified terms and exclusions remain questions in production notes.",
+              "Cluster headlines by buying reason and proof. Label distinct concepts separately from phrasing variants."
             ]
           }
         ]

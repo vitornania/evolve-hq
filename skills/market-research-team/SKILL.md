@@ -22,3 +22,7 @@ When several motives fit a quote, reconstruct the last real choice and its alter
 ## Deliverable
 
 Return a compact decision record with the evidence owners, verified facts, competing readings and next test. If running inside the installed team library, carry the source register into its research record.
+
+## Decision checks for this skill
+
+Have researchers submit the exact buyer scene, citation, proof gap and rival explanation. Reconcile unsupported disagreements before the strategist selects an angle.

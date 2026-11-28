@@ -32,3 +32,7 @@ Apply the relevant checks in [Market opportunity and competitive evidence](../ev
 A product brief and research questions.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Confirm SKU, market, active terms and product facts once. Treat a retailer’s claim as a source assertion pending corroboration.

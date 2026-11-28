@@ -40,3 +40,7 @@ For a full positioning request, trace the buyer’s real alternative through ver
 A positioning statement, message hierarchy and a compact ad-opening/landing-page proof pair when the user requests general positioning.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Express the position against the buyer’s actual workaround, with the exact product attribute that makes the choice credible.

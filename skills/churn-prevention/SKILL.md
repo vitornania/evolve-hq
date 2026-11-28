@@ -30,3 +30,7 @@ Distinguish friction at a specific touchpoint from loss of ongoing value. Check 
 Retention ideas prioritized by evidence.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Find the first observed step where the retention promise diverges from cancellation flow. Check reasons against actual subscriber evidence.

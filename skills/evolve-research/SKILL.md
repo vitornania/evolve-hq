@@ -34,3 +34,7 @@ Apply the relevant checks in [Market opportunity and competitive evidence](../ev
 A research dossier or focused findings.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Add a provenance-tagged situation card only when it affects a research decision. Carry unresolved benefit support to the next stage.

@@ -10,13 +10,18 @@ from threading import Lock, Thread
 from urllib.parse import urlsplit
 
 from activity import ROOT, new_task, process_running, update
+from creative_context import creative_context
 from learning import context as learning_context
 from providers import reply, require
 from workflow_batches import HANDOFF_CHECK, MAX_WORKFLOWS, run_batches, workflow_catalog
 
-MAX_REQUEST_BYTES = 22 * 1024 * 1024
+from video_evidence import decode_video, prepare_video
+
+MAX_REQUEST_BYTES = 70 * 1024 * 1024
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 MAX_IMAGES = 3
+DECISION_CHECK_HEADING = "\n## Decision checks for this skill\n"
+VIDEO_FRAME = re.compile(r"video-frame-0[1-8]\.jpg")
 SAVED_IMAGE = re.compile(r"(?:supplied|reused)-image-[1-3]\.(?:png|jpg|webp)")
 RUN_LOCK = Lock()
 STATE_LOCK = Lock()
@@ -89,6 +94,29 @@ def saved_images(directory):
     return sorted(paths, key=lambda path: (path.name.startswith("reused-"), path.name))
 
 
+def previous_video(run_id):
+    run = get_run(run_id)
+    source = (run or {}).get("video") or {}
+    if not source.get("frames"):
+        raise ValueError("The previous run has no saved video frames to compare.")
+    directory = ROOT / "tasks" / run_id
+    frames = []
+    try:
+        for frame in source["frames"]:
+            name = frame["file"]
+            path = directory / name
+            if not VIDEO_FRAME.fullmatch(name) or path.is_symlink():
+                raise OSError
+            with path.open("rb") as image:
+                extension, body = check_image(image.read(MAX_IMAGE_BYTES + 1))
+            if extension != "jpg":
+                raise OSError
+            frames.append(({**frame, "file": "prior-" + name}, body))
+    except (OSError, ValueError):
+        raise ValueError("Previous video evidence could not be read. Attach timecoded stills instead.") from None
+    return source, frames
+
+
 def selected_workflows(payload, guide, owners):
     requests = payload.get("workflows", [])
     if not isinstance(requests, list) or len(requests) > MAX_WORKFLOWS:
@@ -147,7 +175,8 @@ def previous_results(identifier, selected=None):
             collected.append({"id": step["id"], "title": step["title"],
                               "workflow": step.get("workflow", "Individual skill"), "artifact": str(artifact),
                               "handoff": step["handoff"], "report": step.get("report"),
-                              "judgment": step.get("judgment")})
+                              "judgment": step.get("judgment"), "reviewedId": step.get("reviewedId"),
+                              "creativeBrief": step.get("creativeBrief")})
     if not collected:
         raise ValueError("That run has no reviewed results to reuse.")
     if selected is not None:
@@ -168,6 +197,20 @@ def standalone_originals(skill, brief):
         if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text):
             labels.extend(originals)
     return list(dict.fromkeys(labels))
+
+
+def standalone_checks(name):
+    # Use the bundled check even when the full private method overlay is installed.
+    candidates = [root / name / "SKILL.md" for root in (ROOT / ".office/portable-skills", ROOT / "skills")]
+    portable = next((path for path in candidates if path.is_file()), None)
+    if portable is None:
+        return []
+    section = portable.read_text(encoding="utf-8").partition(DECISION_CHECK_HEADING)[2]
+    check = section.strip().partition("\n\n")[0]
+    if not check:
+        return []
+    return ["Where the work requested calls for it, apply this skill-specific decision check. "
+            "Give the evidence or scope limit that matters. " + check]
 
 
 def validate(payload):
@@ -204,7 +247,7 @@ def validate(payload):
              "claims. Block only a part that actually requires the missing source or when the user requested its exact use.",
              "Check material claims, calculations, quoted words, evidence limits and next action against "
              "the supplied inputs. Separate observations, hypotheses and recommendations where relevant.",
-         ] + (["For a request to make one original image with enough inputs, verify the static-layout block against "
+         ] + standalone_checks(name) + (["For a request to make one original image with enough inputs, verify the static-layout block against "
                "the provided HQ image-preview reference. Treat repairable layout errors as fixes. A headline, prompt or "
                "reference-only request does not need a layout. An available product photo is an input, not an export."]
               if name == "build-static-ads-in-figma" else []),
@@ -215,6 +258,7 @@ def validate(payload):
     product = field(payload, "product", 120)
     url = field(payload, "url", 1800)
     images = decode_images(payload.get("images", []))
+    video = decode_video(payload.get("video"))
     if url:
         parsed = urlsplit(url)
         if parsed.scheme not in ("http", "https") or not parsed.hostname or parsed.username or parsed.password:
@@ -222,11 +266,14 @@ def validate(payload):
     prior_id = field(payload, "sourceRun", 350)
     selected = payload.get("sourceSteps")
     reuse = payload.get("sourceImages", False)
+    reuse_video = payload.get("sourceVideo", False)
     if prior_id and not workflows:
         raise ValueError("Choose a workflow to reuse reviewed results.")
-    if not isinstance(reuse, bool) or (not prior_id and (selected is not None or reuse)):
-        raise ValueError("Choose a previous run to reuse its results or images.")
+    if (not isinstance(reuse, bool) or not isinstance(reuse_video, bool)
+            or (not prior_id and (selected is not None or reuse or reuse_video))):
+        raise ValueError("Choose a previous run to reuse its results, images or video evidence.")
     carried = previous_results(prior_id, selected)
+    prior_video = previous_video(prior_id) if reuse_video else None
     if carried:
         for step in steps:
             step["checks"] = [*step["checks"], HANDOFF_CHECK]
@@ -243,12 +290,12 @@ def validate(payload):
                     reused_images.append(check_image(image.read(MAX_IMAGE_BYTES + 1)))
         except OSError:
             raise ValueError("A saved image could not be read. Attach it again to use it.") from None
-    if not (url or brief or images or carried):
-        raise ValueError("Add a page link, describe what you want, or attach a screenshot.")
+    if not (url or brief or images or video or carried):
+        raise ValueError("Add a page link, describe what you want, or attach an image or video.")
     provider = payload.get("provider", "codex")
     require(provider)
     return (product or (urlsplit(url).hostname if url else "Skill review"), url, brief,
-            images, reused_images, steps, sources, provider, workflows, carried)
+            images, reused_images, steps, sources, provider, workflows, carried, video, prior_video)
 
 
 def save_run(directory, data):
@@ -292,6 +339,16 @@ def run_steps(provider, data, directory, files, sources, fields):
     try:
         data["status"] = "working"
         save_run(directory, data)
+        if data.get("video"):
+            try:
+                evidence, frames = prepare_video(directory / data["video"]["file"])
+            except RuntimeError as error:
+                data["video"]["error"] = str(error)
+                raise
+            data["video"].update(evidence)
+            (directory / "video-evidence.json").write_text(json.dumps(data["video"], indent=2), encoding="utf-8")
+            files.extend(frames)
+            save_run(directory, data)
         run_batches(
             data, directory, files, fields, sources,
             lambda folder, prompt, inputs: reply(provider, folder, prompt, files=inputs),
@@ -314,8 +371,13 @@ def run_steps(provider, data, directory, files, sources, fields):
 
 
 def start_run(payload):
-    product, url, brief, images, reused_images, steps, sources, provider, workflows, carried = validate(payload)
+    product, url, brief, images, reused_images, steps, sources, provider, workflows, carried, video, prior_video = validate(payload)
     identity = learning_context(field(payload, "brand", 120), field(payload, "product", 120), url)
+    version = field(payload, "creativeVersion", 140)
+    parent = field(payload, "creativeParent", 140)
+    change = field(payload, "creativeChange", 400)
+    if version and version == parent:
+        raise ValueError("Use different identifiers for the current creative and its previous version.")
     if not RUN_LOCK.acquire(blocking=False):
         raise RuntimeError("A skill run is already in progress. Wait for it to finish before starting another.")
     try:
@@ -326,10 +388,28 @@ def start_run(payload):
                 file = directory / f"{label}-image-{idx}.{extension}"
                 file.write_bytes(body)
                 files.append(file)
+        video_file = None
+        if video:
+            extension, body = video
+            video_file = directory / f"supplied-video{extension}"
+            video_file.write_bytes(body)
+        assets = [*files, video_file] if video_file else files
+        creative = creative_context(identity, product, url, brief, version, parent, change, assets)
+        previous = None
+        if prior_video:
+            source_video, frames = prior_video
+            previous = {key: source_video[key] for key in ("duration", "sceneCandidates", "hasAudio", "speech") if key in source_video}
+            previous["frames"] = []
+            for frame, body in frames:
+                still = directory / frame["file"]
+                still.write_bytes(body)
+                files.append(still)
+                previous["frames"].append(frame)
         run_id = directory.relative_to(ROOT / "tasks").as_posix()
         from urllib.parse import quote
         data = {"id": run_id, "product": product, "status": "queued", "steps": steps, "provider": provider,
-                "workflows": workflows, "carried": carried, "learningContext": identity,
+                "workflows": workflows, "carried": carried, "learningContext": identity, "creative": creative,
+                "video": {"file": video_file.name} if video_file else None, "previousVideo": previous,
                 "view": "/workflows?run=" + quote(run_id, safe=""), "pid": os.getpid()}
         save_run(directory, data)
         if not (queued := get_run(run_id)):

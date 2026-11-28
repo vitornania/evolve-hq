@@ -21,6 +21,16 @@ from activity import process_running  # noqa: E402
 sys.path.insert(0, str(ROOT))
 import setup_hq  # noqa: E402
 
+if os.environ.get("GITHUB_ACTIONS") == "true":
+    subprocess.run([sys.executable, "-m", "pip", "install", "-r",
+                    "skills/adapt-reference-ad/scripts/requirements.txt"], cwd=ROOT, check=True)
+    if os.name == "nt":
+        if not all(shutil.which(tool) for tool in ("ffmpeg", "ffprobe")):
+            subprocess.run(["choco", "install", "ffmpeg", "-y", "--no-progress"], check=True)
+            chocolatey = Path(os.environ.get("ChocolateyInstall", r"C:\ProgramData\chocolatey"))
+            os.environ["PATH"] = os.pathsep.join((str(chocolatey / "bin"), os.environ["PATH"]))
+        os.environ["HQ_REQUIRE_VIDEO_TEST"] = "1"
+
 assert process_running(os.getpid())
 with subprocess.Popen([sys.executable, "-c", "import time; time.sleep(.5)"]) as child:
     assert process_running(child.pid) and child.poll() is None
@@ -156,9 +166,9 @@ try:
         ]}
         step = {"id": "build-static-ads-in-figma", "skill": "build-static-ads-in-figma", "status": "review"}
 
-        def preview(layout):
+        def preview(layout, workflows=()):
             step["report"] = "```static-layout\n" + json.dumps(layout) + "\n```"
-            snapshot.write_text(json.dumps({"steps": [step], "status": "review"}), encoding="utf-8")
+            snapshot.write_text(json.dumps({"steps": [step], "status": "review", "workflows": workflows}), encoding="utf-8")
             request = Request(base + "/api/static-preview",
                               data=json.dumps({"run": preview_id, "step": step["id"]}).encode("utf-8"),
                               headers={"Origin": base, "Content-Type": "application/json"})
@@ -176,6 +186,17 @@ try:
         if find_spec("PIL") and find_spec("fontTools"):
             output = preview(preview_layout)
             assert base64.b64decode(output["png"]).startswith(b"\x89PNG")
+            step.update(skill="adapt-reference-ad", renders_layout=True)
+            workflow_preview = preview(preview_layout, [{"id": "static-ads"}])
+            assert base64.b64decode(workflow_preview["png"]).startswith(b"\x89PNG")
+            assert b"Check the fit</text>" in base64.b64decode(workflow_preview["svg"])
+            step["renders_layout"] = False
+            try:
+                preview(preview_layout, [{"id": "static-ads"}])
+            except HTTPError as error:
+                assert error.code == 400
+            else:
+                raise AssertionError("An intermediate workflow stage could render a preview.")
             svg = base64.b64decode(output["svg"])
             assert b"Check the fit</text>" in svg and b"data:font/" not in svg
     with urlopen(base + "/api/static-libraries", timeout=5) as response:
@@ -203,3 +224,4 @@ finally:
 print("Launcher, 62 skills, live activity, CPA, ROAS and native install verified.")
 subprocess.run([sys.executable, "scripts/check_workflow_batches.py"], cwd=ROOT, check=True)
 subprocess.run([sys.executable, "scripts/check_learning.py"], cwd=ROOT, check=True)
+subprocess.run([sys.executable, "scripts/check_creative_evidence.py"], cwd=ROOT, check=True)

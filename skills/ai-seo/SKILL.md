@@ -30,3 +30,7 @@ Use the buyer’s actual alternatives and decision questions to select the promp
 Content improvements and a visibility checklist.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Verify the source and date of category or product facts before reusing them. Keep AI visibility observation distinct from acquisition results.

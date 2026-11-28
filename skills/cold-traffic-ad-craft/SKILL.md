@@ -34,3 +34,7 @@ A cold-audience copy direction or revision.
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
 
 When the brief leaves the format open, use [buyer and product evidence to choose the format](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-format-from-buyer-and-product-evidence).
+
+## Decision checks for this skill
+
+Use a plausible incident tied to the buyer’s actual objection. Group first-line variants and qualify any staged or hypothetical perspective.

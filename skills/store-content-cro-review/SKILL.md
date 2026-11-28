@@ -31,3 +31,7 @@ When shoppers stall at a selector, distinguish missing decision information from
 - End with an implementation checklist and the items awaiting the owner. Edits to a connected store, new imagery, conversations with customers, and publishing require a separate request.
 
 Apply the relevant checks in [Choose the next creative or research test](../evolve-skill/references/market-and-creative-test-decisions.md#choose-the-next-creative-or-research-test).
+
+## Decision checks for this skill
+
+Trace one ad promise to the first readable proof and exact mobile offer. Show the first mismatch with a screenshot and one corrective action.

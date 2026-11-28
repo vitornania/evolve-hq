@@ -30,3 +30,7 @@ Include the buyer’s actual substitute or current workaround. Verify the criter
 A comparison outline, gap analysis, or draft.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Require a dated source per disputed comparison. Update current terms and copy together when the linked fact changes.

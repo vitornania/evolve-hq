@@ -22,3 +22,7 @@ When acquisition volume rises after an offer change, compare mature net contribu
 ## Deliverable
 
 Provide a dated or relative launch sequence with owners, a go/no-go decision and what to measure in the first cohort. Use the installed site launch QA route when the store itself is in scope.
+
+## Decision checks for this skill
+
+Attach dated launch terms to each destination check. Reconfirm terms after the rollout changes or when an asset is reused.

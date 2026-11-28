@@ -38,3 +38,7 @@ Apply the relevant checks in [Choose the next creative or research test](../evol
 Buyer profiles, beliefs, and ad opportunities.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Cluster by incident and buying reason. Record counterexamples and keep similar phrasings attached to one insight.

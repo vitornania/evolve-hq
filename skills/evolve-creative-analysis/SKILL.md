@@ -46,3 +46,7 @@ For a creative tracker, preserve the operator’s verdict in its original labels
 Findings and the next creative tests.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Review actual beats and readable text with scene timestamps. Tie one supported finding to a matched next test or a verified production fix.

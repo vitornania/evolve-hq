@@ -34,3 +34,7 @@ When the user needs to choose a position, compare the buyer’s real alternative
 ## Deliverable
 
 Hand off the decision, strongest alternative, relevant source IDs, approved claims and restrictions. State missing product evidence where it affects the decision. When an exact original method was requested, identify any unavailable pass in its method receipt. Keep installation details out of the ordinary marketing handoff.
+
+## Decision checks for this skill
+
+Require evidence that connects a real usage situation to an exact product action. Show the alternative and what would reverse the recommendation.

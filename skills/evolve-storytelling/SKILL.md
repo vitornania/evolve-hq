@@ -36,3 +36,7 @@ When a story is carrying the sale, check who can tell it firsthand, which event 
 A story outline and shootable script.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Test whether this narrator could know each detail and whether the incident naturally leads to the offer. Validate the shootable proof beat.

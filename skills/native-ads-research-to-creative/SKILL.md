@@ -38,3 +38,7 @@ Apply the relevant checks in [Choose a format from buyer and product evidence](.
 Return the requested native draft with the locked CTA, separate production notes and any proof gap. Supply extra hooks, image directions or portfolio variants only when the deliverable calls for them.
 
 For someone making a first ad, put the clean copy or first usable photo idea at the top, followed by the one action they should take next. Use the customer's verified destination or a neutral CTA such as viewing the product page. A message, booking, offer or purchase CTA needs a channel and destination that can actually fulfill it. Leave an unverified channel in the production notes rather than relying on it in the ad.
+
+## Decision checks for this skill
+
+Compare story outlines before drafting. Check incident, turning point and product join, then verify narrator claims and immutable body in hook tests.

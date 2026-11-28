@@ -34,3 +34,7 @@ When shoppers stall at a selector, distinguish missing decision information from
 Prioritized conversion ideas and hypotheses to test.
 
 Keep source details with the deliverable. Label assumptions and missing evidence. Preserve the scope and any approvals supplied by the user.
+
+## Decision checks for this skill
+
+Rank directly observed friction before speculative causes. Attach the single next metric or screenshot required to verify the improvement.
